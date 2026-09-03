@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ==================================================
+         EDIT HERE: WEBSITE TITLE
+    ================================================== -->
+
+    <title>Computer Engineering Organization</title>
+
+
+    <style>
+
+
+        /* ==================================================
+           GENERAL
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eeeeee;
+            color: #222222;
+        }
+
+
+
+        /* ==================================================
+           NAVIGATION
+        ================================================== */
+
+        header {
+
+            width: 100%;
+
+            padding: 20px;
+
+            background: #eeeeee;
+
+        }
+
+
+        /* ==================================================
+           ONE WHOLE NAVIGATION BOX
+        ================================================== */
+
+        .nav-container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 12px 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            background: white;
+
+            border: 2px solid #222222;
+
+            border-radius: 8px;
+
+        }
+
+
+
+        /* ==================================================
+           CPE TEXT
+           
+           EDIT HERE:
+           Change CPE to your organization name.
+        ================================================== */
+
+        .logo {
+
+            font-size: 25px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            color: #222222;
+
+            white-space: nowrap;
+
+        }
+
+
+
+        /* ==================================================
+           RIGHT SIDE NAVIGATION
+        ================================================== */
+
+        .main-nav {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 30px;
+
+            margin-left: auto;
+
+        }
+
+
+        /* ==================================================
+           NAVIGATION TEXT
+           
+           NO INDIVIDUAL BOXES
+        ================================================== */
+
+        .main-nav a {
+
+            text-decoration: none;
+
+            color: #222222;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            padding: 10px 0;
+
+            transition: 0.3s;
+
+        }
+
+
+        .main-nav a:hover {
+
+            color: #777777;
+
+        }
+
+
+
+        /* ==================================================
+           JOIN THE ORG BUTTON
+           
+           THIS ONE HAS A BOX TO HIGHLIGHT IT
+        ================================================== */
+
+        .join-btn {
+
+            text-decoration: none;
+
+            background: #222222;
+
+            color: white !important;
+
+            padding: 13px 20px !important;
+
+            border: 2px solid #222222;
+
+            border-radius: 5px;
+
+            font-size: 13px !important;
+
+            font-weight: bold;
+
+            white-space: nowrap;
+
+            transition: 0.3s;
+
+        }
+
+
+        .join-btn:hover {
+
+            background: white;
+
+            color: #222222 !important;
+
+        }
+
+
+
+        /* ==================================================
+           FRONT PAGE
+        ================================================== */
+
+        .hero {
+
+            min-height: 700px;
+
+            padding-top: 80px;
+
+            background: white;
+
+            overflow: hidden;
+
+        }
+
+
+
+        /* ==================================================
+           MAIN TITLE
+           
+           EDIT HERE
+        ================================================== */
+
+       .hero-content {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.hero-content h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    white-space: nowrap;
+    
+}
+
+
+/* COMPUTER - stays normal */
+
+@font-face {
+    font-family: "Hunger Games";
+    src: url("Assets/Hunger\ Games.ttf") format("truetype");
+}
+
+.computer-text {
+    font-family: "Hunger Games", Arial, sans-serif;
+    font-size: 90px;
+    font-weight: 100px;
+
+}
+/* ENGINEERING - PIXEL FONT */
+
+.engineering-text {
+    font-size: 45px;
+    font-family: "Press Start 2P", cursive;
+    letter-spacing: 2px;
+    margin-left: 15px; 
+}
+
+
+        /* ==================================================
+           SUBTITLE
+           
+           EDIT HERE
+        ================================================== */
+
+        .hero-content p {
+
+            margin-top: 15px;
+
+            font-size: 18px;
+
+            letter-spacing: 3px;
+
+        }
+
+
+
+        /* ==================================================
+           CARD SECTION
+        ================================================== */
+
+        .card-section {
+
+            width: 100%;
+
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+
+
+        /* ==================================================
+           CARD SCROLL
+        ================================================== */
+
+        .card-wrapper {
+
+            display: flex;
+
+            gap: 25px;
+
+            overflow-x: auto;
+
+            scroll-behavior: smooth;
+
+            width: 100%;
+
+            padding: 20px 10px 40px;
+
+            scrollbar-width: thin;
+
+        }
+
+
+
+        /* ==================================================
+           CARD SIZE
+           
+           EDIT HERE:
+           These control ALL cards.
+        ================================================== */
+
+        .card {
+
+            min-width: 300px;
+
+            width: 300px;
+
+            height: 400px;
+
+            flex-shrink: 0;
+
+            background: white;
+
+            border: 2px solid #222222;
+
+            border-radius: 8px;
+
+            overflow: hidden;
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+
+            transition: 0.3s;
+
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-10px);
+
+        }
+
+
+
+        /* ==================================================
+           CARD IMAGE
+           
+           EDIT HERE:
+           Change 230px to make images taller/shorter.
+        ================================================== */
+
+        .card img {
+
+            width: 100%;
+
+            height: 230px;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+
+
+        /* ==================================================
+           CARD TEXT
+        ================================================== */
+
+        .card-text {
+
+            padding: 20px;
+
+            text-align: center;
+
+        }
+
+
+        .card-text h2 {
+
+            font-size: 22px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .card-text p {
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+        }
+
+
+
+        /* ==================================================
+           OTHER SECTIONS
+        ================================================== */
+
+        .content-section {
+
+            min-height: 400px;
+
+            padding: 100px 20px;
+
+            text-align: left;
+
+            background: #eeeeee;
+
+        }
+
+
+        .content-section h2 {
+
+            font-size: 40px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .content-section p {
+
+            max-width: 700px;
+
+            line-height: 1.8;
+
+            font-size: 17px;
+
+        }
+
+
+
+        /* ==================================================
+           JOIN SECTION
+        ================================================== */
+
+        .join-section {
+
+            min-height: 350px;
+
+            padding: 100px 20px;
+
+            text-align: left;
+
+            background: #222222;
+
+            color: white;
+
+        }
+
+
+        .join-section h2 {
+
+            font-size: 40px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .join-section p {
+
+            margin-bottom: 30px;
+
+            font-size: 17px;
+
+        }
+
+
+        .join-now {
+
+            padding: 15px 35px;
+
+            background: white;
+
+            color: #222222;
+
+            border: 2px solid white;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .join-now:hover {
+
+            background: transparent;
+
+            color: white;
+
+        }
+
+
+
+        /* ==================================================
+           TABLET
+        ================================================== */
+
+        @media (max-width: 900px) {
+
+            .nav-container {
+
+                flex-wrap: wrap;
+
+                gap: 15px;
+
+            }
+
+
+            .main-nav {
+
+                margin-left: auto;
+
+                gap: 20px;
+
+                flex-wrap: wrap;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 40px;
+
+            }
+
+
+            .card {
+
+                min-width: 280px;
+
+                width: 280px;
+
+            }
+
+        }
+
+
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 600px) {
+
+            header {
+
+                padding: 10px;
+
+            }
+
+
+            .nav-container {
+
+                padding: 15px;
+
+            }
+
+
+            .logo {
+
+                font-size: 22px;
+
+            }
+
+
+            .main-nav {
+
+                width: 100%;
+
+                justify-content: flex-end;
+
+                gap: 15px;
+
+            }
+
+
+            .main-nav a {
+
+                font-size: 11px;
+
+            }
+
+
+            .join-btn {
+
+                font-size: 11px !important;
+
+                padding: 10px 15px !important;
+
+            }
+
+
+            .hero {
+
+                padding-top: 50px;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 30px;
+
+                letter-spacing: 2px;
+
+            }
+
+
+            .card {
+
+                min-width: 250px;
+
+                width: 250px;
+
+                height: 360px;
+
+            }
+
+
+            .card img {
+
+                height: 200px;
+
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+    <!-- ==================================================
+         NAVIGATION
+    ================================================== -->
+
+    <header>
+
+        <div class="nav-container">
+
+
+            <!-- ==================================================
+                 EDIT HERE: CPE NAME
+                 
+                 This is TEXT, NOT an IMAGE.
+            ================================================== -->
+
+            <div class="logo">
+                CPE
+            </div>
+
+
+
+            <!-- ==================================================
+                 EDIT HERE: NAVIGATION
+                 
+                 These stay on the RIGHT SIDE.
+            ================================================== -->
+
+            <nav class="main-nav">
+
+
+                <a href="#home">
+                    HOME
+                </a>
+
+
+                <a href="#about">
+                    ABOUT
+                </a>
+
+
+                <a href="#contact">
+                    CONTACT
+                </a>
+
+
+                <a href="#schedule">
+                    SCHEDULE
+                </a>
+
+
+                <a href="#involve">
+                    GET INVOLVED
+                </a>
+
+
+
+                <!-- ==================================================
+                     EDIT HERE: JOIN BUTTON
+                ================================================== -->
+
+                <a
+                    href="#join"
+                    class="join-btn"
+                >
+                    JOIN THE ORG!
+                </a>
+
+
+            </nav>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         FRONT PAGE
+    ================================================== -->
+
+    <section
+        class="hero"
+        id="home"
+    >
+
+
+        <!-- ==================================================
+             EDIT HERE: MAIN TITLE
+        ================================================== -->
+
+        <div class="hero-content">
+
+    <h1>
+        <span class="computer-text">COMPUTER</span>
+        <span class="engineering-text">ENGINEERING</span>
+    </h1>
+
+            <!-- EDIT HERE: SUBTITLE -->
+
+            <p>
+                Innovate. Create. Connect.
+            </p>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             PICTURE CARDS
+        ================================================== -->
+
+        <div class="card-section">
+
+
+            <div class="card-wrapper">
+
+
+
+                <!-- ==================================================
+                     CARD 1
+                     
+                     EDIT IMAGE + TITLE + DESCRIPTION
+                ================================================== -->
+
+                <div class="card">
+
+                    <img
+                        src="images/image1.jpg"
+                        alt="Events"
+                    >
+
+                    <div class="card-text">
+
+                        <h2>
+                            EVENTS
+                        </h2>
+
+                        <p>
+                            Discover our upcoming
+                            Computer Engineering events.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     CARD 2
+                ================================================== -->
+
+                <div class="card">
+
+                    <img
+                        src="images/image2.jpg"
+                        alt="Projects"
+                    >
+
+                    <div class="card-text">
+
+                        <h2>
+                            PROJECTS
+                        </h2>
+
+                        <p>
+                            Explore exciting projects
+                            created by our members.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     CARD 3
+                ================================================== -->
+
+                <div class="card">
+
+                    <img
+                        src="images/image3.jpg"
+                        alt="Activities"
+                    >
+
+                    <div class="card-text">
+
+                        <h2>
+                            ACTIVITIES
+                        </h2>
+
+                        <p>
+                            Join activities and experiences
+                            with fellow students.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     CARD 4
+                ================================================== -->
+
+                <div class="card">
+
+                    <img
+                        src="images/image4.jpg"
+                        alt="Achievements"
+                    >
+
+                    <div class="card-text">
+
+                        <h2>
+                            ACHIEVEMENTS
+                        </h2>
+
+                        <p>
+                            See the achievements
+                            of our organization.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     CARD 5
+                ================================================== -->
+
+                <div class="card">
+
+                    <img
+                        src="images/image5.jpg"
+                        alt="Community"
+                    >
+
+                    <div class="card-text">
+
+                        <h2>
+                            COMMUNITY
+                        </h2>
+
+                        <p>
+                            Connect with other
+                            Computer Engineering students.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     CARD 6
+                ================================================== -->
+
+                <div class="card">
+
+                    <img
+                        src="images/image6.jpg"
+                        alt="Announcements"
+                    >
+
+                    <div class="card-text">
+
+                        <h2>
+                            ANNOUNCEMENTS
+                        </h2>
+
+                        <p>
+                            Stay updated with the latest
+                            organization news.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         ABOUT
+         
+         EDIT HERE
+    ================================================== -->
+
+    <section
+        class="content-section"
+        id="about"
+    >
+
+        <h2>
+            ABOUT US
+        </h2>
+
+        <p>
+            Welcome to the Computer Engineering Organization.
+            We bring students together through technology,
+            innovation, projects, and activities.
+        </p>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         SCHEDULE
+         
+         EDIT HERE
+    ================================================== -->
+
+    <section
+        class="content-section"
+        id="schedule"
+    >
+
+        <h2>
+            SCHEDULE
+        </h2>
+
+        <p>
+            Check our upcoming events, meetings,
+            workshops, and activities.
+        </p>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         GET INVOLVED
+         
+         EDIT HERE
+    ================================================== -->
+
+    <section
+        class="content-section"
+        id="involve"
+    >
+
+        <h2>
+            GET INVOLVED
+        </h2>
+
+        <p>
+            Participate in activities, projects,
+            workshops, and organization events.
+        </p>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         JOIN THE ORG
+         
+         EDIT HERE
+    ================================================== -->
+
+    <section
+        class="join-section"
+        id="join"
+    >
+
+        <h2>
+            JOIN THE ORGANIZATION!
+        </h2>
+
+        <p>
+            Become part of the Computer Engineering community.
+        </p>
+
+
+        <button class="join-now">
+            JOIN NOW
+        </button>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         CONTACT
+         
+         EDIT HERE
+    ================================================== -->
+
+    <section
+        class="content-section"
+        id="contact"
+    >
+
+        <h2>
+            CONTACT US
+        </h2>
+
+        <p>
+            Email:
+            computerengineering@example.com
+        </p>
+
+    </section>
+
+
+</body>
+
+</html>
