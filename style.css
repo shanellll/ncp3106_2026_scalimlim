@@ -1,0 +1,948 @@
+/* ==================================================
+   GENERAL
+================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eeeeee;
+    color: #222222;
+    overflow-x: hidden;
+}
+
+
+/* ==================================================
+   NAVIGATION
+================================================== */
+
+header {
+    width: 100%;
+    padding: 20px;
+    background: #eeeeee;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+    border: 2px solid #222222;
+    border-radius: 15px;
+}
+
+
+/* ==================================================
+   ORGANIZATION LOGO
+================================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* ==================================================
+   MAIN NAVIGATION
+================================================== */
+
+.main-nav {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 3px;
+    margin-left: auto;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   NAVIGATION LINKS
+================================================== */
+
+.main-nav a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 48px;
+    padding: 0 11px;
+
+    text-decoration: none;
+    color: #222222;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    border-radius: 30px;
+
+    z-index: 2;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.main-nav a:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   MOVING NAVIGATION CIRCLE
+================================================== */
+
+.nav-indicator {
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: white;
+    border: 2px solid #222222;
+
+    transform: translateY(-50%);
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition:
+        left 0.4s cubic-bezier(0.68, -0.2, 0.25, 1.2),
+        width 0.35s ease,
+        opacity 0.25s ease;
+}
+
+
+/* ==================================================
+   JOIN BUTTON
+================================================== */
+
+.join-btn {
+    height: 48px !important;
+
+    padding: 0 17px !important;
+
+    background: #222222;
+    color: white !important;
+
+    border: 2px solid #222222;
+    border-radius: 30px;
+
+    font-size: 14px !important;
+    font-weight: bold;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.join-btn:hover {
+    background: white;
+    color: #222222 !important;
+
+    transform:
+        translateY(-2px)
+        scale(1.03);
+}
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero {
+    width: 100%;
+    background: white;
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   HERO CONTENT
+================================================== */
+
+.hero-content {
+    width: 100%;
+
+    /* ADJUST THIS NUMBER FOR HEIGHT */
+    height: 600px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   IMAGE
+================================================== */
+
+.title-bg-image {
+    position: absolute;
+
+    width: 100%;
+    height: 170%;
+
+    /* Keeps image natural without stretching */
+    object-fit: cover;
+
+    /* Keeps the center of your photo */
+    object-position: center center;
+
+    left: 0;
+    top: 0;
+
+    z-index: 1;
+}
+
+/* TEXT — completely independent */
+.title-text {
+    position: absolute;
+
+    left: 50%;
+    top: 30%;
+
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+
+    text-align: center;
+
+    z-index: 2;
+}
+
+        /* ==================================================
+           HUNGER GAMES FONT
+        ================================================== */
+
+        @font-face {
+            font-family: "Hunger Games";
+
+            src: url("Assets/Hunger%20Games.ttf")
+                 format("truetype");
+        }
+
+
+        /* ==================================================
+           COMPUTER
+        ================================================== */
+
+        .computer-text {
+
+            font-family: "Hunger Games", Arial, sans-serif;
+
+            font-size: 130px;
+
+            font-weight: 100;
+
+            margin: 0 auto;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            display: table;
+
+            color: #222222;
+
+            animation:
+                computerType
+                1s
+                steps(8, end)
+                0.2s
+                both;
+        }
+
+
+        /* ==================================================
+           ENGINEERING
+        ================================================== */
+
+        .engineering-text {
+
+            font-family: "Press Start 2P", cursive;
+
+            font-size: 45px;
+
+            letter-spacing: 2px;
+
+            margin: 15px auto 0;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            display: table;
+
+            color: #222222;
+
+            border-right: 3px solid rgba(0, 0, 0, 0.8);
+
+            animation:
+
+                engineeringType
+                2s
+                steps(11, end)
+                2s
+                both,
+
+                blinkingCursor
+                0.7s
+                step-end
+                infinite;
+        }
+
+
+        /* ==================================================
+           COMPUTER TYPING
+        ================================================== */
+
+        @keyframes computerType {
+
+            from {
+                clip-path: inset(0 100% 0 0);
+            }
+
+            to {
+                clip-path: inset(0 0 0 0);
+            }
+
+        }
+
+
+        /* ==================================================
+           ENGINEERING TYPING
+        ================================================== */
+
+        @keyframes engineeringType {
+
+            from {
+                clip-path: inset(0 100% 0 0);
+            }
+
+            to {
+                clip-path: inset(0 0 0 0);
+            }
+
+        }
+
+
+        /* ==================================================
+           BLINKING CURSOR
+        ================================================== */
+
+        @keyframes blinkingCursor {
+
+            0%, 50% {
+                border-right-color: rgba(0, 0, 0, 0.8);
+            }
+
+            51%, 100% {
+                border-right-color: transparent;
+            }
+
+        }
+
+
+        /* ==================================================
+           SUBTITLE
+        ================================================== */
+
+        .title-text p {
+
+            margin-top: 15px;
+
+     
+            font-size: 18px;
+
+            letter-spacing: 3px;
+
+            text-align: center;
+
+            color: #222222;
+        }
+/* ==================================================
+   EXPLORE CPE MARQUEE
+================================================== */
+
+.explore-marquee {
+    width: 100%;
+
+    height: 65px;
+
+    margin-top: 25px;
+    margin-bottom: 20px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+
+/* ==================================================
+   MOVING TRACK
+================================================== */
+
+.explore-track {
+    display: flex;
+
+    width: max-content;
+
+    white-space: nowrap;
+
+    animation:
+        exploreMove
+        18s
+        linear
+        infinite;
+}
+
+
+/* ==================================================
+   EXPLORE CPE TEXT
+================================================== */
+
+.explore-track span {
+    flex-shrink: 0;
+
+    margin-right: 100px;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 26px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   LEFT → RIGHT ANIMATION
+================================================== */
+
+@keyframes exploreMove {
+
+    from {
+        transform:
+            translateX(-50%);
+    }
+
+    to {
+        transform:
+            translateX(0);
+    }
+
+}
+
+
+/* ==================================================
+   CARD SECTION
+================================================== */
+
+.card-section {
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+}
+
+.card-wrapper {
+    display: flex;
+
+    gap: 25px;
+
+    overflow-x: auto;
+
+    scroll-behavior: smooth;
+
+    width: 100%;
+
+    padding:
+        20px
+        10px
+        40px;
+
+    scrollbar-width: thin;
+}
+
+
+/* ==================================================
+   CARD
+================================================== */
+
+.card {
+    min-width: 300px;
+
+    width: 300px;
+
+    height: 400px;
+
+    flex-shrink: 0;
+
+    background: white;
+
+    border:
+        2px solid
+        #222222;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.3s ease;
+}
+
+.card:hover {
+    transform:
+        translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.card-text {
+    padding: 20px;
+
+    text-align: center;
+}
+
+.card-text h2 {
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+.card-text p {
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   CONTENT SECTIONS
+================================================== */
+
+.content-section {
+    min-height: 400px;
+
+    padding:
+        100px
+        20px;
+
+    text-align: left;
+
+    background: #eeeeee;
+}
+
+.content-section h2 {
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.content-section p {
+    max-width: 700px;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+    margin-bottom: 15px;
+}
+
+
+/* ==================================================
+   INFORMATION BOXES
+================================================== */
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    max-width: 1100px;
+
+    margin-top: 40px;
+}
+
+.info-box {
+    background: white;
+
+    border:
+        2px solid
+        #222222;
+
+    border-radius: 8px;
+
+    padding: 25px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.info-box:hover {
+    transform:
+        translateY(-5px);
+}
+
+.info-box h3 {
+    font-size: 18px;
+
+    margin-bottom: 15px;
+}
+
+.info-box p {
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   FACULTY
+================================================== */
+
+.faculty-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+
+    max-width: 900px;
+
+    margin-top: 40px;
+}
+
+.faculty-card {
+    background: white;
+
+    border:
+        2px solid
+        #222222;
+
+    border-radius: 8px;
+
+    padding: 30px;
+}
+
+.faculty-card h3 {
+    margin-bottom: 15px;
+
+    font-size: 20px;
+}
+
+.faculty-card p {
+    margin-bottom: 8px;
+
+    font-size: 15px;
+}
+
+
+/* ==================================================
+   JOIN SECTION
+================================================== */
+
+.join-section {
+    min-height: 350px;
+
+    padding:
+        100px
+        20px;
+
+    text-align: left;
+
+    background: #222222;
+
+    color: white;
+}
+
+.join-section h2 {
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.join-section p {
+    margin-bottom: 30px;
+
+    font-size: 17px;
+}
+
+.join-now {
+    padding:
+        15px
+        35px;
+
+    background: white;
+
+    color: #222222;
+
+    border:
+        2px solid
+        white;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        0.3s ease;
+}
+
+.join-now:hover {
+    background: transparent;
+
+    color: white;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1200px) {
+
+    .main-nav {
+        gap: 2px;
+    }
+
+    .main-nav a {
+        font-size: 13px;
+
+        padding:
+            0 8px;
+    }
+
+    .join-btn {
+        font-size: 13px !important;
+
+        padding:
+            0 12px !important;
+    }
+
+}
+
+
+/* ==================================================
+   SMALL TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+    .nav-container {
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .main-nav {
+        margin-left: auto;
+
+        gap: 3px;
+
+        flex-wrap: wrap;
+
+        justify-content: flex-end;
+    }
+
+    .main-nav a {
+        font-size: 12px;
+    }
+
+    .computer-text {
+        font-size: 80px;
+    }
+
+    .engineering-text {
+        font-size: 30px;
+    }
+
+    .card {
+        min-width: 280px;
+
+        width: 280px;
+    }
+
+    .info-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .faculty-list {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 10px;
+    }
+
+    .nav-container {
+        padding: 15px;
+    }
+
+    .logo img {
+        width: 45px;
+
+        height: 45px;
+    }
+
+    .main-nav {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 2px;
+    }
+
+    .main-nav a {
+        height: 42px;
+
+        font-size: 10px;
+
+        padding:
+            0 6px;
+    }
+
+    .nav-indicator {
+        width: 42px;
+
+        height: 42px;
+    }
+
+    .join-btn {
+        height: 42px !important;
+
+        font-size: 10px !important;
+
+        padding:
+            0 10px !important;
+    }
+
+    .hero {
+        padding-top: 50px;
+    }
+
+    .computer-text {
+        font-size: 55px;
+    }
+
+    .engineering-text {
+        font-size: 22px;
+
+        letter-spacing: 1px;
+    }
+
+    .hero-content > p {
+        font-size: 14px;
+
+        letter-spacing: 2px;
+    }
+
+    .explore-marquee {
+        height: 50px;
+
+        margin-top: 20px;
+    }
+
+    .explore-track span {
+        font-size: 18px;
+
+        margin-right: 70px;
+
+        letter-spacing: 1px;
+    }
+
+    .card {
+        min-width: 250px;
+
+        width: 250px;
+
+        height: 360px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
