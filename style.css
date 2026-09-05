@@ -19,28 +19,42 @@ body {
     overflow-x: hidden;
 }
 
+/* ==================================================
+   TOP SECTION — SHARED BACKGROUND
+================================================== */
+
+.page-top {
+    width: 100%;
+    background-image: url("Assets/finalpage.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
 
 /* ==================================================
-   NAVIGATION
+   NAVIGATION CONTAINER
 ================================================== */
 
 header {
     width: 100%;
-    padding: 20px;
-    background: #eeeeee;
+    padding: 8px 20px 20px 20px;
+    background: transparent;
+    box-sizing: border-box;
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 10px 14px;
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 10px 20px;
 
     display: flex;
     align-items: center;
 
-    background: white;
-    border: 2px solid #222222;
-    border-radius: 15px;
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
 }
 
 
@@ -52,7 +66,6 @@ header {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    margin-right: 15px;
 }
 
 .logo img {
@@ -72,9 +85,81 @@ header {
 
     display: flex;
     align-items: center;
-    justify-content: flex-end;
 
-    gap: 3px;
+    gap: 4px;
+
+    margin-left: auto;
+    margin-right: -10px;
+
+    width: auto;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   NAVIGATION CONTAINER
+================================================== */
+
+header {
+    width: 100%;
+    padding: 20px;
+    background: transparent;
+    box-sizing: border-box;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 6px 14px;
+
+    display: flex;
+    align-items: center;
+
+    background: transparent;
+
+    border: 2px solid #222222;
+    border-radius: 50px;
+
+    box-sizing: border-box;
+}
+
+
+/* ==================================================
+   LOGO
+================================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    padding-left: 8px;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+
+    object-fit: contain;
+    display: block;
+}
+
+
+/* ==================================================
+   NAVIGATION
+================================================== */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
     margin-left: auto;
 
     white-space: nowrap;
@@ -93,13 +178,15 @@ header {
     justify-content: center;
 
     height: 48px;
+
     padding: 0 11px;
 
     text-decoration: none;
+
     color: #222222;
 
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 800;
 
     border-radius: 30px;
 
@@ -110,41 +197,42 @@ header {
         color 0.3s ease;
 }
 
+
+/* ==================================================
+   HOVER EFFECT
+================================================== */
+
 .main-nav a:hover {
     transform: translateY(-2px);
 }
 
 
 /* ==================================================
-   MOVING NAVIGATION CIRCLE
+   HOVER UNDERLINE
 ================================================== */
 
-.nav-indicator {
+.main-nav a::after {
+    content: "";
+
     position: absolute;
 
-    top: 50%;
-    left: 0;
+    left: 50%;
+    bottom: 5px;
 
-    width: 48px;
-    height: 48px;
+    width: 0;
+    height: 3px;
 
-    border-radius: 50%;
+    background: #222222;
 
-    background: white;
-    border: 2px solid #222222;
+    border-radius: 5px;
 
-    transform: translateY(-50%);
+    transform: translateX(-50%);
 
-    z-index: 1;
+    transition: width 0.3s ease;
+}
 
-    pointer-events: none;
-
-    opacity: 0;
-
-    transition:
-        left 0.4s cubic-bezier(0.68, -0.2, 0.25, 1.2),
-        width 0.35s ease,
-        opacity 0.25s ease;
+.main-nav a:hover::after {
+    width: 65%;
 }
 
 
@@ -158,19 +246,27 @@ header {
     padding: 0 17px !important;
 
     background: #222222;
+
     color: white !important;
 
     border: 2px solid #222222;
-    border-radius: 30px;
 
-    font-size: 14px !important;
-    font-weight: bold;
+    border-radius: 30px;
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 10px !important;
+  
 
     transition:
         transform 0.3s ease,
         background 0.3s ease,
         color 0.3s ease;
 }
+
+
+/* ==================================================
+   JOIN BUTTON HOVER
+================================================== */
 
 .join-btn:hover {
     background: white;
@@ -181,13 +277,24 @@ header {
         scale(1.03);
 }
 
+
+/* REMOVE UNDERLINE FROM JOIN BUTTON */
+
+.main-nav a.join-btn::after {
+    display: none;
+}
+
+
+
+
+
 /* ==================================================
    HERO
 ================================================== */
 
 .hero {
     width: 100%;
-    background: white;
+    background: transparent;
     overflow: hidden;
 }
 
@@ -200,34 +307,127 @@ header {
     width: 100%;
 
     /* ADJUST THIS NUMBER FOR HEIGHT */
-    height: 600px;
+    height: 800px;
 
     position: relative;
-
     overflow: hidden;
 }
 
-
 /* ==================================================
-   IMAGE
+   HERO BUTTONS
 ================================================== */
 
-.title-bg-image {
+.hero-buttons {
     position: absolute;
-
     width: 100%;
-    height: 170%;
-
-    /* Keeps image natural without stretching */
-    object-fit: cover;
-
-    /* Keeps the center of your photo */
-    object-position: center center;
+    height: 100%;
 
     left: 0;
     top: 0;
 
-    z-index: 1;
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   HERO BUTTON
+================================================== */
+
+.hero-btn {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 28px;
+    min-width: 150px;
+
+    text-decoration: none;
+
+    color: #222222;
+    background: transparent;
+
+    border: 2px solid #222222;
+    border-radius: 30px;
+
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    pointer-events: auto;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ==================================================
+   EXPLORE CpE BUTTONS
+================================================== */
+
+.explore-btn,
+.learn-btn {
+    left: 9%;
+    transform: translateX(-50%);
+
+    background: #7c7c7c;
+    color: #f8f8f8;
+
+    border: 2px solid #292b2b;
+    border-radius: 40px;
+
+    padding: 20px 35px;   /* MAKE BUTTON BIGGER */
+    font-size: 18px;      /* MAKE TEXT BIGGER */
+
+    /* NO GLOW WHEN NOT TOUCHING */
+    box-shadow: none;
+
+    transition: all 0.3s ease;
+}
+
+
+/* EXPLORE BUTTON */
+.explore-btn {
+    top: 62%;
+}
+
+
+/* LEARN MORE BUTTON */
+.learn-btn {
+    top: 73%;
+}
+
+
+/* ==================================================
+   HOVER GLOW
+================================================== */
+
+.explore-btn:hover,
+.learn-btn:hover {
+    background: #4f5752;
+
+    border-color: #1b1b1b;
+
+    /* GLOW ONLY WHEN TOUCHING */
+    box-shadow:
+        0 0 6px #7c7a7a,
+        0 0 14px #7c8080,
+        0 0 25px rgba(136, 136, 136, 0.8),
+        0 0 40px rgba(201, 201, 201, 0.4);
+
+    transform: translateX(-50%) scale(1.30);
+}
+
+/* WHEN CLICKED / PRESSED */
+.explore-btn:active,
+.learn-btn:active {
+    background: #ffffff5d;
+    color: #0000009c;
 }
 
 /* TEXT — completely independent */
@@ -235,7 +435,7 @@ header {
     position: absolute;
 
     left: 50%;
-    top: 30%;
+    top: 16%;
 
     transform: translate(-50%, -50%);
 
@@ -252,7 +452,6 @@ header {
 
         @font-face {
             font-family: "Hunger Games";
-
             src: url("Assets/Hunger%20Games.ttf")
                  format("truetype");
         }
@@ -266,7 +465,7 @@ header {
 
             font-family: "Hunger Games", Arial, sans-serif;
 
-            font-size: 130px;
+            font-size: 135px;
 
             font-weight: 100;
 
@@ -396,6 +595,242 @@ header {
 
             color: #222222;
         }
+
+
+
+/* ==================================================
+   SLIDE 2 — WHAT IS COMPUTER ENGINEERING?
+================================================== */
+
+.cpe-description-slide {
+    width: 100%;
+    height: 500px;
+
+    position: relative;
+    overflow: hidden;
+
+    background: white;
+
+    font-size: 100px;
+
+     @font-face {
+            font-family: "Slabo";
+            src: url("Assets/Slabo13p-Regular.ttf")
+                 format("truetype");
+        }
+}
+
+
+/* ==================================================
+   STICKER
+================================================== */
+
+.cpe-sticker {
+    position: absolute;
+        
+    left: -16%;
+    top: 78%;
+
+    width: 2500px;
+    height: 900px;
+
+    z-index: 100;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   CONTENT
+================================================== */
+
+.cpe-description-content {
+    position: absolute;
+
+    z-index: 200;
+
+    width: 80%;
+    left: 10%;
+    top: 20px;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   ANIMATED TITLE
+================================================== */
+
+.cool-title {
+    font-family: Arial, sans-serif;
+
+    font-size: 80px;
+    font-weight: 900;
+
+    line-height: 1.05;
+    letter-spacing: -2px;
+
+    margin: 0 auto 30px;
+
+    max-width: 1100px;
+
+    text-align: center;
+}
+
+
+
+.cpe-description-content p {
+    max-width: 900px;
+
+    font-size: 20px !important;
+
+    margin: 0 auto;
+
+    text-align: justify;
+
+    line-height: 1.7;
+}
+
+/* ==================================================
+   INDIVIDUAL WORDS
+================================================== */
+
+.cool-title span {
+    color: #000;
+
+    display: inline-block;
+
+    position: relative;
+
+    margin-right: 12px;
+}
+
+
+/* ==================================================
+   FIRST ANIMATION LAYER
+================================================== */
+
+.cool-title span::before {
+    content: attr(data-text);
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    color: #777;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    max-height: 0;
+
+    animation:
+        coolRevealHeight
+        4.5s
+        cubic-bezier(0.61, 1, 0.88, 1)
+        infinite;
+}
+
+
+/* ==================================================
+   SECOND ANIMATION LAYER
+================================================== */
+
+@font-face {
+    font-family: "Slabo";
+    src: url("Assets/slabo%20.ttf") format("truetype");
+}
+
+.cool-title span::after {
+    content: attr(data-text);
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    color: #000;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    max-width: 0;
+
+    animation:
+        coolRevealWidth
+        4.5s
+        cubic-bezier(0.61, 1, 0.88, 1)
+        infinite;
+}
+
+
+/* ==================================================
+   STAGGER
+================================================== */
+
+.cool-title span:nth-child(1)::before,
+.cool-title span:nth-child(1)::after {
+    animation-delay: 0s;
+}
+
+.cool-title span:nth-child(2)::before,
+.cool-title span:nth-child(2)::after {
+    animation-delay: 0.15s;
+}
+
+
+/* ==================================================
+   WIDTH REVEAL — LOOP
+================================================== */
+
+@keyframes coolRevealWidth {
+
+    0% {
+        max-width: 0;
+    }
+
+    20% {
+        max-width: 100%;
+    }
+
+    70% {
+        max-width: 100%;
+    }
+
+    100% {
+        max-width: 0;
+    }
+
+}
+
+
+/* ==================================================
+   HEIGHT REVEAL — LOOP
+================================================== */
+
+@keyframes coolRevealHeight {
+
+    0% {
+        max-height: 0;
+    }
+
+    20% {
+        max-height: 100%;
+    }
+
+    70% {
+        max-height: 100%;
+    }
+
+    100% {
+        max-height: 0;
+    }
+
+}
+
+
+
 /* ==================================================
    EXPLORE CPE MARQUEE
 ================================================== */
@@ -445,9 +880,7 @@ header {
 
     margin-right: 100px;
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 26px;
 
@@ -466,17 +899,47 @@ header {
 @keyframes exploreMove {
 
     from {
-        transform:
-            translateX(-50%);
+        transform: translateX(-50%);
     }
 
     to {
-        transform:
-            translateX(0);
+        transform: translateX(0);
     }
 
 }
 
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .cpe-description-slide {
+        height: 550px;
+    }
+
+    .cpe-description-content {
+        width: 90%;
+        left: 5%;
+        top: 120px;
+    }
+
+    .cool-title {
+        font-size: 42px;
+        line-height: 1.15;
+        letter-spacing: -1px;
+    }
+
+    .cool-title span {
+        margin-right: 6px;
+    }
+
+    .cpe-description-content p {
+        font-size: 16px;
+    }
+
+}
 
 /* ==================================================
    CARD SECTION
