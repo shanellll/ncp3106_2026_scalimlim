@@ -423,6 +423,8 @@ header {
     transform: translateX(-50%) scale(1.30);
 }
 
+
+
 /* WHEN CLICKED / PRESSED */
 .explore-btn:active,
 .learn-btn:active {
@@ -435,7 +437,7 @@ header {
     position: absolute;
 
     left: 50%;
-    top: 16%;
+    top: 17%;
 
     transform: translate(-50%, -50%);
 
@@ -446,75 +448,50 @@ header {
     z-index: 2;
 }
 
-        /* ==================================================
-           HUNGER GAMES FONT
-        ================================================== */
 
-        @font-face {
+/* ==================================================
+          COMPUTER ENGINEERING TEXT TITLE
+================================================== */
+ @font-face {
             font-family: "Hunger Games";
             src: url("Assets/Hunger%20Games.ttf")
                  format("truetype");
         }
 
 
-        /* ==================================================
-           COMPUTER
-        ================================================== */
+ /* ==================================================
+    COMPUTER
+ ================================================== */
 
-        .computer-text {
-
-            font-family: "Hunger Games", Arial, sans-serif;
-
-            font-size: 135px;
-
-            font-weight: 100;
-
-            margin: 0 auto;
-
-            white-space: nowrap;
-
-            overflow: hidden;
-
-            display: table;
-
-            color: #222222;
-
-            animation:
-                computerType
-                1s
-                steps(8, end)
-                0.2s
-                both;
+.computer-text {
+      font-family: "Hunger Games", Arial, sans-serif;
+      font-size: 148px;
+      font-weight: 100;
+      margin: 0 auto;
+      white-space: nowrap;
+      overflow: hidden;
+      display: table;
+      color: #222222;
+       animation:
+          computerType
+          1s steps(8, end) 0.2s both;
         }
-
-
-        /* ==================================================
+ /* ==================================================
            ENGINEERING
-        ================================================== */
+ ================================================== */
 
-        .engineering-text {
-
-            font-family: "Press Start 2P", cursive;
-
-            font-size: 45px;
-
-            letter-spacing: 2px;
-
-            margin: 15px auto 0;
-
-            white-space: nowrap;
-
-            overflow: hidden;
-
-            display: table;
-
-            color: #222222;
-
-            border-right: 3px solid rgba(0, 0, 0, 0.8);
-
-            animation:
-
-                engineeringType
+  .engineering-text {
+    font-family: "Press Start 2P", cursive;
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin: 15px auto 0;
+    white-space: nowrap;
+    overflow: hidden;
+     display: table;
+     color: #222222;
+     border-right: 3px solid rgba(0, 0, 0, 0.8);
+     animation:
+     engineeringType
                 2s
                 steps(11, end)
                 2s
@@ -526,29 +503,22 @@ header {
                 infinite;
         }
 
-
-        /* ==================================================
+/* ==================================================
            COMPUTER TYPING
-        ================================================== */
+================================================== */
+  @keyframes computerType {
+    from {
+    clip-path: inset(0 100% 0 0);
+ }
+  to {
+     clip-path: inset(0 0 0 0);
+    }
+}
 
-        @keyframes computerType {
-
-            from {
-                clip-path: inset(0 100% 0 0);
-            }
-
-            to {
-                clip-path: inset(0 0 0 0);
-            }
-
-        }
-
-
-        /* ==================================================
+/* ==================================================
            ENGINEERING TYPING
-        ================================================== */
-
-        @keyframes engineeringType {
+================================================== */
+@keyframes engineeringType {
 
             from {
                 clip-path: inset(0 100% 0 0);
@@ -587,7 +557,7 @@ header {
             margin-top: 15px;
 
      
-            font-size: 18px;
+            font-size: 25px;
 
             letter-spacing: 3px;
 
@@ -596,38 +566,63 @@ header {
             color: #222222;
         }
 
-
-
 /* ==================================================
-   SLIDE 2 — WHAT IS COMPUTER ENGINEERING?
+   SLIDE 2 — DESCRIPTION
 ================================================== */
 
+@font-face {
+    font-family: "Hunger Games";
+    src: url("Assets/Hunger%20Games.ttf")
+         format("truetype");
+}
+
 .cpe-description-slide {
+    font-family: "Hunger Games", Arial, sans-serif;
+
     width: 100%;
     height: 500px;
 
+    color: #898585;
+
     position: relative;
-    overflow: hidden;
 
     background: white;
 
-    font-size: 100px;
+    line-height: 1.9;
 
-     @font-face {
-            font-family: "Slabo";
-            src: url("Assets/Slabo13p-Regular.ttf")
-                 format("truetype");
-        }
+    overflow: visible;
+}
+
+/* ==================================================
+   DESCRIPTION — RIGHT SIDE ONLY
+================================================== */
+
+.cpe-description-content {
+    position: absolute;
+
+    z-index: 300;
+
+    /* DESCRIPTION WIDTH */
+    width: 42%;
+
+    /* MOVE DESCRIPTION LEFT / RIGHT */
+    left: 1.2%;
+
+    /* MOVE DESCRIPTION UP / DOWN */
+    top: 150px;
+
+    text-align: center;
 }
 
 
+
 /* ==================================================
-   STICKER
+   STICKER BACKGROUND — SLIDE 2
 ================================================== */
 
 .cpe-sticker {
     position: absolute;
-        
+
     left: -16%;
     top: 78%;
 
@@ -641,132 +636,253 @@ header {
 
 
 /* ==================================================
-   CONTENT
+   TITLE FONT
 ================================================== */
 
-.cpe-description-content {
-    position: absolute;
-
-    z-index: 200;
-
-    width: 80%;
-    left: 10%;
-    top: 20px;
-
-    text-align: center;
+@font-face {
+    font-family: "pixel-tandy";
+    src: url("Assets/Pixel%20Tandy.otf")
+         format("opentype");
 }
 
 
 /* ==================================================
-   ANIMATED TITLE
+   TITLE — KEEP THIS INDEPENDENT
 ================================================== */
 
 .cool-title {
-    font-family: Arial, sans-serif;
+    position: absolute;
 
-    font-size: 80px;
+    z-index: 300;
+
+    /* YOUR TITLE POSITION */
+    left: 115%;
+    top: -220px;
+
+    transform: translateX(-50%);
+
+    font-family: "pixel-tandy", sans-serif;
+
+    font-size: 100px;
     font-weight: 900;
 
     line-height: 1.05;
     letter-spacing: -2px;
 
-    margin: 0 auto 30px;
+    margin: 0;
 
-    max-width: 1100px;
+    width: max-content;
 
     text-align: center;
 }
 
 
 
+
+/* ==================================================
+   DESCRIPTION TEXT
+================================================== */
+
 .cpe-description-content p {
-    max-width: 900px;
+    max-width: 700px;
 
-    font-size: 20px !important;
+    font-size: 30px !important;
 
-    margin: 0 auto;
+    margin: -40px auto;
 
     text-align: justify;
 
-    line-height: 1.7;
+    line-height: 1.5;
 }
 
+
 /* ==================================================
-   INDIVIDUAL WORDS
+   TITLE WORDS
 ================================================== */
 
 .cool-title span {
-    color: #000;
+    color: #244A73;
 
     display: inline-block;
 
     position: relative;
 
     margin-right: 12px;
+
+    overflow: hidden;
 }
 
 
 /* ==================================================
-   FIRST ANIMATION LAYER
+   COMPUTER SPECIAL COLOR
+================================================== */
+
+.cool-title .computer-font {
+    color: #315F8A;
+}
+
+
+/* ==================================================
+   LIGHT INSIDE THE LETTERS
+================================================== */
+
+.cool-title span::before,
+.cool-title span::after {
+
+    content: attr(data-text);
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* ==================================================
+   FIRST LIGHT LAYER
 ================================================== */
 
 .cool-title span::before {
-    content: attr(data-text);
 
-    position: absolute;
+    color: transparent;
 
-    left: 0;
-    top: 0;
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            transparent 42%,
+            rgba(255,255,255,0.25) 47%,
+            rgba(255,255,255,0.65) 50%,
+            rgba(255,255,255,0.25) 53%,
+            transparent 58%,
+            transparent 100%
+        );
 
-    color: #777;
+    background-size: 220% 100%;
 
-    overflow: hidden;
-    white-space: nowrap;
+    background-position: 200% 0;
 
-    max-height: 0;
+    background-clip: text;
+    -webkit-background-clip: text;
 
-    animation:
-        coolRevealHeight
-        4.5s
-        cubic-bezier(0.61, 1, 0.88, 1)
-        infinite;
+    animation: cleanLight 4s ease-in-out infinite;
 }
 
 
 /* ==================================================
-   SECOND ANIMATION LAYER
+   SECOND SUBTLE WHITE LIGHT
 ================================================== */
 
-@font-face {
-    font-family: "Slabo";
-    src: url("Assets/slabo%20.ttf") format("truetype");
-}
-
 .cool-title span::after {
-    content: attr(data-text);
 
-    position: absolute;
+    color: transparent;
 
-    left: 0;
-    top: 0;
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            transparent 47%,
+            rgba(255,255,255,0.45) 50%,
+            transparent 53%,
+            transparent 100%
+        );
 
-    color: #000;
+    background-size: 180% 100%;
 
-    overflow: hidden;
-    white-space: nowrap;
+    background-position: 200% 0;
 
-    max-width: 0;
+    background-clip: text;
+    -webkit-background-clip: text;
 
-    animation:
-        coolRevealWidth
-        4.5s
-        cubic-bezier(0.61, 1, 0.88, 1)
-        infinite;
+    animation: tinyLight 4s ease-in-out infinite;
 }
 
 
 /* ==================================================
-   STAGGER
+   MAIN LIGHT PASS
+================================================== */
+
+@keyframes cleanLight {
+
+    0% {
+        background-position: 200% 0;
+        opacity: 0;
+    }
+
+    15% {
+        background-position: 200% 0;
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        background-position: -50% 0;
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    100% {
+        background-position: -50% 0;
+        opacity: 0;
+    }
+}
+
+
+/* ==================================================
+   SMALL WHITE HIGHLIGHT
+================================================== */
+
+@keyframes tinyLight {
+
+    0% {
+        background-position: 200% 0;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.8;
+    }
+
+    50% {
+        background-position: -50% 0;
+        opacity: 0.8;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    100% {
+        background-position: -50% 0;
+        opacity: 0;
+    }
+}
+
+
+/* ==================================================
+   STAGGER — EACH WORD
 ================================================== */
 
 .cool-title span:nth-child(1)::before,
@@ -779,57 +895,84 @@ header {
     animation-delay: 0.15s;
 }
 
+.cool-title span:nth-child(3)::before,
+.cool-title span:nth-child(3)::after {
+    animation-delay: 0.30s;
+}
 
-/* ==================================================
-   WIDTH REVEAL — LOOP
-================================================== */
-
-@keyframes coolRevealWidth {
-
-    0% {
-        max-width: 0;
-    }
-
-    20% {
-        max-width: 100%;
-    }
-
-    70% {
-        max-width: 100%;
-    }
-
-    100% {
-        max-width: 0;
-    }
-
+.cool-title span:nth-child(4)::before,
+.cool-title span:nth-child(4)::after {
+    animation-delay: 0.45s;
 }
 
 
 /* ==================================================
-   HEIGHT REVEAL — LOOP
+   SLIDE 3
 ================================================== */
 
-@keyframes coolRevealHeight {
+.cpe-next-slide {
+    width: 100%;
+    height: 500px;
 
-    0% {
-        max-height: 0;
-    }
+    position: relative;
 
-    20% {
-        max-height: 100%;
-    }
+    overflow: hidden;
+}
 
-    70% {
-        max-height: 100%;
-    }
+/* ==================================================
+   BACKGROUND IMAGE
+================================================== */
 
-    100% {
-        max-height: 0;
-    }
+.cpe-next-bg {
+    position: absolute;
 
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    left: 0;
+    top: 0;
+
+    z-index: 1;
 }
 
 
+/* ==================================================
+   CONTENT
+================================================== */
+
+.cpe-next-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 80%;
+    margin: auto;
+
+    text-align: center;
+
+    padding-top: 100px;
+}
+
+
+.cpe-next-content h2 {
+    font-size: 70px;
+    font-weight: 900;
+
+    margin: 0 0 30px;
+}
+
+
+.cpe-next-content p {
+    max-width: 900px;
+
+    margin: auto;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+}
 
 /* ==================================================
    EXPLORE CPE MARQUEE
@@ -939,6 +1082,504 @@ header {
         font-size: 16px;
     }
 
+}
+
+
+/* ==================================================
+   BIG FOLDER NAVIGATION
+================================================== */
+
+.folder-navigation {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 100px 0 150px;
+
+    background: #f1f0e8;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   TITLE
+================================================== */
+
+.folder-title {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.folder-title h2 {
+    margin: 0;
+
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 28px;
+
+    color: #292a3d;
+
+    letter-spacing: 1px;
+}
+
+.folder-title p {
+    margin-top: 20px;
+
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+
+    color: #555;
+}
+
+
+/* ==================================================
+   FOLDER STACK
+================================================== */
+
+.folder-stack {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+}
+
+
+/* ==================================================
+   INDIVIDUAL FOLDER
+================================================== */
+.folder {
+    display: block;
+
+    position: relative;
+
+    width: 100%;
+    height: 260px;
+
+    margin: 0;
+
+    text-decoration: none;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* ==================================================
+   FOLDER BACK
+================================================== */
+
+.folder__back {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    background: #303149;
+
+    border-radius: 0 5px 5px 5px;
+}
+
+
+/* ==================================================
+   FOLDER TOP TAB
+================================================== */
+
+.folder__back::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 100%;
+
+    width: 220px;
+    height: 70px;
+
+    background: inherit;
+
+    border-radius: 25px 25px 0 0;
+
+    z-index: 1;
+}
+
+
+/* ==================================================
+   STAGGERED TAB POSITIONS
+================================================== */
+
+/* FIRST FOLDER — FAR LEFT */
+
+.folder-about .folder__back::after {
+    left: 0;
+}
+
+
+/* SECOND FOLDER — A LITTLE RIGHT */
+
+.folder-ue .folder__back::after {
+    left: 14%;
+}
+
+
+/* THIRD FOLDER — MORE RIGHT */
+
+.folder-faculty .folder__back::after {
+    left: 32%;
+}
+
+
+/* FOURTH FOLDER — EVEN MORE RIGHT */
+
+.folder-projects .folder__back::after {
+    left: 50%;
+}
+
+
+/* ==================================================
+   PAPERS INSIDE FOLDER
+================================================== */
+
+.folder .paper {
+    position: absolute;
+
+    bottom: 8%;
+    left: 50%;
+
+    width: 70%;
+    height: 80%;
+
+    transform: translate(-50%, 10%);
+
+    background: #eeeeee;
+
+    border-radius: 15px;
+
+    transition: all 0.4s ease;
+
+    z-index: 2;
+}
+
+
+/* SECOND PAPER */
+
+.folder .paper:nth-child(2) {
+    width: 80%;
+    height: 70%;
+
+    background: #f5f5f5;
+}
+
+
+/* THIRD PAPER */
+
+.folder .paper:nth-child(3) {
+    width: 90%;
+    height: 60%;
+
+    background: #ffffff;
+}
+
+
+/* ==================================================
+   FOLDER FRONT
+================================================== */
+
+.folder__front {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: #41469b;
+
+    border-radius: 20px;
+
+    transform-origin: bottom;
+
+    transition: all 0.4s ease;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==================================================
+   FOLDER TEXT
+================================================== */
+
+.folder__front span {
+    position: relative;
+
+    z-index: 20;
+
+    font-family: "Press Start 2P", sans-serif;
+
+    font-size: 24px;
+
+    color: #ffffff;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    line-height: 1.5;
+}
+
+
+/* ==================================================
+   RIGHT FRONT
+================================================== */
+
+.folder__front.right {
+    z-index: 4;
+}
+
+
+/* ==================================================
+   HOVER EFFECT
+================================================== */
+
+.folder:hover {
+    transform: translateY(-8px);
+}
+
+
+/* PAPERS COME OUT */
+
+.folder:hover .paper {
+    transform: translate(-50%, 0);
+}
+
+
+/* FRONT OPENS */
+
+.folder:hover .folder__front {
+    transform: skew(10deg) scaleY(0.65);
+}
+
+
+/* RIGHT SIDE OPENS OPPOSITE */
+
+.folder:hover .folder__front.right {
+    transform: skew(-10deg) scaleY(0.65);
+}
+
+
+/* ==================================================
+   FOLDER COLORS
+================================================== */
+
+
+/* --------------------------------------------------
+   ABOUT CpE
+-------------------------------------------------- */
+
+.folder-about .folder__back,
+.folder-about .folder__back::after {
+    background: #292a3d;
+}
+
+.folder-about .folder__front {
+    background: #303149;
+}
+
+
+/* --------------------------------------------------
+   CpE AT UE
+-------------------------------------------------- */
+
+.folder-ue .folder__back,
+.folder-ue .folder__back::after {
+    background: #30347f;
+}
+
+.folder-ue .folder__front {
+    background: #41499b;
+}
+
+
+/* --------------------------------------------------
+   FACULTY
+-------------------------------------------------- */
+
+.folder-faculty .folder__back,
+.folder-faculty .folder__back::after {
+    background: #5265a9;
+}
+
+.folder-faculty .folder__front {
+    background: #6478bd;
+}
+
+
+/* --------------------------------------------------
+   PROJECTS
+-------------------------------------------------- */
+
+.folder-projects .folder__back,
+.folder-projects .folder__back::after {
+    background: #d6cfac;
+}
+
+.folder-projects .folder__front {
+    background: #e2dbbb;
+}
+
+
+/* PROJECTS TEXT */
+
+.folder-projects .folder__front span {
+    color: #292a3d;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 900px) {
+
+    .folder-stack {
+        width: 94%;
+    }
+
+    .folder {
+        height: 200px;
+    }
+
+    .folder__front span {
+        font-size: 18px;
+    }
+
+    .folder__back::after {
+        width: 160px;
+        height: 48px;
+    }
+
+    .folder-ue .folder__back::after {
+        left: 12%;
+    }
+
+    .folder-faculty .folder__back::after {
+        left: 28%;
+    }
+
+    .folder-projects .folder__back::after {
+        left: 44%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .folder-navigation {
+        padding-top: 70px;
+    }
+
+    .folder-title h2 {
+        font-size: 18px;
+    }
+
+    .folder-title p {
+        font-size: 14px;
+    }
+
+    .folder-stack {
+        width: 94%;
+        gap: 8px;
+    }
+
+    .folder {
+        height: 160px;
+    }
+
+    .folder__front span {
+        font-size: 13px;
+    }
+
+    .folder__back::after {
+        width: 120px;
+        height: 40px;
+    }
+
+    .folder-about .folder__back::after {
+        left: 0;
+    }
+
+    .folder-ue .folder__back::after {
+        left: 12%;
+    }
+
+    .folder-faculty .folder__back::after {
+        left: 25%;
+    }
+
+    .folder-projects .folder__back::after {
+        left: 38%;
+    }
+}
+/* ==================================================
+   FOLDER COLORS
+================================================== */
+
+
+/* ABOUT CpE */
+
+.folder-about .folder__back,
+.folder-about .folder__back::after {
+    background: #292a3d;
+}
+
+.folder-about .folder__front {
+    background: #303149;
+}
+
+
+/* CpE AT UE */
+
+.folder-ue .folder__back,
+.folder-ue .folder__back::after {
+    background: #30347f;
+}
+
+.folder-ue .folder__front {
+    background: #3d4390;
+}
+
+
+/* FACULTY */
+
+.folder-faculty .folder__back,
+.folder-faculty .folder__back::after {
+    background: #5265a9;
+}
+
+.folder-faculty .folder__front {
+    background: #6478bd;
+}
+
+
+/* PROJECTS */
+
+.folder-projects .folder__back,
+.folder-projects .folder__back::after {
+    background: #d6cfac;
+}
+
+.folder-projects .folder__front {
+    background: #e2dbbb;
+}
+
+
+/* DARK TEXT FOR PROJECTS */
+
+.folder-projects .folder__front span {
+    color: #292a3d;
 }
 
 /* ==================================================
@@ -1409,3 +2050,4 @@ header {
     }
 
 }
+

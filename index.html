@@ -9,6 +9,9 @@
 <link rel="stylesheet" href="style.css">
 </head> 
 
+
+
+
 <body> <!-- ================================================== 
     TOP SECTION 
 ================================================== --> 
@@ -29,31 +32,36 @@
         </div>
 
         <!-- NAVIGATION -->
-        <nav class="main-nav">
+   <nav class="main-nav">
 
-            <div class="nav-indicator"></div>
+    <div class="nav-indicator"></div>
 
-            <a href="#home">HOME</a>
-            <a href="#about">ABOUT CpE</a>
-            <a href="#cpe-ue">CpE AT UE</a>
-            <a href="#specializations">SPECIALIZATIONS</a>
-            <a href="#careers">CAREERS</a>
-            <a href="#faculty">FACULTY</a>
-            <a href="#scpes">SCPES</a>
-            <a href="#projects">PROJECTS</a>
-            <a href="#contact">CONTACT</a>
+    <a href="index.html">HOME</a>
 
-            <a href="#join" class="join-btn">
-                JOIN THE ORGANIZATION!
-            </a>
+    <a href="about.html">ABOUT CpE</a>
 
-        </nav>
+    <a href="cpe-at-ue.html">CpE AT UE</a>
+
+    <a href="specializations.html">SPECIALIZATIONS</a>
+
+    <a href="careers.html">CAREERS</a>
+
+    <a href="faculty.html">FACULTY</a>
+
+    <a href="scpes.html">SCPES</a>
+
+    <a href="projects.html">PROJECTS</a>
+
+    <a href="contact.html">CONTACT</a>
+
+    <a href="join.html" class="join-btn">
+        JOIN THE ORGANIZATION!
+    </a>
+
+</nav>
 
     </div>
 </header>
-
-
-
 
 <!-- ==================================================
      FRONT PAGE
@@ -93,6 +101,8 @@
     LEARN MORE
 </a>
 </div> 
+
+
 <!-- ==================================================
      SLIDE 2 — WHAT IS COMPUTER ENGINEERING?
 ================================================== -->
@@ -103,22 +113,24 @@
 
         <h2 class="cool-title">
 
-            <span data-text="WHAT IS">
-                WHAT IS
-            </span>
+    <span data-text="WHAT IS">
+        WHAT IS
+    </span>
 
-            <span class="computer-font">
-                COMPUTER
-            </span>
+    <span class="computer-font" data-text="COMPUTER">
+        COMPUTER
+    </span>
 
-            <span data-text="ENGINEERING?">
-                ENGINEERING?
-            </span>
+    <span data-text="ENGINEERING?">
+        ENGINEERING?
+    </span>
+
+</h2>
 
         </h2>
 
         <p>
-            Computer Engineering (CpE) combines hardware and software to design, build,
+            Computer Engineering (CpE) combines hardware and............ software to design, build,
             and improve modern technology. Computer Engineers work with computers, electronics, 
             embedded systems, networks, and other intelligent devices to create 
             solutions for real-world problems.
@@ -130,12 +142,35 @@
 
 
 <!-- MOVABLE STICKER -->
-<img src="Assets/PaperBG.png"
+<img src="Assets/finalpaper.png"
      class="cpe-sticker"
      alt="Computer Engineering sticker">
 </section> 
 
 </section> 
+
+<section class="cpe-next-slide">
+
+    <!-- BACKGROUND IMAGE -->
+    <img src="Assets/green.png"
+         class="cpe-next-bg"
+         alt="">
+
+    <!-- CONTENT -->
+    <div class="cpe-next-content">
+
+        <h2>COMPUTER ENGINEERING</h2>
+
+        <p>
+            Computer Engineering combines hardware and software
+            to create innovative technology and intelligent systems.
+        </p>
+
+    </div>
+
+</section>
+
+
 <!-- ================================================== 
  EXPLORE CPE 
  ================================================== --> 
@@ -168,6 +203,102 @@
 
     </div>
 
+    <!-- ==================================================
+     FOLDER NAVIGATION
+================================================== -->
+
+<section class="folder-navigation">
+
+    <div class="folder-title">
+        <h2>EXPLORE COMPUTER ENGINEERING</h2>
+        <p>Choose a section to continue.</p>
+    </div>
+
+
+    <div class="folder-stack">
+
+        <!-- COMPUTER ENGINEERING -->
+        <a href="about.html" class="folder folder-about">
+
+            <div class="folder__back">
+
+                <div class="paper"></div>
+                <div class="paper"></div>
+                <div class="paper"></div>
+
+                <div class="folder__front">
+                    <span>ABOUT CpE</span>
+                </div>
+
+                <div class="folder__front right"></div>
+
+            </div>
+
+        </a>
+
+
+        <!-- CpE AT UE -->
+        <a href="cpe-at-ue.html" class="folder folder-ue">
+
+            <div class="folder__back">
+
+                <div class="paper"></div>
+                <div class="paper"></div>
+                <div class="paper"></div>
+
+                <div class="folder__front">
+                    <span>CpE AT UE</span>
+                </div>
+
+                <div class="folder__front right"></div>
+
+            </div>
+
+        </a>
+
+
+        <!-- FACULTY -->
+        <a href="faculty.html" class="folder folder-faculty">
+
+            <div class="folder__back">
+
+                <div class="paper"></div>
+                <div class="paper"></div>
+                <div class="paper"></div>
+
+                <div class="folder__front">
+                    <span>FACULTY</span>
+                </div>
+
+                <div class="folder__front right"></div>
+
+            </div>
+
+        </a>
+
+
+        <!-- PROJECTS -->
+        <a href="projects.html" class="folder folder-projects">
+
+            <div class="folder__back">
+
+                <div class="paper"></div>
+                <div class="paper"></div>
+                <div class="paper"></div>
+
+                <div class="folder__front">
+                    <span>PROJECTS</span>
+                </div>
+
+                <div class="folder__front right"></div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
 
     <!-- ==================================================
          CARDS
@@ -782,4 +913,59 @@
     );
 
 </script>
-</body> </html>
+
+
+<script>
+const slides = document.querySelectorAll(
+    ".hero, .cpe-description-slide, .cpe-next-slide"
+);
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show-slide");
+            }
+        });
+    },
+    {
+        threshold: 0.2
+    }
+);
+
+slides.forEach((slide) => {
+    observer.observe(slide);
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const slides = document.querySelectorAll(
+        ".cpe-description-slide, .cpe-next-slide"
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("slide-visible");
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    slides.forEach(slide => {
+        observer.observe(slide);
+    });
+
+});
+</script>
+
+</body> 
+
+</html>
