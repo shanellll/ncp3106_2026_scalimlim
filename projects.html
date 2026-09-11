@@ -46,68 +46,383 @@
     </div>
 </header>
 
-
-<main class="page-content">
-
-    <h1>COMPUTER ENGINEERING PROJECTS</h1>
-
-    <p>
-        Explore projects that demonstrate the combination of hardware,
-        software, programming, electronics, and system development.
-    </p>
-
-    <div class="project-list">
-
-        <div class="project-card">
-
-            <h2>Embedded Systems</h2>
-
-            <p>
-                Projects involving microcontrollers, sensors,
-                actuators, and automated systems.
-            </p>
-
-        </div>
+<body>
 
 
-        <div class="project-card">
 
-            <h2>IoT Projects</h2>
+    <!-- ==================================================
+         PROJECTS PAGE
+    ================================================== -->
 
-            <p>
-                Projects that connect devices and sensors to
-                communicate and exchange information.
-            </p>
+    <main class="projects-page">
 
-        </div>
+        <!-- ==================================================
+             PROJECT SHOWCASE
+        ================================================== -->
 
-
-        <div class="project-card">
-
-            <h2>Software Projects</h2>
-
-            <p>
-                Applications and software systems developed to
-                solve real-world problems.
-            </p>
-
-        </div>
+        <section class="project-showcase">
 
 
-        <div class="project-card">
+            <!-- ==================================================
+                 LEFT SIDE — PROJECT INFORMATION
+            ================================================== -->
 
-            <h2>Robotics</h2>
+            <div
+                class="project-description text-show"
+                id="projectDescription"
+            >
 
-            <p>
-                Robotic systems combining programming, electronics,
-                sensors, and mechanical components.
-            </p>
+                <div class="project-number">
+                    01 / 07
+                </div>
 
-        </div>
+                <div class="project-label">
+                    PROJECT CATEGORY
+                </div>
 
-    </div>
+                <h2 id="projectTitle">
+                    EMBEDDED SYSTEMS
+                </h2>
 
-</main>
+                <p id="projectText">
+                    Projects that combine hardware and software
+                    to create smart, efficient, and useful
+                    embedded systems.
+                </p>
+
+                <div class="swipe-hint">
+
+                    <span class="arrow">
+                        ←
+                    </span>
+
+                    <span>
+                        DRAG OR SWIPE
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 RIGHT SIDE — IMAGE CAROUSEL
+            ================================================== -->
+
+            <div class="carousel-wrapper">
+
+                <div
+                    class="carousel"
+                    id="carousel"
+                >
+
+
+                    <!-- 01 EMBEDDED SYSTEMS -->
+
+                    <article
+                        class="project-card active"
+                        data-index="0"
+                    >
+
+                        <img
+                            src="Assets/embedded.jpg"
+                            alt="Embedded Systems Project"
+                        >
+
+                        <div class="card-overlay">
+
+                            <span>
+                                01
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- 02 IOT -->
+
+                    <article
+                        class="project-card"
+                        data-index="1"
+                    >
+
+                        <img
+                            src="Assets/iot.jpg"
+                            alt="Internet of Things Project"
+                        >
+
+                        <div class="card-overlay">
+
+                            <span>
+                                02
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- 03 ROBOTICS -->
+
+                    <article
+                        class="project-card"
+                        data-index="2"
+                    >
+
+                        <img
+                            src="Assets/robotics.jpg"
+                            alt="Robotics Project"
+                        >
+
+                        <div class="card-overlay">
+
+                            <span>
+                                03
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- 04 SOFTWARE -->
+
+                    <article
+                        class="project-card"
+                        data-index="3"
+                    >
+
+                        <img
+                            src="Assets/software.jpg"
+                            alt="Software Project"
+                        >
+
+                        <div class="card-overlay">
+
+                            <span>
+                                04
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- 05 MACHINE LEARNING -->
+
+                    <article
+                        class="project-card"
+                        data-index="4"
+                    >
+
+                        <img
+                            src="Assets/ml.jpg"
+                            alt="Machine Learning Project"
+                        >
+
+                        <div class="card-overlay">
+
+                            <span>
+                                05
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- 06 DESIGN -->
+
+                    <article
+                        class="project-card"
+                        data-index="5"
+                    >
+
+                        <img
+                            src="Assets/design.jpg"
+                            alt="Design Project"
+                        >
+
+                        <div class="card-overlay">
+
+                            <span>
+                                06
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- 07 RESEARCH -->
+
+                    <article
+                        class="project-card"
+                        data-index="6"
+                    >
+
+                        <img
+                            src="Assets/research.jpg"
+                            alt="Research Project"
+                        >
+
+                        <div class="card-overlay">
+
+                            <span>
+                                07
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+                <!-- CAROUSEL LINE -->
+
+                <div class="carousel-line">
+
+                    <div
+                        class="carousel-progress"
+                        id="carouselProgress"
+                    ></div>
+
+                </div>
+
+
+                <!-- CAROUSEL DOTS -->
+
+                <div
+                    class="carousel-dots"
+                    id="carouselDots"
+                >
+
+                    <button
+                        class="dot active"
+                        data-index="0"
+                        aria-label="Embedded Systems"
+                    ></button>
+
+                    <button
+                        class="dot"
+                        data-index="1"
+                        aria-label="Internet of Things"
+                    ></button>
+
+                    <button
+                        class="dot"
+                        data-index="2"
+                        aria-label="Robotics"
+                    ></button>
+
+                    <button
+                        class="dot"
+                        data-index="3"
+                        aria-label="Software"
+                    ></button>
+
+                    <button
+                        class="dot"
+                        data-index="4"
+                        aria-label="Machine Learning"
+                    ></button>
+
+                    <button
+                        class="dot"
+                        data-index="5"
+                        aria-label="Design"
+                    ></button>
+
+                    <button
+                        class="dot"
+                        data-index="6"
+                        aria-label="Research Projects"
+                    ></button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             FOLDER NAVIGATION
+             APPEARS ON RESEARCH PROJECTS
+        ================================================== -->
+
+        <section
+            class="folder-navigation"
+            id="folderNavigation"
+        >
+
+
+            <!-- PREVIOUS -->
+
+            <a
+                href="cpe-at-ue.html"
+                class="folder-btn previous"
+            >
+
+                <span class="folder-arrow">
+                    &lt;---
+                </span>
+
+                <span>
+                    PREVIOUS FOLDER
+                </span>
+
+            </a>
+
+
+            
+            <!-- NEXT -->
+
+            <a
+                href="scpes.html"
+                class="folder-btn next"
+            >
+
+                <span>
+                    NEXT FOLDER
+                </span>
+
+                <span class="folder-arrow">
+                    ---&gt;
+                </span>
+
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script src="projects.js"></script>
+
 
 </body>
+
 </html>

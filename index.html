@@ -1,4 +1,3 @@
-
 <!-- FONT -->
 <link
     href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
@@ -7,84 +6,850 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="style.css">
-</head> 
+
+</head>
 
 
+<body>
 
-
-<body> <!-- ================================================== 
-    TOP SECTION 
-================================================== --> 
-<div class="page-top">
-
-     <!-- ==================================================
-     NAVIGATION
-================================================== -->
-<header>
-    <div class="nav-container">
-
-        <!-- ORGANIZATION LOGO -->
-        <div class="logo">
-            <img
-                src="Assets/cpe.png"
-                alt="Computer Engineering Organization Logo"
-            >
-        </div>
-
-        <!-- NAVIGATION -->
-   <nav class="main-nav">
-
-    <div class="nav-indicator"></div>
-
-    <a href="index.html">HOME</a>
-
-    <a href="about.html">ABOUT CpE</a>
-
-    <a href="cpe-at-ue.html">CpE AT UE</a>
-
-    <a href="specializations.html">SPECIALIZATIONS</a>
-
-    <a href="careers.html">CAREERS</a>
-
-    <a href="faculty.html">FACULTY</a>
-
-    <a href="scpes.html">SCPES</a>
-
-    <a href="projects.html">PROJECTS</a>
-
-    <a href="contact.html">CONTACT</a>
-
-    <a href="join.html" class="join-btn">
-        JOIN THE ORGANIZATION!
-    </a>
-
-</nav>
-
-    </div>
-</header>
 
 <!-- ==================================================
-     FRONT PAGE
+     TOP SECTION
 ================================================== -->
-<section class="hero" id="home">
 
-    <div class="hero-content">
+<div class="page-top">
 
-        <!-- TEXT -->
-        <div class="title-text">
 
-            <h1>
-                <span class="computer-text">
-                    COMPUTER
-                </span>
+    <!-- ==================================================
+         NAVIGATION
+    ================================================== -->
 
-                <span class="engineering-text">
-                    ENGINEERING
-                </span>
-            </h1>
+    <header>
+
+        <div class="nav-container">
+
+
+            <!-- ORGANIZATION LOGO -->
+
+            <div class="logo">
+
+                <img
+                    src="Assets/cpe.png"
+                    alt="Computer Engineering Organization Logo"
+                >
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="main-nav">
+
+                <div class="nav-indicator"></div>
+
+                <a href="index.html">
+                    HOME
+                </a>
+
+                <a href="about.html">
+                    ABOUT CpE
+                </a>
+
+                <a href="cpe-at-ue.html">
+                    CpE AT UE
+                </a>
+
+                <a href="specializations.html">
+                    SPECIALIZATIONS
+                </a>
+
+                <a href="careers.html">
+                    CAREERS
+                </a>
+
+                <a href="faculty.html">
+                    FACULTY
+                </a>
+
+                <a href="scpes.html">
+                    SCPES
+                </a>
+
+                <a href="projects.html">
+                    PROJECTS
+                </a>
+
+                <a href="contact.html">
+                    CONTACT
+                </a>
+
+                <a
+                    href="join.html"
+                    class="join-btn"
+                >
+                    JOIN THE ORGANIZATION!
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================================================
+         FRONT PAGE
+    ================================================== -->
+
+    <section
+        class="hero"
+        id="home"
+    >
+
+        <div class="hero-content">
+
+
+            <!-- TEXT -->
+
+            <div class="title-text">
+
+                <h1>
+
+                    <span class="computer-text">
+                        COMPUTER
+                    </span>
+
+                    <span class="engineering-text">
+                        ENGINEERING
+                    </span>
+
+                </h1>
+
+
+                <p>
+                    Innovate. Create. Connect.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!-- ==================================================
+     HERO BUTTONS
+================================================== -->
+
+<div class="hero-buttons">
+
+
+    <!-- ABOUT CpE BUTTON -->
+
+    <a
+        href="#about"
+        class="hero-btn explore-btn"
+    >
+
+        <h2>
+            ABOUT CpE
+        </h2>
+
+        <p>
+            PRESS
+        </p>
+
+    </a>
+
+
+    <!-- CpE AT UE BUTTON -->
+
+    <a
+        href="cpe-at-ue.html"
+        class="hero-btn learn-btn"
+    >
+
+        <h2>
+            CpE AT UE
+        </h2>
+
+        <p>
+            PRESS
+        </p>
+
+    </a>
+
+</div>
+
+
+<!-- ==================================================
+     SLIDE 2 — WHAT IS COMPUTER ENGINEERING?
+================================================== -->
+
+<section id="about" class="cpe-description-slide">
+
+
+    <!-- ==================================================
+         PAPER STICKER
+    ================================================== -->
+
+    <img
+        src="Assets/paper.png"
+        class="cpe-sticker"
+        alt="Computer Engineering sticker"
+    >
+
+
+    <!-- ==================================================
+         TITLE
+    ================================================== -->
+
+    <h2 class="cool-title">
+
+        <span data-text="WHAT IS">
+            WHAT IS
+        </span>
+
+        <span
+            class="computer-font"
+            data-text="COMPUTER"
+        >
+            COMPUTER
+        </span>
+
+        <span data-text="ENGINEERING?">
+            ENGINEERING?
+        </span>
+
+    </h2>
+
+
+    <!-- ==================================================
+         DESCRIPTION
+    ================================================== -->
+
+    <div class="cpe-description-content">
+
+        <p class="t-stream">
+            Computer Engineering (CpE) combines hardware and software to design,
+            build, and improve modern technology. Computer Engineers work with
+            computers, electronics, embedded systems, networks, and other
+            intelligent devices to create solutions for real-world problems.
+        </p>
+
+    </div>
+
+
+    <!-- ==================================================
+         HARDWARE STICKER
+    ================================================== -->
+
+    <div class="hardware-sticker">
+
+        <button
+            class="hardware-trigger"
+            onclick="openHardware()"
+        >
+
+            <img
+                src="Assets/cpu222.png"
+                alt="Hardware"
+            >
+
+        </button>
+
+
+        <!-- ==================================================
+             HARDWARE CARD / MODAL
+        ================================================== -->
+
+        <div
+            class="t-modal hardware-modal"
+            id="hardwareModal"
+        >
+
+            <div class="hardware-card">
+
+                <button
+                    class="hardware-close"
+                    onclick="closeHardware()"
+                    aria-label="Close hardware information"
+                >
+                    ×
+                </button>
+
+                <h3>
+                    HARDWARE
+                </h3>
+
+                <p>
+                    Computer hardware refers to the physical components
+                    of a computer system. Computer Engineers work with
+                    processors, circuits, sensors, memory, and other
+                    electronic components to design and build technology.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<div class="software-sticker">
+
+    <!-- HTML -->
+    <div class="code-window code-html">
+        <div class="code-header">
+            <span class="code-dot"></span>
+            <span class="code-title">HTML</span>
+        </div>
+
+        <div class="code-content">
+            <span class="code-red">&lt;div</span>
+            <span class="code-yellow">class</span>
+            <span class="code-white">=</span>
+            <span class="code-green">"computer"</span>
+            <span class="code-red">&gt;</span>
+
+            <div class="code-meaning">
+                Structure & Content
+            </div>
+        </div>
+    </div>
+
+
+    <!-- CSS -->
+    <div class="code-window code-css">
+        <div class="code-header">
+            <span class="code-dot"></span>
+            <span class="code-title">CSS</span>
+        </div>
+
+        <div class="code-content">
+            <span class="code-yellow">.computer</span>
+            <span class="code-white">{</span><br>
+
+            <span class="code-purple">display</span>
+            <span class="code-white">:</span>
+            <span class="code-yellow"> flex</span>
+            <span class="code-white">;</span><br>
+
+            <span class="code-purple">color</span>
+            <span class="code-white">:</span>
+            <span class="code-green"> #315F8A</span>
+            <span class="code-white">;</span><br>
+
+            <span class="code-white">}</span>
+
+            <div class="code-meaning">
+                Design & Appearance
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <div class="code-window code-js">
+        <div class="code-header">
+            <span class="code-dot"></span>
+            <span class="code-title">JAVASCRIPT</span>
+        </div>
+
+        <div class="code-content">
+            <span class="code-yellow">function</span>
+            <span class="code-blue"> create</span>
+            <span class="code-white">() {</span><br>
+
+            <span class="code-purple">return</span>
+            <span class="code-green"> "Innovation"</span>
+            <span class="code-white">;</span><br>
+
+            <span class="code-white">}</span>
+
+            <div class="code-meaning">
+                Behavior & Interaction
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ==================================================
+     STREAMING TEXT ANIMATION
+================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const streams = document.querySelectorAll(".t-stream");
+
+    streams.forEach(stream => {
+
+        /* ==========================================
+           GET ORIGINAL TEXT
+        ========================================== */
+
+        const text = stream.textContent.trim();
+        const words = text.split(/\s+/);
+
+
+        /* ==========================================
+           CLEAR ORIGINAL TEXT
+        ========================================== */
+
+        stream.textContent = "";
+
+
+        /* ==========================================
+           CREATE WORD SPANS
+        ========================================== */
+
+        words.forEach((word, index) => {
+
+            const span = document.createElement("span");
+
+            span.className = "t-stream-w";
+
+            span.textContent = word;
+
+            stream.appendChild(span);
+
+
+            /* Keep spaces between words */
+
+            if (index < words.length - 1) {
+
+                stream.appendChild(
+                    document.createTextNode(" ")
+                );
+
+            }
+
+        });
+
+
+        /* ==========================================
+           SCROLL DETECTION
+        ========================================== */
+
+        const observer = new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    const streamWords =
+                        entry.target.querySelectorAll(".t-stream-w");
+
+
+                    /* ==================================
+                       WHEN DESCRIPTION ENTERS SCREEN
+                    ================================== */
+
+                    if (entry.isIntersecting) {
+
+                        /* Reset words */
+
+                        streamWords.forEach(word => {
+
+                            word.classList.remove("is-in");
+
+                        });
+
+
+                        /* Play word by word */
+
+                        streamWords.forEach((word, index) => {
+
+                            setTimeout(() => {
+
+                                word.classList.add("is-in");
+
+                            }, index * 60);
+
+                        });
+
+                    }
+
+
+                    /* ==================================
+                       WHEN DESCRIPTION LEAVES SCREEN
+                    ================================== */
+
+                    else {
+
+                        streamWords.forEach(word => {
+
+                            word.classList.remove("is-in");
+
+                        });
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.25
+            }
+
+        );
+
+
+        /* Keep observing */
+
+        observer.observe(stream);
+
+    });
+
+});
+
+</script>
+
+
+<!-- ==================================================
+     HARDWARE MODAL
+================================================== -->
+
+<script>
+
+function openHardware() {
+
+    const modal =
+        document.getElementById("hardwareModal");
+
+    modal.classList.remove(
+        "is-closing"
+    );
+
+    modal.classList.add(
+        "is-open"
+    );
+
+}
+
+
+function closeHardware() {
+
+    const modal =
+        document.getElementById("hardwareModal");
+
+    modal.classList.remove(
+        "is-open"
+    );
+
+    modal.classList.add(
+        "is-closing"
+    );
+
+
+    setTimeout(() => {
+
+        modal.classList.remove(
+            "is-closing"
+        );
+
+    }, 150);
+
+}
+
+</script>
+
+
+
+
+
+<!-- ==================================================
+     SLIDE 3
+================================================== -->
+
+<section class="cpe-next-slide">
+==
+
+    <!-- ==================================================
+     4 HORIZONTAL STICKERS
+================================================== -->
+
+<div class="four-stickers">
+
+    <!-- STICKER 1 -->
+    <div class="sticker sticker-1">
+        <img src="Assets/ROBOT.png" alt="Sticker 1">
+    </div>
+
+    <!-- STICKER 2 -->
+    <div class="sticker sticker-2">
+        <img src="Assets/IOT.png" alt="Sticker 2">
+    </div>
+
+    <!-- STICKER 3 -->
+    <div class="sticker sticker-3">
+        <img src="Assets/ELEC.png" alt="Sticker 3">
+    </div>
+
+    <!-- STICKER 4 -->
+    <div class="sticker sticker-4">
+        <img src="Assets/AI.png" alt="Sticker 4">
+    </div>
+
+
+     <div class="sticker sticker-5">
+        <img src="Assets/quote1.png" alt="Sticker 5">
+    </div>
+
+
+</div>
+
+
+
+</section>
+<!-- ==================================================
+     SLIDE 4 — HISTORY OF COMPUTER ENGINEERING
+================================================== -->
+
+<section class="history-slide">
+
+    <!-- ==================================================
+         TITLE
+    ================================================== -->
+
+    <div class="history-title">
+
+        <span>THE EVOLUTION OF</span>
+
+        <h2>COMPUTER ENGINEERING</h2>
+
+    </div>
+
+
+    <!-- ==================================================
+         FOUR HORIZONTAL CARDS
+    ================================================== -->
+
+    <div class="history-cards">
+
+
+        <!-- ==================================================
+             CARD 1
+        ================================================== -->
+
+        <div class="history-card history-card-1">
+
+            <div class="card-label">
+                01
+            </div>
+
+            <div class="card-year">
+                1940s
+            </div>
+
+            <h3>
+                EARLY<br>
+                COMPUTERS
+            </h3>
 
             <p>
-                Innovate. Create. Connect.
+                The first electronic computers were developed using
+                vacuum tubes, creating the foundation of modern computing.
+            </p>
+
+        </div>
+
+
+        <!-- ==================================================
+             CARD 2
+        ================================================== -->
+
+        <div class="history-card history-card-2">
+
+            <div class="card-label">
+                02
+            </div>
+
+            <div class="card-year">
+                1950s–1960s
+            </div>
+
+            <h3>
+                TRANSISTORS<br>
+                &amp; CIRCUITS
+            </h3>
+
+            <p>
+                Transistors replaced vacuum tubes, making computers
+                smaller, faster, and more reliable.
+            </p>
+
+        </div>
+
+
+        <!-- ==================================================
+             CARD 3
+        ================================================== -->
+
+        <div class="history-card history-card-3">
+
+            <div class="card-label">
+                03
+            </div>
+
+            <div class="card-year">
+                1970s
+            </div>
+
+            <h3>
+                THE<br>
+                MICROPROCESSOR
+            </h3>
+
+            <p>
+                Microprocessors placed the central processing unit
+                onto a single chip and changed computer technology.
+            </p>
+
+        </div>
+
+
+        <!-- ==================================================
+             CARD 4
+        ================================================== -->
+
+        <div class="history-card history-card-4">
+
+            <div class="card-label">
+                04
+            </div>
+
+            <div class="card-year">
+                TODAY
+            </div>
+
+            <h3>
+                MODERN<br>
+                COMPUTER ENGINEERING
+            </h3>
+
+            <p>
+                Modern CpE combines hardware and software in areas
+                such as AI, robotics, IoT, and embedded systems.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     SLIDE 4 — REPLAY ANIMATION ON SCROLL
+================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const historySlide =
+        document.querySelector(".history-slide");
+
+
+    if (!historySlide) return;
+
+
+    const historyObserver =
+        new IntersectionObserver(function (entries) {
+
+            entries.forEach(function (entry) {
+
+                /* ==========================================
+                   SLIDE 4 IS VISIBLE
+                ========================================== */
+
+                if (entry.isIntersecting) {
+
+                    historySlide.classList.add("show-history");
+
+                }
+
+
+                /* ==========================================
+                   SLIDE 4 IS NO LONGER VISIBLE
+                ========================================== */
+
+                else {
+
+                    historySlide.classList.remove("show-history");
+
+                }
+
+            });
+
+        }, {
+
+            threshold: 0.25
+
+        });
+
+
+    historyObserver.observe(historySlide);
+
+});
+
+</script>
+
+<!-- ==================================================
+     SLIDE 5 — CAREERS
+================================================== -->
+
+<section class="careers-slide">
+
+    <div class="careers-content">
+
+        <!-- LEFT SIDE — ANIMATED CAREERS -->
+        <div class="career-animation">
+
+            <div class="career-label">
+                CAREER PATHS
+            </div>
+
+            <div class="dropping-texts">
+                <div>Hardware Engineer</div>
+                <div>Software Engineer</div>
+                <div>Embedded Engineer</div>
+                <div>Network Engineer</div>
+                <div>AI / ML Engineer</div>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE — EXPLANATION -->
+        <div class="career-description">
+
+            <h2>CAREERS IN<br>COMPUTER ENGINEERING</h2>
+
+            <p>
+                Computer Engineering opens opportunities in both hardware
+                and software. Graduates can design computer systems,
+                develop software, build embedded devices, manage networks,
+                and create intelligent technologies.
+            </p>
+
+            <p>
+                Because the field combines electronics, programming, and
+                problem-solving, Computer Engineers can work across many
+                industries such as technology, telecommunications,
+                manufacturing, robotics, and artificial intelligence.
             </p>
 
         </div>
@@ -92,84 +857,6 @@
     </div>
 
 </section>
-</div> <!-- HERO BUTTONS --> <div class="hero-buttons">
-<a href="#about" class="hero-btn explore-btn">
-    EXPLORE CpE
-</a>
-
-<a href="#cpe-ue" class="hero-btn learn-btn">
-    LEARN MORE
-</a>
-</div> 
-
-
-<!-- ==================================================
-     SLIDE 2 — WHAT IS COMPUTER ENGINEERING?
-================================================== -->
-
-<section class="cpe-description-slide">
-
-    <div class="cpe-description-content">
-
-        <h2 class="cool-title">
-
-    <span data-text="WHAT IS">
-        WHAT IS
-    </span>
-
-    <span class="computer-font" data-text="COMPUTER">
-        COMPUTER
-    </span>
-
-    <span data-text="ENGINEERING?">
-        ENGINEERING?
-    </span>
-
-</h2>
-
-        </h2>
-
-        <p>
-            Computer Engineering (CpE) combines hardware and............ software to design, build,
-            and improve modern technology. Computer Engineers work with computers, electronics, 
-            embedded systems, networks, and other intelligent devices to create 
-            solutions for real-world problems.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- MOVABLE STICKER -->
-<img src="Assets/finalpaper.png"
-     class="cpe-sticker"
-     alt="Computer Engineering sticker">
-</section> 
-
-</section> 
-
-<section class="cpe-next-slide">
-
-    <!-- BACKGROUND IMAGE -->
-    <img src="Assets/green.png"
-         class="cpe-next-bg"
-         alt="">
-
-    <!-- CONTENT -->
-    <div class="cpe-next-content">
-
-        <h2>COMPUTER ENGINEERING</h2>
-
-        <p>
-            Computer Engineering combines hardware and software
-            to create innovative technology and intelligent systems.
-        </p>
-
-    </div>
-
-</section>
-
 
 <!-- ================================================== 
  EXPLORE CPE 
@@ -203,6 +890,17 @@
 
     </div>
 
+
+
+
+
+
+
+
+
+
+    
+
     <!-- ==================================================
      FOLDER NAVIGATION
 ================================================== -->
@@ -217,27 +915,7 @@
 
     <div class="folder-stack">
 
-        <!-- COMPUTER ENGINEERING -->
-        <a href="about.html" class="folder folder-about">
-
-            <div class="folder__back">
-
-                <div class="paper"></div>
-                <div class="paper"></div>
-                <div class="paper"></div>
-
-                <div class="folder__front">
-                    <span>ABOUT CpE</span>
-                </div>
-
-                <div class="folder__front right"></div>
-
-            </div>
-
-        </a>
-
-
-        <!-- CpE AT UE -->
+        <!-- 1. CpE AT UE -->
         <a href="cpe-at-ue.html" class="folder folder-ue">
 
             <div class="folder__back">
@@ -257,27 +935,7 @@
         </a>
 
 
-        <!-- FACULTY -->
-        <a href="faculty.html" class="folder folder-faculty">
-
-            <div class="folder__back">
-
-                <div class="paper"></div>
-                <div class="paper"></div>
-                <div class="paper"></div>
-
-                <div class="folder__front">
-                    <span>FACULTY</span>
-                </div>
-
-                <div class="folder__front right"></div>
-
-            </div>
-
-        </a>
-
-
-        <!-- PROJECTS -->
+        <!-- 2. PROJECTS -->
         <a href="projects.html" class="folder folder-projects">
 
             <div class="folder__back">
@@ -296,497 +954,55 @@
 
         </a>
 
-    </div>
 
-</section>
+        <!-- 3. SCPES -->
+        <a href="scpes.html" class="folder folder-scpe">
 
-    <!-- ==================================================
-         CARDS
-    ================================================== -->
-    <div class="card-section">
+            <div class="folder__back">
 
-        <div class="card-wrapper">
+                <div class="paper"></div>
+                <div class="paper"></div>
+                <div class="paper"></div>
 
-            <!-- EVENTS -->
-            <div class="card">
-                <img
-                    src="images/image1.jpg"
-                    alt="Events"
-                >
-
-                <div class="card-text">
-                    <h2>EVENTS</h2>
-
-                    <p>
-                        Discover our upcoming
-                        Computer Engineering events.
-                    </p>
+                <div class="folder__front">
+                    <span>SCPES</span>
                 </div>
+
+                <div class="folder__front right"></div>
+
             </div>
 
+        </a>
 
-            <!-- PROJECTS -->
-            <div class="card">
-                <img
-                    src="images/image2.jpg"
-                    alt="Projects"
-                >
 
-                <div class="card-text">
-                    <h2>PROJECTS</h2>
+        <!-- 4. EVENTS & ACTIVITIES -->
+        <a href="events.html" class="folder folder-events">
 
-                    <p>
-                        Explore exciting projects
-                        created by our members.
-                    </p>
+            <div class="folder__back">
+
+                <div class="paper"></div>
+                <div class="paper"></div>
+                <div class="paper"></div>
+
+                <div class="folder__front">
+                    <span>EVENTS &amp; ACTIVITIES</span>
                 </div>
+
+                <div class="folder__front right"></div>
+
             </div>
 
-
-            <!-- ACTIVITIES -->
-            <div class="card">
-                <img
-                    src="images/image3.jpg"
-                    alt="Activities"
-                >
-
-                <div class="card-text">
-                    <h2>ACTIVITIES</h2>
-
-                    <p>
-                        Join activities and experiences
-                        with fellow students.
-                    </p>
-                </div>
-            </div>
-
-
-            <!-- ACHIEVEMENTS -->
-            <div class="card">
-                <img
-                    src="images/image4.jpg"
-                    alt="Achievements"
-                >
-
-                <div class="card-text">
-                    <h2>ACHIEVEMENTS</h2>
-
-                    <p>
-                        See the achievements
-                        of our organization.
-                    </p>
-                </div>
-            </div>
-
-
-            <!-- COMMUNITY -->
-            <div class="card">
-                <img
-                    src="images/image5.jpg"
-                    alt="Community"
-                >
-
-                <div class="card-text">
-                    <h2>COMMUNITY</h2>
-
-                    <p>
-                        Connect with other
-                        Computer Engineering students.
-                    </p>
-                </div>
-            </div>
-
-
-            <!-- ANNOUNCEMENTS -->
-            <div class="card">
-                <img
-                    src="images/image6.jpg"
-                    alt="Announcements"
-                >
-
-                <div class="card-text">
-                    <h2>ANNOUNCEMENTS</h2>
-
-                    <p>
-                        Stay updated with the latest
-                        organization news.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-</section>
-
-
-<!-- ==================================================
-     ABOUT CpE
-================================================== -->
-<section class="content-section" id="about">
-
-    <h2>ABOUT CpE</h2>
-
-    <p>
-        Welcome to the Computer Engineering Organization.
-        We bring students together through technology,
-        innovation, projects, and activities.
-    </p>
-
-</section>
-
-
-<!-- ==================================================
-     CpE AT UE
-================================================== -->
-<section class="content-section" id="cpe-ue">
-
-    <h2>CpE AT UE</h2>
-
-    <p>
-        The Computer Engineering program provides
-        students with knowledge and skills in
-        computer hardware, software, electronics,
-        networking, and modern computing technologies.
-    </p>
-
-</section>
-
-
-<!-- ==================================================
-     SPECIALIZATIONS
-================================================== -->
-<section class="content-section" id="specializations">
-
-    <h2>SPECIALIZATIONS</h2>
-
-    <p>
-        Computer Engineering covers different areas
-        where students can develop their technical
-        knowledge and skills.
-    </p>
-
-
-    <div class="info-grid">
-
-        <div class="info-box">
-            <h3>EMBEDDED SYSTEMS</h3>
-
-            <p>
-                Designing computer systems that are
-                built into electronic devices.
-            </p>
-        </div>
-
-
-        <div class="info-box">
-            <h3>INTERNET OF THINGS</h3>
-
-            <p>
-                Connecting devices and sensors to
-                communicate and exchange data.
-            </p>
-        </div>
-
-
-        <div class="info-box">
-            <h3>NETWORKING</h3>
-
-            <p>
-                Designing and managing computer
-                networks and communication systems.
-            </p>
-        </div>
-
-
-        <div class="info-box">
-            <h3>SOFTWARE</h3>
-
-            <p>
-                Developing programs and applications
-                that solve different problems.
-            </p>
-        </div>
-
-
-        <div class="info-box">
-            <h3>CYBERSECURITY</h3>
-
-            <p>
-                Protecting computer systems, networks,
-                and information from security threats.
-            </p>
-        </div>
-
-
-        <div class="info-box">
-            <h3>ROBOTICS</h3>
-
-            <p>
-                Combining hardware and software to
-                create automated machines and systems.
-            </p>
-        </div>
+        </a>
 
     </div>
 
 </section>
 
+    
 
-<!-- ==================================================
-     CAREERS
-================================================== -->
-<section class="content-section" id="careers">
 
-    <h2>CAREERS</h2>
 
-    <p>
-        Computer Engineering graduates can pursue
-        different careers in technology, engineering,
-        software, hardware, and networking.
-    </p>
 
-
-    <div class="info-grid">
-
-        <div class="info-box">
-            <h3>COMPUTER ENGINEER</h3>
-
-            <p>
-                Designs, develops, and maintains
-                computer-based systems.
-            </p>
-        </div>
-
-
-        <div class="info-box">
-            <h3>SOFTWARE ENGINEER</h3>
-
-            <p>
-                Develops and maintains software
-                applications and systems.
-            </p>
-        </div>
-
-
-        <div class="info-box">
-            <h3>EMBEDDED SYSTEMS ENGINEER</h3>
-
-            <p>
-                Develops software and hardware for
-                embedded devices.
-            </p>
-        </div>
-
-
-        <div class="info-box">
-            <h3>NETWORK ENGINEER</h3>
-
-            <p>
-                Designs, configures, and maintains
-                computer networks.
-            </p>
-        </div>
-
-
-        <div class="info-box">
-            <h3>HARDWARE ENGINEER</h3>
-
-            <p>
-                Works with the design and development
-                of computer hardware.
-            </p>
-        </div>
-
-
-        <div class="info-box">
-            <h3>IoT ENGINEER</h3>
-
-            <p>
-                Develops connected devices and
-                Internet of Things systems.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ==================================================
-     FACULTY
-================================================== -->
-<section class="content-section" id="faculty">
-
-    <h2>FACULTY</h2>
-
-    <p>
-        Meet the faculty members who guide students
-        through their Computer Engineering education.
-    </p>
-
-
-    <div class="faculty-list">
-
-        <div class="faculty-card">
-
-            <h3>FACULTY MEMBER</h3>
-
-            <p>
-                Computer Engineering Instructor
-            </p>
-
-            <p>
-                Specialization: Computer Engineering
-            </p>
-
-        </div>
-
-
-        <div class="faculty-card">
-
-            <h3>FACULTY MEMBER</h3>
-
-            <p>
-                Computer Engineering Instructor
-            </p>
-
-            <p>
-                Specialization: Technology and Engineering
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ==================================================
-     SCPES
-================================================== -->
-<section class="content-section" id="scpes">
-
-    <h2>SCPES</h2>
-
-    <p>
-        The organization provides Computer Engineering
-        students with opportunities to participate in
-        activities, projects, events, and experiences
-        that support their academic and professional
-        development.
-    </p>
-
-
-    <div class="info-grid">
-
-        <div class="info-box">
-
-            <h3>ORGANIZATION</h3>
-
-            <p>
-                Bringing Computer Engineering students
-                together as a community.
-            </p>
-
-        </div>
-
-
-        <div class="info-box">
-
-            <h3>ACTIVITIES</h3>
-
-            <p>
-                Student activities, workshops, events,
-                and technical experiences.
-            </p>
-
-        </div>
-
-
-        <div class="info-box">
-
-            <h3>STUDENT INVOLVEMENT</h3>
-
-            <p>
-                Encouraging students to participate,
-                collaborate, and develop their skills.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ==================================================
-     PROJECTS
-================================================== -->
-<section class="content-section" id="projects">
-
-    <h2>PROJECTS</h2>
-
-    <p>
-        Explore projects created by Computer
-        Engineering students using hardware,
-        software, networking, embedded systems,
-        and other technologies.
-    </p>
-
-
-    <div class="info-grid">
-
-        <div class="info-box">
-
-            <h3>EMBEDDED SYSTEMS</h3>
-
-            <p>
-                Projects involving microcontrollers,
-                sensors, and electronic systems.
-            </p>
-
-        </div>
-
-
-        <div class="info-box">
-
-            <h3>IoT PROJECTS</h3>
-
-            <p>
-                Connected devices and smart systems
-                using sensors and communication.
-            </p>
-
-        </div>
-
-
-        <div class="info-box">
-
-            <h3>SOFTWARE PROJECTS</h3>
-
-            <p>
-                Applications and software systems
-                developed to solve different problems.
-            </p>
-
-        </div>
-
-
-        <div class="info-box">
-
-            <h3>ROBOTICS</h3>
-
-            <p>
-                Automated systems combining
-                programming and electronics.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 <!-- ==================================================

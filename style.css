@@ -19,93 +19,69 @@ body {
     overflow-x: hidden;
 }
 
+
 /* ==================================================
    TOP SECTION — SHARED BACKGROUND
 ================================================== */
 
 .page-top {
+    position: relative;
+
     width: 100%;
+
     background-image: url("Assets/finalpage.png");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+
+    z-index: 1;
 }
+
+
+/* ==================================================
+   TOP SHADOW
+================================================== */
+
+.page-top::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 140px;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.60),
+        rgba(0, 0, 0, 0.30),
+        rgba(0, 0, 0, 0)
+    );
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
 
 /* ==================================================
    NAVIGATION CONTAINER
 ================================================== */
 
 header {
-    width: 100%;
-    padding: 8px 20px 20px 20px;
-    background: transparent;
-    box-sizing: border-box;
-}
-
-.nav-container {
-    width: 100%;
-    max-width: none;
-
-    margin: 0;
-    padding: 10px 20px;
-
-    display: flex;
-    align-items: center;
-
-    background: transparent;
-    border: none;
-    box-sizing: border-box;
-}
-
-
-/* ==================================================
-   ORGANIZATION LOGO
-================================================== */
-
-.logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.logo img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    display: block;
-}
-
-
-/* ==================================================
-   MAIN NAVIGATION
-================================================== */
-
-.main-nav {
     position: relative;
 
-    display: flex;
-    align-items: center;
-
-    gap: 4px;
-
-    margin-left: auto;
-    margin-right: -10px;
-
-    width: auto;
-
-    white-space: nowrap;
-}
-
-
-/* ==================================================
-   NAVIGATION CONTAINER
-================================================== */
-
-header {
     width: 100%;
+
     padding: 20px;
+
     background: transparent;
+
     box-sizing: border-box;
+
+    z-index: 10;
 }
 
 .nav-container {
@@ -146,15 +122,18 @@ header {
     height: 50px;
 
     object-fit: contain;
+
     display: block;
 }
 
 
 /* ==================================================
-   NAVIGATION
+   MAIN NAVIGATION
 ================================================== */
 
 .main-nav {
+    position: relative;
+
     display: flex;
     align-items: center;
 
@@ -296,6 +275,9 @@ header {
     width: 100%;
     background: transparent;
     overflow: hidden;
+
+    position: relative;
+    z-index: 10;
 }
 
 
@@ -305,29 +287,12 @@ header {
 
 .hero-content {
     width: 100%;
-
-    /* ADJUST THIS NUMBER FOR HEIGHT */
     height: 800px;
 
     position: relative;
     overflow: hidden;
-}
 
-/* ==================================================
-   HERO BUTTONS
-================================================== */
-
-.hero-buttons {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    left: 0;
-    top: 0;
-
-    z-index: 5;
-
-    pointer-events: none;
+    z-index: 20;
 }
 
 
@@ -339,69 +304,176 @@ header {
     position: absolute;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    padding: 12px 28px;
-    min-width: 150px;
+    padding: 10px 20px;
 
     text-decoration: none;
 
-    color: #222222;
-    background: transparent;
-
-    border: 2px solid #222222;
-    border-radius: 30px;
-
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 1px;
-
     pointer-events: auto;
+
+    /* KEEP BUTTON ABOVE SHADOW */
+    z-index: 30;
 
     transition:
         background 0.3s ease,
         color 0.3s ease,
-        transform 0.3s ease;
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
-
-
 /* ==================================================
-   EXPLORE CpE BUTTONS
+   GAMEPLAY FONT
 ================================================== */
 
-.explore-btn,
-.learn-btn {
-    left: 9%;
-    transform: translateX(-50%);
+@font-face {
+    font-family: "Gameplay";
+    src: url("Assets/gameplay.ttf") format("truetype");
+}
+
+/* ==================================================
+   MASAKI FONT
+================================================== */
+
+@font-face {
+    font-family: "masaki";
+    src: url("Assets/masaki.otf") format("opentype");
+}
+
+/* ==================================================
+   ABOUT CpE BUTTON
+================================================== */
+
+.explore-btn {
+    left: 11%;
+    top: 60%;
+
+    width: 270px;
+    height: 82px;
 
     background: #7c7c7c;
-    color: #f8f8f8;
+    color: #161212;
 
-    border: 2px solid #292b2b;
+    border: 5px solid #292b2b;
     border-radius: 40px;
 
-    padding: 20px 35px;   /* MAKE BUTTON BIGGER */
-    font-size: 18px;      /* MAKE TEXT BIGGER */
-
-    /* NO GLOW WHEN NOT TOUCHING */
     box-shadow: none;
 
-    transition: all 0.3s ease;
+    animation: aboutMove 1.3s ease-in-out infinite alternate;
 }
 
+/* ==================================================
+   ABOUT CpE MOVEMENT
+================================================== */
 
-/* EXPLORE BUTTON */
-.explore-btn {
-    top: 62%;
+@keyframes aboutMove {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(calc(-50% + 12px));
+    }
 }
 
+/* ==================================================
+   ABOUT CpE TEXT
+================================================== */
 
-/* LEARN MORE BUTTON */
+.explore-btn h2 {
+    font-family: "Gameplay", sans-serif;
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1;
+
+    text-shadow:
+        3px 3px 0px #312d2d,
+        0 0 5px rgba(182, 173, 173, 0.4);
+}
+
+/* ==================================================
+   ABOUT CpE PRESS
+================================================== */
+
+.explore-btn p {
+    position: static;
+    font-family: "masaki", sans-serif;
+    margin: -6px 0 0 0;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    line-height: 1;
+    color: #332a2a;
+}
+
+/* ==================================================
+   CpE AT UE BUTTON
+================================================== */
+
 .learn-btn {
-    top: 73%;
+    left: 9%;
+    top: 72%;
+
+    width: 270px;
+    height: 82px;
+
+    background: #7c7c7c;
+    color: #720f0f;
+
+    border: 6px solid #151516;
+    border-radius: 25px;
+
+    box-shadow: none;
+
+    animation: ueMove 1.5s ease-in-out infinite alternate;
 }
 
+/* ==================================================
+   CpE AT UE MOVEMENT
+================================================== */
+
+@keyframes ueMove {
+    from {
+        transform: translateX(calc(-50% + 10px));
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* ==================================================
+   CpE AT UE TEXT
+================================================== */
+
+.learn-btn h2 {
+    margin: 0;
+    font-family: "Gameplay", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1;
+
+    text-shadow:
+        3px 3px 0px #000000,
+        0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================================================
+   CpE AT UE PRESS
+================================================== */
+
+.learn-btn p {
+    position: static;
+    font-family: "masaki", sans-serif;
+    margin: -6px 0 0 0;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    line-height: 1;
+    color: #332a2a;
+}
 
 /* ==================================================
    HOVER GLOW
@@ -410,153 +482,165 @@ header {
 .explore-btn:hover,
 .learn-btn:hover {
     background: #4f5752;
-
     border-color: #1b1b1b;
 
-    /* GLOW ONLY WHEN TOUCHING */
     box-shadow:
         0 0 6px #7c7a7a,
         0 0 14px #7c8080,
         0 0 25px rgba(136, 136, 136, 0.8),
         0 0 40px rgba(201, 201, 201, 0.4);
-
-    transform: translateX(-50%) scale(1.30);
 }
 
+/* ==================================================
+   WHEN CLICKED / PRESSED
+================================================== */
 
-
-/* WHEN CLICKED / PRESSED */
 .explore-btn:active,
 .learn-btn:active {
     background: #ffffff5d;
     color: #0000009c;
 }
 
-/* TEXT — completely independent */
+/* ==================================================
+   TEXT — COMPLETELY INDEPENDENT
+================================================== */
+
 .title-text {
     position: absolute;
-
     left: 50%;
     top: 17%;
-
     transform: translate(-50%, -50%);
-
     width: 100%;
-
     text-align: center;
-
     z-index: 2;
 }
 
 
+
+
+
+@font-face {
+    font-family: "Hunger Games";
+    src: url("Assets/Hunger\ Games.ttf")
+         format("opentype");
+
+}
+
+
 /* ==================================================
-          COMPUTER ENGINEERING TEXT TITLE
+          COMPUTER
 ================================================== */
- @font-face {
-            font-family: "Hunger Games";
-            src: url("Assets/Hunger%20Games.ttf")
-                 format("truetype");
-        }
-
-
- /* ==================================================
-    COMPUTER
- ================================================== */
 
 .computer-text {
-      font-family: "Hunger Games", Arial, sans-serif;
-      font-size: 148px;
-      font-weight: 100;
-      margin: 0 auto;
-      white-space: nowrap;
-      overflow: hidden;
-      display: table;
-      color: #222222;
-       animation:
-          computerType
-          1s steps(8, end) 0.2s both;
-        }
- /* ==================================================
-           ENGINEERING
- ================================================== */
+    font-family: "Hunger Games", Arial, sans-serif;
+    font-size: 140px;
+    font-weight: 100;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    display: table;
+    color:#244A73;;
 
-  .engineering-text {
+    animation: computerType 10s steps(8, end) infinite;
+}
+
+
+/* ==================================================
+          ENGINEERING
+================================================== */
+
+.engineering-text {
     font-family: "Press Start 2P", cursive;
     font-size: 60px;
     letter-spacing: 2px;
     margin: 15px auto 0;
     white-space: nowrap;
     overflow: hidden;
-     display: table;
-     color: #222222;
-     border-right: 3px solid rgba(0, 0, 0, 0.8);
-     animation:
-     engineeringType
-                2s
-                steps(11, end)
-                2s
-                both,
+    display: table;
+    color: #222222;
 
-                blinkingCursor
-                0.7s
-                step-end
-                infinite;
-        }
+    border-right: 3px solid rgba(0, 0, 0, 0.8);
+
+    animation:
+        engineeringType 10s steps(11, end) infinite,
+        blinkingCursor 0.7s step-end infinite;
+}
+
 
 /* ==================================================
-           COMPUTER TYPING
+          COMPUTER TYPING
 ================================================== */
-  @keyframes computerType {
-    from {
-    clip-path: inset(0 100% 0 0);
- }
-  to {
-     clip-path: inset(0 0 0 0);
+
+@keyframes computerType {
+
+    /* COMPUTER starts typing immediately */
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    /* COMPUTER finished typing */
+    10% {
+        clip-path: inset(0 0 0 0);
+    }
+
+    /* COMPUTER STAYS VISIBLE */
+    10%,
+    100% {
+        clip-path: inset(0 0 0 0);
     }
 }
 
+
 /* ==================================================
-           ENGINEERING TYPING
+          ENGINEERING TYPING
 ================================================== */
+
 @keyframes engineeringType {
 
-            from {
-                clip-path: inset(0 100% 0 0);
-            }
+    /* Hidden while COMPUTER types */
+    0%,
+    10% {
+        clip-path: inset(0 100% 0 0);
+    }
 
-            to {
-                clip-path: inset(0 0 0 0);
-            }
+    /* ENGINEERING starts typing */
+    10.01% {
+        clip-path: inset(0 100% 0 0);
+    }
 
-        }
+    /* ENGINEERING finished typing */
+    20% {
+        clip-path: inset(0 0 0 0);
+    }
 
-
-        /* ==================================================
-           BLINKING CURSOR
-        ================================================== */
-
-        @keyframes blinkingCursor {
-
-            0%, 50% {
-                border-right-color: rgba(0, 0, 0, 0.8);
-            }
-
-            51%, 100% {
-                border-right-color: transparent;
-            }
-
-        }
+    /* ENGINEERING STAYS VISIBLE */
+    20%,
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
 
 
-        /* ==================================================
+/* ==================================================
+          BLINKING CURSOR
+================================================== */
+
+@keyframes blinkingCursor {
+
+    0%, 50% {
+        border-right-color: rgba(0, 0, 0, 0.8);
+    }
+
+    51%, 100% {
+        border-right-color: transparent;
+    }
+}
+
+
+/* ==================================================
            SUBTITLE
-        ================================================== */
-
-        .title-text p {
-
-            margin-top: 15px;
-
-     
+================================================== */
+ .title-text p {  margin-top: 15px;
             font-size: 25px;
 
             letter-spacing: 3px;
@@ -566,23 +650,56 @@ header {
             color: #222222;
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==================================================
    SLIDE 2 — DESCRIPTION
 ================================================== */
 
 @font-face {
-    font-family: "Hunger Games";
-    src: url("Assets/Hunger%20Games.ttf")
+    font-family: "Light Pixel";
+    src: url("Assets/light_pixel.ttf")
          format("truetype");
 }
 
+
+/* ==================================================
+   MASIKA FONT
+================================================== */
+
+@font-face {
+    font-family: "Masaki";
+    src: url("Assets/Masaki.otf")
+         format("truetype");
+}
+
+
 .cpe-description-slide {
-    font-family: "Hunger Games", Arial, sans-serif;
+    font-family: "Light Pixel", Arial, sans-serif;
 
     width: 100%;
     height: 500px;
 
-    color: #898585;
+    color: #4e4949;
 
     position: relative;
 
@@ -593,8 +710,10 @@ header {
     overflow: visible;
 }
 
+
 /* ==================================================
-   DESCRIPTION — RIGHT SIDE ONLY
+   DESCRIPTION CONTENT
+   INDEPENDENT FROM TITLE
 ================================================== */
 
 .cpe-description-content {
@@ -602,18 +721,32 @@ header {
 
     z-index: 300;
 
-    /* DESCRIPTION WIDTH */
-    width: 42%;
+    width: 80%;
 
     /* MOVE DESCRIPTION LEFT / RIGHT */
-    left: 1.2%;
+    right: 38%;
 
     /* MOVE DESCRIPTION UP / DOWN */
-    top: 150px;
+    top: 100px;
 
-    text-align: center;
 }
 
+
+/* ==================================================
+   DESCRIPTION TEXT
+================================================== */
+
+.cpe-description-content p {
+    max-width: 700px;
+
+    font-size: 27px !important;
+
+    margin: 30px auto;
+
+    text-align: justify;
+
+    line-height: 1.5;
+}
 
 
 /* ==================================================
@@ -624,7 +757,7 @@ header {
     position: absolute;
 
     left: -16%;
-    top: 78%;
+    top:-33%;
 
     width: 2500px;
     height: 900px;
@@ -647,26 +780,30 @@ header {
 
 
 /* ==================================================
-   TITLE — KEEP THIS INDEPENDENT
+   TITLE — COMPLETELY INDEPENDENT
 ================================================== */
 
 .cool-title {
     position: absolute;
 
-    z-index: 300;
+    z-index: 400;
 
-    /* YOUR TITLE POSITION */
-    left: 115%;
-    top: -220px;
+    /* MOVE TITLE LEFT / RIGHT */
+    left: 50%;
+
+    /* MOVE TITLE UP / DOWN */
+    top: -80px;
 
     transform: translateX(-50%);
 
     font-family: "pixel-tandy", sans-serif;
 
     font-size: 100px;
+
     font-weight: 900;
 
     line-height: 1.05;
+
     letter-spacing: -2px;
 
     margin: 0;
@@ -674,25 +811,6 @@ header {
     width: max-content;
 
     text-align: center;
-}
-
-
-
-
-/* ==================================================
-   DESCRIPTION TEXT
-================================================== */
-
-.cpe-description-content p {
-    max-width: 700px;
-
-    font-size: 30px !important;
-
-    margin: -40px auto;
-
-    text-align: justify;
-
-    line-height: 1.5;
 }
 
 
@@ -710,20 +828,32 @@ header {
     margin-right: 12px;
 
     overflow: hidden;
+
+    vertical-align: baseline;
+
+    z-index: 1;
 }
 
 
 /* ==================================================
-   COMPUTER SPECIAL COLOR
+   COMPUTER — MASIKA FONT
 ================================================== */
 
 .cool-title .computer-font {
+    font-family: "Masaki", sans-serif;
+
     color: #315F8A;
+
+    font-size: 150px;
+
+    letter-spacing: 0;
+
+    vertical-align: baseline;
 }
 
 
 /* ==================================================
-   LIGHT INSIDE THE LETTERS
+   LIGHT EFFECT LAYERS
 ================================================== */
 
 .cool-title span::before,
@@ -747,6 +877,8 @@ header {
     -webkit-background-clip: text;
 
     -webkit-text-fill-color: transparent;
+
+    z-index: 2;
 }
 
 
@@ -782,7 +914,7 @@ header {
 
 
 /* ==================================================
-   SECOND SUBTLE WHITE LIGHT
+   SECOND SUBTLE LIGHT
 ================================================== */
 
 .cool-title span::after {
@@ -794,7 +926,7 @@ header {
             90deg,
             transparent 0%,
             transparent 47%,
-            rgba(255,255,255,0.45) 50%,
+            rgba(32, 30, 30, 0.45) 50%,
             transparent 53%,
             transparent 100%
         );
@@ -900,79 +1032,1416 @@ header {
     animation-delay: 0.30s;
 }
 
-.cool-title span:nth-child(4)::before,
-.cool-title span:nth-child(4)::after {
-    animation-delay: 0.45s;
+
+/* ==================================================
+   TRANSITIONS.DEV — STREAMING TEXT
+================================================== */
+
+:root {
+    --stream-gap: 60ms;
+    --stream-fade: 350ms;
+    --stream-blur: 1px;
+    --stream-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
-/* ==================================================
-   SLIDE 3
-================================================== */
+/* EACH WORD STARTS INVISIBLE */
 
-.cpe-next-slide {
-    width: 100%;
-    height: 500px;
+.t-stream-w {
+    opacity: 0;
+    filter: blur(var(--stream-blur));
 
-    position: relative;
-
-    overflow: hidden;
+    transition:
+        opacity var(--stream-fade) var(--stream-ease),
+        filter var(--stream-fade) var(--stream-ease);
 }
 
+
+/* WORD BECOMES VISIBLE */
+
+.t-stream-w.is-in {
+    opacity: 1;
+    filter: blur(0);
+}
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .t-stream-w {
+        transition: none !important;
+        filter: none !important;
+        opacity: 1 !important;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+/* ================================================== 
+   SOFTWARE CODING STICKER 
+================================================== */ 
+ 
+.software-sticker { 
+    position: absolute; 
+ 
+    left: 78%; 
+    top: 110%; 
+ 
+    width: 500px; 
+    height: 420px; 
+ 
+    z-index: 500;
+
+    /* DO NOT BLOCK HARDWARE CARD */
+    pointer-events: none;
+} 
+
+
+/* ================================================== 
+   CODE WINDOWS 
+================================================== */ 
+ 
+.code-window { 
+    position: absolute; 
+ 
+    width: 290px; 
+    min-height: 130px; 
+ 
+    background: #1D1E22; 
+ 
+    border-radius: 7px; 
+ 
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.25); 
+ 
+    overflow: hidden; 
+ 
+    font-family: monospace; 
+ 
+    transition: transform 0.25s ease;
+
+    /* ALLOW VISUAL HOVER MOVEMENT */
+    pointer-events: auto;
+} 
+
+
+/* ================================================== 
+   HEADER 
+================================================== */ 
+ 
+.code-header { 
+    height: 34px; 
+ 
+    display: flex; 
+    align-items: center; 
+ 
+    padding: 0 12px; 
+ 
+    background: #292A2F; 
+ 
+    box-sizing: border-box; 
+} 
+ 
+ 
+.code-dot { 
+    width: 9px; 
+    height: 9px; 
+ 
+    background: #777; 
+ 
+    border-radius: 50%; 
+ 
+    margin-right: 10px; 
+} 
+ 
+ 
+.code-title { 
+    font-family: Arial, sans-serif; 
+ 
+    font-size: 12px; 
+    font-weight: bold; 
+ 
+    letter-spacing: 1px; 
+ 
+    color: #C5C8D4; 
+} 
+
+
+/* ================================================== 
+   CODE CONTENT 
+================================================== */ 
+ 
+.code-content { 
+    padding: 15px; 
+ 
+    font-size: 14px; 
+ 
+    line-height: 1.6; 
+ 
+    color: white; 
+ 
+    white-space: nowrap; 
+} 
+
+
+/* ================================================== 
+   CODE COLORS 
+================================================== */ 
+ 
+.code-red { 
+    color: #A88038; 
+} 
+ 
+.code-orange { 
+    color: #DE7300; 
+} 
+ 
+.code-yellow { 
+    color: #E1CA72; 
+} 
+ 
+.code-green { 
+    color: #74B087; 
+} 
+ 
+.code-purple { 
+    color: #9F8198; 
+} 
+ 
+.code-blue { 
+    color: #7A99AD; 
+} 
+ 
+.code-white { 
+    color: #C5C8D4; 
+} 
+
+
+/* ================================================== 
+   INDIVIDUAL WINDOWS 
+================================================== */ 
+ 
+.code-html { 
+    right: 100px; 
+    top: 0; 
+ 
+    transform: rotate(-3deg); 
+    z-index: 3; 
+} 
+ 
+ 
+.code-css { 
+    right: 170px; 
+    top: 135px; 
+ 
+    transform: rotate(2deg); 
+    z-index: 2; 
+} 
+ 
+ 
+.code-js { 
+    right: 40px; 
+    top: 270px; 
+ 
+    transform: rotate(-2deg); 
+    z-index: 1; 
+} 
+
+
+/* ================================================== 
+   SMALL MOVEMENT 
+================================================== */ 
+ 
+.code-html:hover { 
+    transform: 
+        translateY(-5px) 
+        rotate(-3deg); 
+} 
+ 
+.code-css:hover { 
+    transform: 
+        translateY(-5px) 
+        rotate(2deg); 
+} 
+ 
+.code-js:hover { 
+    transform: 
+        translateY(-5px) 
+        rotate(-2deg); 
+}
+ 
+ 
+/* ================================================== 
+   HARDWARE STICKER 
+================================================== */ 
+ 
+.hardware-sticker { 
+    position: absolute; 
+ 
+    left: 90%; 
+    top: 30%; 
+    
+    /* ABOVE SOFTWARE */
+    z-index: 9000;
+} 
+ 
+ 
+/* ================================================== 
+   STICKER BUTTON 
+================================================== */ 
+ 
+.hardware-trigger { 
+    border: none; 
+    background: transparent; 
+ 
+    padding: 0; 
+ 
+    cursor: pointer; 
+ 
+    display: block;
+
+    pointer-events: auto;
+} 
+ 
+ 
+.hardware-trigger img { 
+    width: 520px; 
+    height: auto; 
+ 
+    display: block; 
+ 
+    transition: 
+        transform 0.25s ease; 
+} 
+ 
+ 
+/* SMALL MOVEMENT WHEN HOVERING */ 
+ 
+.hardware-trigger:hover img { 
+    transform: scale(1.05) rotate(-2deg); 
+} 
+ 
+ 
 /* ==================================================
-   BACKGROUND IMAGE
+   MODAL
 ================================================== */
 
-.cpe-next-bg {
+.hardware-modal {
     position: absolute;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
 
     left: 0;
     top: 0;
 
-    z-index: 1;
+    width: 420px;
+
+    z-index: 10000;
+
+    /* CLOSED = CANNOT BLOCK STICKER */
+    pointer-events: none;
 }
 
 
 /* ==================================================
-   CONTENT
+   HARDWARE CARD
 ================================================== */
 
-.cpe-next-content {
+.hardware-card {
     position: relative;
 
-    z-index: 2;
+    z-index: 10001;
 
-    width: 80%;
-    margin: auto;
+    background: #f7f2e8;
+
+    border: 4px solid #244A73;
+
+    padding: 35px 40px;
+
+    box-sizing: border-box;
+
+    box-shadow: 8px 8px 0 #244A73;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   CLOSE BUTTON
+================================================== */
+
+.hardware-close {
+    position: absolute;
+
+    top: 8px;
+    right: 12px;
+
+    z-index: 10002;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 32px;
+
+    color: #244A73;
+
+    cursor: pointer;
+
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   MODAL OPEN
+================================================== */
+
+.t-modal.is-open {
+    transform: scale(1);
+
+    opacity: 1;
+
+    /* ENABLE CLICKING ONLY WHEN OPEN */
+    pointer-events: auto;
+}
+
+
+.t-modal.is-open .hardware-card {
+    pointer-events: auto;
+}
+
+
+.t-modal.is-open .hardware-close {
+    pointer-events: auto;
+}
+
+
+/* ==================================================
+   MODAL CLOSED
+================================================== */
+
+.t-modal {
+    transform-origin: center;
+
+    transform: scale(var(--modal-scale));
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        transform var(--modal-open-dur) var(--modal-ease),
+        opacity var(--modal-open-dur) var(--modal-ease);
+
+    will-change: transform, opacity;
+}
+
+
+/* ==================================================
+   MODAL CLOSING
+================================================== */
+
+.t-modal.is-closing {
+    transform: scale(var(--modal-scale-close));
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        transform var(--modal-close-dur) var(--modal-ease),
+        opacity var(--modal-close-dur) var(--modal-ease);
+}
+ 
+@media (prefers-reduced-motion: reduce) { 
+ 
+    .t-modal { 
+        transition: none !important; 
+    } 
+ 
+}
+
+/* ==================================================
+   HARDWARE STICKER — CONSTANT SMALL MOVEMENT
+================================================== */
+
+.hardware-sticker {
+    position: absolute;
+
+    left: 60%;
+    top: 12%;
+
+    z-index: 9000;
+
+    animation: hardwareFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes hardwareFloat {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(6px, -5px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+
+/* ==================================================
+   SOFTWARE STICKER — CONSTANT SMALL MOVEMENT
+================================================== */
+
+.software-sticker {
+    position: absolute;
+
+    left: 77%;
+    top: 110%;
+
+    width: 500px;
+    height: 420px;
+
+    z-index: 500;
+
+    pointer-events: none;
+
+    animation: softwareFloat 4s ease-in-out infinite;
+}
+
+@keyframes softwareFloat {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-6px, -4px) rotate(1deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================================
+   SLIDE 3 — PLAIN COLOR
+================================================== */
+
+.cpe-next-slide {
+    width: 100%;
+    height: 390px;
+
+    position: relative;
+
+    margin: 0;
+    padding: 0;
+
+    /* CHANGE THIS COLOR */
+    background: #244A73;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   REMOVE BACKGROUND IMAGE
+================================================== */
+
+.cpe-next-bg {
+    display: none;
+}
+
+
+/* ==================================================
+   4 HORIZONTAL STICKERS
+================================================== */
+
+.four-stickers {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 500;
+
+    overflow: visible;
+}
+
+
+/* ==================================================
+   EVERY STICKER
+================================================== */
+
+.sticker {
+    position: absolute;
+
+    width: 1400px;
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   IMAGE
+================================================== */
+
+.sticker img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   STICKER 1
+================================================== */
+
+.sticker-1 {
+    left: -760px;
+    top: -40px;
+}
+
+
+/* ==================================================
+   STICKER 2
+================================================== */
+
+.sticker-2 {
+    left: -740px;
+    top: -160px;
+}
+
+
+/* ==================================================
+   STICKER 3
+================================================== */
+
+.sticker-3 {
+    right: -360px;
+    top: -40px;
+}
+
+
+/* ==================================================
+   STICKER 4
+================================================== */
+
+.sticker-4 {
+    right: -1000px;
+    top: -50px;
+}
+
+
+/* ==================================================
+   STICKER 5 — INDEPENDENT
+================================================== */
+
+.sticker-5 {
+    position: absolute;
+
+    width: 700px;
+    height: 600px;
+
+    left: 35%;
+    top: 50%;
+
+    z-index: 600;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   HOVER — STICKERS 1–4
+================================================== */
+
+.sticker-1:hover {
+    transform: translateY(-20px) scale(1.05);
+}
+
+.sticker-2:hover {
+    transform: translateY(-20px) scale(1.05);
+}
+
+.sticker-3:hover {
+    transform: translateY(-20px) scale(1.05);
+}
+
+.sticker-4:hover {
+    transform: translateY(-20px) scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================================
+   SLIDE 4 — HISTORY OF COMPUTER ENGINEERING
+================================================== */
+
+.history-slide {
+    width: 100%;
+    height: 650px;
+
+    position: relative;
+    overflow: hidden;
+
+    background: #aeb8ad;
+
+    padding: 65px 5%;
+
+    box-sizing: border-box;
+}
+
+
+/* ==================================================
+   HISTORY TITLE
+================================================== */
+
+.history-title {
+    position: relative;
+    z-index: 10;
 
     text-align: center;
 
-    padding-top: 100px;
+    margin-bottom: 45px;
+
+    opacity: 0;
 }
 
 
-.cpe-next-content h2 {
-    font-size: 70px;
+/* ==================================================
+   ZOOM IN RIGHT
+================================================== */
+
+@keyframes historyZoomInRight {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale3d(0.1, 0.1, 0.1)
+            translate3d(1000px, 0, 0);
+
+        animation-timing-function: ease-in;
+    }
+
+    40% {
+        opacity: 1;
+
+        transform:
+            scale3d(0.475, 0.475, 0.475)
+            translate3d(-10px, 0, 0);
+
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale3d(1, 1, 1)
+            translate3d(0, 0, 0);
+    }
+
+}
+
+
+/* ==================================================
+   TITLE ANIMATION
+================================================== */
+
+.history-slide.show-history .history-title {
+
+    animation:
+        historyZoomInRight
+        1s
+        ease-out
+        forwards;
+
+}
+
+
+/* ==================================================
+   SMALL TITLE
+================================================== */
+
+.history-title span {
+    display: block;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 40px;
+
+    letter-spacing: 2px;
+
+    color: #6e1818;
+
+    margin-bottom: 12px;
+}
+
+
+/* ==================================================
+   MAIN TITLE
+================================================== */
+
+.history-title h2 {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 48px;
+
     font-weight: 900;
 
-    margin: 0 0 30px;
+    letter-spacing: -2px;
+
+    color: #172b3a;
 }
 
 
-.cpe-next-content p {
-    max-width: 900px;
+/* ==================================================
+   FOUR CARDS — HORIZONTAL
+================================================== */
 
-    margin: auto;
+.history-cards {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 22px;
+
+    position: relative;
+
+    z-index: 20;
+}
+
+
+/* ==================================================
+   HISTORY CARD
+================================================== */
+
+.history-card {
+    width: 240px;
+
+    height: 355px;
+
+    padding: 22px;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    background: #fffdf7;
+
+    border: 1px solid #b8b3a8;
+
+    box-shadow:
+        5px 6px 0 rgba(60, 45, 35, 0.12);
+
+    opacity: 0;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* ==================================================
+   CARD 1
+================================================== */
+
+@keyframes historyCard1 {
+
+    0% {
+        opacity: 0;
+        transform: translateY(-120px) rotate(-3deg);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(8px) rotate(-3deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(-3deg);
+    }
+
+}
+
+
+/* ==================================================
+   CARD 2
+================================================== */
+
+@keyframes historyCard2 {
+
+    0% {
+        opacity: 0;
+        transform: translateY(-120px) rotate(2deg);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(8px) rotate(2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(2deg);
+    }
+
+}
+
+
+/* ==================================================
+   CARD 3
+================================================== */
+
+@keyframes historyCard3 {
+
+    0% {
+        opacity: 0;
+        transform: translateY(-120px) rotate(-2deg);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(8px) rotate(-2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(-2deg);
+    }
+
+}
+
+
+/* ==================================================
+   CARD 4
+================================================== */
+
+@keyframes historyCard4 {
+
+    0% {
+        opacity: 0;
+        transform: translateY(-120px) rotate(3deg);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(8px) rotate(3deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(3deg);
+    }
+
+}
+
+
+/* ==================================================
+   CARD ANIMATIONS
+================================================== */
+
+.history-slide.show-history .history-card-1 {
+    animation:
+        historyCard1
+        1s
+        ease-out
+        0.1s
+        forwards;
+}
+
+
+.history-slide.show-history .history-card-2 {
+    margin-top: 12px;
+
+    animation:
+        historyCard2
+        1s
+        ease-out
+        0.35s
+        forwards;
+}
+
+
+.history-slide.show-history .history-card-3 {
+    animation:
+        historyCard3
+        1s
+        ease-out
+        0.6s
+        forwards;
+}
+
+
+.history-slide.show-history .history-card-4 {
+    margin-top: 12px;
+
+    animation:
+        historyCard4
+        1s
+        ease-out
+        0.85s
+        forwards;
+}
+
+
+/* ==================================================
+   CARD HOVER
+================================================== */
+
+.history-card:hover {
+    transform: translateY(-8px) rotate(0deg);
+
+    transition: transform 0.3s ease;
+}
+
+
+/* ==================================================
+   CARD NUMBER
+================================================== */
+
+.card-label {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 10px;
+
+    color: #8b2525;
+}
+
+
+/* ==================================================
+   CARD YEAR
+================================================== */
+
+.card-year {
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 10px;
+
+    color: #6e1818;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 2px solid #d8d1c4;
+}
+
+
+/* ==================================================
+   CARD TITLE
+================================================== */
+
+.history-card h3 {
+    margin: 0 0 13px;
+
+    font-family: Arial, sans-serif;
 
     font-size: 20px;
 
-    line-height: 1.7;
+    line-height: 1.05;
+
+    font-weight: 900;
+
+    color: #172b3a;
 }
+
+
+/* ==================================================
+   CARD DESCRIPTION
+================================================== */
+
+.history-card p {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: #444;
+
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================================
+   SLIDE 5 — CAREERS
+================================================== */
+
+.careers-slide {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    background: #f5f1e8;
+}
+
+
+/* ==================================================
+   CAREERS CONTENT
+================================================== */
+
+.careers-content {
+    width: 88%;
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 70px;
+}
+
+
+/* ==================================================
+   LEFT SIDE — ANIMATION
+================================================== */
+
+.career-animation {
+    width: 48%;
+    height: 380px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+}
+
+
+/* SMALL LABEL */
+
+.career-label {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 4px;
+
+    color: #263f3b;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==================================================
+   DROPPING TEXT
+================================================== */
+
+.dropping-texts {
+    position: relative;
+
+    width: 100%;
+    height: 110px;
+
+    text-align: left;
+}
+
+
+/* EACH CAREER */
+
+.dropping-texts > div {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    font-family: "Hunger Games", Impact, sans-serif;
+    font-size: 65px;
+    line-height: 0.95;
+
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    color: #172f2c;
+
+    opacity: 0;
+
+    white-space: nowrap;
+
+    transform-origin: left center;
+
+    text-shadow:
+        3px 3px 0 rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==================================================
+   CAREER ANIMATION
+================================================== */
+
+.dropping-texts > div:nth-child(1) {
+    animation: careerRoll 10s linear infinite 0s;
+}
+
+.dropping-texts > div:nth-child(2) {
+    animation: careerRoll 10s linear infinite 2s;
+}
+
+.dropping-texts > div:nth-child(3) {
+    animation: careerRoll 10s linear infinite 4s;
+}
+
+.dropping-texts > div:nth-child(4) {
+    animation: careerRoll 10s linear infinite 6s;
+}
+
+.dropping-texts > div:nth-child(5) {
+    animation: careerRollLast 10s linear infinite 8s;
+}
+
+
+/* ==================================================
+   MAIN DROP MOVEMENT
+================================================== */
+
+@keyframes careerRoll {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateX(-45px)
+            translateY(-20px)
+            rotate(-15deg);
+
+        font-size: 0px;
+    }
+
+    4% {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            translateY(0)
+            rotate(0deg);
+
+        font-size: 65px;
+    }
+
+    18% {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            translateY(0)
+            rotate(0deg);
+
+        font-size: 65px;
+    }
+
+    23% {
+        opacity: 0.5;
+
+        transform:
+            translateX(25px)
+            translateY(80px)
+            rotate(8deg);
+
+        font-size: 20px;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateX(-45px)
+            translateY(-20px)
+            rotate(-15deg);
+
+        font-size: 0px;
+    }
+}
+
+
+/* ==================================================
+   LAST CAREER
+================================================== */
+
+@keyframes careerRollLast {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateX(-45px)
+            translateY(-20px)
+            rotate(-15deg);
+
+        font-size: 0px;
+    }
+
+    4% {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            translateY(0)
+            rotate(0deg);
+
+        font-size: 65px;
+    }
+
+    25% {
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            translateY(0)
+            rotate(0deg);
+
+        font-size: 65px;
+    }
+
+    31% {
+        opacity: 0;
+
+        transform:
+            translateX(40px)
+            translateY(100px)
+            rotate(10deg);
+
+        font-size: 20px;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateX(-45px)
+            translateY(-20px)
+            rotate(-15deg);
+
+        font-size: 0px;
+    }
+}
+
+
+/* ==================================================
+   RIGHT SIDE — DESCRIPTION
+================================================== */
+
+.career-description {
+    width: 45%;
+    padding: 35px 40px;
+
+    border-left: 3px solid #263f3b;
+}
+
+
+/* TITLE */
+
+.career-description h2 {
+    margin: 0 0 25px;
+
+    font-family: Arial, sans-serif;
+    font-size: 42px;
+    line-height: 0.95;
+
+    font-weight: 900;
+    letter-spacing: -1px;
+
+    color: #263f3b;
+}
+
+
+/* PARAGRAPH */
+
+.career-description p {
+    margin: 0 0 18px;
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+
+    color: #333;
+
+    text-align: justify;
+}
+
+
+
+
+
+
 
 /* ==================================================
    EXPLORE CPE MARQUEE
@@ -1085,6 +2554,33 @@ header {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================================================
+  simula nung folder
+=================================================================*/
+
+
 /* ==================================================
    BIG FOLDER NAVIGATION
 ================================================== */
@@ -1136,54 +2632,35 @@ header {
 ================================================== */
 
 .folder-stack {
-    width: 100%;
-    max-width: none;
-
-    margin: 0;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
 
     display: flex;
     flex-direction: column;
-
     gap: 0;
 }
 
 
 /* ==================================================
-   INDIVIDUAL FOLDER
+   FOLDER
 ================================================== */
+
 .folder {
     display: block;
-
     position: relative;
 
     width: 100%;
-    height: 260px;
+    height: 250px;
 
     margin: 0;
 
     text-decoration: none;
 
     transition: transform 0.3s ease;
-}
 
-/* ==================================================
-   FOLDER STACKING ORDER
-================================================== */
-
-.folder-about {
+    /* IMPORTANT */
     z-index: 1;
-}
-
-.folder-ue {
-    z-index: 2;
-}
-
-.folder-faculty {
-    z-index: 3;
-}
-
-.folder-projects {
-    z-index: 4;
 }
 
 
@@ -1200,6 +2677,9 @@ header {
     background: #303149;
 
     border-radius: 0 5px 5px 5px;
+
+    /* IMPORTANT */
+    z-index: 1;
 }
 
 
@@ -1212,7 +2692,7 @@ header {
 
     position: absolute;
 
-    bottom: 100%;
+    bottom: calc(100% + 1px);
 
     width: 220px;
     height: 70px;
@@ -1221,38 +2701,42 @@ header {
 
     border-radius: 25px 25px 0 0;
 
-    z-index: 1;
+    /* IMPORTANT */
+    z-index: 50;
+
+    pointer-events: none;
 }
+
 
 
 /* ==================================================
    STAGGERED TAB POSITIONS
 ================================================== */
 
-/* FIRST FOLDER — FAR LEFT */
-
-.folder-about .folder__back::after {
-    left: 0;
-}
-
-
-/* SECOND FOLDER — A LITTLE RIGHT */
+/* 1ST FOLDER — LEFT */
 
 .folder-ue .folder__back::after {
     left: 14%;
 }
 
 
-/* THIRD FOLDER — MORE RIGHT */
+/* 2ND FOLDER — RIGHT */
 
-.folder-faculty .folder__back::after {
-    left: 32%;
+.folder-projects .folder__back::after {
+    left: 50%;
 }
 
 
-/* FOURTH FOLDER — EVEN MORE RIGHT */
+/* 3RD FOLDER — LEFT */
 
-.folder-projects .folder__back::after {
+.folder-scpe .folder__back::after {
+    left: 14%;
+}
+
+
+/* 4TH FOLDER — RIGHT */
+
+.folder-events .folder__back::after {
     left: 50%;
 }
 
@@ -1320,7 +2804,7 @@ header {
 
     transition: all 0.4s ease;
 
-    z-index: 5;
+    z-index: 10;
 
     display: flex;
     align-items: center;
@@ -1365,7 +2849,7 @@ header {
 ================================================== */
 
 .folder:hover {
-    transform: translateY(-8px);
+    z-index: 100;
 }
 
 
@@ -1395,58 +2879,43 @@ header {
 
 
 /* --------------------------------------------------
-   ABOUT CpE
--------------------------------------------------- */
-
-.folder-about .folder__back,
-.folder-about .folder__back::after {
-    background: #292a3d;
-}
-
-.folder-about .folder__front {
-    background: #303149;
-}
-
-
-/* --------------------------------------------------
    CpE AT UE
 -------------------------------------------------- */
 
 .folder-ue .folder__back,
 .folder-ue .folder__back::after {
+
     background: #30347f;
+
 }
 
 .folder-ue .folder__front {
+
     background: #41499b;
+
 }
 
-
-/* --------------------------------------------------
-   FACULTY
--------------------------------------------------- */
-
-.folder-faculty .folder__back,
-.folder-faculty .folder__back::after {
-    background: #5265a9;
-}
-
-.folder-faculty .folder__front {
-    background: #6478bd;
-}
 
 /* ==================================================
-   FACULTY FOLDER — SPECIAL ANIMATION
-   ONLY AFFECTS .folder-faculty
+   CpE AT UE FOLDER — SPECIAL ANIMATION
+
+   ONLY AFFECTS .folder-ue
 ================================================== */
 
-.folder-faculty {
+.folder-ue {
+
     transition:
+
         transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+
         filter 0.5s ease;
+
 }
 
-.folder-faculty:hover {
+.folder-ue:hover {
+
+    z-index: 100;
+
     transform:
         translateY(-15px)
         scale(1.02);
@@ -1459,53 +2928,76 @@ header {
 }
 
 
-/* FACULTY PAPERS */
+/* CpE AT UE PAPERS */
 
-.folder-faculty:hover .paper {
+.folder-ue:hover .paper {
+
     transform:
+
         translate(-50%, -15px)
+
         rotate(-2deg);
+
 }
 
-.folder-faculty:hover .paper:nth-child(2) {
+.folder-ue:hover .paper:nth-child(2) {
+
     transform:
+
         translate(-50%, -25px)
+
         rotate(2deg);
+
 }
 
-.folder-faculty:hover .paper:nth-child(3) {
+.folder-ue:hover .paper:nth-child(3) {
+
     transform:
+
         translate(-50%, -35px)
+
         rotate(-1deg);
+
 }
 
 
-/* FACULTY FRONT */
+/* CpE AT UE FRONT */
 
-.folder-faculty .folder__front {
+.folder-ue .folder__front {
+
     transform-origin: bottom center;
 
     transition:
+
         transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+
         background 0.3s ease;
+
 }
 
-.folder-faculty:hover .folder__front {
+.folder-ue:hover .folder__front {
+
     transform:
+
         perspective(700px)
+
         rotateX(-12deg)
+
         scaleY(0.72);
+
 }
 
 
-/* FACULTY DIGITAL LINE */
+/* CpE AT UE DIGITAL LINE */
 
-.folder-faculty::after {
+.folder-ue::after {
+
     content: "";
 
     position: absolute;
 
     left: 10%;
+
     right: 10%;
 
     bottom: 8px;
@@ -1519,71 +3011,106 @@ header {
     transform: scaleX(0);
 
     transition:
+
         transform 0.4s ease,
+
         opacity 0.3s ease;
 
     z-index: 10;
+
 }
 
-.folder-faculty:hover::after {
+.folder-ue:hover::after {
+
     opacity: 0.8;
 
     transform: scaleX(1);
+
 }
+
 
 /* ==================================================
-   FACULTY CLICK EFFECT
-   CSS ONLY
+   CpE AT UE CLICK EFFECT
 ================================================== */
 
-.folder-faculty:active {
-    animation: facultyClick 0.5s ease;
+.folder-ue:active {
+
+    animation: ueClick 0.5s ease;
+
 }
 
-@keyframes facultyClick {
+@keyframes ueClick {
 
     0% {
+
         transform:
+
             translateY(-15px)
+
             scale(1.02);
 
         filter: brightness(1);
+
     }
 
     25% {
+
         transform:
+
             translateY(-5px)
+
             scale(0.90);
 
         filter:
+
             brightness(1.5)
+
             drop-shadow(
+
                 0 0 25px
+
                 rgba(255, 255, 255, 0.7)
+
             );
+
     }
 
     60% {
+
         transform:
+
             translateY(-10px)
+
             scale(1.05);
 
         filter:
+
             brightness(1.3)
+
             drop-shadow(
+
                 0 0 30px
+
                 rgba(255, 255, 255, 0.8)
+
             );
+
     }
 
     100% {
+
         transform:
+
             translateY(-15px)
+
             scale(1.02);
 
         filter: brightness(1);
+
     }
+
 }
+
 
 /* --------------------------------------------------
    PROJECTS
@@ -1591,19 +3118,730 @@ header {
 
 .folder-projects .folder__back,
 .folder-projects .folder__back::after {
-    background: #d6cfac;
+
+    background: #30347f;
+
 }
 
 .folder-projects .folder__front {
+
+    background: #41499b;
+
+}
+
+
+/* ==================================================
+   PROJECTS FOLDER — SPECIAL ANIMATION
+
+   ONLY AFFECTS .folder-projects
+================================================== */
+
+.folder-projects {
+
+    transition:
+
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+
+        filter 0.5s ease;
+
+}
+
+.folder-projects:hover {
+
+    z-index: 100;
+
+    transform:
+        translateY(-15px)
+        scale(1.02);
+
+    filter:
+        drop-shadow(
+            0 18px 20px
+            rgba(0, 0, 0, 0.25)
+        );
+}
+
+/* PROJECTS PAPERS */
+
+.folder-projects:hover .paper {
+
+    transform:
+
+        translate(-50%, -15px)
+
+        rotate(-2deg);
+
+}
+
+.folder-projects:hover .paper:nth-child(2) {
+
+    transform:
+
+        translate(-50%, -25px)
+
+        rotate(2deg);
+
+}
+
+.folder-projects:hover .paper:nth-child(3) {
+
+    transform:
+
+        translate(-50%, -35px)
+
+        rotate(-1deg);
+
+}
+
+
+/* PROJECTS FRONT */
+
+.folder-projects .folder__front {
+
+    transform-origin: bottom center;
+
+    transition:
+
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+
+        background 0.3s ease;
+
+}
+
+.folder-projects:hover .folder__front {
+
+    transform:
+
+        perspective(700px)
+
+        rotateX(-12deg)
+
+        scaleY(0.72);
+
+}
+
+
+/* PROJECTS DIGITAL LINE */
+
+.folder-projects::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 10%;
+
+    right: 10%;
+
+    bottom: 8px;
+
+    height: 3px;
+
+    background: #ffffff;
+
+    opacity: 0;
+
+    transform: scaleX(0);
+
+    transition:
+
+        transform 0.4s ease,
+
+        opacity 0.3s ease;
+
+    z-index: 10;
+
+}
+
+.folder-projects:hover::after {
+
+    opacity: 0.8;
+
+    transform: scaleX(1);
+
+}
+
+
+/* ==================================================
+   PROJECTS CLICK EFFECT
+================================================== */
+
+.folder-projects:active {
+
+    animation: projectsClick 0.5s ease;
+
+}
+
+@keyframes projectsClick {
+
+    0% {
+
+        transform:
+
+            translateY(-15px)
+
+            scale(1.02);
+
+        filter: brightness(1);
+
+    }
+
+    25% {
+
+        transform:
+
+            translateY(-5px)
+
+            scale(0.90);
+
+        filter:
+
+            brightness(1.5)
+
+            drop-shadow(
+
+                0 0 25px
+
+                rgba(255, 255, 255, 0.7)
+
+            );
+
+    }
+
+    60% {
+
+        transform:
+
+            translateY(-10px)
+
+            scale(1.05);
+
+        filter:
+
+            brightness(1.3)
+
+            drop-shadow(
+
+                0 0 30px
+
+                rgba(255, 255, 255, 0.8)
+
+            );
+
+    }
+
+    100% {
+
+        transform:
+
+            translateY(-15px)
+
+            scale(1.02);
+
+        filter: brightness(1);
+
+    }
+
+}
+
+
+/* --------------------------------------------------
+   SCPES
+-------------------------------------------------- */
+
+.folder-scpe .folder__back,
+.folder-scpe .folder__back::after {
+
+    background: #5265a9;
+
+}
+
+.folder-scpe .folder__front {
+
+    background: #6478bd;
+
+}
+
+
+/* ==================================================
+   SCPES FOLDER — SPECIAL ANIMATION
+
+   ONLY AFFECTS .folder-scpe
+================================================== */
+
+.folder-scpe {
+
+    transition:
+
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+
+        filter 0.5s ease;
+
+}
+
+.folder-scpe:hover {
+
+    z-index: 100;
+
+    transform:
+        translateY(-15px)
+        scale(1.02);
+
+    filter:
+        drop-shadow(
+            0 18px 20px
+            rgba(0, 0, 0, 0.25)
+        );
+}
+
+
+/* SCPES PAPERS */
+
+.folder-scpe:hover .paper {
+
+    transform:
+
+        translate(-50%, -15px)
+
+        rotate(-2deg);
+
+}
+
+.folder-scpe:hover .paper:nth-child(2) {
+
+    transform:
+
+        translate(-50%, -25px)
+
+        rotate(2deg);
+
+}
+
+.folder-scpe:hover .paper:nth-child(3) {
+
+    transform:
+
+        translate(-50%, -35px)
+
+        rotate(-1deg);
+
+}
+
+
+/* SCPES FRONT */
+
+.folder-scpe .folder__front {
+
+    transform-origin: bottom center;
+
+    transition:
+
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+
+        background 0.3s ease;
+
+}
+
+.folder-scpe:hover .folder__front {
+
+    transform:
+
+        perspective(700px)
+
+        rotateX(-12deg)
+
+        scaleY(0.72);
+
+}
+
+
+/* SCPES DIGITAL LINE */
+
+.folder-scpe::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 10%;
+
+    right: 10%;
+
+    bottom: 8px;
+
+    height: 3px;
+
+    background: #ffffff;
+
+    opacity: 0;
+
+    transform: scaleX(0);
+
+    transition:
+
+        transform 0.4s ease,
+
+        opacity 0.3s ease;
+
+    z-index: 10;
+
+}
+
+.folder-scpe:hover::after {
+
+    opacity: 0.8;
+
+    transform: scaleX(1);
+
+}
+
+
+/* ==================================================
+   SCPES CLICK EFFECT
+================================================== */
+
+.folder-scpe:active {
+
+    animation: scpeClick 0.5s ease;
+
+}
+
+@keyframes scpeClick {
+
+    0% {
+
+        transform:
+
+            translateY(-15px)
+
+            scale(1.02);
+
+        filter: brightness(1);
+
+    }
+
+    25% {
+
+        transform:
+
+            translateY(-5px)
+
+            scale(0.90);
+
+        filter:
+
+            brightness(1.5)
+
+            drop-shadow(
+
+                0 0 25px
+
+                rgba(255, 255, 255, 0.7)
+
+            );
+
+    }
+
+    60% {
+
+        transform:
+
+            translateY(-10px)
+
+            scale(1.05);
+
+        filter:
+
+            brightness(1.3)
+
+            drop-shadow(
+
+                0 0 30px
+
+                rgba(255, 255, 255, 0.8)
+
+            );
+
+    }
+
+    100% {
+
+        transform:
+
+            translateY(-15px)
+
+            scale(1.02);
+
+        filter: brightness(1);
+
+    }
+
+}
+
+
+/* --------------------------------------------------
+   EVENTS & ACTIVITIES
+-------------------------------------------------- */
+
+.folder-events .folder__back,
+.folder-events .folder__back::after {
+
+    background: #d6cfac;
+
+}
+
+.folder-events .folder__front {
+
     background: #e2dbbb;
+
 }
 
 
-/* PROJECTS TEXT */
+/* EVENTS & ACTIVITIES TEXT */
 
-.folder-projects .folder__front span {
-    color: #292a3d;
+.folder-events .folder__front span {
+
+    color: #e2dbbb;
+
 }
+
+
+/* ==================================================
+   EVENTS & ACTIVITIES FOLDER — SPECIAL ANIMATION
+
+   ONLY AFFECTS .folder-events
+================================================== */
+
+.folder-events {
+
+    transition:
+
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+
+        filter 0.5s ease;
+
+}
+
+.folder-events:hover {
+
+    z-index: 100;
+
+    transform:
+        translateY(-15px)
+        scale(1.02);
+
+    filter:
+        drop-shadow(
+            0 18px 20px
+            rgba(0, 0, 0, 0.25)
+        );
+}
+
+
+/* EVENTS & ACTIVITIES PAPERS */
+
+.folder-events:hover .paper {
+
+    transform:
+
+        translate(-50%, -15px)
+
+        rotate(-2deg);
+
+}
+
+.folder-events:hover .paper:nth-child(2) {
+
+    transform:
+
+        translate(-50%, -25px)
+
+        rotate(2deg);
+
+}
+
+.folder-events:hover .paper:nth-child(3) {
+
+    transform:
+
+        translate(-50%, -35px)
+
+        rotate(-1deg);
+
+}
+
+
+/* EVENTS & ACTIVITIES FRONT */
+
+.folder-events .folder__front {
+
+    transform-origin: bottom center;
+
+    transition:
+
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+
+        background 0.3s ease;
+
+}
+
+.folder-events:hover .folder__front {
+
+    transform:
+
+        perspective(700px)
+
+        rotateX(-12deg)
+
+        scaleY(0.72);
+
+}
+
+
+/* EVENTS & ACTIVITIES DIGITAL LINE */
+
+.folder-events::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 10%;
+
+    right: 10%;
+
+    bottom: 8px;
+
+    height: 3px;
+
+    background: #ffffff;
+
+    opacity: 0;
+
+    transform: scaleX(0);
+
+    transition:
+
+        transform 0.4s ease,
+
+        opacity 0.3s ease;
+
+    z-index: 10;
+
+}
+
+.folder-events:hover::after {
+
+    opacity: 0.8;
+
+    transform: scaleX(1);
+
+}
+
+
+/* ==================================================
+   EVENTS & ACTIVITIES CLICK EFFECT
+================================================== */
+
+.folder-events:active {
+
+    animation: eventsClick 0.5s ease;
+
+}
+
+@keyframes eventsClick {
+
+    0% {
+
+        transform:
+
+            translateY(-15px)
+
+            scale(1.02);
+
+        filter: brightness(1);
+
+    }
+
+    25% {
+
+        transform:
+
+            translateY(-5px)
+
+            scale(0.90);
+
+        filter:
+
+            brightness(1.5)
+
+            drop-shadow(
+
+                0 0 25px
+
+                rgba(255, 255, 255, 0.7)
+
+            );
+
+    }
+
+    60% {
+
+        transform:
+
+            translateY(-10px)
+
+            scale(1.05);
+
+        filter:
+
+            brightness(1.3)
+
+            drop-shadow(
+
+                0 0 30px
+
+                rgba(255, 255, 255, 0.8)
+
+            );
+
+    }
+
+    100% {
+
+        transform:
+
+            translateY(-15px)
+
+            scale(1.02);
+
+        filter: brightness(1);
+
+    }
+
+}
+
+/* ================================================================
+   end nung folder
+=================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ==================================================
@@ -1691,164 +3929,112 @@ header {
         left: 38%;
     }
 }
-/* ==================================================
+
+
+
+
+
+
+
+
+
+
+/* ================================================================
+   kolay ng folder
+=================================================================*/
+
+/* -------------------------------------------------
    FOLDER COLORS
+--------------------------------------------------*/
+
+
+/* ==================================================
+   1ST FOLDER — CpE AT UE
 ================================================== */
-
-
-/* ABOUT CpE */
-
-.folder-about .folder__back,
-.folder-about .folder__back::after {
-    background: #292a3d;
-}
-
-.folder-about .folder__front {
-    background: #303149;
-}
-
-
-/* CpE AT UE */
 
 .folder-ue .folder__back,
 .folder-ue .folder__back::after {
-    background: #30347f;
+
+    background: #292a3d;
+
 }
 
 .folder-ue .folder__front {
-    background: #3d4390;
+
+    background: #292a3d;
+
 }
 
 
-/* FACULTY */
-
-.folder-faculty .folder__back,
-.folder-faculty .folder__back::after {
-    background: #5265a9;
-}
-
-.folder-faculty .folder__front {
-    background: #6478bd;
-}
-
-
-/* PROJECTS */
+/* ==================================================
+   2ND FOLDER — PROJECTS
+================================================== */
 
 .folder-projects .folder__back,
 .folder-projects .folder__back::after {
-    background: #d6cfac;
+
+    background: #30347f;
+
 }
 
 .folder-projects .folder__front {
-    background: #e2dbbb;
-}
 
+    background: #30347f;
 
-/* DARK TEXT FOR PROJECTS */
-
-.folder-projects .folder__front span {
-    color: #292a3d;
-}
-
-/* ==================================================
-   CARD SECTION
-================================================== */
-
-.card-section {
-    width: 100%;
-
-    max-width: 1250px;
-
-    margin: auto;
-
-    display: flex;
-
-    align-items: center;
-}
-
-.card-wrapper {
-    display: flex;
-
-    gap: 25px;
-
-    overflow-x: auto;
-
-    scroll-behavior: smooth;
-
-    width: 100%;
-
-    padding:
-        20px
-        10px
-        40px;
-
-    scrollbar-width: thin;
 }
 
 
 /* ==================================================
-   CARD
+   3RD FOLDER — SCPES
 ================================================== */
 
-.card {
-    min-width: 300px;
+.folder-scpe .folder__back,
+.folder-scpe .folder__back::after {
 
-    width: 300px;
+    background: #41499b;
 
-    height: 400px;
-
-    flex-shrink: 0;
-
-    background: white;
-
-    border:
-        2px solid
-        #222222;
-
-    border-radius: 8px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 8px 20px
-        rgba(0, 0, 0, 0.12);
-
-    transition:
-        transform 0.3s ease;
 }
 
-.card:hover {
-    transform:
-        translateY(-10px);
+.folder-scpe .folder__front {
+
+    background: #41499b;
+
 }
 
-.card img {
-    width: 100%;
 
-    height: 230px;
+/* ==================================================
+   4TH FOLDER — EVENTS & ACTIVITIES
+================================================== */
 
-    object-fit: cover;
+.folder-events .folder__back,
+.folder-events .folder__back::after {
 
-    display: block;
+    background: #6a7ab4;
+
 }
 
-.card-text {
-    padding: 20px;
+.folder-events .folder__front {
 
-    text-align: center;
+    background: #6a7ab4;
+
 }
 
-.card-text h2 {
-    font-size: 22px;
+/* ==================================================
+   DARK TEXT FOR EVENTS & ACTIVITIES
+================================================== */
 
-    margin-bottom: 10px;
+.folder-events .folder__front span {
+
+    color: #ffffff;
+
 }
 
-.card-text p {
-    font-size: 14px;
+/* ================================================================
+   end ng kolay ng folder
+=================================================================*/
 
-    line-height: 1.6;
-}
+
+
 
 
 /* ==================================================
@@ -1934,46 +4120,25 @@ header {
 }
 
 
-/* ==================================================
-   FACULTY
-================================================== */
 
-.faculty-list {
-    display: grid;
 
-    grid-template-columns:
-        repeat(2, 1fr);
 
-    gap: 25px;
 
-    max-width: 900px;
 
-    margin-top: 40px;
-}
 
-.faculty-card {
-    background: white;
 
-    border:
-        2px solid
-        #222222;
 
-    border-radius: 8px;
 
-    padding: 30px;
-}
 
-.faculty-card h3 {
-    margin-bottom: 15px;
 
-    font-size: 20px;
-}
 
-.faculty-card p {
-    margin-bottom: 8px;
 
-    font-size: 15px;
-}
+
+
+
+
+
+
 
 
 /* ==================================================
