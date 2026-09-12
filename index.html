@@ -202,30 +202,28 @@
         alt="Computer Engineering sticker"
     >
 
+<!-- ==================================================
+     TITLE
+================================================== -->
 
-    <!-- ==================================================
-         TITLE
-    ================================================== -->
+<h2 class="cool-title" id="cpeTitle">
 
-    <h2 class="cool-title">
+    <span data-text="WHAT IS">
+        WHAT IS
+    </span>
 
-        <span data-text="WHAT IS">
-            WHAT IS
-        </span>
+    <span
+        class="computer-font"
+        data-text="COMPUTER"
+    >
+        COMPUTER
+    </span>
 
-        <span
-            class="computer-font"
-            data-text="COMPUTER"
-        >
-            COMPUTER
-        </span>
+    <span data-text="ENGINEERING?">
+        ENGINEERING?
+    </span>
 
-        <span data-text="ENGINEERING?">
-            ENGINEERING?
-        </span>
-
-    </h2>
-
+</h2>
 
     <!-- ==================================================
          DESCRIPTION
@@ -242,6 +240,15 @@
 
     </div>
 
+<div class="press-sticker">
+
+    <img
+        src="Assets/click.png"
+        alt="Hardware"
+    >
+
+</div>
+
 
     <!-- ==================================================
          HARDWARE STICKER
@@ -255,7 +262,7 @@
         >
 
             <img
-                src="Assets/cpu222.png"
+                src="Assets/hw2.png"
                 alt="Hardware"
             >
 
@@ -301,86 +308,95 @@
 
 </section>
 
-
+<!-- ==================================================
+     SOFTWARE STICKER
+================================================== -->
 <div class="software-sticker">
 
-    <!-- HTML -->
-    <div class="code-window code-html">
-        <div class="code-header">
-            <span class="code-dot"></span>
-            <span class="code-title">HTML</span>
-        </div>
+    <!-- CLICKABLE SOFTWARE STICKER -->
+    <button class="software-trigger" onclick="openSoftware()">
 
-        <div class="code-content">
-            <span class="code-red">&lt;div</span>
-            <span class="code-yellow">class</span>
-            <span class="code-white">=</span>
-            <span class="code-green">"computer"</span>
-            <span class="code-red">&gt;</span>
+        <!-- HTML WINDOW -->
+        <div class="code-window code-html">
 
-            <div class="code-meaning">
-                Structure & Content
+            <div class="code-header">
+                <span class="code-dot"></span>
+                <span class="code-title">HTML</span>
             </div>
-        </div>
-    </div>
 
-
-    <!-- CSS -->
-    <div class="code-window code-css">
-        <div class="code-header">
-            <span class="code-dot"></span>
-            <span class="code-title">CSS</span>
-        </div>
-
-        <div class="code-content">
-            <span class="code-yellow">.computer</span>
-            <span class="code-white">{</span><br>
-
-            <span class="code-purple">display</span>
-            <span class="code-white">:</span>
-            <span class="code-yellow"> flex</span>
-            <span class="code-white">;</span><br>
-
-            <span class="code-purple">color</span>
-            <span class="code-white">:</span>
-            <span class="code-green"> #315F8A</span>
-            <span class="code-white">;</span><br>
-
-            <span class="code-white">}</span>
-
-            <div class="code-meaning">
-                Design & Appearance
+            <div class="code-content">
+                <span class="code-red">&lt;html&gt;</span><br>
+                <span class="code-orange">&lt;body&gt;</span><br>
+                <span class="code-yellow">Structure &amp; Content</span>
             </div>
-        </div>
-    </div>
 
-
-    <!-- JAVASCRIPT -->
-    <div class="code-window code-js">
-        <div class="code-header">
-            <span class="code-dot"></span>
-            <span class="code-title">JAVASCRIPT</span>
         </div>
 
-        <div class="code-content">
-            <span class="code-yellow">function</span>
-            <span class="code-blue"> create</span>
-            <span class="code-white">() {</span><br>
 
-            <span class="code-purple">return</span>
-            <span class="code-green"> "Innovation"</span>
-            <span class="code-white">;</span><br>
+        <!-- CSS WINDOW -->
+        <div class="code-window code-css">
 
-            <span class="code-white">}</span>
-
-            <div class="code-meaning">
-                Behavior & Interaction
+            <div class="code-header">
+                <span class="code-dot"></span>
+                <span class="code-title">CSS</span>
             </div>
+
+            <div class="code-content">
+                <span class="code-blue">.design</span> {<br>
+                <span class="code-green">Design &amp; Appearance</span><br>
+                }
+            </div>
+
         </div>
+
+
+        <!-- JAVASCRIPT WINDOW -->
+        <div class="code-window code-js">
+
+            <div class="code-header">
+                <span class="code-dot"></span>
+                <span class="code-title">JAVASCRIPT</span>
+            </div>
+
+            <div class="code-content">
+                <span class="code-purple">function</span>
+                <span class="code-white">interact()</span> {<br>
+                <span class="code-yellow">Behavior &amp; Interaction</span><br>
+                }
+            </div>
+
+        </div>
+
+    </button>
+
+
+    <!-- SOFTWARE INFORMATION CARD -->
+    <div class="t-modal software-modal" id="softwareModal">
+
+        <div class="software-card">
+
+            <button
+                class="software-close"
+                onclick="closeSoftware()"
+                aria-label="Close software information"
+            >
+                ×
+            </button>
+
+            <h3>SOFTWARE</h3>
+
+            <p>
+                Computer software refers to the programs and instructions
+                that tell a computer system what to do. Computer Engineers
+                work with software to create applications, control hardware,
+                and develop systems that solve real-world problems.
+            </p>
+
+        </div>
+
     </div>
 
 </div>
-
 <!-- ==================================================
      STREAMING TEXT ANIMATION
 ================================================== -->
@@ -516,6 +532,40 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const slide2 = document.querySelector(".cpe-description-slide");
+    const title = document.getElementById("cpeTitle");
+
+    const titleObserver = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    title.classList.remove("title-show");
+
+                    void title.offsetWidth;
+
+                    title.classList.add("title-show");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.25
+        }
+    );
+
+    titleObserver.observe(slide2);
+
+});
+</script>
+
 <!-- ==================================================
      HARDWARE MODAL
 ================================================== -->
@@ -565,6 +615,76 @@ function closeHardware() {
 </script>
 
 
+<script>
+
+function openHardware() {
+
+    const modal =
+        document.getElementById("hardwareModal");
+
+    modal.classList.remove("is-closing");
+
+    modal.classList.add("is-open");
+
+}
+
+
+function closeHardware() {
+
+    const modal =
+        document.getElementById("hardwareModal");
+
+    modal.classList.remove("is-open");
+
+    modal.classList.add("is-closing");
+
+    setTimeout(() => {
+
+        modal.classList.remove("is-closing");
+
+    }, 150);
+
+}
+
+</script>
+
+
+<!-- ==================================================
+     SOFTWARE MODAL
+================================================== -->
+
+<script>
+
+function openSoftware() {
+
+    const modal =
+        document.getElementById("softwareModal");
+
+    modal.classList.remove("is-closing");
+
+    modal.classList.add("is-open");
+
+}
+
+
+function closeSoftware() {
+
+    const modal =
+        document.getElementById("softwareModal");
+
+    modal.classList.remove("is-open");
+
+    modal.classList.add("is-closing");
+
+    setTimeout(() => {
+
+        modal.classList.remove("is-closing");
+
+    }, 150);
+
+}
+
+</script>
 
 
 
@@ -573,50 +693,109 @@ function closeHardware() {
 ================================================== -->
 
 <section class="cpe-next-slide">
-==
+
 
     <!-- ==================================================
-     4 HORIZONTAL STICKERS
-================================================== -->
+         5 HORIZONTAL STICKERS
+    ================================================== -->
 
-<div class="four-stickers">
+    <div class="four-stickers">
 
-    <!-- STICKER 1 -->
-    <div class="sticker sticker-1">
-        <img src="Assets/ROBOT.png" alt="Sticker 1">
+        <!-- STICKER 1 -->
+        <div class="sticker sticker-1">
+            <img src="Assets/ROBOT.png" alt="Robot">
+        </div>
+
+
+        <!-- STICKER 2 -->
+        <div class="sticker sticker-2">
+            <img src="Assets/IOT.png" alt="Internet of Things">
+        </div>
+
+
+        <!-- STICKER 3 -->
+        <div class="sticker sticker-3">
+            <img src="Assets/elec1.png" alt="Electronics">
+        </div>
+
+
+        <!-- STICKER 4 -->
+        <div class="sticker sticker-4">
+            <img src="Assets/AI.png" alt="Artificial Intelligence">
+        </div>
+
+
+        <!-- STICKER 5 -->
+        <div class="sticker sticker-5">
+            <img src="Assets/quotes1.png" alt="Computer Engineering">
+        </div>
+
     </div>
-
-    <!-- STICKER 2 -->
-    <div class="sticker sticker-2">
-        <img src="Assets/IOT.png" alt="Sticker 2">
-    </div>
-
-    <!-- STICKER 3 -->
-    <div class="sticker sticker-3">
-        <img src="Assets/ELEC.png" alt="Sticker 3">
-    </div>
-
-    <!-- STICKER 4 -->
-    <div class="sticker sticker-4">
-        <img src="Assets/AI.png" alt="Sticker 4">
-    </div>
-
-
-     <div class="sticker sticker-5">
-        <img src="Assets/quote1.png" alt="Sticker 5">
-    </div>
-
-
-</div>
-
-
 
 </section>
+
+
+<!-- ==================================================
+     SLIDE 3 — SCROLL ANIMATION
+================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const slide3 =
+        document.querySelector(".cpe-next-slide");
+
+    const stickers =
+        document.querySelector(".four-stickers");
+
+
+    if (!slide3 || !stickers) return;
+
+
+    const slide3Observer =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        /* Reset animation */
+                        stickers.classList.remove("slide3-show");
+
+                        void stickers.offsetWidth;
+
+                        /* Play animation */
+                        stickers.classList.add("slide3-show");
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.25
+            }
+
+        );
+
+
+    slide3Observer.observe(slide3);
+
+});
+
+</script>
+
+
 <!-- ==================================================
      SLIDE 4 — HISTORY OF COMPUTER ENGINEERING
 ================================================== -->
 
 <section class="history-slide">
+
 
     <!-- ==================================================
          TITLE
@@ -648,14 +827,25 @@ function closeHardware() {
                 01
             </div>
 
+
+            <!-- CARD 1 IMAGE -->
+            <img
+                src="Assets/history1.jpg"
+                class="history-card-image"
+                alt="Early computers"
+            >
+
+
             <div class="card-year">
                 1940s
             </div>
+
 
             <h3>
                 EARLY<br>
                 COMPUTERS
             </h3>
+
 
             <p>
                 The first electronic computers were developed using
@@ -675,14 +865,25 @@ function closeHardware() {
                 02
             </div>
 
+
+            <!-- CARD 2 IMAGE -->
+            <img
+                src="Assets/history2.jpg"
+                class="history-card-image"
+                alt="Transistors and circuits"
+            >
+
+
             <div class="card-year">
                 1950s–1960s
             </div>
+
 
             <h3>
                 TRANSISTORS<br>
                 &amp; CIRCUITS
             </h3>
+
 
             <p>
                 Transistors replaced vacuum tubes, making computers
@@ -702,14 +903,25 @@ function closeHardware() {
                 03
             </div>
 
+
+            <!-- CARD 3 IMAGE -->
+            <img
+                src="Assets/history3.jpg"
+                class="history-card-image"
+                alt="Microprocessor"
+            >
+
+
             <div class="card-year">
                 1970s
             </div>
+
 
             <h3>
                 THE<br>
                 MICROPROCESSOR
             </h3>
+
 
             <p>
                 Microprocessors placed the central processing unit
@@ -729,14 +941,25 @@ function closeHardware() {
                 04
             </div>
 
+
+            <!-- CARD 4 IMAGE -->
+            <img
+                src="Assets/history4.jpg"
+                class="history-card-image"
+                alt="Modern computer engineering"
+            >
+
+
             <div class="card-year">
                 TODAY
             </div>
+
 
             <h3>
                 MODERN<br>
                 COMPUTER ENGINEERING
             </h3>
+
 
             <p>
                 Modern CpE combines hardware and software in areas
@@ -770,6 +993,7 @@ document.addEventListener("DOMContentLoaded", function () {
         new IntersectionObserver(function (entries) {
 
             entries.forEach(function (entry) {
+
 
                 /* ==========================================
                    SLIDE 4 IS VISIBLE
@@ -806,6 +1030,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
+
+
+
+
 
 <!-- ==================================================
      SLIDE 5 — CAREERS
@@ -857,6 +1085,9 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 
 </section>
+
+
+
 
 <!-- ================================================== 
  EXPLORE CPE 
