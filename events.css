@@ -1,0 +1,1155 @@
+/* ==================================================
+   RESET
+================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #11152b;
+
+    color: white;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    padding: 20px 4%;
+
+    display: flex;
+    align-items: center;
+
+    z-index: 1000;
+
+    background: rgba(10, 14, 35, 0.35);
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* ==================================================
+   NAV CONTAINER
+================================================== */
+
+.nav-container {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+/* ==================================================
+   LOGO
+================================================== */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* ==================================================
+   MAIN NAV
+================================================== */
+
+.main-nav {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 25px;
+
+    width: 100%;
+}
+
+.main-nav a {
+    position: relative;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ==================================================
+   NAV UNDERLINE
+================================================== */
+
+.main-nav a:not(.join-btn)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: white;
+
+    transition: width 0.3s ease;
+}
+
+.main-nav a:not(.join-btn):hover::after {
+    width: 100%;
+}
+
+.main-nav a:hover {
+    color: #d8ffff;
+}
+
+
+/* ==================================================
+   JOIN BUTTON
+================================================== */
+
+.join-btn {
+    padding: 12px 16px;
+
+    border: 2px solid #d8ffff;
+
+    border-radius: 30px;
+
+    color: white !important;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.join-btn:hover {
+    background: rgba(216, 255, 255, 0.12);
+
+    box-shadow:
+        0 0 10px rgba(216, 255, 255, 0.6),
+        0 0 25px rgba(216, 255, 255, 0.25);
+
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   EVENTS WRAPPER
+================================================== */
+
+.events-wrapper {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   EVENT SLIDE
+================================================== */
+
+.event-slide {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    padding-top: 90px;
+
+    padding-left: 10%;
+    padding-right: 10%;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(100%);
+
+    transition:
+        transform 0.9s cubic-bezier(0.77, 0, 0.18, 1),
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+}
+
+
+/* ==================================================
+   ACTIVE
+================================================== */
+
+.event-slide.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+    z-index: 5;
+}
+
+
+/* ==================================================
+   EXIT UP
+================================================== */
+
+.event-slide.exit-up {
+    opacity: 0;
+
+    visibility: visible;
+
+    transform: translateY(-100%);
+
+    z-index: 4;
+}
+
+
+/* ==================================================
+   EXIT DOWN
+================================================== */
+
+.event-slide.exit-down {
+    opacity: 0;
+
+    visibility: visible;
+
+    transform: translateY(100%);
+
+    z-index: 4;
+}
+
+
+/* ==================================================
+   PREPARE UP
+================================================== */
+
+.event-slide.prepare-up {
+    transform: translateY(100%);
+}
+
+
+/* ==================================================
+   PREPARE DOWN
+================================================== */
+
+.event-slide.prepare-down {
+    transform: translateY(-100%);
+}
+
+
+/* ==================================================
+   BACKGROUNDS
+================================================== */
+
+.event-bg {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -2;
+}
+
+
+/* ==================================================
+   HUDDLES
+================================================== */
+
+#huddles {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(91, 101, 169, 0.65),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #14182f 0%,
+            #292a3d 50%,
+            #5265a9 100%
+        );
+}
+
+
+/* ==================================================
+   SEMINARS
+================================================== */
+
+#seminars {
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(80, 120, 190, 0.55),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #10172e 0%,
+            #26365e 50%,
+            #5265a9 100%
+        );
+}
+
+
+/* ==================================================
+   CHRISTMAS
+================================================== */
+
+#christmas {
+    background:
+        radial-gradient(
+            circle at 75% 25%,
+            rgba(180, 50, 60, 0.55),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #241522 0%,
+            #5c2631 50%,
+            #8a4b45 100%
+        );
+}
+
+
+/* ==================================================
+   MORE EVENTS
+================================================== */
+
+#more-events {
+    background:
+        radial-gradient(
+            circle at 30% 20%,
+            rgba(202, 169, 78, 0.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #171827 0%,
+            #302c43 50%,
+            #64533b 100%
+        );
+}
+
+
+/* ==================================================
+   EVENT NUMBER
+================================================== */
+
+.event-number {
+    position: absolute;
+
+    top: 145px;
+    right: 8%;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: clamp(
+        50px,
+        10vw,
+        140px
+    );
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* ==================================================
+   EVENT CONTENT
+================================================== */
+
+.event-content {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* ==================================================
+   EVENT TEXT
+================================================== */
+
+.event-text {
+    max-width: 650px;
+}
+
+.small-title {
+    display: inline-block;
+
+    margin-bottom: 25px;
+
+    padding: 9px 15px;
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.6
+    );
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.06
+    );
+}
+
+
+/* ==================================================
+   TITLE
+================================================== */
+
+.event-text h1 {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: clamp(
+        35px,
+        5vw,
+        70px
+    );
+
+    line-height: 1.2;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        4px 4px 0 rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+}
+
+
+/* ==================================================
+   DESCRIPTION
+================================================== */
+
+.event-text p {
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    max-width: 580px;
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.85
+    );
+}
+
+
+/* ==================================================
+   EVENT IMAGE
+================================================== */
+
+.event-image {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* ==================================================
+   IMAGE FRAME
+================================================== */
+
+.image-frame {
+    width: 100%;
+
+    max-width: 560px;
+
+    aspect-ratio: 16 / 10;
+
+    border: 3px solid rgba(
+        255,
+        255,
+        255,
+        0.8
+    );
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(
+                255,
+                255,
+                255,
+                0.08
+            ),
+            rgba(
+                255,
+                255,
+                255,
+                0.02
+            )
+        );
+
+    box-shadow:
+        15px 15px 0 rgba(
+            0,
+            0,
+            0,
+            0.18
+        );
+
+    transform: rotate(2deg);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+.image-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+
+    box-shadow:
+        20px 20px 0 rgba(
+            0,
+            0,
+            0,
+            0.22
+        );
+}
+
+
+/* ==================================================
+   IMAGE PLACEHOLDER
+================================================== */
+
+.image-frame::before {
+    content: "EVENT PHOTO";
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 11px;
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.55
+    );
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            transparent 0,
+            transparent 10px,
+            rgba(
+                255,
+                255,
+                255,
+                0.025
+            ) 10px,
+            rgba(
+                255,
+                255,
+                255,
+                0.025
+            ) 20px
+        );
+}
+
+
+/* ==================================================
+   CLICK NEXT
+================================================== */
+
+.click-next {
+    position: absolute;
+
+    bottom: 45px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.7
+    );
+
+    letter-spacing: 1px;
+
+    animation:
+        pulseNext 2s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+.click-next::after {
+    content: " ↓";
+
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   CLICK ANIMATION
+================================================== */
+
+@keyframes pulseNext {
+
+    0%,
+    100% {
+        opacity: 0.35;
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            translateY(5px);
+    }
+}
+
+
+/* ==================================================
+   FINAL NAVIGATION
+================================================== */
+
+.event-navigation {
+    position: absolute;
+
+    bottom: 45px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    gap: 20px;
+
+    z-index: 20;
+}
+
+
+/* ==================================================
+   NAV BUTTON
+================================================== */
+
+.event-nav-btn {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    min-width: 210px;
+
+    padding: 15px 20px;
+
+    border: 2px solid white;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.05
+        );
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ==================================================
+   BUTTON HOVER
+================================================== */
+
+.event-nav-btn:hover {
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.14
+        );
+
+    box-shadow:
+        0 0 12px rgba(
+            255,
+            255,
+            255,
+            0.45
+        ),
+        0 0 30px rgba(
+            255,
+            255,
+            255,
+            0.15
+        );
+
+    transform:
+        translateY(-4px);
+}
+
+
+/* ==================================================
+   ARROW
+================================================== */
+
+.event-nav-btn .arrow {
+    font-size: 18px;
+
+    line-height: 1;
+}
+
+
+/* ==================================================
+   DECORATIVE LINE
+================================================== */
+
+.event-slide::before {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 3%;
+
+    width: 1px;
+    height: 180px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
+
+    transform:
+        translateY(-50%);
+}
+
+
+.event-slide::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 8%;
+    right: 4%;
+
+    width: 120px;
+    height: 1px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
+}
+
+
+/* ==================================================
+   RESPONSIVE - 1100px
+================================================== */
+
+@media (max-width: 1100px) {
+
+    .main-nav {
+        gap: 15px;
+    }
+
+    .main-nav a {
+        font-size: 7px;
+    }
+
+    .join-btn {
+        padding: 10px 12px;
+    }
+
+    .event-content {
+        gap: 40px;
+    }
+
+    .event-slide {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+}
+
+
+/* ==================================================
+   RESPONSIVE - 900px
+================================================== */
+
+@media (max-width: 900px) {
+
+    header {
+        height: 75px;
+
+        padding: 15px 5%;
+    }
+
+    .logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .event-slide {
+        padding-top: 75px;
+
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .event-content {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        text-align: center;
+
+        overflow-y: auto;
+
+        max-height: 78vh;
+
+        padding: 30px 0;
+    }
+
+    .event-text {
+        max-width: 100%;
+    }
+
+    .event-text p {
+        margin: auto;
+    }
+
+    .event-image {
+        order: 2;
+    }
+
+    .image-frame {
+        max-width: 500px;
+    }
+
+    .event-number {
+        top: 95px;
+
+        right: 5%;
+
+        font-size: 70px;
+    }
+
+    .event-slide::before {
+        display: none;
+    }
+}
+
+
+/* ==================================================
+   RESPONSIVE - 800px
+================================================== */
+
+@media (max-width: 800px) {
+
+    .event-slide {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .event-text h1 {
+        font-size: 35px;
+    }
+
+    .event-text p {
+        font-size: 15px;
+    }
+
+    .event-navigation {
+        width: 90%;
+
+        gap: 10px;
+    }
+
+    .event-nav-btn {
+        min-width: 0;
+
+        width: 50%;
+
+        padding: 13px 10px;
+
+        font-size: 7px;
+    }
+}
+
+
+/* ==================================================
+   RESPONSIVE - 600px
+================================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 12px 5%;
+    }
+
+    .logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .event-slide {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .event-content {
+        max-height: 80vh;
+
+        gap: 25px;
+    }
+
+    .small-title {
+        font-size: 7px;
+
+        padding: 7px 10px;
+
+        margin-bottom: 18px;
+    }
+
+    .event-text h1 {
+        font-size: 28px;
+
+        margin-bottom: 18px;
+    }
+
+    .event-text p {
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+    .image-frame {
+        width: 95%;
+
+        box-shadow:
+            8px 8px 0 rgba(
+                0,
+                0,
+                0,
+                0.2
+            );
+    }
+
+    .event-number {
+        font-size: 50px;
+
+        top: 90px;
+    }
+
+    .click-next {
+        bottom: 20px;
+
+        font-size: 7px;
+    }
+
+    .event-navigation {
+        bottom: 18px;
+
+        flex-direction: column;
+
+        width: 85%;
+    }
+
+    .event-nav-btn {
+        width: 100%;
+    }
+}
+
+
+/* ==================================================
+   RESPONSIVE - 400px
+================================================== */
+
+@media (max-width: 400px) {
+
+    .event-text h1 {
+        font-size: 23px;
+    }
+
+    .event-text p {
+        font-size: 12px;
+    }
+
+    .event-number {
+        font-size: 40px;
+    }
+
+    .event-nav-btn {
+        padding: 11px 8px;
+
+        font-size: 6px;
+    }
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}
