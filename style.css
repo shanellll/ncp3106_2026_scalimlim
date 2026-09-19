@@ -65,29 +65,22 @@ body {
     z-index: 5;
 }
 
-
 /* ==================================================
    NAVIGATION CONTAINER
 ================================================== */
 
 header {
     position: relative;
-
     width: 100%;
-
     padding: 20px;
-
     background: transparent;
-
     box-sizing: border-box;
-
     z-index: 10;
 }
 
 .nav-container {
     width: 90%;
-    max-width: 1400px;
-
+    max-width: 1200px;
     margin: 0 auto;
 
     padding: 6px 14px;
@@ -95,9 +88,10 @@ header {
     display: flex;
     align-items: center;
 
-    background: transparent;
+    background: #42424271;
 
-    border: 2px solid #222222;
+    border: 2px solid #00000085;
+
     border-radius: 50px;
 
     box-sizing: border-box;
@@ -111,18 +105,14 @@ header {
 .logo {
     display: flex;
     align-items: center;
-
     flex-shrink: 0;
-
     padding-left: 8px;
 }
 
 .logo img {
     width: 50px;
     height: 50px;
-
     object-fit: contain;
-
     display: block;
 }
 
@@ -138,7 +128,6 @@ header {
     align-items: center;
 
     gap: 4px;
-
     margin-left: auto;
 
     white-space: nowrap;
@@ -146,7 +135,7 @@ header {
 
 
 /* ==================================================
-   NAVIGATION LINKS
+   NAVIGATION LINKS — PIXEL FONT
 ================================================== */
 
 .main-nav a {
@@ -157,15 +146,17 @@ header {
     justify-content: center;
 
     height: 48px;
-
     padding: 0 11px;
 
     text-decoration: none;
 
-    color: #222222;
+    color: #fffbfb;
 
-    font-size: 15px;
-    font-weight: 800;
+    /* PIXEL FONT */
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 11px;
+    font-weight: normal;
 
     border-radius: 30px;
 
@@ -201,7 +192,7 @@ header {
     width: 0;
     height: 3px;
 
-    background: #222222;
+    background: #ffffff;
 
     border-radius: 5px;
 
@@ -214,32 +205,78 @@ header {
     width: 65%;
 }
 
+@font-face {
+    font-family: "Hunger Games";
+    src: url("Assets/Hunger\ Games.ttf")
+         format("opentype");
+
+}
 
 /* ==================================================
    JOIN BUTTON
 ================================================== */
 
 .join-btn {
-    height: 48px !important;
+    position: relative;
 
+    height: 48px !important;
     padding: 0 17px !important;
 
-    background: #222222;
+    background: #978f8f63;
 
-    color: white !important;
+    color: #0d3513 !important;
 
-    border: 2px solid #222222;
+    border: 2px solid transparent;
 
     border-radius: 30px;
-    font-family: "Press Start 2P", cursive;
 
-    font-size: 10px !important;
-  
+     font-family: "Hunger Games", Arial, sans-serif;
+    font-size: 13px !important;
+    font-weight: 1900;
+
+    z-index: 1;
 
     transition:
         transform 0.3s ease,
-        background 0.3s ease,
         color 0.3s ease;
+}
+
+
+/* ==================================================
+   JOIN BUTTON BORDER
+================================================== */
+
+.join-btn::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -2px;
+
+    border-radius: 30px;
+
+    background: transparent;
+
+    z-index: -1;
+}
+
+
+/* ==================================================
+   BUTTON INNER
+================================================== */
+
+.join-btn::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 28px;
+
+    background: #746d6d;
+
+    z-index: -1;
 }
 
 
@@ -248,23 +285,12 @@ header {
 ================================================== */
 
 .join-btn:hover {
-    background: white;
-    color: #222222 !important;
-
     transform:
         translateY(-2px)
         scale(1.03);
+
+    color: #ffffff !important;
 }
-
-
-/* REMOVE UNDERLINE FROM JOIN BUTTON */
-
-.main-nav a.join-btn::after {
-    display: none;
-}
-
-
-
 
 
 /* ==================================================
@@ -539,8 +565,22 @@ header {
     white-space: nowrap;
     overflow: hidden;
     display: table;
-    color:#244A73;;
 
+    /* TEXT GRADIENT */
+    background: linear-gradient(
+        135deg,
+        #172b3a,
+        #244A73,
+        #233e5c,
+        #234461,
+        #16314e,
+        #172b3a
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
     animation: computerType 10s steps(8, end) infinite;
 }
 
@@ -1115,10 +1155,10 @@ header {
 .press-sticker {
     position: absolute;
 
-    left: 90%;
-    top: 75%;
+    left: 82%;
+    top: 80%;
 
-    width: 200px;
+    width: 150px;
 
     z-index: 6000;
 
@@ -1152,26 +1192,6 @@ header {
     }
 }
 
-
-/* ==================================================
-   SOFTWARE STICKER
-================================================== */
-
-.software-sticker {
-    position: absolute;
-
-    left: 77%;
-    top: 110%;
-
-    width: 500px;
-    height: 420px;
-
-    z-index: 8000;
-
-    pointer-events: auto;
-
-    animation: softwareFloat 4s ease-in-out infinite;
-}
 
 
 
@@ -1413,10 +1433,6 @@ header {
     box-sizing: border-box;
 
     box-shadow: 8px 8px 0 #244A73;
-}
-
-.software-card h3 {
-    font-family: "Light Pixel", Arial, sans-serif;
 }
 
 .software-card p {
@@ -1758,207 +1774,22 @@ header {
 
 
 
-
-
-
 /* ==================================================
-   SLIDE 3 — SCROLL ANIMATION
+   SLIDE 3 — BLUE BACKGROUND
 ================================================== */
-
-.four-stickers {
-    opacity: 0;
-    transform: translateY(80px);
-}
-
-
-/* Animation */
-@keyframes slide3Reveal {
-
-    0% {
-        opacity: 0;
-        transform: translateY(80px);
-    }
-
-    70% {
-        opacity: 1;
-        transform: translateY(-10px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-
-/* When Slide 3 is visible */
-.four-stickers.slide3-show {
-    animation: slide3Reveal 1s ease-out forwards;
-}
 
 .cpe-next-slide {
     width: 100%;
-    height: 390px;
-
+    height: 175px;
     position: relative;
 
     margin: 0;
     padding: 0;
 
-    /* CHANGE THIS COLOR */
-    background: #244A73;
+    background: #244A73; 
 
     overflow: hidden;
 }
-
-
-/* ==================================================
-   REMOVE BACKGROUND IMAGE
-================================================== */
-
-.cpe-next-bg {
-    display: none;
-}
-
-
-/* ==================================================
-   4 HORIZONTAL STICKERS
-================================================== */
-
-.four-stickers {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    z-index: 500;
-
-    overflow: visible;
-}
-
-
-/* ==================================================
-   EVERY STICKER
-================================================== */
-
-.sticker {
-    position: absolute;
-
-    width: 1400px;
-
-    cursor: pointer;
-}
-
-
-/* ==================================================
-   IMAGE
-================================================== */
-
-.sticker img {
-    width: 100%;
-    height: auto;
-
-    display: block;
-
-    object-fit: contain;
-}
-
-
-/* ==================================================
-   STICKER 1
-================================================== */
-
-.sticker-1 {
-    left: -760px;
-    top: -40px;
-}
-
-
-/* ==================================================
-   STICKER 2
-================================================== */
-
-.sticker-2 {
-    left: -740px;
-    top: -160px;
-}
-
-
-/* =================================
-   STICKER 3 — FREE / INDEPENDENT
-================================= */
-
-.sticker-3 {
-    position: absolute;
-
-    width: 340px;      /* SIZE */
-    height: auto;
-
-    left: 70%;         /* LEFT / RIGHT */
-    top: 90px;        /* UP / DOWN */
-
-    z-index: 600;
-}
-
-.sticker-3 img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* ==================================================
-   STICKER 4
-================================================== */
-
-.sticker-4 {
-    right: -1000px;
-    top: -50px;
-}
-
-
-/* ==================================================
-   STICKER 5 — INDEPENDENT
-================================================== */
-
-.sticker-5 {
-    position: absolute;
-
-    width: 650px;
-    height: 600px;
-
-    left: 35%;
-    top: 45%;
-
-    z-index: 600;
-
-    pointer-events: none;
-}
-
-
-/* ==================================================
-   HOVER — STICKERS 1–4
-================================================== */
-
-.sticker-1:hover {
-    transform: translateY(-20px) scale(1.05);
-}
-
-.sticker-2:hover {
-    transform: translateY(-20px) scale(1.05);
-}
-
-.sticker-3:hover {
-    transform: translateY(-20px) scale(1.05);
-}
-
-.sticker-4:hover {
-    transform: translateY(-20px) scale(1.05);
-}
-
-
 
 
 
@@ -1984,8 +1815,7 @@ header {
     position: relative;
     overflow: hidden;
 
-    background: #aeb8ad;
-
+    background: #fffaef;
     padding: 65px 5%;
 
     box-sizing: border-box;
@@ -2433,7 +2263,135 @@ header {
 
 
 
+/* ==================================================
+   SLIDE 5
+================================================== */
 
+
+/* ==================================================
+   EXPLORE CPE MARQUEE
+================================================== */
+
+.explore-marquee {
+    width: 100%;
+
+    height: 65px;
+
+    margin-top: -2px;
+    margin-bottom: -2px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+  
+    background:#aeb8ad 
+}
+
+
+/* ==================================================
+   MOVING TRACK
+================================================== */
+
+.explore-track {
+    display: flex;
+
+    width: max-content;
+
+    white-space: nowrap;
+
+    animation:
+        exploreMove
+        18s
+        linear
+        infinite;
+}
+
+
+/* ==================================================
+   EXPLORE CPE TEXT
+================================================== */
+
+.explore-track span {
+    flex-shrink: 0;
+
+    margin-right: 100px;
+
+    font-family: "Press Start 2P", sans-serif;
+
+    font-size: 26px;
+    .explore-track span {
+    flex-shrink: 0;
+    margin-right: 100px;
+
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 26px;
+
+    color: #244A73;
+
+    font-weight: 900;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   LEFT → RIGHT ANIMATION
+================================================== */
+
+@keyframes exploreMove {
+
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .cpe-description-slide {
+        height: 550px;
+    }
+
+    .cpe-description-content {
+        width: 90%;
+        left: 5%;
+        top: 120px;
+    }
+
+    .cool-title {
+        font-size: 42px;
+        line-height: 1.15;
+        letter-spacing: -1px;
+    }
+
+    .cool-title span {
+        margin-right: 6px;
+    }
+
+    .cpe-description-content p {
+        font-size: 16px;
+    }
+
+}
 
 
 
@@ -2447,7 +2405,7 @@ header {
     height: 600px;
     position: relative;
     overflow: hidden;
-    background: #f5f1e8;
+    background: #aeb8ad
 }
 
 
@@ -2487,14 +2445,14 @@ header {
 /* SMALL LABEL */
 
 .career-label {
-    font-family: Arial, sans-serif;
-    font-size: 18px;
+    font-family:"Light Pixel", Arial, sans-serif;
+    font-size: 40px;
     font-weight: 900;
     letter-spacing: 4px;
 
-    color: #263f3b;
+    color: #172b3a;
 
-    margin-bottom: 25px;
+    margin-bottom: 5px;
 }
 
 
@@ -2512,6 +2470,13 @@ header {
 }
 
 
+
+@font-face {
+    font-family: "Pixel";
+    src: url("Assets/Pixel\ Tandy.otf") format("truetype");
+}
+
+
 /* EACH CAREER */
 
 .dropping-texts > div {
@@ -2520,14 +2485,14 @@ header {
     left: 0;
     top: 0;
 
-    font-family: "Hunger Games", Impact, sans-serif;
-    font-size: 65px;
+    font-family: "Pixel";
+    font-size: 70px;
     line-height: 0.95;
 
     font-weight: 900;
     letter-spacing: 1px;
 
-    color: #172f2c;
+    color: #244A73;
 
     opacity: 0;
 
@@ -2564,131 +2529,70 @@ header {
     animation: careerRollLast 10s linear infinite 8s;
 }
 
-
 /* ==================================================
-   MAIN DROP MOVEMENT
+   CAREER ANIMATION — CLEAN TEXT CHANGE
 ================================================== */
 
 @keyframes careerRoll {
 
     0% {
         opacity: 0;
-        transform:
-            translateX(-45px)
-            translateY(-20px)
-            rotate(-15deg);
-
-        font-size: 0px;
+        transform: translateY(0);
     }
 
-    4% {
+    5% {
         opacity: 1;
-
-        transform:
-            translateX(0)
-            translateY(0)
-            rotate(0deg);
-
-        font-size: 65px;
+        transform: translateY(0);
     }
 
     18% {
         opacity: 1;
-
-        transform:
-            translateX(0)
-            translateY(0)
-            rotate(0deg);
-
-        font-size: 65px;
+        transform: translateY(0);
     }
 
-    23% {
-        opacity: 0.5;
-
-        transform:
-            translateX(25px)
-            translateY(80px)
-            rotate(8deg);
-
-        font-size: 20px;
+    22% {
+        opacity: 0;
+        transform: translateY(0);
     }
 
     100% {
         opacity: 0;
-
-        transform:
-            translateX(-45px)
-            translateY(-20px)
-            rotate(-15deg);
-
-        font-size: 0px;
+        transform: translateY(0);
     }
 }
 
 
 /* ==================================================
-   LAST CAREER
+   LAST CAREER — CLEAN TEXT CHANGE
 ================================================== */
 
 @keyframes careerRollLast {
 
     0% {
         opacity: 0;
-
-        transform:
-            translateX(-45px)
-            translateY(-20px)
-            rotate(-15deg);
-
-        font-size: 0px;
+        transform: translateY(0);
     }
 
-    4% {
+    5% {
         opacity: 1;
-
-        transform:
-            translateX(0)
-            translateY(0)
-            rotate(0deg);
-
-        font-size: 65px;
+        transform: translateY(0);
     }
 
     25% {
         opacity: 1;
-
-        transform:
-            translateX(0)
-            translateY(0)
-            rotate(0deg);
-
-        font-size: 65px;
+        transform: translateY(0);
     }
 
-    31% {
+    30% {
         opacity: 0;
-
-        transform:
-            translateX(40px)
-            translateY(100px)
-            rotate(10deg);
-
-        font-size: 20px;
+        transform: translateY(0);
     }
 
     100% {
         opacity: 0;
-
-        transform:
-            translateX(-45px)
-            translateY(-20px)
-            rotate(-15deg);
-
-        font-size: 0px;
+        transform: translateY(0);
     }
 }
-
 
 /* ==================================================
    RIGHT SIDE — DESCRIPTION
@@ -2707,12 +2611,12 @@ header {
 .career-description h2 {
     margin: 0 0 25px;
 
-    font-family: Arial, sans-serif;
-    font-size: 42px;
+    font-family: "masaki";
+    font-size: 50px;
     line-height: 0.95;
 
     font-weight: 900;
-    letter-spacing: -1px;
+    letter-spacing: 1px;
 
     color: #263f3b;
 }
@@ -2720,10 +2624,18 @@ header {
 
 /* PARAGRAPH */
 
+
+
+@font-face {
+    font-family: "Light Pixel";
+    src: url("Assets/light_pixel.ttf")
+         format("truetype");
+}
+
 .career-description p {
     margin: 0 0 18px;
 
-    font-family: Arial, sans-serif;
+    font-family:"Light Pixel", sans-serif;
     font-size: 17px;
     line-height: 1.6;
 
@@ -2734,21 +2646,17 @@ header {
 
 
 
-
-
-
-
 /* ==================================================
-   EXPLORE CPE MARQUEE
+   EXPLORE CPE MARQUEE2
 ================================================== */
 
-.explore-marquee {
+.explore-marquee2 {
     width: 100%;
 
     height: 65px;
 
-    margin-top: 25px;
-    margin-bottom: 20px;
+    margin-top: -2px;
+    margin-bottom: -2px;
 
     overflow: hidden;
 
@@ -2756,6 +2664,8 @@ header {
     align-items: center;
 
     position: relative;
+  
+    background:#aeb8ad
 }
 
 
@@ -2787,9 +2697,10 @@ header {
 
     margin-right: 100px;
 
-    font-family: Arial, sans-serif;
+    font-family: "Press Start 2P", sans-serif;
 
     font-size: 26px;
+    color: #204b20;
 
     font-weight: 900;
 
@@ -2859,25 +2770,8 @@ header {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* ================================================================
-  simula nung folder
-=================================================================*/
-
-
 /* ==================================================
-   BIG FOLDER NAVIGATION
+   SLIDE 6 - BIG FOLDER NAVIGATION
 ================================================== */
 
 .folder-navigation {
@@ -2886,7 +2780,8 @@ header {
 
     padding: 100px 0 150px;
 
-    background: #f1f0e8;
+    
+    background: #fffaef;
 
     overflow: hidden;
 }
@@ -2902,12 +2797,12 @@ header {
 }
 
 .folder-title h2 {
-    margin: 0;
+    margin: -5;
 
-    font-family: "Press Start 2P", sans-serif;
-    font-size: 28px;
+    font-family: "Hunger Games", sans-serif;
+    font-size: 50px;
 
-    color: #292a3d;
+    color: #222222;
 
     letter-spacing: 1px;
 }
@@ -2915,10 +2810,9 @@ header {
 .folder-title p {
     margin-top: 20px;
 
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-
-    color: #555;
+    font-family: "Masaki", sans-serif;
+    font-size: 35px;
+    color: #0b4069;
 }
 
 
@@ -2958,7 +2852,6 @@ header {
     z-index: 1;
 }
 
-
 /* ==================================================
    FOLDER BACK
 ================================================== */
@@ -2967,13 +2860,12 @@ header {
     position: relative;
 
     width: 100%;
-    height: 100%;
+    height: 110%;
 
     background: #303149;
 
     border-radius: 0 5px 5px 5px;
 
-    /* IMPORTANT */
     z-index: 1;
 }
 
@@ -2987,7 +2879,8 @@ header {
 
     position: absolute;
 
-    bottom: calc(100% + 1px);
+    /* NO GAP */
+    bottom: calc(100% - 1px);
 
     width: 220px;
     height: 70px;
@@ -2996,12 +2889,10 @@ header {
 
     border-radius: 25px 25px 0 0;
 
-    /* IMPORTANT */
     z-index: 50;
 
     pointer-events: none;
 }
-
 
 
 /* ==================================================
@@ -3168,9 +3059,6 @@ header {
     transform: skew(-10deg) scaleY(0.65);
 }
 
-/* ==================================================
-   FOLDER COLORS
-================================================== */
 
 
 /* --------------------------------------------------
@@ -4333,100 +4221,405 @@ header {
 
 
 /* ==================================================
-   CONTENT SECTIONS
+   PIXEL FONT
 ================================================== */
 
-.content-section {
-    min-height: 400px;
-
-    padding:
-        100px
-        20px;
-
-    text-align: left;
-
-    background: #eeeeee;
+@font-face {
+    font-family: "Light Pixel";
+    src: url("Assets/light_pixel.ttf") format("truetype");
 }
 
-.content-section h2 {
-    font-size: 40px;
+/* ==================================================
+   CONTACT
+================================================== */
 
-    margin-bottom: 20px;
-}
+.contact-section {
+    position: relative;
 
-.content-section p {
-    max-width: 700px;
+    min-height: 600px;
 
-    line-height: 1.8;
+    padding: 80px 70px;
 
-    font-size: 17px;
+    background: #aeb8ad;
 
-    margin-bottom: 15px;
+    color: #ffffff;
+
+    overflow: hidden;
 }
 
 
 /* ==================================================
-   INFORMATION BOXES
+   BIG CONTACT TITLE
 ================================================== */
 
-.info-grid {
-    display: grid;
+.contact-title {
+    position: absolute;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    top: 55px;
 
-    gap: 25px;
-
-    max-width: 1100px;
-
-    margin-top: 40px;
+    right: 85px;
 }
 
-.info-box {
-    background: white;
 
-    border:
-        2px solid
-        #222222;
+.contact-title h2 {
+    margin: 0;
 
-    border-radius: 8px;
+    font-family: "Press Start 2P", cursive;
+    font-size: 110px;
 
-    padding: 25px;
+    font-weight: 900;
+
+    letter-spacing: -7px;
+
+    line-height: 1;
+
+    color: #ffffff;
+}
+
+
+/* ==================================================
+   SOCIAL MEDIA
+================================================== */
+
+.contact-socials {
+    position: absolute;
+
+    top: 190px;
+
+    right: 270px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 35px;
+}
+
+
+/* ==================================================
+   SOCIAL ITEM
+================================================== */
+
+.social-item {
+    width: 145px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #ffffff;
 
     transition:
         transform 0.3s ease;
 }
 
-.info-box:hover {
-    transform:
-        translateY(-5px);
+
+/* ==================================================
+   SOCIAL ICON
+================================================== */
+
+.social-icon i {
+    transform: scale(1);
+
+    image-rendering: pixelated;
+}
+.social-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border:
+        3px solid
+        #ffffff;
+
+    border-radius: 0;
+
+    background: #222222;
+
+    color: #ffffff;
+
+    font-size: 28px;
+
+    margin-bottom: 12px;
+
+    image-rendering: pixelated;
+
+    box-shadow:
+        4px 0 #ffffff,
+        -4px 0 #ffffff,
+        0 4px #ffffff,
+        0 -4px #ffffff;
 }
 
-.info-box h3 {
-    font-size: 18px;
+/* ==================================================
+   SOCIAL NAME
+================================================== */
 
-    margin-bottom: 15px;
-}
+.social-item span {
+    font-family: "Light Pixel", sans-serif;
 
-.info-box p {
     font-size: 14px;
 
-    line-height: 1.6;
+    font-weight: normal;
+
+    line-height: 1.4;
+
+    color: #ffffff;
+}
+
+/* ==================================================
+   SOCIAL HOVER
+================================================== */
+
+.social-item:hover {
+    transform: translateY(-6px);
 }
 
 
+.social-item:hover .social-icon {
+    background: #ffffff;
+
+    color: #aeb8ad;
+
+    transform: scale(1.08);
+}
 
 
+/* ==================================================
+   CONTACT DETAILS
+================================================== */
+
+.contact-details {
+    position: absolute;
+
+    left: 70px;
+
+    bottom: 70px;
+
+    width: 52%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
 
 
+/* ==================================================
+   QUOTE
+================================================== */
+
+.contact-quote {
+    max-width: 560px;
+
+    margin-bottom: 38px;
+
+    padding-left: 18px;
+
+    border-left:
+        4px solid
+        #ffffff;
+}
 
 
+.contact-quote p {
+    margin: 0;
+
+    font-family: "Press Start 2P";
+    
+    font-size: 21px;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+
+    color: #ffffff;
+}
 
 
+/* ==================================================
+   CONTACT DETAIL
+================================================== */
+
+.contact-detail {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    width: 100%;
+
+    margin-bottom: 18px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.5;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
 
 
+/* ==================================================
+   CONTACT DETAIL ICON
+================================================== */
+
+.contact-detail i {
+    width: 28px;
+
+    flex-shrink: 0;
+
+    padding-top: 3px;
+
+    font-size: 22px;
+
+    text-align: center;
+}
 
 
+/* ==================================================
+   CONTACT DETAIL HOVER
+================================================== */
+
+a.contact-detail:hover {
+    transform: translateX(6px);
+
+    opacity: 0.75;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1000px) {
+
+    .contact-title {
+        right: 50px;
+    }
+
+    .contact-title h2 {
+        font-size: 75px;
+    }
+
+    .contact-socials {
+        right: 45px;
+
+        gap: 20px;
+    }
+
+    .contact-details {
+        left: 50px;
+
+        width: 55%;
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .contact-section {
+        min-height: 800px;
+
+        padding: 50px 30px;
+    }
+
+    .contact-title {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        text-align: center;
+
+        margin-bottom: 50px;
+    }
+
+    .contact-title h2 {
+        font-size: 60px;
+    }
+
+    .contact-socials {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        justify-content: center;
+
+        margin-bottom: 60px;
+    }
+
+    .contact-details {
+        position: relative;
+
+        left: auto;
+        bottom: auto;
+
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .contact-title h2 {
+        font-size: 45px;
+    }
+
+    .contact-socials {
+        gap: 5px;
+    }
+
+    .social-item {
+        width: 105px;
+    }
+
+    .social-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 24px;
+    }
+
+    .social-item span {
+        font-size: 10px;
+    }
+
+    .contact-quote p {
+        font-size: 17px;
+    }
+
+    .contact-detail {
+        font-size: 14px;
+    }
+
+}
 
 
 
@@ -4679,3 +4872,112 @@ header {
 
 }
 
+/* ==========================================
+   MOBILE & TABLET RESPONSIVE OVERRIDES
+   ========================================== */
+
+@media (max-width: 768px) {
+  /* 1. Header & Navigation Adjustments */
+  .nav-container {
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  
+  .main-nav {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* 2. Hero Section Typography & Heights */
+  .hero-content {
+    height: auto;
+    min-height: 500px;
+    padding: 40px 10px;
+  }
+
+  .computer-text {
+    font-size: clamp(36px, 10vw, 70px);
+  }
+
+  .engineering-text {
+    font-size: clamp(16px, 4.5vw, 28px);
+  }
+
+  .explore-btn, .learn-btn {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    margin: 15px auto;
+    animation: none;
+  }
+
+  /* 3. Description Slide Adjustments */
+  .cpe-description-slide {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .cpe-description-content {
+    position: relative;
+    width: 100%;
+    right: auto;
+    top: auto;
+  }
+
+  .cpe-description-content p {
+    font-size: 16px !important;
+    max-width: 100%;
+  }
+
+  /* 4. History Cards Flex Layout */
+  .history-slide {
+    height: auto;
+    padding: 40px 15px;
+  }
+
+  .history-title h2 {
+    font-size: 50px;
+  }
+
+  .history-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .history-card {
+    width: 100%;
+    max-width: 320px;
+    margin-top: 15px !important;
+  }
+
+  /* 5. Career Section Layout */
+  .careers-slide {
+    height: auto;
+    padding: 40px 15px;
+  }
+
+  .careers-content {
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+  }
+
+  .career-animation, .career-description {
+    width: 100%;
+    border-left: none;
+    padding: 0;
+  }
+
+  /* 6. Hide Oversized Decorative Elements */
+  .cpe-sticker,
+  .press-sticker,
+  .software-sticker,
+  .hardware-sticker,
+  .four-stickers {
+    display: none !important;
+  }
+}

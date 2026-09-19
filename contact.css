@@ -1,0 +1,356 @@
+/* ==================================================
+   GENERAL
+================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background: #f1f0e8;
+    color: #222;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    background: transparent;
+}
+
+
+.nav-container {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 25px 40px;
+}
+
+
+/* ==================================================
+   LOGO
+================================================== */
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 65px;
+    height: auto;
+
+    display: block;
+}
+
+
+/* ==================================================
+   NAVIGATION
+================================================== */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    margin-left: 35px;
+}
+
+
+.main-nav a {
+    position: relative;
+
+    color: #222;
+    text-decoration: none;
+
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 10px;
+
+    white-space: nowrap;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Hover underline */
+
+.main-nav a:not(.join-btn)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #222;
+
+    transition: width 0.3s ease;
+}
+
+
+.main-nav a:not(.join-btn):hover::after {
+    width: 100%;
+}
+
+
+/* Active page */
+
+.main-nav a.active::after {
+    width: 100%;
+}
+
+
+/* ==================================================
+   JOIN BUTTON
+================================================== */
+
+.join-btn {
+    padding: 12px 18px;
+
+    border: 2px solid #222;
+    border-radius: 30px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.join-btn:hover {
+    background: #222;
+    color: #f1f0e8;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   CONTACT PAGE
+================================================== */
+
+.page-content {
+    width: 100%;
+    min-height: 100vh;
+
+    position: relative;
+
+    padding-top: 145px;
+
+    background: #f1f0e8;
+}
+
+
+/* ==================================================
+   CONTACT TITLE
+================================================== */
+
+.page-content h1 {
+    position: absolute;
+
+    top: 125px;
+    left: 45px;
+
+    font-family: Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    color: #222;
+}
+
+
+/* ==================================================
+   SOCIAL MEDIA CONTAINER
+================================================== */
+
+.social-container {
+    position: absolute;
+
+    top: 300px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 150px;
+}
+
+
+/* ==================================================
+   SOCIAL LINK
+================================================== */
+
+.social-link {
+    width: 180px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-decoration: none;
+
+    color: #222;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* ==================================================
+   SOCIAL ICON
+================================================== */
+
+.social-icon {
+    width: 82px;
+    height: 82px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #222;
+    color: #f1f0e8;
+
+    font-size: 42px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* ==================================================
+   SOCIAL NAME
+================================================== */
+
+.social-link span {
+    margin-top: 18px;
+
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    color: #222;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   SOCIAL HOVER
+================================================== */
+
+.social-link:hover {
+    transform: translateY(-5px);
+}
+
+
+.social-link:hover .social-icon {
+    transform: scale(1.08);
+
+    background: #333;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1100px) {
+
+    .main-nav {
+        gap: 15px;
+        margin-left: 25px;
+    }
+
+    .main-nav a {
+        font-size: 8px;
+    }
+
+    .join-btn {
+        padding: 10px 12px;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .nav-container {
+        padding: 20px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .page-content h1 {
+        left: 30px;
+        top: 120px;
+
+        font-size: 34px;
+    }
+
+    .social-container {
+        top: 270px;
+
+        gap: 60px;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .page-content h1 {
+        left: 25px;
+
+        font-size: 28px;
+    }
+
+    .social-container {
+        top: 250px;
+
+        flex-direction: column;
+
+        gap: 45px;
+    }
+
+    .social-link {
+        width: 200px;
+    }
+
+}

@@ -19,7 +19,7 @@ let isAnimating = false;
 
 function showSlide(nextSlide) {
 
-    /* Don't go outside the 8 slides */
+    /* Don't go outside the 6 slides */
 
     if (
         nextSlide < 0 ||
