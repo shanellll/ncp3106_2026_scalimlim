@@ -80,7 +80,7 @@ header {
 
 .nav-container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 
     padding: 6px 14px;
@@ -799,7 +799,7 @@ header {
     position: absolute;
 
     left: -16%;
-    top:-33%;
+    top:-35%;
 
     width: 2500px;
     height: 900px;
@@ -3779,16 +3779,6 @@ header {
 
 }
 
-
-/* EVENTS & ACTIVITIES TEXT */
-
-.folder-events .folder__front span {
-
-    color: #e2dbbb;
-
-}
-
-
 /* ==================================================
    EVENTS & ACTIVITIES FOLDER — SPECIAL ANIMATION
 
@@ -4203,21 +4193,46 @@ header {
 }
 
 /* ==================================================
-   DARK TEXT FOR EVENTS & ACTIVITIES
+   FOLDER TEXT COLORS
 ================================================== */
 
-.folder-events .folder__front span {
-
+.folder-ue .cpe-text {
     color: #ffffff;
-
+    margin-right: 20px;
 }
 
-/* ================================================================
-   end ng kolay ng folder
-=================================================================*/
+.folder-ue .ue-text {
+    color: #881c1c;
+    font-size: 30px;
+    -webkit-text-stroke: 1px #faf5f5;
+}
+/* PROJECTS */
+.folder-projects .folder__front span {
+    color: #ffffff;
+}
+
+
+/* SCPES */
+.folder-scpe .folder__front span {
+    color: #ffffff;
+    font-size: 30px;
+    -webkit-text-stroke: 1px #120835;
+}
+
+
+/* EVENTS & ACTIVITIES */
+.folder-events .folder__front span {
+    color: #ffffff;
+}
 
 
 
+
+
+
+/* ==================================================
+   ito yung sa contact section
+================================================== */
 
 
 /* ==================================================
@@ -4226,7 +4241,10 @@ header {
 
 @font-face {
     font-family: "Light Pixel";
-    src: url("Assets/light_pixel.ttf") format("truetype");
+
+    src:
+        url("Assets/light_pixel.ttf")
+        format("truetype");
 }
 
 /* ==================================================
@@ -4242,7 +4260,7 @@ header {
 
     background: #aeb8ad;
 
-    color: #ffffff;
+    color: #315F8A;
 
     overflow: hidden;
 }
@@ -4258,22 +4276,29 @@ header {
     top: 55px;
 
     right: 85px;
+
+    z-index: 2;
 }
 
 
 .contact-title h2 {
-    margin: 0;
+    margin: 5;
 
     font-family: "Press Start 2P", cursive;
+
     font-size: 110px;
 
     font-weight: 900;
 
-    letter-spacing: -7px;
+    letter-spacing: -5px;
 
     line-height: 1;
 
-    color: #ffffff;
+    color: #193850;
+
+    /* PIXEL SHADOW */
+    text-shadow:
+        6px 6px 0px #3f5e80;
 }
 
 
@@ -4284,7 +4309,7 @@ header {
 .contact-socials {
     position: absolute;
 
-    top: 190px;
+    top: 220px;
 
     right: 270px;
 
@@ -4294,7 +4319,7 @@ header {
 
     align-items: flex-start;
 
-    gap: 35px;
+    gap: 30px;
 }
 
 
@@ -4315,7 +4340,7 @@ header {
 
     text-decoration: none;
 
-    color: #ffffff;
+    color: #172b3a;
 
     transition:
         transform 0.3s ease;
@@ -4342,13 +4367,13 @@ header {
 
     border:
         3px solid
-        #ffffff;
+        #8aacc5;
 
     border-radius: 0;
 
-    background: #222222;
+    background: #315F8A;
 
-    color: #ffffff;
+    color: #1a1f24;
 
     font-size: 28px;
 
@@ -4357,10 +4382,10 @@ header {
     image-rendering: pixelated;
 
     box-shadow:
-        4px 0 #ffffff,
-        -4px 0 #ffffff,
-        0 4px #ffffff,
-        0 -4px #ffffff;
+        4px 0 #222222,
+        -4px 0 #222222,
+        0 4px #222222,
+        0 -4px #222222;
 }
 
 /* ==================================================
@@ -4376,7 +4401,7 @@ header {
 
     line-height: 1.4;
 
-    color: #ffffff;
+    color: #222222;
 }
 
 /* ==================================================
@@ -4389,9 +4414,9 @@ header {
 
 
 .social-item:hover .social-icon {
-    background: #ffffff;
+    background: #315F8A;
 
-    color: #aeb8ad;
+    color: #ffffff;
 
     transform: scale(1.08);
 }
@@ -4431,7 +4456,7 @@ header {
 
     border-left:
         4px solid
-        #ffffff;
+        #172b3a;
 }
 
 
@@ -4446,7 +4471,7 @@ header {
 
     line-height: 1.6;
 
-    color: #ffffff;
+    color: #172b3a;
 }
 
 
@@ -4465,7 +4490,7 @@ header {
 
     margin-bottom: 18px;
 
-    color: #ffffff;
+    color: #222222;
 
     text-decoration: none;
 
@@ -4620,6 +4645,10 @@ a.contact-detail:hover {
     }
 
 }
+
+/* ==================================================
+   end ng contact section
+================================================== */
 
 
 

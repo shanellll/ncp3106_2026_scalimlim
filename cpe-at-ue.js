@@ -1,235 +1,110 @@
-/* ==================================================
-   CpE AT UE SLIDESHOW
-================================================== */
+document.addEventListener("DOMContentLoaded", () => {
 
-const slides = document.querySelectorAll(".slide");
+    const transitionScreen =
+        document.querySelector(".transition-screen");
 
-const transitionScreen =
-    document.querySelector(".transition-screen");
+    let isLeaving = false;
 
 
-let currentSlide = 0;
+    function showLoading() {
 
-let isAnimating = false;
+        if (isLeaving) return;
 
+        isLeaving = true;
 
-/* ==================================================
-   CHANGE SLIDE
-================================================== */
+        console.log("BOTTOM REACHED — SHOWING LOADING");
 
-function showSlide(nextSlide) {
 
-    /* Don't go outside the 6 slides */
+        // Stop scrolling
+        document.body.style.overflow = "hidden";
 
-    if (
-        nextSlide < 0 ||
-        nextSlide >= slides.length
-    ) {
-        return;
-    }
 
+        // Show loading screen
+        if (transitionScreen) {
 
-    /* Prevent scrolling while animation is playing */
+            transitionScreen.classList.add("show");
 
-    if (isAnimating) {
-        return;
-    }
+            console.log("LOADING SCREEN SHOWN");
 
 
-    isAnimating = true;
+            // Wait 2.5 seconds
+            setTimeout(() => {
 
+                window.location.href = "projects.html";
 
-    /* ==================================================
-       START TRANSITION
-    ================================================== */
+            }, 2500);
 
-    transitionScreen.classList.remove("animate");
+        } else {
 
-    /*
-       This forces the browser to restart
-       the transition animation.
-    */
+            console.log("ERROR: .transition-screen NOT FOUND");
 
-    void transitionScreen.offsetWidth;
+            setTimeout(() => {
 
-    transitionScreen.classList.add("animate");
+                window.location.href = "projects.html";
 
-
-    /* ==================================================
-       CHANGE SLIDE
-    ================================================== */
-
-    setTimeout(() => {
-
-        slides[currentSlide]
-            .classList
-            .remove("active-slide");
-
-
-        currentSlide = nextSlide;
-
-
-        slides[currentSlide]
-            .classList
-            .add("active-slide");
-
-    }, 500);
-
-
-    /* ==================================================
-       UNLOCK SCROLL
-    ================================================== */
-
-    setTimeout(() => {
-
-        isAnimating = false;
-
-    }, 1100);
-
-}
-
-
-/* ==================================================
-   MOUSE WHEEL
-================================================== */
-
-window.addEventListener(
-    "wheel",
-    function(event) {
-
-        /*
-           Stop the browser's normal scrolling.
-        */
-
-        event.preventDefault();
-
-
-        /*
-           Don't do anything while transition
-           is currently playing.
-        */
-
-        if (isAnimating) {
-            return;
-        }
-
-
-        /* ==========================================
-           SCROLL DOWN
-        ========================================== */
-
-        if (event.deltaY > 0) {
-
-            if (
-                currentSlide <
-                slides.length - 1
-            ) {
-
-                showSlide(
-                    currentSlide + 1
-                );
-
-            }
-
-        }
-
-
-        /* ==========================================
-           SCROLL UP
-        ========================================== */
-
-        else if (event.deltaY < 0) {
-
-            if (currentSlide > 0) {
-
-                showSlide(
-                    currentSlide - 1
-                );
-
-            }
-
-        }
-
-    },
-    {
-        passive: false
-    }
-);
-
-
-/* ==================================================
-   KEYBOARD CONTROLS
-================================================== */
-
-window.addEventListener(
-    "keydown",
-    function(event) {
-
-        /* DOWN */
-
-        if (
-            event.key === "ArrowDown" ||
-            event.key === "PageDown"
-        ) {
-
-            event.preventDefault();
-
-            if (
-                currentSlide <
-                slides.length - 1
-            ) {
-
-                showSlide(
-                    currentSlide + 1
-                );
-
-            }
-
-        }
-
-
-        /* UP */
-
-        if (
-            event.key === "ArrowUp" ||
-            event.key === "PageUp"
-        ) {
-
-            event.preventDefault();
-
-            if (currentSlide > 0) {
-
-                showSlide(
-                    currentSlide - 1
-                );
-
-            }
-
-        }
-
-
-        /* HOME */
-
-        if (event.key === "Home") {
-
-            event.preventDefault();
-
-            showSlide(0);
-
-        }
-
-
-        /* END */
-
-        if (event.key === "End") {
-
-            event.preventDefault();
-
-            showSlide(
-                slides.length - 1
-            );
+            }, 2500);
 
         }
 
     }
-);
+
+
+    function checkBottom() {
+
+        if (isLeaving) return;
+
+
+        const scrollTop = window.scrollY;
+
+        const windowHeight = window.innerHeight;
+
+        const documentHeight =
+            document.documentElement.scrollHeight;
+
+
+        const bottomPosition =
+            scrollTop + windowHeight;
+
+
+        const distance =
+            documentHeight - bottomPosition;
+
+
+        console.log(
+            "Distance from bottom:",
+            distance
+        );
+
+
+        if (distance <= 3) {
+
+            showLoading();
+
+        }
+
+    }
+
+
+    // Normal scrolling
+    document.body.style.overflowY = "auto";
+
+
+    // Check whenever user scrolls
+    window.addEventListener(
+        "scroll",
+        checkBottom,
+        { passive: true }
+    );
+
+
+    // Also check after resizing
+    window.addEventListener(
+        "resize",
+        checkBottom
+    );
+
+
+    // Start at top
+    window.scrollTo(0, 0);
+
+});
