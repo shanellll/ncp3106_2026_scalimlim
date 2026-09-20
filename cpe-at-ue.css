@@ -40,7 +40,7 @@ header {
 
     z-index: 1000;
 
-    background: rgba(241, 240, 232, 0.95);
+    background: rgba(151, 160, 153, 0.95);
 
     border-bottom: 1px solid rgba(41, 42, 61, 0.15);
 
@@ -153,7 +153,7 @@ header {
 
 
 /* ==================================================
-   EACH SECTION
+   ALL SLIDES — COMMON STRUCTURE ONLY
 ================================================== */
 
 .slide {
@@ -195,57 +195,357 @@ header {
 
     margin: 0 auto;
 }
-
-
 /* ==================================================
-   SLIDE NUMBER
+   SLIDE 1 — OWN SETTINGS
 ================================================== */
 
-.slide-number {
-    display: block;
+.slide-1 {
 
-    margin-bottom: 25px;
+    position: relative;
 
-    font-size: 11px;
-    letter-spacing: 3px;
+    background-color: #aeb8ad;
 
-    color: #29275f;
+    /* GRID BACKGROUND */
+    background-image:
+
+        linear-gradient(
+            rgba(255, 255, 255, 0.18) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.18) 1px,
+            transparent 1px
+        );
+
+    /* CHANGE GRID SIZE HERE */
+    background-size: 40px 40px;
+
+    /* BLACK SHADOW — TOP + BOTTOM */
+    box-shadow:
+        inset 0 150px 150px -80px rgba(0, 0, 0, 0.75),
+        inset 0 -150px 150px -80px rgba(0, 0, 0, 0.80);
 }
 
 
 /* ==================================================
-   MAIN TITLES
+   SLIDE 1 — NUMBER NUMBERING
 ================================================== */
 
-.slide h1 {
-    margin: 0 0 30px 0;
+.slide-1 .slide-number {
 
-    font-size: clamp(45px, 7vw, 95px);
-    line-height: 0.95;
+    /* CHANGE FONT SIZE HERE */
+    font-size: 18px;
+
+    margin-bottom: 50px;
+
+    /* ALLOW POSITION ADJUSTMENT */
+    position: relative;
+
+    /* MOVE LEFT / RIGHT */
+    left: 0px;
+
+    /* MOVE UP / DOWN */
+    top: -12px;
+
+    color: #010102;
+}
+
+
+/* ==================================================
+   SLIDE 1 — LABEL UNIVERSITY
+================================================== */
+
+.slide-1 .slide-label {
+
+    margin-top: 0;
+
+    color: #a31d11;
+}
+
+
+/* ==================================================
+   SLIDE 1 — UNIVERSITY TITLE
+================================================== */
+
+.slide-1 .university-label {
+
+    /* CHANGE FONT SIZE HERE */
+    font-size: 15px;
+
+    color: #a31d11;
+}
+
+
+/* ==================================================
+   SLIDE 1 — LOCATIONS
+================================================== */
+
+.slide-1 .locations {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    /* CHANGE DISTANCE FROM UNIVERSITY TITLE HERE */
+    margin-top: 15px;
+}
+
+
+/* ==================================================
+   SLIDE 1 — LOCATION ITEM
+================================================== */
+
+.slide-1 .location-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    /* CHANGE LOCATION TEXT SIZE HERE */
+    font-size: 12px;
+
+    color: #222222;
+}
+
+
+/* ==================================================
+   SLIDE 1 — LOCATION ICON
+================================================== */
+
+.slide-1 .location-item .glyphicon {
+
+    /* CHANGE ICON SIZE HERE */
+    font-size: 16px;
+
+    /* CHANGE ICON COLOR HERE */
+    color: #09016d;
+}
+
+
+/* ==================================================
+   SLIDE 1 — LINE
+================================================== */
+
+.slide-1 .slide-line {
+
+    width: 120%;
+
+    max-width: 1900px;
+
+    height: 2px;
+
+    margin-top: 20px;
+
+    margin-bottom: 20px;
+
+    background: #09016d;
+
+    opacity: 0.65;
+}
+
+
+/* ==================================================
+   SECTION 1 — TEXT LEFT + CAROUSEL RIGHT
+================================================== */
+
+.slide-1 .slide-content {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(400px, 0.85fr);
+
+    gap: clamp(30px, 5vw, 80px);
+
+    align-items: center;
+
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    padding-left: 40px;
+
+    padding-right: 40px;
+}
+
+
+/* ==================================================
+   SLIDE 1 — TEXT
+================================================== */
+
+.slide-1 .slide-text {
+
+    width: 100%;
+
+    text-align: left;
+
+    position: relative;
+
+    left: -200px;
+
+    transform: translateY(-80px);
+}
+
+
+/*
+
+    MOVE THE WHOLE TEXT:
+    LEFT / RIGHT
+
+    left: -150px; = LEFT
+    left: -50px;  = slightly LEFT
+    left: 0;      = normal
+    left: 50px;   = RIGHT
+    left: 100px;  = RIGHT
+
+
+    UP / DOWN
+
+    transform: translateY(-100px); = UP
+    transform: translateY(-50px);  = slightly UP
+    transform: translateY(0);      = normal
+    transform: translateY(50px);   = DOWN
+
+*/
+
+
+/* ==================================================
+   SLIDE 1 — DEGREE TITLE
+================================================== */
+
+.slide-1 .degree-title {
+
+    width: 100%;
+
+    margin: 0 0 -5px 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+
+/* ==================================================
+   SLIDE 1 — CUSTOM FONTS
+================================================== */
+
+@font-face {
+
+    font-family: "Hunger Games";
+
+    src: url("Assets/Hunger Games.ttf")
+         format("truetype");
+}
+
+
+@font-face {
+
+    font-family: "Light_pixel";
+
+    src: url("Assets/light_pixel.ttf")
+         format("truetype");
+}
+
+
+/* ==================================================
+   SLIDE 1 — BS
+   HUNGER GAMES FONT
+================================================== */
+
+.slide-1 .bs-text {
+
+    /* CHANGE BS FONT SIZE HERE */
+    font-size: 120px;
+
+    /* HUNGER GAMES FONT */
+    font-family: "Hunger Games", Arial, sans-serif;
+
+    font-weight: 100;
+
+    line-height: 0.8;
 
     letter-spacing: 2px;
 
-    color: #111111;
+    margin: 0;
 
-    text-shadow:
-        3px 3px 0 rgba(255, 255, 255, 0.45);
+    white-space: nowrap;
 
-    font-family: "Press Start 2P", monospace;
+    /* TEXT GRADIENT */
+    background: linear-gradient(
+        135deg,
+        #531e1e,
+        #801d1d,
+        #8b1f1f,
+        #581919,
+        #7c1717,
+        #5a1e1e
+    );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
 }
 
 
 /* ==================================================
-   DESCRIPTION
+   SLIDE 1 — COMPUTER ENGINEERING
+   PRESS START 2P FONT
 ================================================== */
 
-.slide-content > p {
-    max-width: 760px;
+.slide-1 .engineering-text {
 
-    margin: 0 0 45px 0;
+    /* CHANGE COMPUTER ENGINEERING FONT SIZE HERE */
+    font-size: 60px;
 
+    /* PRESS START 2P FONT */
     font-family: "Press Start 2P", monospace;
 
-    font-size: 11px;
+    font-weight: normal;
+
+    /* CHANGE SPACE BETWEEN LETTERS HERE */
+    letter-spacing: 2px;
+
+    /* CHANGE SPACE BETWEEN BS AND COMPUTER ENGINEERING HERE */
+    margin-top: 15px;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    color: #222222;
+}
+
+
+/* ==================================================
+   SLIDE 1 — DESCRIPTION
+================================================== */
+
+.slide-1 .slide-text > p {
+
+    max-width: 860px;
+
+    margin: 0 0 25px 0;
+
+    font-family: "Light_pixel", monospace;
+
+    /* CHANGE DESCRIPTION FONT SIZE HERE */
+    font-size: clamp(15px, 0.75vw, 100px);
+
     line-height: 2;
 
     color: #222222;
@@ -255,64 +555,19 @@ header {
 
 
 /* ==================================================
-   SLIDE LABEL
+   SLIDE 1 — INFO POINTS
 ================================================== */
 
-.slide-label {
-    display: block;
+.slide-1 .info-points {
 
-    margin-top: 20px;
-
-    font-size: 9px;
-    letter-spacing: 2px;
-
-    color: #29275f;
-}
-
-
-/* ==================================================
-   SLIDE LINE
-================================================== */
-
-.slide-line {
-    width: 100%;
-    max-width: 850px;
-
-    height: 2px;
-
-    margin-top: 40px;
-
-    background: #29275f;
-
-    opacity: 0.65;
-}
-
-
-/* ==================================================
-   SLIDE 1 — ABOUT
-================================================== */
-
-.slide-1 {
-    background:
-        radial-gradient(
-            circle at 75% 25%,
-            #c7cec6 0%,
-            #adb8ae 65%
-        );
-
-    min-height: 100vh;
-}
-
-
-/* INFO POINTS */
-
-.info-points {
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(180px, 1fr));
+        repeat(3, minmax(150px, 1fr));
 
-    gap: 25px;
+    gap: clamp(12px, 2vw, 25px);
+
+    width: 100%;
 
     max-width: 900px;
 
@@ -320,13 +575,19 @@ header {
 }
 
 
-.info-item {
+/* ==================================================
+   SLIDE 1 — INFO ITEM
+================================================== */
+
+.slide-1 .info-item {
+
     display: flex;
+
     flex-direction: column;
 
-    gap: 12px;
+    gap: 30px;
 
-    padding: 22px;
+    padding: clamp(15px, 2vw, 20px);
 
     border-left: 3px solid #29275f;
 
@@ -338,15 +599,26 @@ header {
 }
 
 
-.info-item:hover {
+/* ==================================================
+   SLIDE 1 — INFO ITEM HOVER
+================================================== */
+
+.slide-1 .info-item:hover {
+
     transform: translateY(-5px);
 
     background: rgba(255, 255, 255, 0.35);
 }
 
 
-.info-item strong {
-    font-size: 11px;
+/* ==================================================
+   SLIDE 1 — INFO TITLE
+================================================== */
+
+.slide-1 .info-item strong {
+
+    /* CHANGE INFO TITLE FONT SIZE HERE */
+    font-size: clamp(7px, 0.7vw, 12px);
 
     color: #29275f;
 
@@ -354,37 +626,403 @@ header {
 }
 
 
-.info-item span {
+/* ==================================================
+   SLIDE 1 — INFO DESCRIPTION
+================================================== */
+
+.slide-1 .info-item span {
+
     font-family: "Press Start 2P", monospace;
 
-    font-size: 8px;
+    /* CHANGE INFO DESCRIPTION FONT SIZE HERE */
+    font-size: clamp(6px, 0.55vw, 13px);
 
     line-height: 1.8;
 
     color: #222222;
 }
 
+/* ==================================================
+   RIGHT SIDE — CAROUSEL
+================================================== */
+
+.about-carousel {
+
+    position: relative;
+
+    /* WIDTH */
+    width: 107%;
+
+    max-width: none;
+
+    min-width: 0;
+
+    /* POSITION — MOVE WHOLE CAROUSEL */
+    transform: translate(70px, -120px);
+
+    margin-left: 0;
+
+    margin-right: 0;
+
+    overflow: visible;
+
+    z-index: 5;
+}
+
 
 /* ==================================================
-   SLIDE 2 — SPECIALIZATIONS
+   CAROUSEL INNER
+================================================== */
+
+.about-carousel .carousel-inner {
+
+    position: relative;
+
+    width: 107%;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   CAROUSEL ITEMS
+================================================== */
+
+.about-carousel .carousel-inner > .item {
+
+    width: 100%;
+}
+
+
+/* ==================================================
+   LANDSCAPE PICTURE
+================================================== */
+
+.about-carousel .item img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* ==================================================
+   CAROUSEL CONTROLS
+================================================== */
+
+.about-carousel .carousel-control {
+
+    width: 1%;
+
+    background-image: none;
+
+    z-index: 20;
+}
+
+
+/* ==================================================
+   CIRCLES — INSIDE BOTTOM OF IMAGE
+================================================== */
+
+.about-carousel .carousel-indicators {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 10px;
+
+    width: auto;
+
+    margin: 0;
+
+    padding: 0;
+
+    transform: translateX(-50%);
+
+    z-index: 50;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   INDIVIDUAL CIRCLES
+================================================== */
+
+.about-carousel .carousel-indicators li {
+
+    width: 10px;
+
+    height: 10px;
+
+    margin: 0 5px;
+
+    border-radius: 50%;
+}
+
+
+.about-carousel .carousel-indicators .active {
+
+    width: 11px;
+
+    height: 11px;
+}
+
+
+
+
+
+
+/* ==================================================
+   LARGE SCREEN
+================================================== */
+
+@media (min-width: 1600px) {
+
+    .slide-1 .slide-content {
+
+        grid-template-columns:
+            minmax(0, 1.2fr)
+            minmax(800px, 0.8fr);
+
+        padding-left: 100px;
+
+        padding-right: 0;
+
+    }
+
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1000px) {
+
+    .slide-1 .slide-content {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        min-height: auto;
+
+        padding-left: 30px;
+
+        padding-right: 30px;
+
+    }
+
+
+    .slide-1 .slide-text {
+
+        left: 0;
+
+    }
+
+
+    .about-carousel {
+
+        width: 100%;
+
+        margin-left: 0;
+
+        margin-right: auto;
+
+        max-width: 650px;
+
+        transform: translate(0, -50px);
+
+    }
+
+
+    .about-carousel .item img {
+
+        width: 100%;
+
+        height: auto;
+
+        object-fit: contain;
+
+    }
+
+
+    .about-carousel .carousel-indicators {
+
+        bottom: 10px;
+
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+    .slide-1 .slide-content {
+
+        gap: 35px;
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
+    }
+
+
+    .slide-1 .slide-text {
+
+        left: 0;
+
+    }
+
+
+    .slide-1 .slide-text h1 {
+
+        font-size: clamp(35px, 11vw, 60px);
+
+    }
+
+
+    .slide-1 .slide-text > p {
+
+        font-size: 8px;
+
+        line-height: 1.8;
+
+    }
+
+
+    .info-points {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .about-carousel {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        transform: translate(0, 0);
+
+    }
+
+
+    .about-carousel .item img {
+
+        width: 100%;
+
+        height: auto;
+
+        object-fit: contain;
+
+    }
+
+
+    .about-carousel .carousel-indicators {
+
+        bottom: 10px;
+
+    }
+
+}
+
+
+
+
+
+
+/* ==================================================
+   SLIDE 2 — OWN SETTINGS
 ================================================== */
 
 .slide-2 {
     background:
         radial-gradient(
             circle at 20% 25%,
-            #77799a 0%,
-            #adb8ae 65%
+            #355577 0%,
+            #344f6e 45%,
+            #adb8ae 85%
         );
 }
 
 
-.specialization-slide {
-    max-width: 1250px;
+/* ==================================================
+   SLIDE 2 — NUMBER
+================================================== */
+
+.slide-2 .slide-number {
+    font-size: 12px;
+    color: #111111;
 }
 
 
-.specialization-grid {
+/* ==================================================
+   SLIDE 2 — TITLE
+================================================== */
+
+.slide-2 h1 {
+    font-size: 55px;
+    color: #111111;
+}
+
+
+/* ==================================================
+   SLIDE 2 — LABEL
+================================================== */
+
+.slide-2 .slide-label {
+    font-size: 15px;
+    color: #9c1212;
+    margin-top: 0;
+}
+
+
+/* ==================================================
+   SLIDE 2 — LINE
+================================================== */
+
+.slide-2 .slide-line {
+    width: 100%;
+    max-width: 13000px;
+    height: 2px;
+
+    margin-top: 40px;
+    margin-bottom: 30px;
+
+    background: #9c1212;
+    opacity: 0.65;
+}
+
+
+/* ==================================================
+   SLIDE 2 — SPECIALIZATIONS CONTAINER
+================================================== */
+
+.slide-2 .specialization-slide {
+    max-width: 1250px;
+
+    transform: translateX(-200px);
+}
+
+
+/* ==================================================
+   SLIDE 2 — SPECIALIZATION GRID
+================================================== */
+
+.slide-2 .specialization-grid {
     display: grid;
 
     grid-template-columns:
@@ -392,13 +1030,18 @@ header {
 
     gap: 18px;
 
-    max-width: 1100px;
+    width: 100%;
+    max-width: 1000px;
 
     margin-top: 30px;
 }
 
 
-.specialization-card {
+/* ==================================================
+   SLIDE 2 — SPECIALIZATION CARDS
+================================================== */
+
+.slide-2 .specialization-card {
     min-height: 110px;
 
     display: flex;
@@ -411,11 +1054,11 @@ header {
 
     text-align: center;
 
-    border: 2px solid #29275f;
+    border: 2px solid #adb8ae;
 
     background: rgba(255, 255, 255, 0.15);
 
-    color: #111111;
+    color: #adb8ae;
 
     font-size: 9px;
     line-height: 1.6;
@@ -427,14 +1070,39 @@ header {
 }
 
 
-.specialization-card:hover {
+/* ==================================================
+   SLIDE 2 — CARD HOVER
+================================================== */
+
+.slide-2 .specialization-card:hover {
     transform: translateY(-7px);
 
-    background: rgba(41, 39, 95, 0.12);
+    background: rgba(79, 107, 95, 0.12);
 
     box-shadow:
-        0 8px 20px rgba(41, 39, 95, 0.2);
+        0 8px 20px rgba(125, 139, 133, 0.12);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ==================================================
@@ -442,21 +1110,62 @@ header {
 ================================================== */
 
 .slide-3 {
+
     background:
         radial-gradient(
             circle at 80% 30%,
             #c5ccc4 0%,
             #adb8ae 65%
         );
+
 }
 
 
-.projects-slide {
+/* ==================================================
+   SLIDE 3 — NUMBER
+================================================== */
+
+.slide-3 .slide-number {
+
+    font-size: 12px;
+
+    color: #111111;
+
+}
+
+
+/* ==================================================
+   SLIDE 3 — TITLE
+================================================== */
+
+.slide-3 h1 {
+
+    font-size: 55px;
+
+    color: #9c1212;
+
+}
+
+
+/* ==================================================
+   SLIDE 3 — PROJECT CONTAINER
+================================================== */
+
+.slide-3 .projects-slide {
+
     max-width: 1250px;
+
+    transform: translateX(-200px);
+
 }
 
 
-.project-grid {
+/* ==================================================
+   SLIDE 3 — PROJECT GRID
+================================================== */
+
+.slide-3 .project-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -464,13 +1173,21 @@ header {
 
     gap: 20px;
 
+    width: 100%;
+
     max-width: 1100px;
 
     margin-top: 30px;
+
 }
 
 
-.project-card {
+/* ==================================================
+   SLIDE 3 — PROJECT CARDS
+================================================== */
+
+.slide-3 .project-card {
+
     position: relative;
 
     min-height: 190px;
@@ -487,20 +1204,32 @@ header {
         transform 0.3s ease,
         background 0.3s ease,
         box-shadow 0.3s ease;
+
 }
 
 
-.project-card:hover {
+/* ==================================================
+   SLIDE 3 — PROJECT CARD HOVER
+================================================== */
+
+.slide-3 .project-card:hover {
+
     transform: translateY(-8px);
 
     background: rgba(255, 255, 255, 0.32);
 
     box-shadow:
         0 10px 25px rgba(41, 39, 95, 0.18);
+
 }
 
 
-.project-number {
+/* ==================================================
+   SLIDE 3 — PROJECT NUMBER
+================================================== */
+
+.slide-3 .project-number {
+
     display: block;
 
     margin-bottom: 25px;
@@ -510,10 +1239,16 @@ header {
     color: #29275f;
 
     letter-spacing: 2px;
+
 }
 
 
-.project-card h3 {
+/* ==================================================
+   SLIDE 3 — PROJECT TITLE
+================================================== */
+
+.slide-3 .project-card h3 {
+
     margin: 0 0 18px 0;
 
     font-size: 12px;
@@ -521,10 +1256,16 @@ header {
     line-height: 1.5;
 
     color: #111111;
+
 }
 
 
-.project-card p {
+/* ==================================================
+   SLIDE 3 — PROJECT DESCRIPTION
+================================================== */
+
+.slide-3 .project-card p {
+
     margin: 0;
 
     font-size: 8px;
@@ -532,7 +1273,59 @@ header {
     line-height: 1.9;
 
     color: #333333;
+
 }
+
+
+/* ==================================================
+   SLIDE 3 — LABEL
+================================================== */
+
+.slide-3 .slide-label {
+
+    font-size: 15px;
+
+    color: #eb1e17;
+
+    margin-top: 0;
+
+}
+
+
+/* ==================================================
+   SLIDE 3 — LINE
+================================================== */
+
+.slide-3 .slide-line {
+
+    width: 100%;
+
+    max-width: 13000px;
+
+    height: 2px;
+
+    margin-top: 40px;
+
+    margin-bottom: 30px;
+
+    background: #0a03d6;
+
+    opacity: 0.65;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ==================================================
@@ -540,38 +1333,62 @@ header {
 ================================================== */
 
 .slide-4 {
+
     background:
         radial-gradient(
             circle at 25% 30%,
             #c7c0b1 0%,
             #efede5 65%
         );
+
 }
 
 
-.faculty-slide {
+/* ==================================================
+   SLIDE 4 — FACULTY CONTENT
+================================================== */
+
+.slide-4 .faculty-slide {
+
     max-width: 1250px;
+
+
 }
 
 
-.faculty-grid {
+/* ==================================================
+   FACULTY GRID
+================================================== */
+
+.slide-4 .faculty-grid {
+
     display: grid;
 
     grid-template-columns:
-        repeat(2, minmax(280px, 1fr));
+        repeat(4, minmax(0, 1fr));
 
     gap: 22px;
 
-    max-width: 1000px;
+    width: 100%;
+
+    max-width: 1200px;
 
     margin-top: 35px;
+
 }
 
 
-.faculty-card {
-    min-height: 155px;
+/* ==================================================
+   FACULTY BOX
+================================================== */
 
-    padding: 28px;
+.slide-4 .faculty-card {
+
+    width: 100%;
+
+    height: 420px;
+
+    padding: 15px;
 
     box-sizing: border-box;
 
@@ -580,47 +1397,158 @@ header {
     background: rgba(255, 255, 255, 0.3);
 
     display: flex;
+
     flex-direction: column;
 
-    justify-content: center;
+    justify-content: flex-start;
 
-    gap: 10px;
+    gap: 7px;
+
+    overflow: hidden;
 
     transition:
         transform 0.3s ease,
         background 0.3s ease,
         box-shadow 0.3s ease;
+
 }
 
 
-.faculty-card:hover {
-    transform: translateY(-7px);
+/* ==================================================
+   FACULTY PHOTO
+================================================== */
+
+.slide-4 .faculty-photo {
+
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    display: block;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* ==================================================
+   FACULTY BOX HOVER
+================================================== */
+
+.slide-4 .faculty-card:hover {
+
+    transform: translateY(-12px);
 
     background: rgba(255, 255, 255, 0.5);
 
     box-shadow:
-        0 10px 25px rgba(41, 39, 95, 0.15);
+        0 10px 25px
+        rgba(41, 39, 95, 0.15);
+
 }
 
 
-.faculty-card h3 {
-    margin: 0 0 10px 0;
+/* ==================================================
+   FACULTY NAME
+================================================== */
 
-    font-size: 11px;
+.slide-4 .faculty-card h3 {
+
+    margin: 0 0 7px 0;
+
+    font-size: 10px;
 
     line-height: 1.5;
 
     color: #111111;
+
 }
 
 
-.faculty-card span {
+/* ==================================================
+   FACULTY DETAILS
+================================================== */
+
+.slide-4 .faculty-card span {
+
+    display: block;
+
     font-size: 8px;
 
     line-height: 1.7;
 
     color: #444444;
+
 }
+
+/* ==================================================
+   FACULTY LINE
+================================================== */
+
+.slide-4 .slide-line {
+
+    width: 100%;
+
+    height: 2px;
+
+    background: #29275f;
+
+    margin-top: 35px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* ==================================================
+   FACULTY LABEL
+================================================== */
+
+.slide-4 .slide-label {
+
+    display: block;
+
+    margin-top: 0;
+
+    color: #29275f;
+
+}
+
+
+/* ==================================================
+   FACULTY RESPONSIVE
+================================================== */
+
+@media (max-width: 1000px) {
+
+    .slide-4 .faculty-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .slide-4 .faculty-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+
+
+
+
+
 
 
 /* ==================================================
@@ -639,41 +1567,43 @@ header {
 }
 
 
-.news-slide {
+/* ==================================================
+   SLIDE 5 — NEWS CONTENT
+================================================== */
+
+.slide-5 .news-slide {
     max-width: 1250px;
+    transform: translateX(-200px);
 }
 
 
-.news-grid {
-    display: grid;
+/* ==================================================
+   NEWS GRID — SLIDE 5 ONLY
+================================================== */
 
+.slide-5 .news-grid {
+    display: grid;
     grid-template-columns:
         repeat(3, minmax(220px, 1fr));
-
     gap: 22px;
-
     max-width: 1100px;
-
     margin-top: 40px;
 }
 
 
-.news-card {
+/* ==================================================
+   NEWS BOX — SLIDE 5 ONLY
+================================================== */
+
+.slide-5 .news-card {
     display: flex;
     flex-direction: column;
-
     min-height: 250px;
-
     padding: 28px;
-
     box-sizing: border-box;
-
     border: 2px solid #29275f;
-
     background: rgba(255, 255, 255, 0.28);
-
     color: #111111;
-
     text-decoration: none;
 
     transition:
@@ -683,64 +1613,72 @@ header {
 }
 
 
-.news-card:hover {
+/* ==================================================
+   NEWS BOX HOVER — SLIDE 5 ONLY
+================================================== */
+
+.slide-5 .news-card:hover {
     transform: translateY(-8px);
-
     background: rgba(255, 255, 255, 0.5);
-
     box-shadow:
-        0 10px 25px rgba(41, 39, 95, 0.18);
+        0 10px 25px
+        rgba(41, 39, 95, 0.18);
 }
 
 
-.news-date,
-.news-tag {
+/* ==================================================
+   NEWS DATE + TAG — SLIDE 5 ONLY
+================================================== */
+
+.slide-5 .news-date,
+.slide-5 .news-tag {
     display: block;
-
     margin-bottom: 25px;
-
     font-size: 8px;
-
     letter-spacing: 1px;
-
     color: #29275f;
 }
 
 
-.news-card h3 {
+/* ==================================================
+   NEWS TITLE — SLIDE 5 ONLY
+================================================== */
+
+.slide-5 .news-card h3 {
     margin: 0 0 20px 0;
-
     font-size: 12px;
-
     line-height: 1.7;
-
     color: #111111;
 }
 
 
-.news-card p {
+/* ==================================================
+   NEWS DESCRIPTION — SLIDE 5 ONLY
+================================================== */
+
+.slide-5 .news-card p {
     margin: 0;
-
     font-size: 8px;
-
     line-height: 2;
-
     color: #333333;
 }
 
 
-.read-more {
-    display: block;
+/* ==================================================
+   READ MORE — SLIDE 5 ONLY
+================================================== */
 
+.slide-5 .read-more {
+    display: block;
     margin-top: auto;
     padding-top: 25px;
-
     font-size: 8px;
-
     color: #29275f;
-
     letter-spacing: 1px;
 }
+
+
+
 
 
 /* ==================================================

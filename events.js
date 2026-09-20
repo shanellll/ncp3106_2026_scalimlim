@@ -305,3 +305,180 @@ document.addEventListener(
 
     }
 );
+
+/* ==================================================
+   EVENT PHOTO GALLERIES
+================================================== */
+
+const photoGalleries = {
+
+    huddles: [
+        "Assets/events/huddles-1.jpg",
+        "Assets/events/huddles-2.jpg",
+        "Assets/events/huddles-3.jpg"
+    ],
+
+    seminars: [
+        "Assets/events/seminars-1.jpg",
+        "Assets/events/seminars-2.jpg",
+        "Assets/events/seminars-3.jpg"
+    ],
+
+    christmas: [
+        "Assets/events/christmas-1.jpg",
+        "Assets/events/christmas-2.jpg",
+        "Assets/events/christmas-3.jpg"
+    ],
+
+    "more-events": [
+        "Assets/events/more-events-1.jpg",
+        "Assets/events/more-events-2.jpg",
+        "Assets/events/more-events-3.jpg"
+    ]
+
+};
+
+
+/* ==================================================
+   CURRENT PHOTO NUMBER
+================================================== */
+
+const photoIndexes = {
+
+    huddles: 0,
+
+    seminars: 0,
+
+    christmas: 0,
+
+    "more-events": 0
+
+};
+
+
+/* ==================================================
+   CLICK PHOTO TO CHANGE PHOTO
+================================================== */
+
+document.querySelectorAll(".image-frame").forEach(
+    function(frame) {
+
+        frame.addEventListener(
+            "click",
+            function(event) {
+
+                /*
+                   IMPORTANT:
+
+                   Stop this click from reaching
+                   the main slide click function.
+
+                   Therefore:
+
+                   CLICK PHOTO
+                   = CHANGE PHOTO
+
+                   NOT
+
+                   NEXT EVENT
+                */
+
+                event.stopPropagation();
+
+
+                /* Find the event slide */
+
+                const slide =
+                    frame.closest(".event-slide");
+
+
+                if (!slide) {
+                    return;
+                }
+
+
+                /* Get event ID */
+
+                const eventID =
+                    slide.id;
+
+
+                /* Get photos for this event */
+
+                const gallery =
+                    photoGalleries[eventID];
+
+
+                if (!gallery) {
+                    return;
+                }
+
+
+                /* Get current photo */
+
+                let photoIndex =
+                    photoIndexes[eventID];
+
+
+                /* Go to next photo */
+
+                photoIndex++;
+
+
+                /* Return to first photo */
+
+                if (
+                    photoIndex >= gallery.length
+                ) {
+
+                    photoIndex = 0;
+
+                }
+
+
+                /* Save photo number */
+
+                photoIndexes[eventID] =
+                    photoIndex;
+
+
+                /* Find the image */
+
+                const image =
+                    frame.querySelector(".event-photo");
+
+
+                if (!image) {
+                    return;
+                }
+
+
+                /* Start fade animation */
+
+                image.classList.add(
+                    "photo-changing"
+                );
+
+
+                /* Change image */
+
+                setTimeout(
+                    function() {
+
+                        image.src =
+                            gallery[photoIndex];
+
+
+                        image.classList.remove(
+                            "photo-changing"
+                        );
+
+                    },
+                    200
+                );
+
+            }
+        );
+
+    }
+);

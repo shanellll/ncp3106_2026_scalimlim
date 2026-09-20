@@ -1127,3 +1127,245 @@ header {
     }
 
 }
+
+/* ==================================================
+   SCPES OFFICERS
+================================================== */
+
+.officers-section {
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   OFFICER GRID
+================================================== */
+
+.officer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+
+    width: 90%;
+
+    max-width: 1400px;
+
+    margin: 50px auto 0;
+}
+
+
+/* ==================================================
+   FIXED OFFICER BOX
+================================================== */
+
+.officer-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    height: 430px;
+
+    border: 2px solid #222;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+}
+
+
+/* ==================================================
+   VIEWPORT
+================================================== */
+
+.officer-viewport {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   CONTENT INSIDE BOX
+================================================== */
+
+.officer-slide {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    padding: 20px;
+}
+
+
+/* ==================================================
+   OFFICER TITLE
+================================================== */
+
+.officer-title {
+
+    margin-bottom: 15px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 15px;
+
+    text-align: center;
+
+    line-height: 1.5;
+}
+
+
+/* ==================================================
+   OFFICER PHOTO
+================================================== */
+
+.officer-photo {
+
+    width: 180px;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    display: block;
+
+    margin-bottom: 18px;
+}
+
+
+/* ==================================================
+   OFFICER NAME
+================================================== */
+
+.officer-name {
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 14px;
+
+    text-align: center;
+
+    line-height: 1.5;
+}
+
+
+/* ==================================================
+   OLD CONTENT
+   MOVES OUT TO THE LEFT
+================================================== */
+
+.officer-slide.slide-out-left {
+
+    animation:
+        officerOutLeft
+        0.8s
+        ease-in-out
+        forwards;
+}
+
+
+/* ==================================================
+   NEW CONTENT
+   ENTERS FROM THE RIGHT
+   AND MOVES TO THE LEFT
+================================================== */
+
+.officer-slide.slide-in-right {
+
+    animation:
+        officerInRight
+        0.8s
+        ease-in-out
+        forwards;
+}
+
+
+/* ==================================================
+   OLD CONTENT ANIMATION
+
+   START:
+   CENTER
+
+   END:
+   LEFT
+================================================== */
+
+@keyframes officerOutLeft {
+
+    0% {
+
+        transform:
+            translateX(0);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translateX(-100%);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* ==================================================
+   NEW CONTENT ANIMATION
+
+   START:
+   RIGHT
+
+   END:
+   CENTER
+================================================== */
+
+@keyframes officerInRight {
+
+    0% {
+
+        transform:
+            translateX(100%);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translateX(0);
+
+        opacity: 1;
+
+    }
+
+}
