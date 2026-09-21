@@ -1352,7 +1352,6 @@ header {
 
     max-width: 1250px;
 
-
 }
 
 
@@ -1365,15 +1364,15 @@ header {
     display: grid;
 
     grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+        repeat(2, minmax(0, 1fr));
 
-    gap: 22px;
+    gap: 20px;
 
     width: 100%;
 
     max-width: 1200px;
 
-    margin-top: 35px;
+    margin-top: 30px;
 
 }
 
@@ -1386,7 +1385,7 @@ header {
 
     width: 100%;
 
-    height: 420px;
+    height: 210px;
 
     padding: 15px;
 
@@ -1394,22 +1393,33 @@ header {
 
     border: 2px solid #29275f;
 
-    background: rgba(255, 255, 255, 0.3);
+    background:
+        rgba(255, 255, 255, 0.3);
 
-    display: flex;
+    display: grid;
 
-    flex-direction: column;
+    grid-template-columns: 180px 1fr;
 
-    justify-content: flex-start;
+    gap: 20px;
 
-    gap: 7px;
+    align-items: center;
 
     overflow: hidden;
 
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
+}
+
+
+/* ==================================================
+   FACULTY PHOTO CONTAINER
+================================================== */
+
+.slide-4 .faculty-photo-container {
+
+    width: 180px;
+
+    height: 178px;
+
+    overflow: hidden;
 
 }
 
@@ -1422,30 +1432,28 @@ header {
 
     width: 100%;
 
-    height: 230px;
+    height: 100%;
 
     object-fit: cover;
 
     display: block;
 
-    margin-bottom: 10px;
-
 }
 
 
 /* ==================================================
-   FACULTY BOX HOVER
+   FACULTY INFORMATION
 ================================================== */
 
-.slide-4 .faculty-card:hover {
+.slide-4 .faculty-info {
 
-    transform: translateY(-12px);
+    display: flex;
 
-    background: rgba(255, 255, 255, 0.5);
+    flex-direction: column;
 
-    box-shadow:
-        0 10px 25px
-        rgba(41, 39, 95, 0.15);
+    gap: 4px;
+
+    min-width: 0;
 
 }
 
@@ -1456,13 +1464,29 @@ header {
 
 .slide-4 .faculty-card h3 {
 
-    margin: 0 0 7px 0;
+    margin: 0 0 -1px 0;
 
     font-size: 10px;
 
     line-height: 1.5;
 
     color: #111111;
+
+}
+
+/* ==================================================
+   COMPUTER ENGINEERING FACULTY
+================================================== */
+
+.slide-4 .faculty-card .faculty-title {
+
+    margin-top: 0px;
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    color: #29275f;
 
 }
 
@@ -1475,13 +1499,59 @@ header {
 
     display: block;
 
-    font-size: 8px;
+    font-size: 7px;
 
-    line-height: 1.7;
+    line-height: 1.5;
 
     color: #444444;
 
 }
+
+
+/* ==================================================
+   FACULTY SECTION TITLE
+================================================== */
+
+.slide-4 .faculty-card .faculty-title {
+
+    margin-top: 10px;
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    color: #29275f;
+
+}
+
+
+/* ==================================================
+   FACULTY HOVER
+================================================== */
+
+.slide-4 .faculty-card {
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.slide-4 .faculty-card:hover {
+
+    transform: translateY(-8px);
+
+    background:
+        rgba(255, 255, 255, 0.5);
+
+    box-shadow:
+        0 10px 25px
+        rgba(41, 39, 95, 0.15);
+
+}
+
 
 /* ==================================================
    FACULTY LINE
@@ -1495,7 +1565,7 @@ header {
 
     background: #29275f;
 
-    margin-top: 35px;
+    margin-top: 25px;
 
     margin-bottom: 18px;
 
@@ -1525,8 +1595,7 @@ header {
 
     .slide-4 .faculty-grid {
 
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
 
     }
 
@@ -1535,9 +1604,22 @@ header {
 
 @media (max-width: 600px) {
 
-    .slide-4 .faculty-grid {
+    .slide-4 .faculty-card {
 
-        grid-template-columns: 1fr;
+        grid-template-columns: 120px 1fr;
+
+        height: auto;
+
+        min-height: 180px;
+
+    }
+
+
+    .slide-4 .faculty-photo-container {
+
+        width: 120px;
+
+        height: 150px;
 
     }
 
