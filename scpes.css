@@ -8,14 +8,23 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f1f0e8;
-    color: #292a3d;
+
+    background: #172B3A;
+
+    color: #ADB8AE;
+
     overflow: hidden;
 }
 
@@ -26,219 +35,268 @@ body {
 
 header {
     position: fixed;
+
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 75px;
+    height: 90px;
+
+    padding: 20px 4%;
+
+    display: flex;
+    align-items: center;
 
     z-index: 1000;
 
-    background: rgba(241, 240, 232, 0.95);
-
-    border-bottom: 1px solid rgba(41, 42, 61, 0.15);
+    background: rgba(23, 43, 58, 0.35);
 
     backdrop-filter: blur(8px);
 }
 
-.nav-container {
-    width: 94%;
-    height: 100%;
 
-    margin: auto;
+/* ==================================================
+   NAV CONTAINER
+================================================== */
+
+.nav-container {
+    width: 100%;
 
     display: flex;
+
     align-items: center;
+
+    justify-content: space-between;
 }
 
-.logo {
-    width: 65px;
 
+/* ==================================================
+   LOGO
+================================================== */
+
+.logo {
     display: flex;
+
     align-items: center;
+
+    flex-shrink: 0;
 }
 
 .logo img {
-    width: 48px;
-    height: auto;
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    display: block;
 }
+
+
+/* ==================================================
+   MAIN NAV
+================================================== */
 
 .main-nav {
     display: flex;
+
     align-items: center;
 
-    gap: 20px;
+    justify-content: flex-end;
 
-    margin-left: 25px;
+    gap: 25px;
+
+    width: 100%;
 }
 
 .main-nav a {
     position: relative;
 
-    color: #292a3d;
+    color: #ADB8AE;
 
     text-decoration: none;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Press Start 2P", cursive;
 
-    font-size: 11px;
-    font-weight: bold;
+    font-size: 8px;
 
     white-space: nowrap;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-.main-nav a::after {
+
+/* ==================================================
+   NAV UNDERLINE
+================================================== */
+
+.main-nav a:not(.join-btn)::after {
     content: "";
 
     position: absolute;
 
     left: 0;
-    bottom: -7px;
+    bottom: -8px;
 
-    width: 100%;
+    width: 0;
     height: 2px;
 
-    background: #5265a9;
+    background: #ADB8AE;
 
-    transform: scaleX(0);
-
-    transition: transform 0.3s ease;
+    transition: width 0.3s ease;
 }
 
-.main-nav a:hover::after,
-.main-nav a.active::after {
-    transform: scaleX(1);
+.main-nav a:not(.join-btn):hover::after {
+    width: 100%;
 }
 
 .main-nav a:hover {
-    color: #5265a9;
+    color: #315F8A;
 }
+
+
+/* ==================================================
+   JOIN BUTTON
+================================================== */
 
 .join-btn {
-    padding: 10px 14px;
+    padding: 12px 16px;
 
-    border: 1px solid #5265a9;
-}
+    border: 2px solid #ADB8AE;
 
-.join-btn::after {
-    display: none;
+    border-radius: 30px;
+
+    color: #ADB8AE !important;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
 }
 
 .join-btn:hover {
-    background: #5265a9;
+    background: rgba(49, 95, 138, 0.18);
 
-    color: white !important;
+    box-shadow:
+        0 0 10px rgba(49, 95, 138, 0.6),
+        0 0 25px rgba(36, 74, 115, 0.25);
+
+    transform: translateY(-2px);
 }
 
 
 /* ==================================================
-   MAIN PAGE
+   GLOBAL
 ================================================== */
 
-.scpes-page {
-    position: relative;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    width: 100%;
-    height: 100vh;
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+}
 
-    padding-top: 75px;
+body {
+    background: #172B3A;
 
-    overflow: hidden;
+    color: #ADB8AE;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(82, 101, 169, 0.04) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            rgba(82, 101, 169, 0.04) 1px,
-            transparent 1px
-        ),
-        #f1f0e8;
+    font-family: Arial, sans-serif;
 
-    background-size: 40px 40px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
 /* ==================================================
-   TOP DIGITAL TEXT
-================================================== */
-
-.digital-top {
-    position: absolute;
-
-    top: 95px;
-
-    left: 5%;
-    right: 5%;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: 8px;
-
-    color: #5265a9;
-
-    letter-spacing: 1px;
-
-    z-index: 20;
-}
-
-
-/* ==================================================
-   CONTENT
-================================================== */
-
-.scpes-content {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-
-    padding: 150px 8% 80px;
-}
-
-
-/* ==================================================
-   SECTIONS
+   SCROLL SECTIONS
 ================================================== */
 
 .scpes-section {
-    position: absolute;
+    position: relative;
 
-    top: 150px;
+    min-height: 100vh;
+    width: 100%;
 
-    left: 8%;
-    right: 8%;
+    overflow: hidden;
 
-    bottom: 80px;
+    scroll-snap-align: start;
+}
 
-    overflow-y: auto;
+
+/* ==================================================
+   SIDE PROGRESS
+================================================== */
+
+.side-progress {
+    position: fixed;
+
+    right: 28px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 1000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.progress-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    text-decoration: none;
+
+    color: rgba(124, 124, 124, 0.45);
+
+    transition: 0.3s ease;
+}
+
+.progress-item span {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 9px;
+}
+
+.progress-item small {
+    font-size: 8px;
+
+    letter-spacing: 2px;
 
     opacity: 0;
 
-    visibility: hidden;
+    transform: translateX(10px);
 
-    transform: translateY(25px);
-
-    transition:
-        opacity 0.45s ease,
-        transform 0.45s ease,
-        visibility 0.45s ease;
+    transition: 0.3s ease;
 }
 
-.scpes-section.active-section {
+.progress-item:hover small,
+.progress-item.active small {
     opacity: 1;
 
-    visibility: visible;
+    transform: translateX(0);
+}
 
-    transform: translateY(0);
+.progress-item.active {
+    color: #ADB8AE;
+}
+
+.progress-item.active span {
+    text-shadow:
+        0 0 10px #ADB8AE,
+        0 0 20px #315F8A;
 }
 
 
@@ -247,1125 +305,1382 @@ header {
 ================================================== */
 
 .section-number {
-    position: absolute;
-
-    top: 0;
-    right: 0;
-
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: 9px;
-
-    color: #6478bd;
-}
-
-
-/* ==================================================
-   LABEL
-================================================== */
-
-.section-label {
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: 9px;
-
-    color: #5265a9;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 25px;
-}
-
-
-/* ==================================================
-   TITLE
-================================================== */
-
-.scpes-section h1 {
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: clamp(35px, 6vw, 85px);
-
-    line-height: 1;
-
-    letter-spacing: -3px;
-
-    color: #292a3d;
-
-    margin-bottom: 28px;
-}
-
-
-/* ==================================================
-   GLITCH LINE
-================================================== */
-
-.glitch-line {
-    width: 100%;
-    max-width: 1000px;
-
-    height: 3px;
-
-    background: #5265a9;
-
-    margin-bottom: 30px;
-
-    position: relative;
-}
-
-.glitch-line::before {
-    content: "";
-
-    position: absolute;
-
-    left: 20%;
-
-    top: -7px;
-
-    width: 80px;
-    height: 3px;
-
-    background: #6478bd;
-}
-
-.glitch-line::after {
-    content: "";
-
-    position: absolute;
-
-    right: 10%;
-
-    bottom: -7px;
-
-    width: 150px;
-    height: 3px;
-
-    background: #6478bd;
-}
-
-
-/* ==================================================
-   DESCRIPTION
-================================================== */
-
-.section-description {
-    width: 75%;
-    max-width: 900px;
-
-    font-size: 17px;
-
-    line-height: 1.7;
-
-    color: #555;
-
-    margin-bottom: 40px;
-}
-
-
-/* ==================================================
-   ABOUT
-================================================== */
-
-.about-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-
-    max-width: 1000px;
-}
-
-.info-card {
-    padding: 25px;
-
-    border-left: 4px solid #5265a9;
-
-    background: rgba(82, 101, 169, 0.07);
-}
-
-.info-card span {
-    font-family: "Press Start 2P", sans-serif;
+    font-family: "Press Start 2P", cursive;
 
     font-size: 10px;
 
-    color: #5265a9;
-}
+    letter-spacing: 2px;
 
-.info-card p {
-    margin-top: 15px;
-
-    line-height: 1.5;
-
-    color: #555;
+    color: #315F8A;
 }
 
 
 /* ==================================================
-   OBJECTIVES
+   01 — INTRO
 ================================================== */
 
-.objective-list {
-    width: 85%;
-    max-width: 950px;
+.intro-section {
+    background:
+        radial-gradient(
+            circle at 70% 50%,
+            rgba(206, 210, 216, 0.35),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #243646,
+            #343535,
+            #223e53
+        );
+
+    display: flex;
+
+    align-items: center;
 }
 
-.objective-item {
+.intro-bg-text {
+    position: absolute;
+
+    left: -80px;
+    bottom: -100px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 20vw;
+
+    color: rgba(173, 184, 174, 0.025);
+
+    pointer-events: none;
+}
+
+.intro-header {
+    position: absolute;
+
+    top: 45px;
+    left: 7%;
+
     display: flex;
 
     align-items: center;
 
-    gap: 25px;
+    gap: 30px;
 
-    padding: 18px 20px;
-
-    margin-bottom: 10px;
-
-    border: 1px solid rgba(82, 101, 169, 0.3);
-
-    background: rgba(255, 255, 255, 0.45);
-
-    transition: transform 0.3s ease;
+    z-index: 10;
 }
 
-.objective-item:hover {
-    transform: translateX(10px);
-}
+.intro-header p {
+    font-size: 10px;
 
-.objective-item span {
-    font-family: "Press Start 2P", sans-serif;
+    letter-spacing: 3px;
 
-    font-size: 11px;
-
-    color: #5265a9;
-}
-
-.objective-item p {
-    font-size: 16px;
-
-    color: #444;
+    color: #7C7C7C;
 }
 
 
 /* ==================================================
-   OFFICERS
+   INTRO CONTENT
 ================================================== */
 
-.officers-grid {
+.intro-content {
+    width: 86%;
+
+    margin: auto;
+
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: 35% 65%;
 
-    gap: 15px;
-
-    max-width: 1000px;
+    align-items: center;
 }
 
-.officer-card {
-    min-height: 125px;
-
-    padding: 25px;
-
-    border: 2px solid #6478bd;
-
-    background: rgba(255, 255, 255, 0.45);
-
+.intro-copy {
     position: relative;
+
+    z-index: 10;
 }
 
-.officer-card::before {
-    content: "";
+.small-label {
+    display: block;
 
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 4px;
-
-    background: #5265a9;
-}
-
-.officer-card span {
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: 8px;
-
-    color: #5265a9;
-}
-
-.officer-card h3 {
-    margin-top: 20px;
-
-    font-size: 17px;
-
-    color: #292a3d;
-}
-
-
-/* ==================================================
-   ACTIVITIES
-================================================== */
-
-.activity-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 300px);
-
-    gap: 15px;
-}
-
-.activity-box {
-    min-height: 145px;
-
-    padding: 25px;
-
-    border: 1px solid #6478bd;
-
-    background: rgba(82, 101, 169, 0.07);
-}
-
-.activity-box strong {
-    font-family: "Press Start 2P", sans-serif;
+    font-family: "Press Start 2P", cursive;
 
     font-size: 10px;
 
-    color: #5265a9;
+    letter-spacing: 2px;
+
+    color: #315F8A;
+
+    margin-bottom: 25px;
 }
 
-.activity-box p {
-    margin-top: 20px;
+.intro-copy h1 {
+    font-family: "Press Start 2P", cursive;
 
-    line-height: 1.5;
+    font-size: clamp(55px, 8vw, 120px);
 
-    color: #555;
+    line-height: 0.95;
+
+    letter-spacing: -8px;
+
+    margin-bottom: 30px;
+
+    color: #ADB8AE;
+
+    text-shadow:
+        5px 5px 0 #244A73,
+        0 0 30px rgba(49, 95, 138, 0.35);
 }
 
+.intro-copy > p {
+    max-width: 420px;
 
-/* ==================================================
-   EVENTS
-================================================== */
+    line-height: 1.8;
 
-.event-list {
-    width: 85%;
-    max-width: 950px;
-}
+    color: #7C7C7C;
 
-.event-card {
-    padding: 22px 25px;
-
-    margin-bottom: 15px;
-
-    border-left: 4px solid #5265a9;
-
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.event-card span {
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: 8px;
-
-    color: #5265a9;
-}
-
-.event-card h3 {
-    margin-top: 12px;
-
-    font-size: 19px;
-}
-
-.event-card p {
-    margin-top: 8px;
-
-    color: #555;
+    font-size: 15px;
 }
 
 
 /* ==================================================
-   STUDENT INVOLVEMENT
+   SCROLL HINT
 ================================================== */
 
-.involvement-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 350px);
-
-    gap: 15px;
-}
-
-.involvement-grid div {
-    padding: 25px;
-
-    border: 1px solid #6478bd;
-
-    background: rgba(255, 255, 255, 0.45);
-}
-
-.involvement-grid span {
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: 11px;
-
-    color: #5265a9;
-}
-
-.involvement-grid h3 {
-    margin-top: 15px;
-
-    font-size: 19px;
-}
-
-.involvement-grid p {
-    margin-top: 10px;
-
-    line-height: 1.5;
-
-    color: #555;
-}
-
-
-/* ==================================================
-   ACCOMPLISHMENTS
-================================================== */
-
-.achievement-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 15px;
-
-    max-width: 1000px;
-}
-
-.achievement-box {
-    min-height: 170px;
-
-    padding: 25px;
-
-    border: 2px solid #5265a9;
-
-    background: rgba(82, 101, 169, 0.07);
-}
-
-.achievement-box span {
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: 8px;
-
-    color: #5265a9;
-}
-
-.achievement-box h3 {
-    margin-top: 18px;
-
-    font-size: 17px;
-}
-
-.achievement-box p {
-    margin-top: 10px;
-
-    color: #555;
-
-    line-height: 1.5;
-}
-
-
-/* ==================================================
-   FINAL BUTTONS
-================================================== */
-
-.folder-navigation-buttons {
+.scroll-hint {
     display: flex;
-
-    justify-content: space-between;
-
-    max-width: 1000px;
-
-    margin-top: 40px;
-
-    padding-bottom: 30px;
-}
-
-.page-button {
-    display: inline-flex;
 
     align-items: center;
 
     gap: 12px;
 
-    padding: 15px 25px;
+    margin-top: 45px;
 
-    border: 2px solid #5265a9;
-
-    color: #292a3d;
-
-    text-decoration: none;
-
-    font-family: "Press Start 2P", sans-serif;
+    font-family: "Press Start 2P", cursive;
 
     font-size: 8px;
 
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease;
+    color: #7C7C7C;
 }
 
-.page-button span {
-    font-size: 18px;
+.scroll-hint span {
+    width: 35px;
+    height: 1px;
+
+    background: #ADB8AE;
+
+    animation: scrollLine 1.5s infinite;
 }
 
-.page-button:hover {
-    background: #5265a9;
+@keyframes scrollLine {
 
-    color: white;
+    0% {
+        width: 10px;
+        opacity: 0.3;
+    }
 
-    transform: translateY(-4px);
+    50% {
+        width: 40px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 10px;
+        opacity: 0.3;
+    }
+
 }
 
 
 /* ==================================================
-   BOTTOM
+   PHOTO STACK
 ================================================== */
 
-.digital-bottom {
-    position: absolute;
+.photo-stack {
+    position: relative;
 
-    left: 5%;
-    right: 5%;
-
-    bottom: 20px;
+    width: 100%;
+    height: 600px;
 
     display: flex;
 
-    justify-content: space-between;
+    align-items: center;
 
-    font-family: "Press Start 2P", sans-serif;
+    justify-content: center;
 
-    font-size: 7px;
+    /*
+       IMPORTANT:
 
-    color: #5265a9;
+       This area is where the special
+       photo wheel interaction happens.
+    */
 
     z-index: 20;
 }
 
+.photo-card {
+    position: absolute;
 
-/* ==================================================
-   GLITCH SCREEN
-================================================== */
+    width: 250px;
+    height: 400px;
 
-.glitch-screen {
-    position: fixed;
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    border: 2px solid rgba(173, 184, 174, 0.15);
+
+    background: #222222;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.5);
+
+    transition:
+        transform 0.8s cubic-bezier(.2,.8,.2,1),
+        opacity 0.8s ease,
+        filter 0.8s ease,
+        box-shadow 0.8s ease;
+
+    transform-origin: center bottom;
+
+    cursor: pointer;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.photo-card::after {
+    content: "";
+
+    position: absolute;
 
     inset: 0;
 
-    z-index: 5000;
+    background:
+        linear-gradient(
+            to top,
+            rgba(23,43,58,0.85),
+            transparent 50%
+        );
+}
+
+.photo-info {
+    position: absolute;
+
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.photo-info strong {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 12px;
+
+    color: #ADB8AE;
+}
+
+.photo-info span {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #315F8A;
+}
+
+
+/* ==================================================
+   INITIAL PHOTO POSITIONS
+================================================== */
+
+.photo-1 {
+    transform:
+        translateX(-380px)
+        rotate(-14deg)
+        scale(0.75);
+
+    opacity: 0.45;
+
+    z-index: 1;
+}
+
+.photo-2 {
+    transform:
+        translateX(-190px)
+        rotate(-7deg)
+        scale(0.88);
+
+    opacity: 0.7;
+
+    z-index: 2;
+}
+
+.photo-3 {
+    transform:
+        translateX(0)
+        rotate(0deg)
+        scale(1);
+
+    opacity: 1;
+
+    z-index: 5;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.7),
+        0 0 40px rgba(49,95,138,0.25);
+}
+
+.photo-4 {
+    transform:
+        translateX(190px)
+        rotate(7deg)
+        scale(0.88);
+
+    opacity: 0.7;
+
+    z-index: 2;
+}
+
+.photo-5 {
+    transform:
+        translateX(380px)
+        rotate(14deg)
+        scale(0.75);
+
+    opacity: 0.45;
+
+    z-index: 1;
+}
+
+
+/* ==================================================
+   02 — OFFICERS
+================================================== */
+
+.officers-section {
+    background:
+        linear-gradient(
+            180deg,
+            #233f55,
+            #484d4a
+        );
+
+    padding: 90px 7% 80px;
+}
+
+.officers-top {
+    position: relative;
+
+    z-index: 20;
+}
+
+.officers-top h2 {
+    margin-top: 25px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: clamp(35px, 5vw, 75px);
+
+    line-height: 1.2;
+
+    letter-spacing: -5px;
+
+    color: #ADB8AE;
+}
+
+.officers-top h2 span {
+    display: block;
+
+    color: #315F8A;
+
+    text-shadow:
+        4px 4px 0 #244A73;
+}
+
+.officers-top p {
+    margin-top: 20px;
+
+    color: #7C7C7C;
+
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   OFFICER STAGE
+================================================== */
+
+.officer-stage {
+    width: 90%;
+
+    max-width: 1300px;
+
+    min-height: 560px;
+
+    margin: 10px auto 0;
+
+    display: grid;
+
+    grid-template-columns: 10% 45% 45%;
+
+    align-items: center;
+
+    position: relative;
+}
+
+
+/* ==================================================
+   OFFICER COUNTER
+================================================== */
+
+.officer-counter {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: #315F8A;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 10px;
+}
+
+.counter-line {
+    width: 1px;
+    height: 90px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #315F8A,
+            transparent
+        );
+}
+
+
+/* ==================================================
+   OFFICER IMAGE
+================================================== */
+
+.officer-image-wrap {
+    position: relative;
+
+    width: 360px;
+    height: 470px;
+
+    margin: auto;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        25px 30px 0 rgba(36, 74, 115, 0.2),
+        0 30px 80px rgba(0,0,0,0.6);
+}
+
+.officer-image-wrap img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.6s ease;
+}
+
+.officer-image-wrap.changing img {
+    opacity: 0;
+
+    transform: scale(1.06);
+}
+
+.officer-image-wrap::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(23,43,58,0.5),
+            transparent 60%
+        );
+
+    pointer-events: none;
+}
+
+.officer-number {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 20px;
+    left: 20px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 10px;
+
+    padding: 10px;
+
+    border: 1px solid rgba(173,184,174,0.4);
+
+    color: #ADB8AE;
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* ==================================================
+   OFFICER INFORMATION
+================================================== */
+
+.officer-info {
+    padding-left: 50px;
+}
+
+.officer-info > span {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 10px;
+
+    color: #315F8A;
+
+    letter-spacing: 2px;
+}
+
+.officer-info h3 {
+    margin-top: 20px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: clamp(30px, 4vw, 65px);
+
+    line-height: 1.15;
+
+    max-width: 550px;
+
+    word-break: break-word;
+
+    color: #ADB8AE;
+}
+
+.officer-info > p {
+    margin-top: 18px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 9px;
+
+    color: #7C7C7C;
+}
+
+.officer-description {
+    margin-top: 50px;
+
+    max-width: 400px;
+
+    border-left: 2px solid #9C1212;
+
+    padding-left: 20px;
+}
+
+.officer-description span {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    color: #9C1212;
+}
+
+.officer-description p {
+    margin-top: 12px;
+
+    line-height: 1.7;
+
+    color: #7C7C7C;
+
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   OFFICER PREVIEW
+================================================== */
+
+.officer-preview {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+    flex-wrap: wrap;
+}
+
+.officer-mini {
+    width: 48px;
+    height: 62px;
+
+    border: 1px solid rgba(173,184,174,0.2);
+
+    background: #222222;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    opacity: 0.4;
+
+    transition: 0.3s ease;
+}
+
+.officer-mini img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.officer-mini:hover,
+.officer-mini.active {
+    opacity: 1;
+
+    transform: translateY(-8px);
+
+    border-color: #315F8A;
+
+    box-shadow:
+        0 10px 25px rgba(36,74,115,0.3);
+}
+
+
+/* ==================================================
+   OFFICER SCROLL HINT
+================================================== */
+
+.officer-scroll-hint {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+    color: #7C7C7C;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+}
+
+.officer-scroll-hint span {
+    width: 30px;
+    height: 1px;
+
+    background: #315F8A;
+}
+
+
+/* ==================================================
+   03 — ABOUT SCPES
+================================================== */
+
+.about-section {
+    background: #ADB8AE;
+
+    color: #222222;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 100px 8%;
+}
+
+.about-background {
+    position: absolute;
+
+    right: -100px;
+    bottom: -50px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 20vw;
+
+    color: rgba(34,34,34,0.035);
+
+    pointer-events: none;
+}
+
+.about-inner {
+    width: 100%;
+
+    max-width: 1350px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 18% 82%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.about-label {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding-top: 10px;
+}
+
+.about-label span {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 10px;
+
+    color: #244A73;
+}
+
+.about-label small {
+    writing-mode: vertical-rl;
+
+    letter-spacing: 4px;
+
+    font-weight: bold;
+
+    color: #7C7C7C;
+}
+
+.about-main h2 {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: clamp(30px, 5vw, 75px);
+
+    line-height: 1.2;
+
+    letter-spacing: -5px;
+
+    color: #222222;
+}
+
+.about-main h2 span {
+    display: block;
+
+    color: #244A73;
+}
+
+.about-lead {
+    max-width: 800px;
+
+    margin-top: 35px;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: #7C7C7C;
+}
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-top: 60px;
+}
+
+.about-item {
+    border-top: 2px solid #222222;
+
+    padding-top: 18px;
+}
+
+.about-item > span {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 9px;
+
+    color: #315F8A;
+}
+
+.about-item h3 {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 14px;
+
+    margin-top: 20px;
+
+    color: #222222;
+}
+
+.about-item p {
+    margin-top: 15px;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: #7C7C7C;
+}
+
+
+/* ==================================================
+   04 — FLASH CARDS
+================================================== */
+
+.flash-section {
+    background:
+        radial-gradient(
+            circle at center,
+            #244A73,
+            #172B3A 65%
+        );
+
+    padding: 100px 7% 70px;
 
     display: flex;
 
     flex-direction: column;
 
     justify-content: center;
-
-    align-items: center;
-
-    background: #292a3d;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
 }
 
-.glitch-screen.active {
-    visibility: visible;
+.flash-header {
+    text-align: center;
+}
 
-    animation: glitchScreen 0.8s steps(1);
+.flash-header h2 {
+    margin-top: 25px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: clamp(30px, 5vw, 65px);
+
+    line-height: 1.25;
+
+    color: #ADB8AE;
+}
+
+.flash-header h2 span {
+    color: #315F8A;
+}
+
+.flash-header p {
+    margin-top: 20px;
+
+    color: #7C7C7C;
+
+    font-size: 14px;
 }
 
 
 /* ==================================================
-   GLITCH TITLE
+   FLASH CARD CONTAINER
 ================================================== */
 
-.glitch-title {
-    position: relative;
-
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: clamp(30px, 7vw, 90px);
-
-    color: white;
-
-    letter-spacing: 5px;
-
-    animation: glitchText 0.12s infinite;
-}
-
-.glitch-title::before,
-.glitch-title::after {
-    content: attr(data-text);
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
+.flash-container {
     width: 100%;
-}
 
-.glitch-title::before {
-    color: #6478bd;
+    max-width: 1250px;
 
-    transform: translate(-8px, 3px);
-
-    clip-path: inset(0 0 50% 0);
-}
-
-.glitch-title::after {
-    color: #b5bee8;
-
-    transform: translate(8px, -3px);
-
-    clip-path: inset(50% 0 0 0);
-}
-
-
-/* ==================================================
-   GLITCH LOADING
-================================================== */
-
-.glitch-loading {
-    margin-top: 30px;
-
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: 8px;
-
-    color: white;
-
-    letter-spacing: 2px;
-
-    animation: flicker 0.15s infinite;
-}
-
-
-/* ==================================================
-   GLITCH BARS
-================================================== */
-
-.glitch-bar {
-    position: absolute;
-
-    height: 10px;
-
-    background: #6478bd;
-
-    opacity: 0.7;
-}
-
-.bar1 {
-    width: 35%;
-
-    top: 25%;
-
-    left: 5%;
-
-    animation: barOne 0.12s infinite;
-}
-
-.bar2 {
-    width: 20%;
-
-    top: 48%;
-
-    right: 5%;
-
-    animation: barTwo 0.1s infinite;
-}
-
-.bar3 {
-    width: 45%;
-
-    top: 67%;
-
-    left: 15%;
-
-    animation: barThree 0.15s infinite;
-}
-
-.bar4 {
-    width: 25%;
-
-    top: 80%;
-
-    right: 20%;
-
-    animation: barFour 0.09s infinite;
-}
-
-
-/* ==================================================
-   GLITCH ANIMATIONS
-================================================== */
-
-@keyframes glitchScreen {
-
-    0% {
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    20% {
-        opacity: 0.2;
-    }
-
-    30% {
-        opacity: 1;
-    }
-
-    45% {
-        opacity: 0.3;
-    }
-
-    55% {
-        opacity: 1;
-    }
-
-    70% {
-        opacity: 0.4;
-    }
-
-    80% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes glitchText {
-
-    0% {
-        transform: translate(0);
-    }
-
-    20% {
-        transform: translate(-7px, 2px);
-    }
-
-    40% {
-        transform: translate(7px, -2px);
-    }
-
-    60% {
-        transform: translate(-3px, 1px);
-    }
-
-    80% {
-        transform: translate(4px, -1px);
-    }
-
-    100% {
-        transform: translate(0);
-    }
-}
-
-@keyframes flicker {
-
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.2;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes barOne {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(120px);
-    }
-
-    100% {
-        transform: translateX(-80px);
-    }
-}
-
-@keyframes barTwo {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(-100px);
-    }
-
-    100% {
-        transform: translateX(80px);
-    }
-}
-
-@keyframes barThree {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(-150px);
-    }
-
-    100% {
-        transform: translateX(100px);
-    }
-}
-
-@keyframes barFour {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(100px);
-    }
-
-    100% {
-        transform: translateX(-120px);
-    }
-}
-
-
-/* ==================================================
-   RESPONSIVE
-================================================== */
-
-@media (max-width: 1000px) {
-
-    .main-nav {
-        gap: 10px;
-    }
-
-    .main-nav a {
-        font-size: 8px;
-    }
-
-    .about-grid,
-    .officers-grid,
-    .achievement-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-
-@media (max-width: 700px) {
-
-    .main-nav {
-        display: none;
-    }
-
-    .scpes-section h1 {
-        font-size: 30px;
-
-        letter-spacing: -1px;
-    }
-
-    .about-grid,
-    .officers-grid,
-    .achievement-grid,
-    .activity-grid,
-    .involvement-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .activity-grid,
-    .involvement-grid {
-        width: 100%;
-    }
-
-    .section-description {
-        width: 100%;
-    }
-
-    .objective-list,
-    .event-list {
-        width: 100%;
-    }
-
-    .folder-navigation-buttons {
-        gap: 10px;
-    }
-
-    .page-button {
-        padding: 12px;
-
-        font-size: 7px;
-    }
-
-}
-
-/* ==================================================
-   SCPES OFFICERS
-================================================== */
-
-.officers-section {
-    overflow: hidden;
-}
-
-
-/* ==================================================
-   OFFICER GRID
-================================================== */
-
-.officer-grid {
+    margin: 70px auto;
 
     display: grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 25px;
-
-    width: 90%;
-
-    max-width: 1400px;
-
-    margin: 50px auto 0;
+    gap: 20px;
 }
 
-
-/* ==================================================
-   FIXED OFFICER BOX
-================================================== */
-
-.officer-card {
-
+.flash-card {
     position: relative;
 
-    overflow: hidden;
+    min-height: 330px;
 
-    height: 430px;
+    padding: 30px;
 
-    border: 2px solid #222;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(49,95,138,0.18),
+            rgba(34,34,34,0.25)
+        );
 
-    background: #ffffff;
+    border: 1px solid rgba(173,184,174,0.15);
 
-    box-sizing: border-box;
-}
-
-
-/* ==================================================
-   VIEWPORT
-================================================== */
-
-.officer-viewport {
-
-    position: relative;
-
-    width: 100%;
-
-    height: 100%;
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease,
+        border-color 0.4s ease;
 
     overflow: hidden;
 }
 
-
-/* ==================================================
-   CONTENT INSIDE BOX
-================================================== */
-
-.officer-slide {
+.flash-card::before {
+    content: "";
 
     position: absolute;
 
-    top: 0;
-    left: 0;
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    right: -60px;
+    bottom: -60px;
+
+    border: 1px solid rgba(49,95,138,0.3);
+}
+
+.flash-card:hover {
+    transform:
+        translateY(-15px)
+        rotate(-1deg);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(49,95,138,0.35),
+            rgba(34,34,34,0.2)
+        );
+
+    border-color: #315F8A;
+}
+
+.flash-number {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 9px;
+
+    color: #315F8A;
+}
+
+.flash-icon {
+    margin-top: 40px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 28px;
+
+    color: #9C1212;
+}
+
+.flash-card h3 {
+    margin-top: 30px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 13px;
+
+    color: #ADB8AE;
+}
+
+.flash-card p {
+    margin-top: 15px;
+
+    color: #7C7C7C;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.flash-bottom {
+    position: absolute;
+
+    bottom: 25px;
+    left: 30px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    color: #315F8A;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==================================================
+   END NAVIGATION
+================================================== */
+
+.end-navigation {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
 
     width: 100%;
-    height: 100%;
 
+    max-width: 1250px;
+
+    margin: 0 auto;
+}
+
+.end-button {
+    text-decoration: none;
+
+    color: #ADB8AE;
+
+    border: 1px solid rgba(173,184,174,0.25);
+
+    padding: 18px 24px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 8px;
+
+    transition: 0.3s ease;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.end-button:hover {
+    background: #244A73;
+
+    border-color: #315F8A;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 30px rgba(36,74,115,0.3);
+}
+
+.end-message {
     display: flex;
 
     flex-direction: column;
 
-    align-items: center;
+    text-align: center;
 
-    justify-content: center;
-
-    box-sizing: border-box;
-
-    padding: 20px;
+    gap: 12px;
 }
 
-
-/* ==================================================
-   OFFICER TITLE
-================================================== */
-
-.officer-title {
-
-    margin-bottom: 15px;
+.end-message small {
+    color: #315F8A;
 
     font-family: "Press Start 2P", cursive;
 
-    font-size: 15px;
-
-    text-align: center;
-
-    line-height: 1.5;
+    font-size: 8px;
 }
 
-
-/* ==================================================
-   OFFICER PHOTO
-================================================== */
-
-.officer-photo {
-
-    width: 180px;
-
-    height: 220px;
-
-    object-fit: cover;
-
-    display: block;
-
-    margin-bottom: 18px;
-}
-
-
-/* ==================================================
-   OFFICER NAME
-================================================== */
-
-.officer-name {
-
+.end-message strong {
     font-family: "Press Start 2P", cursive;
 
-    font-size: 14px;
+    font-size: 10px;
 
-    text-align: center;
-
-    line-height: 1.5;
+    color: #ADB8AE;
 }
 
 
 /* ==================================================
-   OLD CONTENT
-   MOVES OUT TO THE LEFT
+   TABLET
 ================================================== */
 
-.officer-slide.slide-out-left {
+@media (max-width: 1000px) {
 
-    animation:
-        officerOutLeft
-        0.8s
-        ease-in-out
-        forwards;
-}
-
-
-/* ==================================================
-   NEW CONTENT
-   ENTERS FROM THE RIGHT
-   AND MOVES TO THE LEFT
-================================================== */
-
-.officer-slide.slide-in-right {
-
-    animation:
-        officerInRight
-        0.8s
-        ease-in-out
-        forwards;
-}
-
-
-/* ==================================================
-   OLD CONTENT ANIMATION
-
-   START:
-   CENTER
-
-   END:
-   LEFT
-================================================== */
-
-@keyframes officerOutLeft {
-
-    0% {
-
-        transform:
-            translateX(0);
-
-        opacity: 1;
-
+    .side-progress {
+        display: none;
     }
 
-    100% {
 
+    /* INTRO */
+
+    .intro-content {
+        grid-template-columns: 1fr;
+
+        padding-top: 100px;
+    }
+
+    .intro-copy {
+        text-align: center;
+    }
+
+    .intro-copy > p {
+        margin: auto;
+    }
+
+    .scroll-hint {
+        justify-content: center;
+    }
+
+    .photo-stack {
+        height: 500px;
+
+        margin-top: 20px;
+    }
+
+    .photo-card {
+        width: 200px;
+
+        height: 320px;
+    }
+
+    .photo-1 {
         transform:
-            translateX(-100%);
+            translateX(-240px)
+            rotate(-12deg)
+            scale(0.7);
+    }
 
-        opacity: 1;
+    .photo-2 {
+        transform:
+            translateX(-120px)
+            rotate(-6deg)
+            scale(0.85);
+    }
 
+    .photo-4 {
+        transform:
+            translateX(120px)
+            rotate(6deg)
+            scale(0.85);
+    }
+
+    .photo-5 {
+        transform:
+            translateX(240px)
+            rotate(12deg)
+            scale(0.7);
+    }
+
+
+    /* OFFICERS */
+
+    .officer-stage {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding-top: 40px;
+    }
+
+    .officer-counter {
+        display: none;
+    }
+
+    .officer-image-wrap {
+        width: 300px;
+
+        height: 390px;
+    }
+
+    .officer-info {
+        padding-left: 0;
+
+        text-align: center;
+    }
+
+    .officer-description {
+        margin-left: auto;
+
+        margin-right: auto;
+
+        text-align: left;
+    }
+
+
+    /* ABOUT */
+
+    .about-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .about-label {
+        flex-direction: row;
+
+        margin-bottom: 30px;
+    }
+
+    .about-label small {
+        writing-mode: horizontal-tb;
+    }
+
+    .about-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    /* FLASH */
+
+    .flash-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .end-navigation {
+        gap: 20px;
     }
 
 }
 
 
 /* ==================================================
-   NEW CONTENT ANIMATION
-
-   START:
-   RIGHT
-
-   END:
-   CENTER
+   MOBILE
 ================================================== */
 
-@keyframes officerInRight {
+@media (max-width: 600px) {
 
-    0% {
-
-        transform:
-            translateX(100%);
-
-        opacity: 1;
-
+    .intro-header {
+        left: 25px;
     }
 
-    100% {
+    .intro-header p {
+        display: none;
+    }
 
+    .intro-content {
+        width: 92%;
+    }
+
+    .photo-stack {
+        height: 400px;
+    }
+
+    .photo-card {
+        width: 160px;
+
+        height: 260px;
+    }
+
+    .photo-1 {
         transform:
-            translateX(0);
+            translateX(-150px)
+            rotate(-12deg)
+            scale(0.7);
+    }
 
-        opacity: 1;
+    .photo-2 {
+        transform:
+            translateX(-75px)
+            rotate(-6deg)
+            scale(0.85);
+    }
 
+    .photo-4 {
+        transform:
+            translateX(75px)
+            rotate(6deg)
+            scale(0.85);
+    }
+
+    .photo-5 {
+        transform:
+            translateX(150px)
+            rotate(12deg)
+            scale(0.7);
+    }
+
+
+    /* OFFICERS */
+
+    .officers-section,
+    .flash-section {
+        padding-left: 25px;
+
+        padding-right: 25px;
+    }
+
+    .officer-image-wrap {
+        width: 250px;
+
+        height: 330px;
+    }
+
+    .officer-info h3 {
+        font-size: 28px;
+    }
+
+    .officer-preview {
+        gap: 6px;
+    }
+
+    .officer-mini {
+        width: 40px;
+
+        height: 52px;
+    }
+
+
+    /* ABOUT */
+
+    .about-section {
+        padding: 70px 25px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* FLASH */
+
+    .flash-container {
+        grid-template-columns: 1fr;
+
+        margin-top: 45px;
+    }
+
+
+    /* END BUTTONS */
+
+    .end-navigation {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .end-message {
+        order: -1;
+    }
+
+    .end-button {
+        justify-content: center;
     }
 
 }
