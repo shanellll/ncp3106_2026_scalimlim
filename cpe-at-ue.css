@@ -195,6 +195,7 @@ header {
 
     margin: 0 auto;
 }
+
 /* ==================================================
    SLIDE 1 — OWN SETTINGS
 ================================================== */
@@ -203,7 +204,20 @@ header {
 
     position: relative;
 
-    background-color: #aeb8ad;
+    /* ========================================
+       CUSTOM HEIGHT FOR SLIDE 1
+       
+       OPTIONS:
+       min-height: 100vh;  = same as others
+       min-height: 110vh;  = slightly taller
+       min-height: 120vh;  = much taller
+       min-height: 130vh;  = even taller
+       min-height: 150vh;  = very tall
+       
+       CHANGE THIS VALUE TO YOUR PREFERENCE
+    ======================================== */
+
+    min-height: 10vh;
 
     /* GRID BACKGROUND */
     background-image:
@@ -222,10 +236,12 @@ header {
     /* CHANGE GRID SIZE HERE */
     background-size: 40px 40px;
 
+    background-color:  #aeb8ad;
+
     /* BLACK SHADOW — TOP + BOTTOM */
     box-shadow:
-        inset 0 150px 150px -80px rgba(0, 0, 0, 0.75),
-        inset 0 -150px 150px -80px rgba(0, 0, 0, 0.80);
+        inset 0 150px 150px -80px rgba(0, 0, 0, 0.603),
+        inset 0 -150px 150px -80px rgba(0, 0, 0, 0.712);
 }
 
 
@@ -252,19 +268,6 @@ header {
     color: #010102;
 }
 
-
-/* ==================================================
-   SLIDE 1 — LABEL UNIVERSITY
-================================================== */
-
-.slide-1 .slide-label {
-
-    margin-top: 0;
-
-    color: #a31d11;
-}
-
-
 /* ==================================================
    SLIDE 1 — UNIVERSITY TITLE
 ================================================== */
@@ -274,9 +277,17 @@ header {
     /* CHANGE FONT SIZE HERE */
     font-size: 15px;
 
-    color: #a31d11;
-}
+    /* MAKE THE TEXT LONGER / WIDER */
+    letter-spacing: 2px;
 
+    /* CHANGE SPACE BETWEEN WORDS HERE */
+    word-spacing: 8px;
+
+    color: #6e160e;
+
+    /* PREVENT IT FROM WRAPPING */
+    white-space: nowrap;
+}
 
 /* ==================================================
    SLIDE 1 — LOCATIONS
@@ -288,10 +299,14 @@ header {
 
     align-items: center;
 
-    gap: 30px;
+    /* CHANGE SPACE BETWEEN LOCATIONS HERE */
+    gap: 80px;
 
     /* CHANGE DISTANCE FROM UNIVERSITY TITLE HERE */
     margin-top: 15px;
+
+    /* KEEP BOTH LOCATIONS ON ONE LINE */
+    flex-wrap: nowrap;
 }
 
 
@@ -305,14 +320,17 @@ header {
 
     align-items: center;
 
+    /* CHANGE SPACE BETWEEN ICON AND TEXT HERE */
     gap: 8px;
 
     /* CHANGE LOCATION TEXT SIZE HERE */
-    font-size: 12px;
+    font-size: 25px;
 
     color: #222222;
-}
 
+    /* KEEP LOCATION ON ONE LINE */
+    white-space: nowrap;
+}
 
 /* ==================================================
    SLIDE 1 — LOCATION ICON
@@ -321,10 +339,10 @@ header {
 .slide-1 .location-item .glyphicon {
 
     /* CHANGE ICON SIZE HERE */
-    font-size: 16px;
+    font-size: 50px;
 
     /* CHANGE ICON COLOR HERE */
-    color: #09016d;
+    color: #be0c0c;
 }
 
 
@@ -334,7 +352,7 @@ header {
 
 .slide-1 .slide-line {
 
-    width: 120%;
+    width: 150%;
 
     max-width: 1900px;
 
@@ -344,7 +362,7 @@ header {
 
     margin-bottom: 20px;
 
-    background: #09016d;
+    background: #010203;
 
     opacity: 0.65;
 }
@@ -355,30 +373,17 @@ header {
 ================================================== */
 
 .slide-1 .slide-content {
-
     display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.15fr)
-        minmax(400px, 0.85fr);
-
+    grid-template-columns: minmax(0, 1.15fr) minmax(400px, 0.85fr);
     gap: clamp(30px, 5vw, 80px);
-
     align-items: center;
-
     width: 100%;
-
     max-width: none;
-
     margin: 0;
-
-    min-height: 100vh;
-
     padding-left: 40px;
-
     padding-right: 40px;
+    
 }
-
 
 /* ==================================================
    SLIDE 1 — TEXT
@@ -392,9 +397,9 @@ header {
 
     position: relative;
 
-    left: -200px;
+    left: -215px;
 
-    transform: translateY(-80px);
+    transform: translateY(10px);
 }
 
 
@@ -459,7 +464,6 @@ header {
          format("truetype");
 }
 
-
 /* ==================================================
    SLIDE 1 — BS
    HUNGER GAMES FONT
@@ -468,7 +472,7 @@ header {
 .slide-1 .bs-text {
 
     /* CHANGE BS FONT SIZE HERE */
-    font-size: 120px;
+    font-size: 125px;
 
     /* HUNGER GAMES FONT */
     font-family: "Hunger Games", Arial, sans-serif;
@@ -486,10 +490,10 @@ header {
     /* TEXT GRADIENT */
     background: linear-gradient(
         135deg,
-        #531e1e,
-        #801d1d,
-        #8b1f1f,
-        #581919,
+        #6b1b1b,
+        #5c0a0a,
+        #750808,
+        #860b0b,
         #7c1717,
         #5a1e1e
     );
@@ -532,6 +536,54 @@ header {
 
 
 /* ==================================================
+   SLIDE 1 — TITLE ANIMATION FROM LEFT
+================================================== */
+
+@keyframes slide1FromLeft {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-120%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* ==================================================
+   BS — SLIDE FROM LEFT
+================================================== */
+
+.slide-1 .bs-text.title-show {
+
+    animation:
+        slide1FromLeft
+        1s
+        ease-out
+        forwards;
+}
+
+
+/* ==================================================
+   COMPUTER ENGINEERING — SLIDE FROM LEFT
+================================================== */
+
+.slide-1 .engineering-text.title-show {
+
+    animation:
+        slide1FromLeft
+        1s
+        ease-out
+        0.15s
+        forwards;
+}
+
+
+/* ==================================================
    SLIDE 1 — DESCRIPTION
 ================================================== */
 
@@ -544,13 +596,62 @@ header {
     font-family: "Light_pixel", monospace;
 
     /* CHANGE DESCRIPTION FONT SIZE HERE */
-    font-size: clamp(15px, 0.75vw, 100px);
+    font-size: clamp(15px, 0.95vw, 100px);
 
     line-height: 2;
 
-    color: #222222;
+    color: #050404;
 
     white-space: pre-line;
+}
+
+
+/* ==================================================
+   SLIDE 1 — DESCRIPTION STREAMING
+   PLAYS EVERY TIME YOU SCROLL BACK TO SLIDE 1
+================================================== */
+
+.slide-1 .slide-text > p .t-stream-w {
+
+    display: inline;
+
+    opacity: 0;
+
+    filter: blur(1px);
+
+    transition:
+        opacity 350ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* ==================================================
+   STREAMING WORD — VISIBLE
+================================================== */
+
+.slide-1 .slide-text > p .t-stream-w.is-in {
+
+    opacity: 1;
+
+    filter: blur(0);
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .slide-1 .slide-text > p .t-stream-w {
+
+        transition: none !important;
+
+        filter: none !important;
+
+        opacity: 1 !important;
+    }
+
 }
 
 
@@ -589,7 +690,7 @@ header {
 
     padding: clamp(15px, 2vw, 20px);
 
-    border-left: 3px solid #29275f;
+    border-left: 3px solid #07070a;
 
     background: rgba(255, 255, 255, 0.18);
 
@@ -620,7 +721,7 @@ header {
     /* CHANGE INFO TITLE FONT SIZE HERE */
     font-size: clamp(7px, 0.7vw, 12px);
 
-    color: #29275f;
+    color: #0d0b20;
 
     letter-spacing: 1px;
 }
@@ -639,7 +740,7 @@ header {
 
     line-height: 1.8;
 
-    color: #222222;
+    color: #471818;
 }
 
 /* ==================================================
@@ -650,23 +751,46 @@ header {
 
     position: relative;
 
-    /* WIDTH */
-    width: 107%;
+    /* ==============================================
+       CHANGE WHOLE CAROUSEL WIDTH HERE
+    ============================================== */
+
+    width: 90%;
 
     max-width: none;
 
     min-width: 0;
 
-    /* POSITION — MOVE WHOLE CAROUSEL */
-    transform: translate(70px, -120px);
+    /* ==============================================
+       MOVE WHOLE CAROUSEL
+    ============================================== */
 
-    margin-left: 0;
+    transform: translate(140px, 20px);
 
-    margin-right: 0;
+    margin: 0;
 
     overflow: visible;
 
     z-index: 5;
+
+    /* ==============================================
+       BLACK FRAME
+    ============================================== */
+
+    padding: 8px;
+
+    background: #222222;
+
+    border: 5px solid #111111;
+
+    box-shadow:
+        7px 7px 0 #111111;
+
+    height: auto !important;
+
+    min-height: 0 !important;
+
+    box-sizing: border-box;
 }
 
 
@@ -678,9 +802,19 @@ header {
 
     position: relative;
 
-    width: 107%;
+    width: 100%;
+
+    height: auto !important;
+
+    min-height: 0 !important;
 
     overflow: hidden;
+
+    background: #111111;
+
+    margin: 0;
+
+    padding: 0;
 }
 
 
@@ -691,22 +825,47 @@ header {
 .about-carousel .carousel-inner > .item {
 
     width: 100%;
+
+    height: auto !important;
+
+    min-height: 0 !important;
+
+    margin: 0;
+
+    padding: 0;
+
+    /* KEEP SMOOTH SLIDE */
+    transition:
+        transform 0.6s ease-in-out;
+
+    -webkit-transition:
+        -webkit-transform 0.6s ease-in-out;
 }
 
 
 /* ==================================================
-   LANDSCAPE PICTURE
+   PICTURE
 ================================================== */
 
 .about-carousel .item img {
 
-    width: 100%;
-
-    height: auto;
-
     display: block;
 
+    width: 100%;
+
+    height: auto !important;
+
+    min-height: 0 !important;
+
+    max-height: none;
+
+    margin: 0;
+
+    padding: 0;
+
     object-fit: contain;
+
+    object-position: center;
 }
 
 
@@ -721,6 +880,18 @@ header {
     background-image: none;
 
     z-index: 20;
+}
+
+
+/* ==================================================
+   ARROWS
+================================================== */
+
+.about-carousel .carousel-control .glyphicon {
+
+    top: 50%;
+
+    transform: translateY(-50%);
 }
 
 
@@ -775,7 +946,72 @@ header {
 
 
 
+/* ==================================================
+   SLIDE 1 — MOVABLE STICKER
+   CHANGE ONLY THESE VALUES TO MOVE IT
+================================================== */
 
+.slide-1 {
+    position: relative;
+}
+
+
+/* ==================================================
+   STICKER POSITION
+================================================== */
+
+.slide-1-sticker {
+    position: absolute;
+
+    /* ================================
+       ADJUST STICKER HERE
+    ================================= */
+
+    left: 410px;       /* LEFT / RIGHT */
+    top: 190px;       /* UP / DOWN */
+
+    width: 720px;     /* STICKER SIZE */
+
+    /* ================================
+       DO NOT CHANGE
+    ================================= */
+
+    height: auto;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1000px) {
+
+    .slide-1-sticker {
+        left: 30px;
+        top: 120px;
+        width: 150px;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+    .slide-1-sticker {
+        left: 20px;
+        top: 100px;
+        width: 100px;
+    }
+
+}
 
 
 /* ==================================================
@@ -940,15 +1176,12 @@ header {
 }
 
 
-
-
-
-
 /* ==================================================
    SLIDE 2 — OWN SETTINGS
 ================================================== */
 
 .slide-2 {
+
     background:
         radial-gradient(
             circle at 20% 25%,
@@ -956,6 +1189,7 @@ header {
             #344f6e 45%,
             #adb8ae 85%
         );
+
 }
 
 
@@ -964,8 +1198,10 @@ header {
 ================================================== */
 
 .slide-2 .slide-number {
+
     font-size: 12px;
     color: #111111;
+
 }
 
 
@@ -974,8 +1210,10 @@ header {
 ================================================== */
 
 .slide-2 h1 {
+
     font-size: 55px;
     color: #111111;
+
 }
 
 
@@ -984,9 +1222,11 @@ header {
 ================================================== */
 
 .slide-2 .slide-label {
+
     font-size: 15px;
     color: #9c1212;
     margin-top: 0;
+
 }
 
 
@@ -995,8 +1235,10 @@ header {
 ================================================== */
 
 .slide-2 .slide-line {
+
     width: 100%;
     max-width: 13000px;
+
     height: 2px;
 
     margin-top: 40px;
@@ -1004,6 +1246,7 @@ header {
 
     background: #9c1212;
     opacity: 0.65;
+
 }
 
 
@@ -1012,9 +1255,11 @@ header {
 ================================================== */
 
 .slide-2 .specialization-slide {
-    max-width: 1250px;
 
-    transform: translateX(-200px);
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+
 }
 
 
@@ -1023,6 +1268,7 @@ header {
 ================================================== */
 
 .slide-2 .specialization-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -1033,7 +1279,8 @@ header {
     width: 100%;
     max-width: 1000px;
 
-    margin-top: 30px;
+    margin: 30px auto 0;
+
 }
 
 
@@ -1042,9 +1289,11 @@ header {
 ================================================== */
 
 .slide-2 .specialization-card {
+
     min-height: 110px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -1061,12 +1310,180 @@ header {
     color: #adb8ae;
 
     font-size: 9px;
+
     line-height: 1.6;
+
+    position: relative;
+
+    overflow: hidden;
+
+    /* Initial wave position */
+    opacity: 0;
+
+    transform:
+        translateY(70px)
+        rotateX(20deg)
+        scale(0.95);
 
     transition:
         transform 0.3s ease,
         background 0.3s ease,
-        box-shadow 0.3s ease;
+        box-shadow 0.3s ease,
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+
+}
+
+
+/* ==================================================
+   SLIDE 2 — WAVE ANIMATION
+================================================== */
+
+.slide-2.active .specialization-card {
+
+    animation:
+        specializationWave
+        1.2s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+
+}
+
+
+/* ==================================================
+   SLIDE 2 — WAVE DELAY
+================================================== */
+
+.slide-2.active .specialization-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.slide-2.active .specialization-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.slide-2.active .specialization-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.slide-2.active .specialization-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.slide-2.active .specialization-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.slide-2.active .specialization-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.slide-2.active .specialization-card:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.slide-2.active .specialization-card:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.slide-2.active .specialization-card:nth-child(odd) {
+    --card-start: -12px;
+    --card-mid: -5px;
+}
+
+.slide-2.active .specialization-card:nth-child(even) {
+    --card-start: 12px;
+    --card-mid: 5px;
+}
+
+
+/* ==================================================
+   SLIDE 2 — WAVE KEYFRAMES
+================================================== */
+
+@keyframes specializationWave {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate3d(var(--card-start, 0px), 70px, 0)
+            rotateX(20deg)
+            scale(0.95);
+
+        filter: brightness(0.7);
+
+    }
+
+    45% {
+
+        opacity: 1;
+
+        transform:
+            translate3d(var(--card-mid, 0px), -15px, 0)
+            rotateX(0deg)
+            scale(1.02);
+
+        filter: brightness(1.25);
+
+    }
+
+    70% {
+
+        transform:
+            translate3d(var(--card-mid, 0px), 7px, 0)
+            scale(1);
+
+        filter: brightness(1.08);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+
+        filter: brightness(1);
+
+    }
+
+}
+
+
+/* ==================================================
+   SLIDE 2 — INSIDE LIGHT
+================================================== */
+
+.slide-2 .specialization-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.18) 0%,
+            rgba(255, 255, 255, 0.08) 25%,
+            transparent 60%
+        );
+
+    opacity: 0;
+
+    transform: scale(0.5);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.5s ease;
+
+    pointer-events: none;
+
 }
 
 
@@ -1075,33 +1492,87 @@ header {
 ================================================== */
 
 .slide-2 .specialization-card:hover {
+
     transform: translateY(-7px);
 
-    background: rgba(79, 107, 95, 0.12);
+    background: rgba(255, 255, 255, 0.22);
 
     box-shadow:
-        0 8px 20px rgba(125, 139, 133, 0.12);
+
+        inset 0 0 20px
+        rgba(255, 255, 255, 0.20),
+
+        inset 0 0 45px
+        rgba(255, 255, 255, 0.12),
+
+        0 8px 25px
+        rgba(255, 255, 255, 0.15);
+
+    color: #ffffff;
+
+    text-shadow:
+
+        0 0 5px
+        rgba(255, 255, 255, 0.8),
+
+        0 0 12px
+        rgba(255, 255, 255, 0.55),
+
+        0 0 20px
+        rgba(255, 255, 255, 0.3);
+
 }
 
 
+/* ==================================================
+   SLIDE 2 — ACTIVATE INSIDE LIGHT
+================================================== */
+
+.slide-2 .specialization-card:hover::before {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+}
 
 
+/* ==================================================
+   SLIDE 2 — KEEP CARD CONTENT ABOVE LIGHT
+================================================== */
+
+.slide-2 .specialization-card {
+
+    isolation: isolate;
+
+}
+
+.slide-2 .specialization-card > * {
+
+    position: relative;
+
+    z-index: 2;
+
+}
 
 
+/* ==================================================
+   SLIDE 2 — REDUCED MOTION
+================================================== */
 
+@media (prefers-reduced-motion: reduce) {
 
+    .slide-2 .specialization-card {
 
+        opacity: 1;
 
+        transform: none;
 
+        animation: none;
 
+    }
 
-
-
-
-
-
-
-
+}
 
 
 
@@ -1313,19 +1784,6 @@ header {
     opacity: 0.65;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ==================================================
@@ -1626,13 +2084,6 @@ header {
 }
 
 
-
-
-
-
-
-
-
 /* ==================================================
    SLIDE 5 — NEWS
 ================================================== */
@@ -1758,9 +2209,6 @@ header {
     color: #29275f;
     letter-spacing: 1px;
 }
-
-
-
 
 
 /* ==================================================
