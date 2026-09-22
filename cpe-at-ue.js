@@ -458,3 +458,40 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
+
+/* ==================================================
+   SLIDE 2 — SCROLL WAVE ANIMATION
+================================================== */
+
+const slide2 = document.querySelector(".slide-2");
+
+if (slide2) {
+
+    const slide2Observer = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    /* Start the wave animation */
+                    slide2.classList.add("active");
+
+                } else {
+
+                    /* Reset so it plays again when scrolling back */
+                    slide2.classList.remove("active");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.35
+        }
+    );
+
+    slide2Observer.observe(slide2);
+
+}
