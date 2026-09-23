@@ -865,7 +865,7 @@ body {
 .officer-info > span {
     font-family: "Press Start 2P", cursive;
 
-    font-size: 10px;
+    font-size: 15px;
 
     color: #315F8A;
 
@@ -873,11 +873,11 @@ body {
 }
 
 .officer-info h3 {
-    margin-top: 20px;
+    margin-top: 15px;
 
     font-family: "Press Start 2P", cursive;
 
-    font-size: clamp(30px, 4vw, 65px);
+    font-size: clamp(15px, 4vw, 45px);
 
     line-height: 1.15;
 
@@ -911,7 +911,7 @@ body {
 .officer-description span {
     font-family: "Press Start 2P", cursive;
 
-    font-size: 8px;
+    font-size: 15px;
 
     color: #9C1212;
 }
@@ -923,7 +923,7 @@ body {
 
     color: #7C7C7C;
 
-    font-size: 14px;
+    font-size: 17px;
 }
 
 

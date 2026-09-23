@@ -260,132 +260,132 @@ updatePhotoStack();
 const officers = [
 
     {
-        name: "OFFICER NAME 01",
+        name: "Charlize Mae S. Baldovino",
         position: "PRESIDENT",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer1.jpg",
+        image: "Assets/scpesofficer1.jpg",
         description:
-            "Leading the organization and helping coordinate activities for the SCPES community."
+            "Leads the organization and oversees its overall operations."
     },
 
 
     {
-        name: "OFFICER NAME 02",
-        position: "VICE PRESIDENT",
+        name: "Jawad Hadji Cassan M. Macawadib",
+        position: "VICE PRESIDENT FOR INTERNAL AFFAIRS",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer2.jpg",
+        image: "Assets/scpesofficer2.jpg",
         description:
-            "Supporting the organization and assisting in planning programs and activities."
+            "Manages internal coordination and member relations."
     },
 
 
     {
-        name: "OFFICER NAME 03",
-        position: "SECRETARY",
+        name: "Joshua R. Madriaga",
+        position: "VICE PRESIDENT FOR EXTERNAL AFFAIRS",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer3.jpg",
+        image: "Assets/scpesofficer3.jpg",
         description:
-            "Handling organizational records, documentation, and important communications."
+            "Handles partnerships and external relations."
     },
 
 
     {
-        name: "OFFICER NAME 04",
-        position: "TREASURER",
+        name: "Ghenny Mae A. Manabat",
+        position: "VICE PRESIDENT FOR SECRETARIAT",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer4.jpg",
+        image: "Assets/scpesofficer4.jpg",
         description:
-            "Assisting with financial records, budgeting, and organization resources."
+            "Manages records, documents, and administrative tasks."
     },
 
 
     {
-        name: "OFFICER NAME 05",
-        position: "AUDITOR",
+        name: "Jessica P. Apostol",
+        position: "VICE PRESIDENT FOR BUSINESS AND FINANCE",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer5.jpg",
+        image: "Assets/scpesofficer5.jpg",
         description:
-            "Helping monitor organizational records and maintaining transparency."
+            "Oversees finances, budgeting, and fundraising."
     },
 
 
     {
-        name: "OFFICER NAME 06",
-        position: "PUBLIC RELATIONS OFFICER",
+        name: "Joshua C. Purificacion",
+        position: "VICE PRESIDENT FOR CAREER DEVELOPMENT ",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer6.jpg",
+        image: "Assets/scpesofficer6.jpg",
         description:
-            "Helping communicate SCPES activities, announcements, and updates."
+            "Supports members' career growth and opportunities."
     },
 
 
     {
-        name: "OFFICER NAME 07",
-        position: "DOCUMENTATION OFFICER",
+        name: "Roselle Gabrielle J. Landayan",
+        position: "VICE PRESIDENT FOR EVENTS AND PROGRAMS",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer7.jpg",
+        image: "Assets/scpesofficer7.jpg",
         description:
-            "Documenting events, activities, and important SCPES moments."
+            "Plans and manages events and programs."
     },
 
 
     {
-        name: "OFFICER NAME 08",
-        position: "LOGISTICS OFFICER",
+        name: "Earl Duncan C. Lorenzo",
+        position: "VICE PRESIDENT FOR OUTREACH AND SOCIAL RESPONSIBILITY ",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer8.jpg",
+        image: "Assets/scpesofficer8.jpg",
         description:
-            "Helping prepare materials, venues, and logistical needs for activities."
+            "Leads community outreach and service activities."
     },
 
 
     {
-        name: "OFFICER NAME 09",
-        position: "EVENTS OFFICER",
+        name: "Kriselda Mei G. Rupera",
+        position: "VICE PRESIDENT FOR TECHNICAL OPERATIONS",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer9.jpg",
+        image: "Assets/scpesofficer9.jpg",
         description:
-            "Assisting with the planning and coordination of SCPES events."
+            "Handles technical needs and operations."
     },
 
 
     {
-        name: "OFFICER NAME 10",
-        position: "TECHNICAL OFFICER",
+        name: "Jian Miel M. Cruz",
+        position: "VICE PRESIDENT FOR CREATIVES & COMMUNICATIONS",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer10.jpg",
+        image: "Assets/scpesofficer10.jpg",
         description:
-            "Supporting technical needs and technology-related activities."
+            "Creates content and manages communications."
     },
 
 
     {
-        name: "OFFICER NAME 11",
-        position: "CREATIVE OFFICER",
+        name: "Joezer C. Cornita",
+        position: "VICE PRESIDENT FOR MEDIA",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer11.jpg",
+        image: "Assets/scpesofficer11.jpg",
         description:
-            "Helping create visual materials and creative content for the organization."
+            "Handles media coverage and event documentation."
     },
 
 
     {
-        name: "OFFICER NAME 12",
-        position: "MEMBERSHIP OFFICER",
+        name: "Bench Calvin Paed",
+        position: "VICE PRESIDENT FOR LOGISTICS & EVENT COORDINATION",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer12.jpg",
+        image: "Assets/scpesofficer12.jpg",
         description:
-            "Helping welcome members and encourage student participation."
+            "Manages event logistics and coordination."
     },
 
 
     {
-        name: "OFFICER NAME 13",
-        position: "YEAR LEVEL REPRESENTATIVE",
+        name: "Felix Frederick L. Adriano",
+        position: "VICE PRESIDENT FOR RECREATION & WELLNESS",
         year: "2026 — 2027",
-        image: "Assets/scpes/officer13.jpg",
+        image: "Assets/scpesofficer13.jpg",
         description:
-            "Representing students and helping connect members with SCPES activities."
+            "Promotes recreation, wellness, and member engagement."
     }
 
 ];
