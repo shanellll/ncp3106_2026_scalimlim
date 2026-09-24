@@ -2269,134 +2269,6 @@ header {
 
 
 /* ==================================================
-   EXPLORE CPE MARQUEE
-================================================== */
-
-.explore-marquee {
-    width: 100%;
-
-    height: 65px;
-
-    margin-top: -2px;
-    margin-bottom: -2px;
-
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-
-    position: relative;
-  
-    background:#aeb8ad 
-}
-
-
-/* ==================================================
-   MOVING TRACK
-================================================== */
-
-.explore-track {
-    display: flex;
-
-    width: max-content;
-
-    white-space: nowrap;
-
-    animation:
-        exploreMove
-        18s
-        linear
-        infinite;
-}
-
-
-/* ==================================================
-   EXPLORE CPE TEXT
-================================================== */
-
-.explore-track span {
-    flex-shrink: 0;
-
-    margin-right: 100px;
-
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: 26px;
-    .explore-track span {
-    flex-shrink: 0;
-    margin-right: 100px;
-
-    font-family: "Press Start 2P", sans-serif;
-    font-size: 26px;
-
-    color: #244A73;
-
-    font-weight: 900;
-    letter-spacing: 2px;
-    white-space: nowrap;
-}
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-
-    white-space: nowrap;
-}
-
-
-/* ==================================================
-   LEFT → RIGHT ANIMATION
-================================================== */
-
-@keyframes exploreMove {
-
-    from {
-        transform: translateX(-50%);
-    }
-
-    to {
-        transform: translateX(0);
-    }
-
-}
-
-
-/* ==================================================
-   MOBILE
-================================================== */
-
-@media (max-width: 768px) {
-
-    .cpe-description-slide {
-        height: 550px;
-    }
-
-    .cpe-description-content {
-        width: 90%;
-        left: 5%;
-        top: 120px;
-    }
-
-    .cool-title {
-        font-size: 42px;
-        line-height: 1.15;
-        letter-spacing: -1px;
-    }
-
-    .cool-title span {
-        margin-right: 6px;
-    }
-
-    .cpe-description-content p {
-        font-size: 16px;
-    }
-
-}
-
-
-
-
-/* ==================================================
    SLIDE 5 — CAREERS
 ================================================== */
 
@@ -2646,85 +2518,7 @@ header {
 
 
 
-/* ==================================================
-   EXPLORE CPE MARQUEE2
-================================================== */
 
-.explore-marquee2 {
-    width: 100%;
-
-    height: 65px;
-
-    margin-top: -2px;
-    margin-bottom: -2px;
-
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-
-    position: relative;
-  
-    background:#aeb8ad
-}
-
-
-/* ==================================================
-   MOVING TRACK
-================================================== */
-
-.explore-track {
-    display: flex;
-
-    width: max-content;
-
-    white-space: nowrap;
-
-    animation:
-        exploreMove
-        18s
-        linear
-        infinite;
-}
-
-
-/* ==================================================
-   EXPLORE CPE TEXT
-================================================== */
-
-.explore-track span {
-    flex-shrink: 0;
-
-    margin-right: 100px;
-
-    font-family: "Press Start 2P", sans-serif;
-
-    font-size: 26px;
-    color: #204b20;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-
-    white-space: nowrap;
-}
-
-
-/* ==================================================
-   LEFT → RIGHT ANIMATION
-================================================== */
-
-@keyframes exploreMove {
-
-    from {
-        transform: translateX(-50%);
-    }
-
-    to {
-        transform: translateX(0);
-    }
-
-}
 
 
 /* ==================================================
@@ -2763,7 +2557,341 @@ header {
 
 
 
+/* ==================================================
+   FAQ SECTION
+================================================== */
 
+.faq-section {
+    position: relative;
+
+    min-height: 70vh;
+
+    padding: 80px 70px 100px;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            #134b83 0%,
+            #344f6e 25%,
+            #092061 70%
+        );
+
+    color: #172b3a;
+
+    overflow: hidden;
+}
+
+/* ==================================================
+   FAQ HEADER
+================================================== */
+
+.faq-header {
+    width: 100%;
+
+    margin-bottom: 45px;
+
+    text-align: center;
+}
+
+
+.faq-label {
+    margin: 0 0 18px;
+
+    font-family: "Light Pixel", sans-serif;
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    color: #92969b;
+}
+
+
+.faq-header h2 {
+    margin: 0;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 48px;
+
+    line-height: 1.35;
+
+    letter-spacing: -2px;
+
+    color: #7c8baa;
+
+    text-shadow:
+        5px 5px 0px #3f5e80;
+}
+
+
+.faq-intro {
+    margin: 22px auto 0;
+
+    max-width: 650px;
+
+    font-family: "Light Pixel", sans-serif;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    color: #a9b8b6;
+}
+
+/* ==================================================
+   FAQ CONTAINER
+================================================== */
+
+.faq-container {
+    width: 100%;
+
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+
+/* ==================================================
+   FAQ CARD
+================================================== */
+
+.faq-card {
+    position: relative;
+
+    min-height: 92px;
+
+    background: #d7ddd5;
+
+    border: 3px solid #193850;
+
+    box-shadow:
+        5px 5px 0px #315F8A;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* ==================================================
+   FAQ QUESTION
+================================================== */
+
+.faq-question {
+    min-height: 92px;
+
+    padding: 20px 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.faq-number {
+    min-width: 40px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 13px;
+
+    color: #315F8A;
+}
+
+
+.faq-question h3 {
+    flex: 1;
+
+    margin: 0;
+
+    font-family: "Light Pixel", sans-serif;
+
+    font-size: 19px;
+
+    font-weight: normal;
+
+    line-height: 1.35;
+
+    color: #172b3a;
+}
+
+
+.faq-arrow {
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 2px solid #315F8A;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 22px;
+
+    color: #315F8A;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* ==================================================
+   FAQ ANSWER
+================================================== */
+
+.faq-answer {
+    max-height: 0;
+
+    opacity: 0;
+
+    overflow: hidden;
+
+    padding: 0 22px;
+
+    transition:
+        max-height 0.4s ease,
+        opacity 0.3s ease,
+        padding 0.4s ease;
+}
+
+
+.faq-answer p {
+    margin: 0;
+
+    font-family: "Light Pixel", sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    color: #222222;
+}
+
+
+/* ==================================================
+   HOVER EFFECT
+================================================== */
+
+.faq-card:hover {
+    transform: translateY(-4px);
+
+    background: #e1e5df;
+
+    box-shadow:
+        7px 7px 0px #193850;
+}
+
+
+.faq-card:hover .faq-answer {
+    max-height: 180px;
+
+    opacity: 1;
+
+    padding:
+        0 22px 22px;
+}
+
+
+.faq-card:hover .faq-arrow {
+    transform: rotate(45deg);
+
+    background: #315F8A;
+
+    color: #ffffff;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 900px) {
+
+    .faq-section {
+        padding: 70px 40px 90px;
+    }
+
+    .faq-container {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-header h2 {
+        font-size: 38px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .faq-section {
+        padding: 60px 25px 80px;
+    }
+
+    .faq-header h2 {
+        font-size: 27px;
+
+        letter-spacing: -1px;
+    }
+
+    .faq-label {
+        font-size: 14px;
+    }
+
+    .faq-intro {
+        font-size: 14px;
+    }
+
+    .faq-question {
+        padding: 18px;
+
+        gap: 10px;
+    }
+
+    .faq-number {
+        min-width: 30px;
+
+        font-size: 10px;
+    }
+
+    .faq-question h3 {
+        font-size: 16px;
+    }
+
+    .faq-answer {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .faq-card:hover .faq-answer {
+        padding:
+            0 18px 18px;
+    }
+
+}
 
 
 
@@ -4234,7 +4362,6 @@ header {
    ito yung sa contact section
 ================================================== */
 
-
 /* ==================================================
    PIXEL FONT
 ================================================== */
@@ -4247,6 +4374,7 @@ header {
         format("truetype");
 }
 
+
 /* ==================================================
    CONTACT
 ================================================== */
@@ -4254,11 +4382,11 @@ header {
 .contact-section {
     position: relative;
 
-    min-height: 600px;
+    min-height: 400px;
 
     padding: 80px 70px;
 
-    background: #aeb8ad;
+    background:  #244A73;
 
     color: #315F8A;
 
@@ -4273,7 +4401,7 @@ header {
 .contact-title {
     position: absolute;
 
-    top: 55px;
+    top: 50px;
 
     right: 85px;
 
@@ -4282,7 +4410,7 @@ header {
 
 
 .contact-title h2 {
-    margin: 5;
+    margin: 2px 0;
 
     font-family: "Press Start 2P", cursive;
 
@@ -4290,15 +4418,15 @@ header {
 
     font-weight: 900;
 
-    letter-spacing: -5px;
+    letter-spacing: -10px;
 
     line-height: 1;
 
-    color: #193850;
+    color: #10212e;
+     -webkit-text-stroke: 1px #070727;
 
-    /* PIXEL SHADOW */
     text-shadow:
-        6px 6px 0px #3f5e80;
+        6px 6px 0px #304c6b;
 }
 
 
@@ -4309,9 +4437,9 @@ header {
 .contact-socials {
     position: absolute;
 
-    top: 220px;
+    top: 185px;
 
-    right: 270px;
+    right: 300px;
 
     display: flex;
 
@@ -4340,7 +4468,7 @@ header {
 
     text-decoration: none;
 
-    color: #172b3a;
+    color: #2770a8;
 
     transition:
         transform 0.3s ease;
@@ -4356,6 +4484,8 @@ header {
 
     image-rendering: pixelated;
 }
+
+
 .social-icon {
     width: 62px;
     height: 62px;
@@ -4388,6 +4518,7 @@ header {
         0 -4px #222222;
 }
 
+
 /* ==================================================
    SOCIAL NAME
 ================================================== */
@@ -4401,8 +4532,9 @@ header {
 
     line-height: 1.4;
 
-    color: #222222;
+    color: #1a1a1b;
 }
+
 
 /* ==================================================
    SOCIAL HOVER
@@ -4431,9 +4563,9 @@ header {
 
     left: 70px;
 
-    bottom: 70px;
+    top: 75px;
 
-    width: 52%;
+    width: 45%;
 
     display: flex;
 
@@ -4464,14 +4596,14 @@ header {
     margin: 0;
 
     font-family: "Press Start 2P";
-    
+
     font-size: 21px;
 
     font-weight: 600;
 
     line-height: 1.6;
 
-    color: #172b3a;
+    color: #a1acb1;
 }
 
 
@@ -4490,7 +4622,7 @@ header {
 
     margin-bottom: 18px;
 
-    color: #222222;
+    color: #c2bcbc;
 
     text-decoration: none;
 
@@ -4559,7 +4691,7 @@ a.contact-detail:hover {
     .contact-details {
         left: 50px;
 
-        width: 55%;
+        width: 50%;
     }
 
 }
@@ -4603,7 +4735,7 @@ a.contact-detail:hover {
         position: relative;
 
         left: auto;
-        bottom: auto;
+        top: auto;
 
         width: 100%;
     }
@@ -4645,7 +4777,6 @@ a.contact-detail:hover {
     }
 
 }
-
 /* ==================================================
    end ng contact section
 ================================================== */
