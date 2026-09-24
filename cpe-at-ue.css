@@ -712,6 +712,99 @@ header {
 }
 
 
+
+/* ==================================================
+   SLIDE 1 — INFO BOX WAVE ANIMATION
+================================================== */
+
+.slide-1.active .info-item {
+
+    opacity: 0;
+
+    animation:
+        infoWave
+        1.1s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+
+}
+
+
+/* ==================================================
+   SLIDE 1 — WAVE DELAY
+================================================== */
+
+.slide-1.active .info-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.slide-1.active .info-item:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.slide-1.active .info-item:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+
+/* ==================================================
+   SLIDE 1 — WAVE KEYFRAMES
+================================================== */
+
+@keyframes infoWave {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate3d(-20px, 70px, 0)
+            rotateX(18deg)
+            scale(0.94);
+
+        filter: brightness(0.7);
+
+    }
+
+
+    45% {
+
+        opacity: 1;
+
+        transform:
+            translate3d(8px, -12px, 0)
+            rotateX(0deg)
+            scale(1.03);
+
+        filter: brightness(1.2);
+
+    }
+
+
+    70% {
+
+        transform:
+            translate3d(-3px, 6px, 0)
+            scale(1);
+
+        filter: brightness(1.08);
+
+    }
+
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+
+        filter: brightness(1);
+
+    }
+
+}
 /* ==================================================
    SLIDE 1 — INFO TITLE
 ================================================== */
@@ -1176,20 +1269,20 @@ header {
 }
 
 
+
+
+
+
+
+
+
+
 /* ==================================================
    SLIDE 2 — OWN SETTINGS
 ================================================== */
 
 .slide-2 {
-
-    background:
-        radial-gradient(
-            circle at 20% 25%,
-            #355577 0%,
-            #344f6e 45%,
-            #adb8ae 85%
-        );
-
+   background: #fffaef;
 }
 
 
@@ -1200,7 +1293,7 @@ header {
 .slide-2 .slide-number {
 
     font-size: 12px;
-    color: #111111;
+    color: #5f1c1c;
 
 }
 
@@ -1211,8 +1304,8 @@ header {
 
 .slide-2 h1 {
 
-    font-size: 55px;
-    color: #111111;
+    font-size: 65px;
+    color: #8f2d2d;
 
 }
 
@@ -1223,7 +1316,7 @@ header {
 
 .slide-2 .slide-label {
 
-    font-size: 15px;
+    font-size: 30px;
     color: #9c1212;
     margin-top: 0;
 
@@ -1256,7 +1349,7 @@ header {
 
 .slide-2 .specialization-slide {
 
-    max-width: 1250px;
+    max-width: 2550px;
     width: 100%;
     margin: 0 auto;
 
@@ -1290,7 +1383,7 @@ header {
 
 .slide-2 .specialization-card {
 
-    min-height: 110px;
+    min-height: 150px;
 
     display: flex;
 
@@ -1303,13 +1396,13 @@ header {
 
     text-align: center;
 
-    border: 2px solid #adb8ae;
+    border: 2px solid #000200;
 
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(240, 226, 226, 0.911);
 
-    color: #adb8ae;
+    color: #020a03;
 
-    font-size: 9px;
+    font-size: 12px;
 
     line-height: 1.6;
 
@@ -1575,7 +1668,6 @@ header {
 }
 
 
-
 /* ==================================================
    SLIDE 3 — STUDENT PROJECTS
 ================================================== */
@@ -1599,7 +1691,6 @@ header {
 .slide-3 .slide-number {
 
     font-size: 12px;
-
     color: #111111;
 
 }
@@ -1612,11 +1703,9 @@ header {
 .slide-3 h1 {
 
     font-size: 55px;
-
     color: #9c1212;
 
 }
-
 
 /* ==================================================
    SLIDE 3 — PROJECT CONTAINER
@@ -1624,9 +1713,10 @@ header {
 
 .slide-3 .projects-slide {
 
-    max-width: 1250px;
+    max-width: 2550px;
 
-    transform: translateX(-200px);
+    /* REMOVE the left shift */
+    transform: none;
 
 }
 
@@ -1640,18 +1730,17 @@ header {
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(200px, 1fr));
+        repeat(3, minmax(360px, 1fr));
 
-    gap: 20px;
+    gap: 25px;
 
     width: 100%;
 
-    max-width: 1100px;
+    max-width: 2000px;
 
-    margin-top: 30px;
+    margin: 30px auto 0 auto;
 
 }
-
 
 /* ==================================================
    SLIDE 3 — PROJECT CARDS
@@ -1661,20 +1750,122 @@ header {
 
     position: relative;
 
-    min-height: 190px;
+    min-height: 400px;
 
-    padding: 25px;
+    padding: 30px;
 
     box-sizing: border-box;
 
     border: 2px solid #29275f;
 
-    background: rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
 
     transition:
         transform 0.3s ease,
-        background 0.3s ease,
         box-shadow 0.3s ease;
+
+}
+
+
+/* ==================================================
+   SLIDE 3 — DIFFERENT BACKGROUND FOR EACH CARD
+================================================== */
+
+/* 01 — Embedded Systems */
+
+.slide-3 .project-card:nth-child(1) {
+
+    background-image:
+        url("Assets/embedde.jpg");
+
+}
+
+
+/* 02 — IoT Projects */
+
+.slide-3 .project-card:nth-child(2) {
+
+    background-image:
+        url("Assets/iot.jpg");
+
+}
+
+
+/* 03 — Robotics */
+
+.slide-3 .project-card:nth-child(3) {
+
+    background-image:
+        url("Assets/robotics.jpg");
+
+}
+
+
+/* 04 — Software */
+
+.slide-3 .project-card:nth-child(4) {
+
+    background-image:
+        url("Assets/software.jpg");
+
+}
+
+
+/* 05 — AI / Data */
+
+.slide-3 .project-card:nth-child(5) {
+
+    background-image:
+        url("Assets/ai.jpg");
+
+}
+
+
+/* 06 — Senior Project */
+
+.slide-3 .project-card:nth-child(6) {
+
+    background-image:
+        url("Assets/senior-project.jpg");
+
+}
+
+
+/* ==================================================
+   SLIDE 3 — IMAGE OVERLAY
+================================================== */
+
+.slide-3 .project-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(255, 255, 255, 0.151);
+
+    z-index: 0;
+
+}
+
+
+/* ==================================================
+   SLIDE 3 — KEEP TEXT ABOVE IMAGE
+================================================== */
+
+.slide-3 .project-card > * {
+
+    position: relative;
+
+    z-index: 1;
 
 }
 
@@ -1687,10 +1878,8 @@ header {
 
     transform: translateY(-8px);
 
-    background: rgba(255, 255, 255, 0.32);
-
     box-shadow:
-        0 10px 25px rgba(41, 39, 95, 0.18);
+        0 12px 30px rgba(41, 39, 95, 0.25);
 
 }
 
@@ -1782,6 +1971,143 @@ header {
     background: #0a03d6;
 
     opacity: 0.65;
+
+}
+
+
+
+
+/* ==================================================
+   SLIDE 3 — PROJECT CARD WAVE ANIMATION
+================================================== */
+
+.slide-3.active .project-card {
+
+    animation:
+        projectWave
+        1.2s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+
+}
+
+
+/* ==================================================
+   SLIDE 3 — WAVE DELAY
+================================================== */
+
+.slide-3.active .project-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.slide-3.active .project-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.slide-3.active .project-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.slide-3.active .project-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.slide-3.active .project-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.slide-3.active .project-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+
+/* ==================================================
+   SLIDE 3 — WAVE DIRECTION
+================================================== */
+
+.slide-3.active .project-card:nth-child(odd) {
+
+    --card-start: -12px;
+    --card-mid: -5px;
+
+}
+
+.slide-3.active .project-card:nth-child(even) {
+
+    --card-start: 12px;
+    --card-mid: 5px;
+
+}
+
+
+/* ==================================================
+   SLIDE 3 — WAVE KEYFRAMES
+================================================== */
+
+@keyframes projectWave {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate3d(
+                var(--card-start, 0px),
+                70px,
+                0
+            )
+            rotateX(20deg)
+            scale(0.95);
+
+        filter: brightness(0.7);
+
+    }
+
+
+    45% {
+
+        opacity: 1;
+
+        transform:
+            translate3d(
+                var(--card-mid, 0px),
+                -15px,
+                0
+            )
+            rotateX(0deg)
+            scale(1.02);
+
+        filter: brightness(1.25);
+
+    }
+
+
+    70% {
+
+        transform:
+            translate3d(
+                var(--card-mid, 0px),
+                7px,
+                0
+            )
+            scale(1);
+
+        filter: brightness(1.08);
+
+    }
+
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+
+        filter: brightness(1);
+
+    }
 
 }
 
