@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(function () {
 
                 window.location.href =
-                    "scpes.html";
+                    "faculty.html";
 
             }, 2500);
 
