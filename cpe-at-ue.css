@@ -25,118 +25,414 @@ body {
     color: #111111;
 }
 
-
 /* ==================================================
-   HEADER
+   HEADER — FIXED NAVIGATION
 ================================================== */
 
 header {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
-    height: 75px;
+    height: 90px;
+    padding: 20px 4%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 9999;
 
-    z-index: 1000;
-
-    background: rgba(151, 160, 153, 0.95);
-
-    border-bottom: 1px solid rgba(41, 42, 61, 0.15);
-
+    background: rgba(27, 37, 85, 0.35);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    pointer-events: auto;
 }
+
+
+/* ==================================================
+   NAVIGATION CONTAINER
+================================================== */
 
 .nav-container {
-    width: 94%;
-    height: 100%;
-
-    margin: auto;
-
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    pointer-events: auto;
 }
 
-.logo {
-    width: 65px;
 
+/* ==================================================
+   LOGO
+================================================== */
+
+.logo {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
+    pointer-events: auto;
 }
 
 .logo img {
-    width: 48px;
-    height: auto;
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    display: block;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
 }
+
+.logo:hover img {
+    transform:
+        scale(1.05)
+        rotate(-2deg);
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(216, 255, 255, 0.35)
+        );
+}
+
+
+/* ==================================================
+   MAIN NAVIGATION
+================================================== */
 
 .main-nav {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 
-    gap: 20px;
+    gap: 25px;
+    width: 100%;
 
-    margin-left: 25px;
+    pointer-events: auto;
 }
+
+
+/* ==================================================
+   NAVIGATION LINKS
+================================================== */
 
 .main-nav a {
     position: relative;
 
-    color: #292a3d;
+    display: flex;
+    align-items: center;
 
+    color: white;
     text-decoration: none;
 
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 11px;
-    font-weight: bold;
+    font-family: "Press Start 2P", cursive;
+    font-size: 8px;
+    font-weight: normal;
 
     white-space: nowrap;
 
-    transition: color 0.3s ease;
+    pointer-events: auto;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-.main-nav a::after {
+
+/* ==================================================
+   NAVIGATION HOVER
+================================================== */
+
+.main-nav a:hover {
+    color: #d8ffff;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* ==================================================
+   NAVIGATION UNDERLINE
+================================================== */
+
+/* Normal links: underline appears only when hovered */
+
+.main-nav a:not(.join-btn)::after {
     content: "";
 
     position: absolute;
-
     left: 0;
-    bottom: -7px;
+    bottom: -8px;
 
-    width: 100%;
+    width: 0;
     height: 2px;
 
-    background: #5265a9;
+    background: white;
 
-    transform: scaleX(0);
-
-    transition: transform 0.3s ease;
+    transition:
+        width 0.3s ease;
 }
 
-.main-nav a:hover::after,
+
+/* Hover underline */
+
+.main-nav a:not(.join-btn):hover::after {
+    width: 100%;
+}
+
+
+/* ==================================================
+   ACTIVE LINK
+================================================== */
+
+/* Current page stays underlined */
+
+.main-nav a.active {
+    color: white;
+}
+
+
+/* Permanent underline for active page */
+
 .main-nav a.active::after {
-    transform: scaleX(1);
+    width: 100%;
 }
 
-.main-nav a:hover {
-    color: #5265a9;
+
+/* Active link hover */
+
+.main-nav a.active:hover {
+    color: #d8ffff;
 }
 
-.join-btn {
-    padding: 10px 14px;
-
-    border: 1px solid #5265a9;
+.main-nav a.active:hover::after {
+    width: 100%;
 }
 
-.join-btn::after {
-    display: none;
+
+/* ==================================================
+   REMOVE FOCUS EFFECT
+================================================== */
+
+.main-nav a:focus,
+.main-nav a:focus-visible {
+    outline: none;
+    box-shadow: none;
 }
 
-.join-btn:hover {
-    background: #5265a9;
+
+/* ==================================================
+   JOIN BUTTON
+================================================== */
+
+.main-nav .join-btn {
+    position: relative;
+
+    padding: 12px 16px;
+
+    border: 2px solid #d8ffff;
+    border-radius: 30px;
+
+    background: transparent;
+    color: white !important;
+
+    font-family: "Press Start 2P", cursive;
+    font-size: 8px;
+
+    white-space: nowrap;
+    pointer-events: auto;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ==================================================
+   JOIN BUTTON — NO UNDERLINE
+================================================== */
+
+.main-nav .join-btn::after {
+    display: none !important;
+}
+
+
+/* ==================================================
+   JOIN BUTTON HOVER
+================================================== */
+
+.main-nav .join-btn:hover {
+    background: rgba(216, 255, 255, 0.12);
 
     color: white !important;
+
+    box-shadow:
+        0 0 10px rgba(216, 255, 255, 0.6),
+        0 0 25px rgba(216, 255, 255, 0.25);
+
+    transform:
+        translateY(-2px);
 }
+
+
+/* ==================================================
+   JOIN BUTTON FOCUS
+================================================== */
+
+.main-nav .join-btn:focus,
+.main-nav .join-btn:focus-visible {
+    outline: none !important;
+}
+
+
+/* ==================================================
+   HUNGER GAMES FONT
+   — KEEP IF USED ELSEWHERE
+================================================== */
+
+@font-face {
+
+    font-family:
+        "Hunger Games";
+
+    src:
+        url("Assets/Hunger Games.ttf")
+        format("truetype");
+
+    font-weight:
+        normal;
+
+    font-style:
+        normal;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1100px) {
+
+    header {
+
+        padding:
+            18px 3%;
+    }
+
+    .main-nav {
+
+        gap: 15px;
+    }
+
+    .main-nav a {
+
+        font-size: 7px;
+    }
+
+    .main-nav .join-btn {
+
+        padding:
+            10px 13px;
+
+        font-size: 7px;
+    }
+
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 850px) {
+
+    header {
+
+        height: 75px;
+
+        padding:
+            10px 3%;
+    }
+
+    .logo img {
+
+        width: 48px;
+
+        height: 48px;
+    }
+
+    .main-nav {
+
+        gap: 10px;
+
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+    .main-nav::-webkit-scrollbar {
+
+        display: none;
+    }
+
+    .main-nav a {
+
+        font-size: 6px;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+    header {
+
+        height: 68px;
+
+        padding:
+            8px 3%;
+    }
+
+    .logo img {
+
+        width: 42px;
+
+        height: 42px;
+    }
+
+    .main-nav {
+
+        gap: 8px;
+
+        margin-left: 15px;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+    }
+
+    .main-nav a {
+
+        font-size: 5px;
+    }
+
+    .main-nav .join-btn {
+
+        padding:
+            8px 10px;
+
+        font-size: 5px;
+    }
+
+}
+
 
 /* ==================================================
    MAIN CONTAINER
@@ -146,6 +442,7 @@ header {
     position: relative;
 
     width: 100%;
+
     height: auto;
 
     overflow: visible;
@@ -153,14 +450,16 @@ header {
 
 
 /* ==================================================
-   ALL SLIDES — COMMON STRUCTURE ONLY
+   ALL SLIDES
 ================================================== */
 
 .slide {
     position: relative;
 
     width: 100%;
+
     min-height: 100vh;
+
     height: auto;
 
     box-sizing: border-box;
@@ -170,11 +469,14 @@ header {
 
     padding-left: 10%;
     padding-right: 8%;
+
     padding-top: 120px;
     padding-bottom: 100px;
 
     opacity: 1;
+
     visibility: visible;
+
     transform: none;
 
     overflow: hidden;
@@ -191,9 +493,215 @@ header {
     position: relative;
 
     width: 100%;
+
     max-width: 1250px;
 
     margin: 0 auto;
+}
+
+
+/* ==================================================
+   TABLET — 1200px
+================================================== */
+
+@media (max-width: 1200px) {
+
+    .nav-container {
+        width: 95%;
+    }
+
+    .main-nav {
+        gap: 2px;
+    }
+
+    .main-nav a {
+        padding: 0 8px;
+
+        font-size: 7px;
+    }
+
+    .main-nav .join-btn {
+        padding:
+            0 12px !important;
+
+        font-size: 11px !important;
+    }
+
+}
+
+
+/* ==================================================
+   SMALL TABLET — 900px
+================================================== */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 12px 0;
+    }
+
+    .nav-container {
+        width: 94%;
+
+        padding:
+            8px 12px;
+
+        border-radius: 35px;
+    }
+
+    .logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .main-nav {
+        gap: 2px;
+
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+    .main-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .main-nav a {
+        flex-shrink: 0;
+
+        height: 42px;
+
+        padding:
+            0 7px;
+
+        font-size: 6px;
+    }
+
+    .main-nav .join-btn {
+        height: 42px !important;
+
+        padding:
+            0 10px !important;
+
+        font-size: 9px !important;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE — 700px
+================================================== */
+
+@media (max-width: 700px) {
+
+    header {
+        position: fixed;
+
+        padding: 10px 0;
+    }
+
+    .nav-container {
+        width: 94%;
+
+        padding:
+            8px 12px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 8px;
+
+        border-radius: 25px;
+    }
+
+    .logo {
+        justify-content: center;
+
+        padding-left: 0;
+    }
+
+    .logo img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .main-nav {
+        width: 100%;
+
+        margin-left: 0;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+        padding-bottom: 3px;
+    }
+
+    .main-nav a {
+        flex-shrink: 0;
+
+        height: 38px;
+
+        padding:
+            0 7px;
+
+        font-size: 5.5px;
+    }
+
+    .main-nav .join-btn {
+        height: 38px !important;
+
+        padding:
+            0 10px !important;
+
+        font-size: 8px !important;
+    }
+
+}
+
+
+/* ==================================================
+   EXTRA SMALL — 420px
+================================================== */
+
+@media (max-width: 420px) {
+
+    .nav-container {
+        width: 95%;
+
+        padding:
+            7px 10px;
+    }
+
+    .logo img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .main-nav {
+        gap: 1px;
+    }
+
+    .main-nav a {
+        height: 35px;
+
+        padding:
+            0 6px;
+
+        font-size: 5px;
+    }
+
+    .main-nav .join-btn {
+        height: 35px !important;
+
+        padding:
+            0 8px !important;
+
+        font-size: 7px !important;
+    }
+
 }
 
 /* ==================================================
@@ -2111,6 +2619,845 @@ header {
 
 }
 
+/* ==================================================
+   SLIDE — CLASSROOMS & LIBRARY
+================================================== */
+
+.classrooms-library-slide {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 105px 6% 55px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(72, 105, 145, 0.55),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(91, 70, 100, 0.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #10172e 0%,
+            #26365e 50%,
+            #5265a9 100%
+        );
+
+    color: #f4efe2;
+}
+
+
+/* ==================================================
+   GRID
+================================================== */
+
+.classrooms-library-slide::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 40px 40px;
+
+    pointer-events: none;
+
+    opacity: 0.45;
+}
+
+
+/* ==================================================
+   SLIDE NUMBER
+================================================== */
+
+.classrooms-library-slide .slide-number {
+
+    position: absolute;
+
+    bottom: 28px;
+    left: 6%;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,0.35);
+
+    z-index: 5;
+}
+
+
+/* ==================================================
+   SMALL CAMPUS SPACES LABEL
+================================================== */
+
+.cl-label {
+
+    position: absolute;
+
+    top: 45px;
+    right: 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #d8d0bd;
+
+    z-index: 5;
+}
+
+.cl-label span {
+
+    width: 30px;
+
+    height: 2px;
+
+    background: #d8d0bd;
+}
+
+
+/* ==================================================
+   MAIN TITLE
+   NOW CENTERED ABOVE THE TWO BOXES
+================================================== */
+
+.cl-heading {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto 38px;
+
+    text-align: center;
+
+    flex-shrink: 0;
+}
+
+
+/* TITLE */
+
+.cl-heading h1 {
+
+    margin: 0;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: clamp(38px, 5vw, 70px);
+
+    line-height: 1.08;
+
+    letter-spacing: 2px;
+
+    color: #f4efe2;
+
+    text-shadow:
+        4px 4px 0 rgba(0,0,0,0.20);
+}
+
+
+/* PINK SECOND LINE */
+
+.cl-heading h1 span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #d8a6a6;
+
+}
+
+
+/* DESCRIPTION UNDER TITLE */
+
+.cl-heading p {
+
+    max-width: 850px;
+
+    margin: 20px auto 0;
+
+    font-family: "Times New Roman", serif;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: rgba(244,239,226,0.82);
+
+}
+
+
+/* ==================================================
+   TWO BOXES
+================================================== */
+
+.cl-spaces {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    max-width: 1120px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 35px;
+
+    margin: 0 auto;
+
+    flex: 1;
+
+    align-items: center;
+}
+
+
+/* ==================================================
+   BIGGER SPACE CARDS
+================================================== */
+
+.space-card {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 390px;
+
+    overflow: hidden;
+
+    display: grid;
+
+    grid-template-columns: 45% 55%;
+
+    border: 1px solid rgba(255,255,255,0.28);
+
+    background:
+        rgba(13, 20, 42, 0.82);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,0.30);
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+}
+
+
+/* ==================================================
+   HOVER CARD
+================================================== */
+
+.space-card:hover {
+
+    transform: translateY(-12px);
+
+    border-color:
+        rgba(216,166,166,0.65);
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,0.42),
+        0 0 30px rgba(130,160,220,0.20);
+}
+
+
+/* ==================================================
+   IMAGE AREA
+================================================== */
+
+.space-image {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 390px;
+
+    overflow: hidden;
+
+    background: #111a34;
+}
+
+
+/* IMAGE */
+
+.space-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.7s ease,
+        filter 0.7s ease;
+}
+
+
+/* IMAGE HOVER */
+
+.space-card:hover .space-image img {
+
+    transform: scale(1.08);
+
+    filter:
+        brightness(0.78);
+}
+
+
+/* ==================================================
+   IMAGE DARK GRADIENT
+================================================== */
+
+.space-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 40%,
+            rgba(13,20,42,0.65) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   IMAGE NUMBER
+================================================== */
+
+.image-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: flex-start;
+
+    padding: 18px;
+}
+
+.image-overlay span {
+
+    padding: 9px 11px;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 9px;
+
+    color: #f4efe2;
+
+    border: 1px solid rgba(255,255,255,0.45);
+
+    background:
+        rgba(10,15,35,0.55);
+}
+
+
+/* ==================================================
+   CARD CONTENT
+================================================== */
+
+.space-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    padding: 38px 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background:
+        rgba(13,20,42,0.82);
+}
+
+
+/* SMALL CATEGORY */
+
+.space-tag {
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    line-height: 1.5;
+
+    color: #c6cadc;
+
+    margin-bottom: 18px;
+}
+
+
+/* CARD TITLE */
+
+.space-content h2 {
+
+    margin: 0 0 18px;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: clamp(20px, 2vw, 28px);
+
+    line-height: 1.3;
+
+    color: #f4efe2;
+
+    transition:
+        letter-spacing 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* CARD TITLE HOVER */
+
+.space-card:hover .space-content h2 {
+
+    letter-spacing: 2px;
+
+    transform: translateX(4px);
+
+    color: #d8a6a6;
+}
+
+
+/* ==================================================
+   CARD DESCRIPTION
+================================================== */
+
+.space-content p {
+
+    margin: 0;
+
+    max-width: 420px;
+
+    font-family: "Times New Roman", serif;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(244,239,226,0.78);
+}
+
+
+/* ==================================================
+   FEATURE TAGS
+================================================== */
+
+.space-features {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+.space-features span {
+
+    padding: 8px 10px;
+
+    border: 1px solid
+        rgba(255,255,255,0.20);
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 7px;
+
+    line-height: 1.3;
+
+    color: #d8d0bd;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* TAG HOVER */
+
+.space-card:hover .space-features span {
+
+    border-color:
+        rgba(216,166,166,0.45);
+
+    background:
+        rgba(216,166,166,0.08);
+
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   BOTTOM LINE
+================================================== */
+
+.cl-footer {
+
+    position: relative;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    margin-top: 30px;
+
+    flex-shrink: 0;
+}
+
+.cl-footer p {
+
+    margin: 0;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255,255,255,0.55);
+}
+
+.footer-line {
+
+    width: 75px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,0.30);
+}
+
+
+/* ==================================================
+   DECORATIONS
+================================================== */
+
+.cl-decoration {
+
+    position: absolute;
+
+    font-family: "Press Start 2P", monospace;
+
+    color:
+        rgba(255,255,255,0.15);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.decoration-one {
+
+    top: 16%;
+
+    left: 2%;
+
+    font-size: 40px;
+
+    animation:
+        floatingDecoration 4s ease-in-out infinite;
+}
+
+
+.decoration-two {
+
+    bottom: 16%;
+
+    right: 3%;
+
+    font-size: 45px;
+
+    animation:
+        floatingDecoration 5s ease-in-out infinite reverse;
+}
+
+
+.decoration-three {
+
+    bottom: 5%;
+
+    left: 7%;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    animation:
+        floatingDecoration 6s ease-in-out infinite;
+}
+
+
+/* ==================================================
+   FLOATING ANIMATION
+================================================== */
+
+@keyframes floatingDecoration {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px)
+            rotate(5deg);
+
+    }
+}
+
+
+/* ==================================================
+   SCROLL REVEAL
+================================================== */
+
+.classrooms-library-slide .reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.classrooms-library-slide .reveal.active {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ==================================================
+   RESPONSIVE — TABLET
+================================================== */
+
+@media (max-width: 1000px) {
+
+    .classrooms-library-slide {
+
+        padding:
+            100px 5% 50px;
+    }
+
+
+    .cl-spaces {
+
+        max-width: 850px;
+
+        gap: 25px;
+    }
+
+
+    .space-card {
+
+        grid-template-columns: 1fr;
+
+        min-height: 520px;
+    }
+
+
+    .space-image {
+
+        height: 220px;
+
+        min-height: 220px;
+    }
+
+
+    .space-content {
+
+        padding: 28px;
+    }
+
+}
+
+
+/* ==================================================
+   RESPONSIVE — MOBILE
+================================================== */
+
+@media (max-width: 650px) {
+
+    .classrooms-library-slide {
+
+        padding:
+            90px 5% 40px;
+    }
+
+
+    .cl-label {
+
+        display: none;
+    }
+
+
+    .cl-heading {
+
+        margin-bottom: 25px;
+    }
+
+
+    .cl-heading h1 {
+
+        font-size: 30px;
+
+        line-height: 1.2;
+    }
+
+
+    .cl-heading p {
+
+        font-size: 15px;
+
+        line-height: 1.5;
+
+        margin-top: 15px;
+    }
+
+
+    .cl-spaces {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .space-card {
+
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .space-image {
+
+        height: 190px;
+
+        min-height: 190px;
+    }
+
+
+    .space-content {
+
+        padding: 25px;
+    }
+
+
+    .space-content h2 {
+
+        font-size: 19px;
+    }
+
+
+    .space-content p {
+
+        font-size: 15px;
+    }
+
+
+    .cl-footer {
+
+        display: none;
+    }
+
+}
+
+
 
 /* ==================================================
    SLIDE 5 — NEWS
@@ -2344,160 +3691,404 @@ header {
 }
 
 
+
+
+
+
+
+
+
 /* ==================================================
-   CONTINUE TO SCPES
+   SLIDE 6 — FACULTY INTRODUCTION
 ================================================== */
 
-.transition-text strong {
+.slide-6 {
 
-    font-family: "Press Start 2P", monospace;
+    min-height: 100vh;
 
-    font-size: clamp(35px, 6vw, 90px);
+    background:
+        radial-gradient(
+            circle at 25% 30%,
+            #344f6e 0%,
+            #263e57 45%,
+            #172b3a 100%
+        );
 
-    line-height: 1.3;
+    color: #efede5;
 
-    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+}
+
+
+/* ==================================================
+   FACULTY SLIDE CONTENT
+================================================== */
+
+.slide-6 .faculty-intro-slide {
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+
+/* ==================================================
+   SLIDE NUMBER
+================================================== */
+
+.slide-6 .slide-number {
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: #c9c5a9;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==================================================
+   FACULTY LETTER
+================================================== */
+
+.slide-6 .faculty-letter {
+
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    padding: 55px 60px;
+
+    box-sizing: border-box;
+
+    border: 1px solid
+        rgba(239, 237, 229, 0.35);
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+/* ==================================================
+   LABEL
+================================================== */
+
+.slide-6 .letter-label {
+
+    display: block;
+
+    margin-bottom: 30px;
+
+    color: #c9c5a9;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+/* ==================================================
+   TITLE
+================================================== */
+
+.slide-6 .faculty-letter h1 {
+
+    margin: 0;
+
+    color: #efede5;
+
+    font-size: 38px;
+
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   DIVIDER
+================================================== */
+
+.slide-6 .letter-line {
+
+    width: 80px;
+
+    height: 2px;
+
+    margin: 30px auto;
+
+    background: #c9c5a9;
+}
+
+
+/* ==================================================
+   QUOTE
+================================================== */
+
+.slide-6 .faculty-quote {
+
+    max-width: 700px;
+
+    margin: 0 auto 25px auto;
+
+    font-family:
+        "Times New Roman",
+        serif;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    font-style: italic;
 
     color: #ffffff;
 
     text-align: center;
-
-    animation:
-        loadingPulse
-        1s
-        infinite alternate;
-
-    text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.35),
-        0 0 25px rgba(255, 255, 255, 0.2);
 }
 
 
 /* ==================================================
-   TEXT PULSE
+   MESSAGE
 ================================================== */
 
-@keyframes loadingPulse {
+.slide-6 .faculty-message {
 
-    from {
+    max-width: 620px;
 
-        opacity: 0.55;
+    margin: 0 auto;
 
-        transform: scale(0.97);
+    color: #d8d8d2;
 
+    font-size: 9px;
+
+    line-height: 2;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   SIGNATURE
+================================================== */
+
+.slide-6 .faculty-signature {
+
+    margin-top: 28px;
+
+    text-align: center;
+}
+
+
+.slide-6 .faculty-signature span {
+
+    color: #c9c5a9;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==================================================
+   FACULTY BUTTON
+================================================== */
+
+.slide-6 .faculty-button {
+
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 15px 25px;
+
+    border: 1px solid #c9c5a9;
+
+    background: transparent;
+
+    color: #efede5;
+
+    text-decoration: none;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.slide-6 .faculty-button:hover {
+
+    background: #c9c5a9;
+
+    color: #172b3a;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(201, 197, 169, 0.25);
+}
+
+
+/* ==================================================
+   BOTTOM LINE
+================================================== */
+
+.slide-6 .slide-line {
+
+    margin-top: 40px;
+}
+
+
+.slide-6 .slide-label {
+
+    color: #c9c5a9;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==================================================
+   FACULTY ANIMATION
+================================================== */
+
+.slide-6 .faculty-letter {
+
+    opacity: 0;
+
+    transform:
+        translateY(60px)
+        scale(0.96);
+}
+
+
+.slide-6.active .faculty-letter {
+
+    animation:
+        facultyLetterIn
+        1.2s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+
+@keyframes facultyLetterIn {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(60px)
+            scale(0.96);
+
+        filter: brightness(0.7);
     }
 
-    to {
+
+    45% {
 
         opacity: 1;
 
-        transform: scale(1.03);
+        transform:
+            translateY(-10px)
+            scale(1.02);
 
+        filter: brightness(1.2);
+    }
+
+
+    70% {
+
+        transform:
+            translateY(5px)
+            scale(1);
+
+        filter: brightness(1.05);
+    }
+
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: brightness(1);
     }
 
 }
 
 
 /* ==================================================
-   RESPONSIVE — TABLET
+   FACULTY — TABLET
 ================================================== */
 
 @media (max-width: 1000px) {
 
-    .main-header {
-        height: 80px;
-    }
+    .slide-6 {
 
-
-    .main-nav {
-        gap: 18px;
-    }
-
-
-    .main-nav a {
-        font-size: 9px;
-    }
-
-
-    .join-btn {
-        padding: 11px 13px;
-    }
-
-
-    .slide {
         padding-left: 7%;
         padding-right: 7%;
-        padding-top: 110px;
-        padding-bottom: 80px;
     }
 
 
-    .info-points {
-        grid-template-columns:
-            repeat(3, 1fr);
+    .slide-6 .faculty-letter {
+
+        max-width: 750px;
+
+        padding: 45px 40px;
     }
 
 
-    .specialization-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+    .slide-6 .faculty-letter h1 {
+
+        font-size: 34px;
     }
 
 
-    .project-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+    .slide-6 .faculty-quote {
+
+        font-size: 17px;
     }
 
-
-    .news-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
 }
 
 
 /* ==================================================
-   RESPONSIVE — MOBILE
+   FACULTY — MOBILE
 ================================================== */
 
 @media (max-width: 700px) {
 
-    .main-header {
-        height: 75px;
+    .slide-6 {
 
-        padding: 0 5%;
-    }
-
-
-    .header-logo img {
-        width: 50px;
-    }
-
-
-    .main-nav {
-        gap: 10px;
-    }
-
-
-    .main-nav a {
-        font-size: 7px;
-    }
-
-
-    .main-nav a:not(.join-btn) {
-        display: none;
-    }
-
-
-    .join-btn {
-        padding: 9px 10px;
-
-        font-size: 7px !important;
-    }
-
-
-    .slide {
         min-height: 100vh;
 
         padding-left: 6%;
@@ -2505,146 +4096,155 @@ header {
 
         padding-top: 100px;
         padding-bottom: 70px;
-
-        align-items: flex-start;
     }
 
 
-    .slide-content {
+    .slide-6 .faculty-intro-slide {
+
         width: 100%;
     }
 
 
-    .slide-number {
-        margin-bottom: 18px;
+    .slide-6 .faculty-letter {
 
-        font-size: 8px;
+        width: 100%;
+
+        max-width: none;
+
+        padding: 35px 20px;
     }
 
 
-    .slide h1 {
-        font-size: clamp(30px, 9vw, 55px);
+    .slide-6 .letter-label {
 
-        line-height: 1.05;
+        font-size: 6px;
 
-        margin-bottom: 25px;
-    }
-
-
-    .slide-content > p {
-        font-size: 8px;
-
-        line-height: 2;
-
-        margin-bottom: 30px;
-    }
-
-
-    .info-points {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-
-    .specialization-grid {
-        grid-template-columns: 1fr;
-
-        gap: 14px;
-    }
-
-
-    .specialization-card {
-        min-height: 80px;
-
-        font-size: 8px;
-    }
-
-
-    .project-grid {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-
-    .project-card {
-        min-height: 160px;
-    }
-
-
-    .faculty-grid {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-
-    .faculty-card {
-        min-height: 140px;
-    }
-
-
-    .news-grid {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-
-    .news-card {
-        min-height: 220px;
-    }
-
-
-    .slide-line {
-        margin-top: 30px;
-    }
-
-
-    .slide-label {
-        font-size: 7px;
+        letter-spacing: 2px;
 
         line-height: 1.8;
+
+        margin-bottom: 22px;
     }
+
+
+    .slide-6 .faculty-letter h1 {
+
+        font-size:
+            clamp(23px, 7vw, 34px);
+
+        line-height: 1.45;
+    }
+
+
+    .slide-6 .letter-line {
+
+        width: 60px;
+
+        margin: 22px auto;
+    }
+
+
+    .slide-6 .faculty-quote {
+
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+
+    .slide-6 .faculty-message {
+
+        font-size: 7px;
+
+        line-height: 1.9;
+    }
+
+
+    .slide-6 .faculty-signature span {
+
+        font-size: 6px;
+    }
+
+
+    .slide-6 .faculty-button {
+
+        margin-top: 28px;
+
+        padding: 13px 18px;
+
+        font-size: 7px;
+    }
+
+
+    .slide-6 .slide-label {
+
+        font-size: 6px;
+    }
+
 }
 
 
 /* ==================================================
-   EXTRA SMALL DEVICES
+   FACULTY — EXTRA SMALL
 ================================================== */
 
 @media (max-width: 420px) {
 
-    .slide {
-        padding-left: 5%;
-        padding-right: 5%;
+    .slide-6 .faculty-letter {
+
+        padding: 28px 17px;
     }
 
 
-    .slide h1 {
-        font-size: 28px;
+    .slide-6 .letter-label {
+
+        font-size: 5.5px;
+
+        letter-spacing: 1.5px;
     }
 
 
-    .slide-content > p {
-        font-size: 7px;
+    .slide-6 .faculty-letter h1 {
+
+        font-size: 23px;
+
+        line-height: 1.4;
     }
 
 
-    .info-item strong,
-    .project-card h3,
-    .faculty-card h3,
-    .news-card h3 {
-        font-size: 9px;
+    .slide-6 .faculty-quote {
+
+        font-size: 13px;
+
+        line-height: 1.65;
     }
 
 
-    .info-item span,
-    .project-card p,
-    .faculty-card span,
-    .news-card p {
-        font-size: 7px;
+    .slide-6 .faculty-message {
+
+        font-size: 6.5px;
+
+        line-height: 1.8;
     }
+
+
+    .slide-6 .faculty-signature span {
+
+        font-size: 5.5px;
+    }
+
+
+    .slide-6 .faculty-button {
+
+        padding: 11px 14px;
+
+        font-size: 6px;
+    }
+
+
+    .slide-6 .slide-label {
+
+        font-size: 5.5px;
+    }
+
 }
-

@@ -14,242 +14,168 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==================================================
-       SCROLL-IN ANIMATION
+       SCPES NEXT SECTION
     ================================================== */
 
-    const cardObserver =
-        new IntersectionObserver(
+    const facultyNext =
+        document.querySelector(".faculty-next");
 
-            function (entries) {
 
-                entries.forEach(function (entry) {
+    /* ==================================================
+       FACULTY CARD ANIMATION
+    ================================================== */
 
-                    if (entry.isIntersecting) {
+    if (facultyCards.length) {
 
-                        entry.target.classList.add("show");
+        const cardObserver =
+            new IntersectionObserver(
 
-                    }
+                function (entries) {
 
-                });
+                    entries.forEach(function (entry) {
 
-            },
+                        if (entry.isIntersecting) {
 
-            {
-                threshold: 0.15
-            }
+                            entry.target.classList.add("show");
 
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.15
+                }
+
+            );
+
+
+        /* ==================================================
+           OBSERVE EVERY FACULTY CARD
+        ================================================== */
+
+        facultyCards.forEach(function (card, index) {
+
+            /*
+             * Makes each faculty card
+             * appear slightly after the previous one.
+             */
+
+            card.style.transitionDelay =
+                (index * 0.12) + "s";
+
+            cardObserver.observe(card);
+
+        });
+
+
+        /* ==================================================
+           FACULTY HOVER EFFECT
+        ================================================== */
+
+        facultyCards.forEach(function (card) {
+
+            card.addEventListener(
+                "mouseenter",
+                function () {
+
+                    card.classList.add(
+                        "faculty-hover"
+                    );
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                function () {
+
+                    card.classList.remove(
+                        "faculty-hover"
+                    );
+
+                }
+            );
+
+        });
+
+    }
+
+
+    /* ==================================================
+       SCPES BOTTOM SECTION ANIMATION
+    ================================================== */
+
+    if (facultyNext) {
+
+        const nextObserver =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add(
+                                "next-show"
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.25
+                }
+
+            );
+
+
+        nextObserver.observe(facultyNext);
+
+    }
+
+
+    /* ==================================================
+       SCPES BUTTON
+    ================================================== */
+
+    const scpesButton =
+        document.querySelector(
+            ".faculty-next-button"
         );
 
 
-    /* ==================================================
-       OBSERVE EVERY FACULTY CARD
-    ================================================== */
+    if (scpesButton) {
 
-    facultyCards.forEach(function (card, index) {
-
-        card.style.transitionDelay =
-            (index * 0.12) + "s";
-
-        cardObserver.observe(card);
-
-    });
-
-
-
-    /* ==================================================
-       FACULTY MOUSE INTERACTION
-    ================================================== */
-
-    facultyCards.forEach(function (card) {
-
-
-        card.addEventListener(
+        scpesButton.addEventListener(
             "mouseenter",
             function () {
 
-                card.classList.add(
-                    "faculty-hover"
+                scpesButton.classList.add(
+                    "button-hover"
                 );
 
             }
         );
 
 
-        card.addEventListener(
+        scpesButton.addEventListener(
             "mouseleave",
             function () {
 
-                card.classList.remove(
-                    "faculty-hover"
+                scpesButton.classList.remove(
+                    "button-hover"
                 );
 
             }
         );
 
-    });
-
-
-
-    /* ==================================================
-       SCPES TRANSITION
-    ================================================== */
-
-    const scpesTransition =
-        document.getElementById(
-            "scpesTransition"
-        );
-
-
-    let isTransitioning = false;
-
-
-    /* ==================================================
-       CHECK PAGE BOTTOM
-    ================================================== */
-
-    function checkPageBottom() {
-
-        if (isTransitioning) {
-
-            return;
-
-        }
-
-
-        const currentPosition =
-            window.innerHeight +
-            window.scrollY;
-
-
-        const totalHeight =
-            document.documentElement.scrollHeight;
-
-
-        const bottomTolerance = 35;
-
-
-        if (
-            currentPosition >=
-            totalHeight - bottomTolerance
-        ) {
-
-            startSCPES();
-
-        }
-
     }
-
-
-
-    /* ==================================================
-       START SCPES TRANSITION
-    ================================================== */
-
-    function startSCPES() {
-
-        if (isTransitioning) {
-
-            return;
-
-        }
-
-
-        isTransitioning = true;
-
-
-        /* ==================================================
-           SHOW TRANSITION SCREEN
-        ================================================== */
-
-        scpesTransition.classList.add(
-            "active"
-        );
-
-
-        /* ==================================================
-           STOP PAGE SCROLL
-        ================================================== */
-
-        document.body.style.overflow =
-            "hidden";
-
-
-        /* ==================================================
-           WAIT FOR IMAGE ANIMATION
-        ================================================== */
-
-        setTimeout(function () {
-
-
-            /* ==================================================
-               OPEN SCPES PAGE
-            ================================================== */
-
-            window.location.href =
-                "scpes.html";
-
-
-        }, 1800);
-
-    }
-
-
-
-    /* ==================================================
-       NORMAL SCROLL EVENT
-    ================================================== */
-
-    window.addEventListener(
-        "scroll",
-        checkPageBottom,
-        {
-            passive: true
-        }
-    );
-
-
-
-    /* ==================================================
-       MOUSE WHEEL
-    ================================================== */
-
-    window.addEventListener(
-        "wheel",
-        function () {
-
-            setTimeout(
-                checkPageBottom,
-                80
-            );
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-
-    /* ==================================================
-       TOUCH SCROLL
-    ================================================== */
-
-    window.addEventListener(
-        "touchmove",
-        function () {
-
-            setTimeout(
-                checkPageBottom,
-                80
-            );
-
-        },
-        {
-            passive: true
-        }
-    );
-
 
 });
-
-

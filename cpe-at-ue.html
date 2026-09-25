@@ -40,7 +40,9 @@
 
 
 <body>
-
+<!-- ==================================================
+     HEADER
+================================================== -->
 
 <!-- ==================================================
      HEADER
@@ -50,46 +52,51 @@
 
     <div class="nav-container">
 
-        <div class="logo">
+        <!-- LOGO -->
+        <a href="index.html" class="logo">
 
             <img
                 src="Assets/cpe.png"
                 alt="Computer Engineering Organization Logo"
             >
 
-        </div>
+        </a>
 
 
+        <!-- MAIN NAVIGATION -->
         <nav class="main-nav">
 
+            <!-- HOME -->
             <a href="index.html">
                 HOME
             </a>
 
-            <a href="careers.html">
-                CAREERS
-            </a>
-
-            <a href="cpe-at-ue.html">
+            <!-- CpE AT UE — ACTIVE PAGE -->
+            <a href="cpe-at-ue.html" class="active">
                 CpE AT UE
             </a>
 
+            <!-- FACULTY -->
             <a href="faculty.html">
                 FACULTY
             </a>
 
-            <a href="scpes.html" class="active">
+            <!-- SCPES -->
+            <a href="scpes.html">
                 SCPES
             </a>
 
+            <!-- EVENTS & ACTIVITIES -->
             <a href="events.html">
-                EVENTS & ACTIVITIES
+                EVENTS &amp; ACTIVITIES
             </a>
 
+            <!-- CONTACT -->
             <a href="contact.html">
                 CONTACT
             </a>
 
+            <!-- JOIN -->
             <a
                 href="join.html"
                 class="join-btn"
@@ -102,8 +109,6 @@
     </div>
 
 </header>
-
-
 
 <!-- ==================================================
      VERTICAL SCROLL CONTENT
@@ -706,7 +711,136 @@ $(document).ready(function () {
 
 </section>
 
-    ```html
+
+<!-- ==================================================
+     SLIDE — CLASSROOMS & LIBRARY
+================================================== -->
+
+<section class="slide classrooms-library-slide">
+
+    <!-- Slide Number -->
+    <div class="slide-number">04</div>
+
+    <!-- Decorative label -->
+    <div class="cl-label">
+        <span></span>
+        CAMPUS SPACES
+    </div>
+
+    <!-- Main Title -->
+    <div class="cl-heading reveal">
+        <h1>
+            CLASSROOMS<br>
+            <span>&amp; LIBRARY</span>
+        </h1>
+
+        <p>
+            Spaces where Computer Engineering students learn,
+            collaborate, experiment, and build ideas into reality.
+        </p>
+    </div>
+
+
+    <!-- ==================================================
+         CONTENT CARDS
+    ================================================== -->
+
+    <div class="cl-spaces reveal">
+
+        <!-- CLASSROOM -->
+        <div class="space-card classroom-card">
+
+            <div class="space-image">
+                <img src="Assets/classroom.jpg" alt="Computer Engineering Classroom">
+
+                <div class="image-overlay">
+                    <span>01</span>
+                </div>
+            </div>
+
+            <div class="space-content">
+
+                <div class="space-tag">
+                    LEARNING SPACE
+                </div>
+
+                <h2>CLASSROOMS</h2>
+
+                <p>
+                    Computer Engineering classrooms provide students
+                    with an environment for lectures, discussions,
+                    laboratory activities, and hands-on learning.
+                </p>
+
+                <div class="space-features">
+                    <span>LECTURES</span>
+                    <span>DISCUSSIONS</span>
+                    <span>LAB ACTIVITIES</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LIBRARY -->
+        <div class="space-card library-card">
+
+            <div class="space-image">
+                <img src="Assets/liblary.jpg" alt="University Library">
+
+                <div class="image-overlay">
+                    <span>02</span>
+                </div>
+            </div>
+
+            <div class="space-content">
+
+                <div class="space-tag">
+                    STUDY &amp; RESEARCH
+                </div>
+
+                <h2>LIBRARY</h2>
+
+                <p>
+                    The library gives students a place to study,
+                    research, access learning materials, and work
+                    on academic projects in a focused environment.
+                </p>
+
+                <div class="space-features">
+                    <span>RESEARCH</span>
+                    <span>STUDY</span>
+                    <span>RESOURCES</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Bottom statement -->
+    <div class="cl-footer reveal">
+        <span class="footer-line"></span>
+
+        <p>
+            LEARN • EXPLORE • CREATE
+        </p>
+
+        <span class="footer-line"></span>
+    </div>
+
+
+    <!-- Floating Decorations -->
+    <div class="cl-decoration decoration-one">+</div>
+    <div class="cl-decoration decoration-two">×</div>
+    <div class="cl-decoration decoration-three">01</div>
+
+</section>
+
+
 <!-- ==================================================
      SECTION 4 — CpE NEWS
 ================================================== -->
@@ -1048,7 +1182,6 @@ $(document).ready(function () {
     </div>
 
 </section>
-
 
 
 

@@ -15,7 +15,7 @@ html {
 body {
     font-family: Arial, sans-serif;
     background: #eeeeee;
-    color: #222222;
+    color: #4d1f1f;
     overflow-x: hidden;
 }
 
@@ -64,7 +64,6 @@ body {
 
     z-index: 5;
 }
-
 /* ==================================================
    NAVIGATION CONTAINER
 ================================================== */
@@ -88,9 +87,9 @@ header {
     display: flex;
     align-items: center;
 
-    background: #42424271;
+    background: rgba(171, 177, 185, 0.637);
 
-    border: 2px solid #00000085;
+    border: 2px solid #302b2b85;
 
     border-radius: 50px;
 
@@ -150,9 +149,8 @@ header {
 
     text-decoration: none;
 
-    color: #fffbfb;
+    color: #2b2626;
 
-    /* PIXEL FONT */
     font-family: "Press Start 2P", cursive;
 
     font-size: 11px;
@@ -181,7 +179,7 @@ header {
    HOVER UNDERLINE
 ================================================== */
 
-.main-nav a::after {
+.main-nav a:not(.join-btn)::after {
     content: "";
 
     position: absolute;
@@ -192,7 +190,7 @@ header {
     width: 0;
     height: 3px;
 
-    background: #ffffff;
+    background: #dbdbdf;
 
     border-radius: 5px;
 
@@ -201,16 +199,47 @@ header {
     transition: width 0.3s ease;
 }
 
-.main-nav a:hover::after {
+.main-nav a:not(.join-btn):hover::after {
     width: 65%;
 }
 
+
+/* ==================================================
+   ACTIVE PAGE — HOME
+================================================== */
+
+/* HOME stays underlined because this is the HOME page */
+
+.main-nav a.active {
+    color: #2b2626;
+}
+
+.main-nav a.active::after {
+    width: 65%;
+}
+
+
+/* Keep active underline when hovering */
+
+.main-nav a.active:hover::after {
+    width: 65%;
+}
+
+
+/* ==================================================
+   HUNGER GAMES FONT
+================================================== */
+
 @font-face {
     font-family: "Hunger Games";
-    src: url("Assets/Hunger\ Games.ttf")
-         format("opentype");
 
+    src: url("Assets/Hunger Games.ttf")
+         format("truetype");
+
+    font-weight: normal;
+    font-style: normal;
 }
+
 
 /* ==================================================
    JOIN BUTTON
@@ -222,15 +251,15 @@ header {
     height: 48px !important;
     padding: 0 17px !important;
 
-    background: #978f8f63;
+    background: #0a0a0aec;
 
-    color: #0d3513 !important;
+    color: #11113b !important;
 
     border: 2px solid transparent;
 
     border-radius: 30px;
 
-     font-family: "Hunger Games", Arial, sans-serif;
+    font-family: "Hunger Games", Arial, sans-serif;
     font-size: 13px !important;
     font-weight: 1900;
 
@@ -274,7 +303,7 @@ header {
 
     border-radius: 28px;
 
-    background: #746d6d;
+    background: #e4e1e193;
 
     z-index: -1;
 }
@@ -292,6 +321,14 @@ header {
     color: #ffffff !important;
 }
 
+
+/* ==================================================
+   JOIN BUTTON — NO UNDERLINE
+================================================== */
+
+.main-nav .join-btn::after {
+    display: block;
+}
 
 /* ==================================================
    HERO
@@ -2318,7 +2355,7 @@ header {
 
 .career-label {
     font-family:"Light Pixel", Arial, sans-serif;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 900;
     letter-spacing: 4px;
 
@@ -4332,7 +4369,7 @@ header {
 .folder-ue .ue-text {
     color: #881c1c;
     font-size: 30px;
-    -webkit-text-stroke: 1px #faf5f5;
+    -webkit-text-stroke: 1px #641a1a;
 }
 /* PROJECTS */
 .folder-projects .folder__front span {
@@ -4344,7 +4381,6 @@ header {
 .folder-scpe .folder__front span {
     color: #ffffff;
     font-size: 30px;
-    -webkit-text-stroke: 1px #120835;
 }
 
 
@@ -4386,7 +4422,14 @@ header {
 
     padding: 80px 70px;
 
-    background:  #244A73;
+     background:
+        radial-gradient(
+            circle at 85% 20%,
+            #134b83 0%,
+            #344f6e 25%,
+            #092061 70%
+        );
+
 
     color: #315F8A;
 
@@ -4422,11 +4465,10 @@ header {
 
     line-height: 1;
 
-    color: #10212e;
-     -webkit-text-stroke: 1px #070727;
-
+    color: #4d78a3a6;
+     
     text-shadow:
-        6px 6px 0px #304c6b;
+        6px 6px 0px #0d141b;
 }
 
 
@@ -4468,7 +4510,7 @@ header {
 
     text-decoration: none;
 
-    color: #2770a8;
+    color: #102636;
 
     transition:
         transform 0.3s ease;

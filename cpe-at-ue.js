@@ -365,3 +365,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+/* ==================================================
+   CLASSROOMS & LIBRARY — SCROLL REVEAL
+================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const classroomSlide =
+        document.querySelector(".classrooms-library-slide");
+
+    if (!classroomSlide) return;
+
+
+    const revealElements =
+        classroomSlide.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+        new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("active");
+
+                    } else {
+
+                        entry.target.classList.remove("active");
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+    revealElements.forEach(function (element) {
+
+        revealObserver.observe(element);
+
+    });
+
+});

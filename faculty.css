@@ -8,24 +8,16 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-
     margin: 0;
-
     background: #10265f;
-
     color: #e5e9e3;
-
     font-family: Arial, sans-serif;
-
     overflow-x: hidden;
-
 }
 
 
@@ -34,15 +26,11 @@ body {
 ================================================== */
 
 header {
-
     position: fixed;
-
     top: 0;
-
     left: 0;
 
     width: 100%;
-
     height: 84px;
 
     z-index: 1000;
@@ -55,7 +43,6 @@ header {
 
     border-bottom:
         1px solid rgba(229, 233, 227, 0.10);
-
 }
 
 
@@ -64,20 +51,14 @@ header {
 ================================================== */
 
 .nav-container {
-
     width: 100%;
-
     height: 84px;
 
-    padding:
-        0 70px;
+    padding: 0 70px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
 }
 
 
@@ -86,24 +67,17 @@ header {
 ================================================== */
 
 .logo {
-
     width: 55px;
-
     height: 55px;
 
     flex-shrink: 0;
-
 }
 
-
 .logo img {
-
     width: 100%;
-
     height: 100%;
 
     object-fit: contain;
-
 }
 
 
@@ -112,13 +86,10 @@ header {
 ================================================== */
 
 .main-nav {
-
     display: flex;
-
     align-items: center;
 
     gap: 27px;
-
 }
 
 
@@ -127,7 +98,6 @@ header {
 ================================================== */
 
 .main-nav a {
-
     position: relative;
 
     color: #c5d0d3;
@@ -144,43 +114,34 @@ header {
 
     transition:
         color 0.25s ease;
-
 }
 
 
 .main-nav a::after {
-
     content: "";
 
     position: absolute;
 
     left: 0;
-
     bottom: -7px;
 
     width: 0;
-
     height: 2px;
 
     background: #2f6fa3;
 
     transition:
         width 0.25s ease;
-
 }
 
 
 .main-nav a:hover {
-
     color: #e5e9e3;
-
 }
 
 
 .main-nav a:hover::after {
-
     width: 100%;
-
 }
 
 
@@ -189,16 +150,11 @@ header {
 ================================================== */
 
 .main-nav a.active {
-
     color: #e5e9e3;
-
 }
 
-
 .main-nav a.active::after {
-
     width: 100%;
-
 }
 
 
@@ -207,7 +163,6 @@ header {
 ================================================== */
 
 .main-nav .join-btn {
-
     padding:
         12px 18px;
 
@@ -223,19 +178,15 @@ header {
         background 0.3s ease,
         border-color 0.3s ease,
         transform 0.3s ease;
-
 }
 
 
 .main-nav .join-btn::after {
-
     display: none;
-
 }
 
 
 .main-nav .join-btn:hover {
-
     background:
         rgba(47, 111, 163, 0.10);
 
@@ -244,7 +195,6 @@ header {
 
     transform:
         translateY(-2px);
-
 }
 
 
@@ -253,20 +203,18 @@ header {
 ================================================== */
 
 .slide-4 {
-
     width: 100%;
-
     min-height: 100vh;
 
     padding-top: 84px;
 
-    background: linear-gradient(
-        110deg,
-        #10265f 0%,
-        #183b72 48%,
-        #315b7d 100%
-    );
-
+    background:
+        linear-gradient(
+            110deg,
+            #10265f 0%,
+            #183b72 48%,
+            #315b7d 100%
+        );
 }
 
 
@@ -275,16 +223,13 @@ header {
 ================================================== */
 
 .faculty-slide {
-
     width: 100%;
-
     max-width: 1300px;
 
     margin: 0 auto;
 
     padding:
         70px 30px 120px;
-
 }
 
 
@@ -293,12 +238,11 @@ header {
 ================================================== */
 
 .slide-number {
-
     display: block;
 
     margin-bottom: 18px;
 
-    color: #2f6fa3;
+    color: #7fa9c7;
 
     font-family:
         "Press Start 2P",
@@ -307,7 +251,36 @@ header {
     font-size: 9px;
 
     letter-spacing: 2px;
+}
 
+
+/* ==================================================
+   FACULTY HEADING
+================================================== */
+
+.faculty-heading {
+    margin-bottom: 45px;
+}
+
+
+/* ==================================================
+   FACULTY LABEL
+================================================== */
+
+.faculty-label {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: #7fa9c7;
+
+    font-family:
+        "Press Start 2P",
+        cursive;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
 }
 
 
@@ -316,8 +289,9 @@ header {
 ================================================== */
 
 .slide-4 h1 {
-
     margin-bottom: 20px;
+
+    color: #e5e9e3;
 
     font-family:
         "Press Start 2P",
@@ -326,9 +300,21 @@ header {
     font-size: 48px;
 
     line-height: 1.3;
+}
 
-    color: #e5e9e3;
 
+/* ==================================================
+   HEADING LINE
+================================================== */
+
+.faculty-heading-line {
+    width: 90px;
+    height: 2px;
+
+    margin-bottom: 25px;
+
+    background:
+        #7fa9c7;
 }
 
 
@@ -337,17 +323,13 @@ header {
 ================================================== */
 
 .faculty-intro {
-
     max-width: 850px;
-
-    margin-bottom: 45px;
 
     color: #b8c5c9;
 
     font-size: 14px;
 
     line-height: 1.8;
-
 }
 
 
@@ -356,28 +338,23 @@ header {
 ================================================== */
 
 .faculty-grid {
-
     width: 100%;
 
     display: flex;
-
     flex-direction: column;
 
     gap: 26px;
-
 }
 
 
 /* ==================================================
-   FACULTY RECTANGLE
+   FACULTY CARD
 ================================================== */
 
 .faculty-card {
-
     position: relative;
 
     width: 100%;
-
     min-height: 280px;
 
     padding:
@@ -409,17 +386,11 @@ header {
         translateY(45px);
 
     transition:
-
         opacity 0.7s ease,
-
         transform 0.7s ease,
-
         background 0.35s ease,
-
         border-color 0.35s ease,
-
         box-shadow 0.35s ease;
-
 }
 
 
@@ -428,12 +399,10 @@ header {
 ================================================== */
 
 .faculty-card.show {
-
     opacity: 1;
 
     transform:
         translateY(0);
-
 }
 
 
@@ -442,17 +411,14 @@ header {
 ================================================== */
 
 .faculty-card::before {
-
     content: "";
 
     position: absolute;
 
     left: 0;
-
     top: 0;
 
     width: 3px;
-
     height: 0;
 
     background:
@@ -460,7 +426,6 @@ header {
 
     transition:
         height 0.35s ease;
-
 }
 
 
@@ -469,9 +434,7 @@ header {
 ================================================== */
 
 .faculty-card:hover::before {
-
     height: 100%;
-
 }
 
 
@@ -480,7 +443,6 @@ header {
 ================================================== */
 
 .faculty-card:hover {
-
     transform:
         translateY(-8px);
 
@@ -491,10 +453,8 @@ header {
         #2f6fa3;
 
     box-shadow:
-
         0 15px 35px
         rgba(31, 76, 119, 0.18);
-
 }
 
 
@@ -503,9 +463,7 @@ header {
 ================================================== */
 
 .faculty-photo-container {
-
     width: 175px;
-
     height: 175px;
 
     margin: 0 auto;
@@ -521,13 +479,9 @@ header {
         #172f45;
 
     transition:
-
         transform 0.4s ease,
-
         border-color 0.4s ease,
-
         box-shadow 0.4s ease;
-
 }
 
 
@@ -535,9 +489,7 @@ header {
    PHOTO HOVER
 ================================================== */
 
-.faculty-card:hover
-.faculty-photo-container {
-
+.faculty-card:hover .faculty-photo-container {
     transform:
         scale(1.05);
 
@@ -545,13 +497,11 @@ header {
         #2f6fa3;
 
     box-shadow:
-
         0 0 0 5px
         rgba(47, 111, 163, 0.10),
 
         0 0 25px
         rgba(0, 207, 255, 0.10);
-
 }
 
 
@@ -560,9 +510,7 @@ header {
 ================================================== */
 
 .faculty-photo {
-
     width: 100%;
-
     height: 100%;
 
     display: block;
@@ -571,7 +519,6 @@ header {
 
     transition:
         transform 0.45s ease;
-
 }
 
 
@@ -579,12 +526,9 @@ header {
    PHOTO ZOOM
 ================================================== */
 
-.faculty-card:hover
-.faculty-photo {
-
+.faculty-card:hover .faculty-photo {
     transform:
         scale(1.06);
-
 }
 
 
@@ -593,15 +537,32 @@ header {
 ================================================== */
 
 .faculty-info {
-
     min-width: 0;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
+}
 
+
+/* ==================================================
+   CARD NUMBER
+================================================== */
+
+.faculty-card-number {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #72828d;
+
+    font-family:
+        "Press Start 2P",
+        cursive;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
 }
 
 
@@ -610,10 +571,9 @@ header {
 ================================================== */
 
 .faculty-info h2 {
-
     margin-bottom: 7px;
 
-    color: #e5e9e3;
+    color: #263e57;
 
     font-size: 23px;
 
@@ -623,7 +583,6 @@ header {
 
     transition:
         transform 0.3s ease;
-
 }
 
 
@@ -631,12 +590,9 @@ header {
    NAME HOVER
 ================================================== */
 
-.faculty-card:hover
-.faculty-info h2 {
-
+.faculty-card:hover .faculty-info h2 {
     transform:
         translateX(4px);
-
 }
 
 
@@ -645,7 +601,6 @@ header {
 ================================================== */
 
 .faculty-position {
-
     margin-bottom: 15px;
 
     color: #2f6fa3;
@@ -655,7 +610,6 @@ header {
     font-weight: 700;
 
     line-height: 1.5;
-
 }
 
 
@@ -664,7 +618,6 @@ header {
 ================================================== */
 
 .faculty-description {
-
     max-width: 900px;
 
     margin-bottom: 20px;
@@ -674,7 +627,6 @@ header {
     font-size: 13px;
 
     line-height: 1.7;
-
 }
 
 
@@ -683,14 +635,12 @@ header {
 ================================================== */
 
 .faculty-details {
-
     display: grid;
 
     grid-template-columns:
         1fr 1fr;
 
     gap: 40px;
-
 }
 
 
@@ -699,13 +649,11 @@ header {
 ================================================== */
 
 .faculty-detail {
-
     display: flex;
 
     flex-direction: column;
 
     gap: 2px;
-
 }
 
 
@@ -714,7 +662,6 @@ header {
 ================================================== */
 
 .faculty-detail h3 {
-
     margin-bottom: 4px;
 
     color: #2f6fa3;
@@ -722,7 +669,6 @@ header {
     font-size: 13px;
 
     font-weight: 700;
-
 }
 
 
@@ -731,42 +677,35 @@ header {
 ================================================== */
 
 .faculty-detail span {
-
     color: #526b7d;
 
     font-size: 12px;
 
     line-height: 1.65;
-
 }
 
 
 /* ==================================================
-   FACULTY LINE
+   FACULTY BOTTOM LINE
 ================================================== */
 
 .slide-line {
-
     width: 100%;
-
     height: 1px;
 
     margin-top: 50px;
-
     margin-bottom: 20px;
 
     background:
         #7e8e99;
-
 }
 
 
 /* ==================================================
-   FACULTY LABEL
+   FACULTY BOTTOM LABEL
 ================================================== */
 
 .slide-label {
-
     display: block;
 
     color: #72828d;
@@ -778,493 +717,457 @@ header {
     font-size: 8px;
 
     letter-spacing: 2px;
-
 }
 
 
 /* ==================================================
-   SCPES TRANSITION
+   NEXT SECTION AREA
+   SCPES
 ================================================== */
 
-.scpes-transition {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100vw;
-
-    height: 100vh;
-
-    z-index: 99999;
-
-    overflow: hidden;
-
-    background:
-        #29275f;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transform:
-        translateY(100%);
-
-    transition:
-
-        transform 0.9s
-        cubic-bezier(
-            0.77,
-            0,
-            0.18,
-            1
-        ),
-
-        opacity 0.4s ease,
-
-        visibility 0.9s ease;
-
-}
-
-
-/* ==================================================
-   TRANSITION GRID BACKGROUND
-================================================== */
-
-.scpes-transition::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background-image:
-
-        linear-gradient(
-            rgba(255,255,255,0.035) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.035) 1px,
-            transparent 1px
-        );
-
-    background-size: 32px 32px;
-
-    pointer-events: none;
-
-}
-
-
-/* ==================================================
-   TRANSITION ACTIVE
-================================================== */
-
-.scpes-transition.active {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-
-    transform:
-        translateY(0);
-
-}
-
-
-/* ==================================================
-   CONTINUE TO SCPES TEXT
-================================================== */
-
-.scpes-transition::before {
-
-    content: "CONTINUE TO SCPES";
-
-    position: absolute;
-
-    top: 50%;
-
-    left: 50%;
-
-    transform:
-        translate(-50%, -50%)
-        translateY(25px)
-        scale(0.96);
-
-    z-index: 2;
-
+.faculty-next {
     width: 100%;
 
-    padding: 0 30px;
+    margin-top: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
 
     text-align: center;
+}
+
+
+/* ==================================================
+   NEXT LABEL
+================================================== */
+
+.faculty-next-label {
+    display: block;
+
+    margin-bottom: 22px;
+
+    color: #7fa9c7;
 
     font-family:
         "Press Start 2P",
         cursive;
 
-    font-size:
-        clamp(32px, 5.8vw, 82px);
-
-    font-weight: 900;
+    font-size: 7px;
 
     letter-spacing: 2px;
-
-    line-height: 1.3;
-
-    color: #f1f0e8;
-
-    text-shadow:
-
-        0 0 8px
-        rgba(241, 240, 232, 0.75),
-
-        0 0 20px
-        rgba(241, 240, 232, 0.35);
-
-    opacity: 0;
-
-    white-space: nowrap;
-
-    transition:
-
-        opacity 0.8s ease 0.25s,
-
-        transform 0.9s ease 0.25s;
-
 }
 
 
 /* ==================================================
-   SHOW TRANSITION TEXT
+   SCPES BUTTON
 ================================================== */
 
-.scpes-transition.active::before {
+.faculty-next-button {
+    display: inline-flex;
 
-    opacity: 1;
+    align-items: center;
+    justify-content: center;
 
-    transform:
-        translate(-50%, -50%)
-        translateY(0)
-        scale(1);
+    min-width: 230px;
 
-    animation:
-        transitionTextGlow 2s ease-in-out infinite alternate;
+    padding:
+        16px 28px;
 
-}
-
-
-/* ==================================================
-   LOADING DOTS
-================================================== */
-
-.transition-loading {
-
-    position: absolute;
-
-    bottom: 35px;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    z-index: 3;
-
-    display: flex;
-
-    gap: 7px;
-
-    opacity: 0;
-
-    transition:
-        opacity 0.4s ease 0.8s;
-
-}
-
-
-.scpes-transition.active
-.transition-loading {
-
-    opacity: 1;
-
-}
-
-
-.transition-loading span {
-
-    width: 6px;
-
-    height: 6px;
-
-    border-radius: 50%;
+    border:
+        1px solid #c9c5a9;
 
     background:
-        #f1f0e8;
+        transparent;
 
-    animation:
-        transitionDot 1s infinite ease-in-out;
+    color: #e5e9e3;
 
-}
+    text-decoration: none;
 
+    font-family:
+        "Press Start 2P",
+        cursive;
 
-.transition-loading span:nth-child(2) {
+    font-size: 8px;
 
-    animation-delay:
-        0.15s;
+    letter-spacing: 1px;
 
-}
-
-
-.transition-loading span:nth-child(3) {
-
-    animation-delay:
-        0.30s;
-
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 
 /* ==================================================
-   TEXT GLOW ANIMATION
+   SCPES BUTTON HOVER
 ================================================== */
 
-@keyframes transitionTextGlow {
+.faculty-next-button:hover {
+    background:
+        #c9c5a9;
 
-    from {
+    color:
+        #172b3a;
 
-        text-shadow:
+    border-color:
+        #c9c5a9;
 
-            0 0 7px
-            rgba(241, 240, 232, 0.55),
+    transform:
+        translateY(-5px);
 
-            0 0 15px
-            rgba(241, 240, 232, 0.25);
-
-    }
-
-    to {
-
-        text-shadow:
-
-            0 0 12px
-            rgba(241, 240, 232, 0.85),
-
-            0 0 28px
-            rgba(241, 240, 232, 0.40);
-
-    }
-
+    box-shadow:
+        0 12px 30px
+        rgba(201, 197, 169, 0.25);
 }
 
 
 /* ==================================================
-   DOT ANIMATION
-================================================== */
-
-@keyframes transitionDot {
-
-    0%,
-    100% {
-
-        opacity: 0.25;
-
-        transform:
-            translateY(0);
-
-    }
-
-    50% {
-
-        opacity: 1;
-
-        transform:
-            translateY(-5px);
-
-    }
-
-}
-
-
-/* ==================================================
-   MOBILE TRANSITION
-================================================== */
-
-@media (max-width: 700px) {
-
-    .scpes-transition::before {
-
-        font-size: 28px;
-
-        line-height: 1.5;
-
-        white-space: normal;
-
-    }
-
-}
-
-
-/* ==================================================
-   TABLET
+   TABLET — 1000px
 ================================================== */
 
 @media (max-width: 1000px) {
 
     .nav-container {
-
         padding:
             0 30px;
-
     }
 
 
     .main-nav {
-
-        gap: 16px;
-
+        gap:
+            16px;
     }
 
 
     .main-nav a {
+        font-size:
+            7px;
+    }
 
-        font-size: 7px;
 
+    /* FACULTY */
+
+    .faculty-slide {
+        padding:
+            70px 25px 100px;
     }
 
 
     .faculty-card {
-
         grid-template-columns:
             160px 1fr;
 
-        gap: 25px;
-
+        gap:
+            25px;
     }
 
 
     .faculty-photo-container {
+        width:
+            145px;
 
-        width: 145px;
-
-        height: 145px;
-
+        height:
+            145px;
     }
 
 
     .faculty-details {
-
-        gap: 25px;
-
+        gap:
+            25px;
     }
 
+
+    .slide-4 h1 {
+        font-size:
+            40px;
+    }
+
+
+    /* NEXT BUTTON */
+
+    .faculty-next {
+        margin-top:
+            40px;
+    }
+
+
+    .faculty-next-button {
+        min-width:
+            210px;
+
+        padding:
+            15px 24px;
+
+        font-size:
+            7px;
+    }
 }
 
 
 /* ==================================================
-   MOBILE
+   MOBILE — 700px
 ================================================== */
 
 @media (max-width: 700px) {
 
     header {
-
-        height: auto;
-
+        height:
+            auto;
     }
 
 
     .nav-container {
-
-        height: auto;
+        height:
+            auto;
 
         padding:
             15px 20px;
 
-        flex-direction: column;
+        flex-direction:
+            column;
 
-        gap: 15px;
-
+        gap:
+            15px;
     }
 
 
     .main-nav {
+        width:
+            100%;
 
-        width: 100%;
+        overflow-x:
+            auto;
 
-        overflow-x: auto;
+        padding-bottom:
+            5px;
 
-        padding-bottom: 5px;
-
-        justify-content: flex-start;
-
+        justify-content:
+            flex-start;
     }
 
 
     .main-nav a {
-
-        font-size: 6px;
-
+        font-size:
+            6px;
     }
 
 
-    .faculty-slide {
+    /* FACULTY */
 
+    .faculty-slide {
         padding:
             150px 15px 80px;
-
     }
 
 
     .slide-4 h1 {
+        font-size:
+            28px;
+    }
 
-        font-size: 28px;
 
+    .faculty-label {
+        font-size:
+            6px;
+    }
+
+
+    .faculty-intro {
+        font-size:
+            12px;
     }
 
 
     .faculty-card {
-
         grid-template-columns:
             1fr;
 
-        gap: 25px;
+        gap:
+            25px;
 
         padding:
             25px;
-
     }
 
 
     .faculty-photo-container {
+        width:
+            150px;
 
-        width: 150px;
-
-        height: 150px;
-
+        height:
+            150px;
     }
 
 
     .faculty-info h2 {
-
-        font-size: 19px;
-
+        font-size:
+            19px;
     }
 
 
     .faculty-details {
-
         grid-template-columns:
             1fr;
 
-        gap: 20px;
-
+        gap:
+            20px;
     }
 
+
+    /* BOTTOM AREA */
+
+    .slide-line {
+        margin-top:
+            40px;
+    }
+
+
+    .slide-label {
+        font-size:
+            6px;
+
+        line-height:
+            1.8;
+    }
+
+
+    .faculty-next {
+        margin-top:
+            35px;
+    }
+
+
+    .faculty-next-label {
+        font-size:
+            6px;
+
+        line-height:
+            1.8;
+
+        margin-bottom:
+            18px;
+    }
+
+
+    .faculty-next-button {
+        min-width:
+            190px;
+
+        padding:
+            14px 18px;
+
+        font-size:
+            6px;
+    }
+}
+
+
+/* ==================================================
+   EXTRA SMALL — 420px
+================================================== */
+
+@media (max-width: 420px) {
+
+    .nav-container {
+        padding:
+            12px 15px;
+    }
+
+
+    .main-nav {
+        gap:
+            10px;
+    }
+
+
+    /* FACULTY */
+
+    .faculty-slide {
+        padding:
+            130px 12px 70px;
+    }
+
+
+    .faculty-card {
+        padding:
+            20px;
+    }
+
+
+    .faculty-photo-container {
+        width:
+            135px;
+
+        height:
+            135px;
+    }
+
+
+    .faculty-info h2 {
+        font-size:
+            17px;
+    }
+
+
+    .faculty-position {
+        font-size:
+            11px;
+    }
+
+
+    .faculty-description {
+        font-size:
+            11px;
+    }
+
+
+    .faculty-detail span {
+        font-size:
+            10px;
+    }
+
+
+    /* BOTTOM AREA */
+
+    .slide-label {
+        font-size:
+            5.5px;
+    }
+
+
+    .faculty-next {
+        margin-top:
+            30px;
+    }
+
+
+    .faculty-next-label {
+        font-size:
+            5.5px;
+
+        letter-spacing:
+            1.5px;
+
+        margin-bottom:
+            16px;
+    }
+
+
+    .faculty-next-button {
+        min-width:
+            170px;
+
+        padding:
+            12px 14px;
+
+        font-size:
+            5.5px;
+    }
 }

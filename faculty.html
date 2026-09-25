@@ -72,11 +72,6 @@
             </a>
 
 
-            <a href="careers.html">
-                CAREERS
-            </a>
-
-
             <a href="cpe-at-ue.html">
                 CpE AT UE
             </a>
@@ -129,29 +124,45 @@
     <div class="slide-content faculty-slide">
 
 
-       
         <!-- ==================================================
-             TITLE
+             PAGE NUMBER
         ================================================== -->
 
-        <h1>
-            FACULTY
-        </h1>
+        <span class="slide-number">
+            05 / 06
+        </span>
 
 
 
         <!-- ==================================================
-             INTRODUCTION
+             FACULTY INTRO
         ================================================== -->
 
-        <p class="faculty-intro">
+        <div class="faculty-heading">
 
-            UE Computer Engineering faculty members
-            guide students through their hardware,
-            software, engineering, and computing
-            education.
+            <span class="faculty-label">
+                UE COMPUTER ENGINEERING
+            </span>
 
-        </p>
+
+            <h1>
+                FACULTY
+            </h1>
+
+
+            <div class="faculty-heading-line"></div>
+
+
+            <p class="faculty-intro">
+
+                Meet the faculty members who guide,
+                teach, and support Computer Engineering
+                students through their academic and
+                engineering journey.
+
+            </p>
+
+        </div>
 
 
 
@@ -160,7 +171,6 @@
         ================================================== -->
 
         <div class="faculty-grid">
-
 
 
             <!-- ==================================================
@@ -186,6 +196,11 @@
                 <!-- INFORMATION -->
 
                 <div class="faculty-info">
+
+                    <span class="faculty-card-number">
+                        01
+                    </span>
+
 
                     <h2>
                         Engr. Errol John M. Antonio
@@ -236,7 +251,7 @@
                         </div>
 
 
-                        <!-- FOCUS -->
+                        <!-- EXPERTISE -->
 
                         <div class="faculty-detail">
 
@@ -251,7 +266,6 @@
                             </span>
 
                         </div>
-
 
                     </div>
 
@@ -284,6 +298,11 @@
                 <!-- INFORMATION -->
 
                 <div class="faculty-info">
+
+                    <span class="faculty-card-number">
+                        02
+                    </span>
+
 
                     <h2>
                         Engr. Joemhel Jhon D. Coral
@@ -329,7 +348,7 @@
                         </div>
 
 
-                        <!-- FOCUS -->
+                        <!-- EXPERTISE -->
 
                         <div class="faculty-detail">
 
@@ -344,7 +363,6 @@
                             </span>
 
                         </div>
-
 
                     </div>
 
@@ -377,6 +395,11 @@
                 <!-- INFORMATION -->
 
                 <div class="faculty-info">
+
+                    <span class="faculty-card-number">
+                        03
+                    </span>
+
 
                     <h2>
                         Engr. Onofre F. Corpuz
@@ -423,7 +446,7 @@
                         </div>
 
 
-                        <!-- FOCUS -->
+                        <!-- EXPERTISE -->
 
                         <div class="faculty-detail">
 
@@ -438,7 +461,6 @@
                             </span>
 
                         </div>
-
 
                     </div>
 
@@ -471,6 +493,11 @@
                 <!-- INFORMATION -->
 
                 <div class="faculty-info">
+
+                    <span class="faculty-card-number">
+                        04
+                    </span>
+
 
                     <h2>
                         Engr. Mary Ann L. Limkian
@@ -521,7 +548,7 @@
                         </div>
 
 
-                        <!-- FOCUS -->
+                        <!-- EXPERTISE -->
 
                         <div class="faculty-detail">
 
@@ -537,7 +564,6 @@
 
                         </div>
 
-
                     </div>
 
                 </div>
@@ -545,13 +571,12 @@
             </article>
 
 
-
         </div>
 
 
 
         <!-- ==================================================
-             FACULTY LINE
+             BOTTOM LINE
         ================================================== -->
 
         <div class="slide-line"></div>
@@ -564,6 +589,30 @@
         </span>
 
 
+
+        <!-- ==================================================
+             NEXT SECTION — SCPES
+        ================================================== -->
+
+        <div class="faculty-next">
+
+
+            <span class="faculty-next-label">
+                NEXT • SCPES
+            </span>
+
+
+            <a
+                href="scpes.html"
+                class="faculty-next-button"
+            >
+                EXPLORE SCPES →
+            </a>
+
+
+        </div>
+
+
     </div>
 
 </section>
@@ -571,251 +620,13 @@
 
 
 <!-- ==================================================
-     CONTINUE TO SCPES TRANSITION
-================================================== -->
-
-<div
-    class="scpes-transition"
-    id="scpesTransition"
->
-
-
-    <!-- ==================================================
-         TRANSITION BACKGROUND
-    ================================================== -->
-
-    <div class="scpes-transition-image"></div>
-
-
-
-    <!-- ==================================================
-         TRANSITION TEXT
-    ================================================== -->
-
-    <div class="scpes-transition-content">
-
-        <h1>
-            CONTINUE TO SCPES
-        </h1>
-
-    </div>
-
-
-
-    <!-- ==================================================
-         LOADING DOTS
-    ================================================== -->
-
-    <div class="transition-loading">
-
-        <span></span>
-
-        <span></span>
-
-        <span></span>
-
-    </div>
-
-
-</div>
-
-
-
-<!-- ==================================================
-     EXISTING JAVASCRIPT
+     FACULTY JAVASCRIPT
 ================================================== -->
 
 <script src="faculty.js"></script>
 
 
-
-<!-- ==================================================
-     PAGE TRANSITION JAVASCRIPT
-================================================== -->
-
-<script>
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-
-        /* ==================================================
-           GET TRANSITION
-        ================================================== */
-
-        const transition =
-            document.getElementById(
-                "scpesTransition"
-            );
-
-
-        /* ==================================================
-           STOP IF TRANSITION DOES NOT EXIST
-        ================================================== */
-
-        if (!transition) {
-
-            return;
-
-        }
-
-
-
-        /* ==================================================
-           HIDE TRANSITION AFTER PAGE LOAD
-        ================================================== */
-
-        setTimeout(
-            function () {
-
-                transition.classList.add(
-                    "hide"
-                );
-
-            },
-            1800
-        );
-
-
-
-        /* ==================================================
-           PAGE LINK TRANSITION
-        ================================================== */
-
-        document
-            .querySelectorAll("a")
-            .forEach(
-                function (link) {
-
-
-                    link.addEventListener(
-                        "click",
-                        function (event) {
-
-
-                            /* ==================================
-                               GET DESTINATION
-                            ================================== */
-
-                            const destination =
-                                this.getAttribute(
-                                    "href"
-                                );
-
-
-
-                            /* ==================================
-                               IGNORE EMPTY LINKS
-                            ================================== */
-
-                            if (!destination) {
-
-                                return;
-
-                            }
-
-
-
-                            /* ==================================
-                               IGNORE # LINKS
-                            ================================== */
-
-                            if (
-                                destination.startsWith(
-                                    "#"
-                                )
-                            ) {
-
-                                return;
-
-                            }
-
-
-
-                            /* ==================================
-                               IGNORE JAVASCRIPT LINKS
-                            ================================== */
-
-                            if (
-                                destination.startsWith(
-                                    "javascript:"
-                                )
-                            ) {
-
-                                return;
-
-                            }
-
-
-
-                            /* ==================================
-                               STOP NORMAL LINK
-                            ================================== */
-
-                            event.preventDefault();
-
-
-
-                            /* ==================================
-                               SHOW TRANSITION
-                            ================================== */
-
-                            transition.classList.remove(
-                                "hide"
-                            );
-
-
-
-                            /* ==================================
-                               CHANGE TRANSITION TITLE
-                            ================================== */
-
-                            const title =
-                                transition.querySelector(
-                                    ".scpes-transition-content h1"
-                                );
-
-
-
-                            if (title) {
-
-                                title.textContent =
-                                    "CONTINUE TO SCPES";
-
-                            }
-
-
-
-                            /* ==================================
-                               GO TO NEXT PAGE
-                            ================================== */
-
-                            setTimeout(
-                                function () {
-
-                                    window.location.href =
-                                        destination;
-
-                                },
-                                1200
-                            );
-
-
-                        }
-                    );
-
-
-                }
-            );
-
-
-    }
-);
-
-</script>
-
-
 </body>
 
 </html>
+
