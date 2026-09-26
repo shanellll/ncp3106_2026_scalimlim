@@ -91,7 +91,6 @@ function changeSlide(direction) {
 
     let newIndex;
 
-
     if (direction === "next") {
 
         newIndex = currentSlide + 1;
@@ -196,7 +195,7 @@ function changeSlide(direction) {
 
 
 /* ==================================================
-   CLICK TO NEXT EVENT
+   CLICK ANYWHERE TO CONTINUE
 ================================================== */
 
 document.addEventListener(
@@ -204,14 +203,12 @@ document.addEventListener(
     function(event) {
 
         /*
-           If the user clicks a link,
-           don't change the event slide.
+           Navigation links should still work normally.
         */
 
         if (
             event.target.closest("a") ||
-            event.target.closest(".nav-container") ||
-            event.target.closest(".event-navigation")
+            event.target.closest(".nav-container")
         ) {
 
             return;
@@ -219,7 +216,10 @@ document.addEventListener(
         }
 
 
-        /* Go to next event */
+        /*
+           Clicking anywhere on the page
+           moves to the next event.
+        */
 
         changeSlide("next");
 
@@ -234,9 +234,6 @@ document.addEventListener(
 document.addEventListener(
     "wheel",
     function(event) {
-
-        /* Don't allow another movement
-           while animation is running */
 
         if (isAnimating) {
 
@@ -277,27 +274,18 @@ document.addEventListener(
     "keydown",
     function(event) {
 
+        /* Arrow DOWN */
 
-        /* ==================================================
-           ARROW DOWN
-        ================================================== */
-
-        if (
-            event.key === "ArrowDown"
-        ) {
+        if (event.key === "ArrowDown") {
 
             changeSlide("next");
 
         }
 
 
-        /* ==================================================
-           ARROW UP
-        ================================================== */
+        /* Arrow UP */
 
-        if (
-            event.key === "ArrowUp"
-        ) {
+        if (event.key === "ArrowUp") {
 
             changeSlide("previous");
 
@@ -306,6 +294,7 @@ document.addEventListener(
     }
 );
 
+
 /* ==================================================
    EVENT PHOTO GALLERIES
 ================================================== */
@@ -313,27 +302,38 @@ document.addEventListener(
 const photoGalleries = {
 
     huddles: [
+
         "Assets/events/huddles-1.jpg",
         "Assets/events/huddles-2.jpg",
         "Assets/events/huddles-3.jpg"
+
     ],
 
+
     seminars: [
+
         "Assets/events/seminars-1.jpg",
         "Assets/events/seminars-2.jpg",
         "Assets/events/seminars-3.jpg"
+
     ],
+
 
     christmas: [
-        "Assets/events/christmas-1.jpg",
-        "Assets/events/christmas-2.jpg",
-        "Assets/events/christmas-3.jpg"
+
+        "Assets/christmas1.jpg",
+        "Assets/christmas2.jpg",
+        
+
     ],
 
+
     "more-events": [
-        "Assets/events/more-events-1.jpg",
-        "Assets/events/more-events-2.jpg",
-        "Assets/events/more-events-3.jpg"
+
+        "Assets/more-events1.jpg",
+        "Assets/more-events2.jpg",
+        "Assets/more-events3.jpg"
+
     ]
 
 };
@@ -357,125 +357,188 @@ const photoIndexes = {
 
 
 /* ==================================================
-   CLICK PHOTO TO CHANGE PHOTO
+   PHOTO TIMERS
+================================================== */
+
+const photoTimers = {};
+
+
+/* ==================================================
+   CHANGE PHOTO
+================================================== */
+
+function changePhoto(frame) {
+
+    /* Find the event slide */
+
+    const slide =
+        frame.closest(".event-slide");
+
+
+    if (!slide) {
+
+        return;
+
+    }
+
+
+    /* Get event ID */
+
+    const eventID =
+        slide.id;
+
+
+    /* Get gallery */
+
+    const gallery =
+        photoGalleries[eventID];
+
+
+    if (!gallery) {
+
+        return;
+
+    }
+
+
+    /* Get current photo */
+
+    let photoIndex =
+        photoIndexes[eventID];
+
+
+    /* Move to next photo */
+
+    photoIndex++;
+
+
+    /* Return to first photo */
+
+    if (
+        photoIndex >= gallery.length
+    ) {
+
+        photoIndex = 0;
+
+    }
+
+
+    /* Save current photo */
+
+    photoIndexes[eventID] =
+        photoIndex;
+
+
+    /* Find image */
+
+    const image =
+        frame.querySelector(".event-photo");
+
+
+    if (!image) {
+
+        return;
+
+    }
+
+
+    /* ==================================================
+       FADE OUT
+    ================================================== */
+
+    image.classList.add(
+        "photo-changing"
+    );
+
+
+    /* ==================================================
+       CHANGE IMAGE
+    ================================================== */
+
+    setTimeout(
+        function() {
+
+            image.src =
+                gallery[photoIndex];
+
+
+            image.classList.remove(
+                "photo-changing"
+            );
+
+        },
+        2500
+    );
+
+}
+
+
+/* ==================================================
+   PHOTO HOVER GALLERY
 ================================================== */
 
 document.querySelectorAll(".image-frame").forEach(
     function(frame) {
 
+
+        /* ==================================================
+           MOUSE ENTER
+           START 5 SECOND TIMER
+        ================================================== */
+
         frame.addEventListener(
-            "click",
-            function(event) {
+            "mouseenter",
+            function() {
+
+                /*
+                   Clear any old timer first.
+                */
+
+                clearInterval(
+                    photoTimers[frame]
+                );
+
 
                 /*
                    IMPORTANT:
 
-                   Stop this click from reaching
-                   the main slide click function.
+                   Do NOT immediately change
+                   the first photo.
 
-                   Therefore:
-
-                   CLICK PHOTO
-                   = CHANGE PHOTO
-
-                   NOT
-
-                   NEXT EVENT
+                   The first image stays visible
+                   for 5 seconds.
                 */
 
-                event.stopPropagation();
+                photoTimers[frame] =
+                    setInterval(
+                        function() {
+
+                            changePhoto(frame);
+
+                        },
+                        5000
+                    );
+
+            }
+        );
 
 
-                /* Find the event slide */
+        /* ==================================================
+           MOUSE LEAVE
+           STOP PHOTO CHANGING
+        ================================================== */
 
-                const slide =
-                    frame.closest(".event-slide");
+        frame.addEventListener(
+            "mouseleave",
+            function() {
 
-
-                if (!slide) {
-                    return;
-                }
-
-
-                /* Get event ID */
-
-                const eventID =
-                    slide.id;
-
-
-                /* Get photos for this event */
-
-                const gallery =
-                    photoGalleries[eventID];
-
-
-                if (!gallery) {
-                    return;
-                }
-
-
-                /* Get current photo */
-
-                let photoIndex =
-                    photoIndexes[eventID];
-
-
-                /* Go to next photo */
-
-                photoIndex++;
-
-
-                /* Return to first photo */
-
-                if (
-                    photoIndex >= gallery.length
-                ) {
-
-                    photoIndex = 0;
-
-                }
-
-
-                /* Save photo number */
-
-                photoIndexes[eventID] =
-                    photoIndex;
-
-
-                /* Find the image */
-
-                const image =
-                    frame.querySelector(".event-photo");
-
-
-                if (!image) {
-                    return;
-                }
-
-
-                /* Start fade animation */
-
-                image.classList.add(
-                    "photo-changing"
+                clearInterval(
+                    photoTimers[frame]
                 );
 
 
-                /* Change image */
-
-                setTimeout(
-                    function() {
-
-                        image.src =
-                            gallery[photoIndex];
-
-
-                        image.classList.remove(
-                            "photo-changing"
-                        );
-
-                    },
-                    200
-                );
+                photoTimers[frame] =
+                    null;
 
             }
         );

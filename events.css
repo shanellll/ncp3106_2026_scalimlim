@@ -684,8 +684,8 @@ header {
     transform: scale(1);
 
     transition:
-        opacity 0.35s ease,
-        transform 0.35s ease;
+    opacity 2.5s ease,
+    transform 2.5s ease;
 }
 
 
@@ -708,7 +708,7 @@ header {
 .click-next {
     position: absolute;
 
-    bottom: 45px;
+    bottom: -225px;
 
     left: 50%;
 
@@ -740,6 +740,8 @@ header {
 
     font-size: 14px;
 }
+
+
 
 
 /* ==================================================
@@ -774,7 +776,7 @@ header {
 .event-navigation {
     position: absolute;
 
-    bottom: 45px;
+    bottom: -170px;
 
     left: 50%;
 
