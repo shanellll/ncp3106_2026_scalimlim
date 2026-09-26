@@ -87,7 +87,7 @@ header {
     display: flex;
     align-items: center;
 
-    background: rgba(171, 177, 185, 0.637);
+    background: rgb(171, 177, 185);
 
     border: 2px solid #302b2b85;
 
@@ -303,7 +303,7 @@ header {
 
     border-radius: 28px;
 
-    background: #e4e1e193;
+    background: #fdf9f9c5;
 
     z-index: -1;
 }
@@ -1460,6 +1460,7 @@ header {
 
 .software-card {
     font-family: "Light Pixel", Arial, sans-serif;
+    color: #464242;
 
     background: #f7f2e8;
 
@@ -2300,6 +2301,8 @@ header {
 
 
 
+
+
 /* ==================================================
    SLIDE 5
 ================================================== */
@@ -2945,9 +2948,7 @@ header {
 
     padding: 100px 0 150px;
 
-    
-    background: #fffaef;
-
+    background: #aeb8ad;
     overflow: hidden;
 }
 
@@ -4431,7 +4432,7 @@ header {
         );
 
 
-    color: #315F8A;
+     background: #fffaef;
 
     overflow: hidden;
 }
@@ -4539,7 +4540,7 @@ header {
 
     border:
         3px solid
-        #8aacc5;
+        #334958;
 
     border-radius: 0;
 
@@ -4645,7 +4646,7 @@ header {
 
     line-height: 1.6;
 
-    color: #a1acb1;
+    color: #163847;
 }
 
 
@@ -4664,7 +4665,7 @@ header {
 
     margin-bottom: 18px;
 
-    color: #c2bcbc;
+    color: #281d64;
 
     text-decoration: none;
 
