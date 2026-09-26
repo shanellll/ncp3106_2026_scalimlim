@@ -3694,23 +3694,6 @@ header {
 }
 
 
-/* --------------------------------------------------
-   SCPES
--------------------------------------------------- */
-
-.folder-scpe .folder__back,
-.folder-scpe .folder__back::after {
-
-    background: #5265a9;
-
-}
-
-.folder-scpe .folder__front {
-
-    background: #6478bd;
-
-}
-
 
 /* ==================================================
    SCPES FOLDER — SPECIAL ANIMATION
@@ -3935,7 +3918,7 @@ header {
 .folder-events .folder__back,
 .folder-events .folder__back::after {
 
-    background: #d6cfac;
+    background: #796816;
 
 }
 
@@ -4294,13 +4277,13 @@ header {
 .folder-ue .folder__back,
 .folder-ue .folder__back::after {
 
-    background: #292a3d;
+    background: #0a0e5c;
 
 }
 
 .folder-ue .folder__front {
 
-    background: #292a3d;
+    background: #0a0e5c;
 
 }
 
@@ -4312,13 +4295,13 @@ header {
 .folder-projects .folder__back,
 .folder-projects .folder__back::after {
 
-    background: #30347f;
+    background:#202479;
 
 }
 
 .folder-projects .folder__front {
 
-    background: #30347f;
+    background:#202479;
 
 }
 
@@ -4330,13 +4313,13 @@ header {
 .folder-scpe .folder__back,
 .folder-scpe .folder__back::after {
 
-    background: #41499b;
+    background: #222761;
 
 }
 
 .folder-scpe .folder__front {
 
-    background: #41499b;
+    background:#222761;
 
 }
 
@@ -4348,13 +4331,13 @@ header {
 .folder-events .folder__back,
 .folder-events .folder__back::after {
 
-    background: #6a7ab4;
+    background: #33397c;
 
 }
 
 .folder-events .folder__front {
 
-    background: #6a7ab4;
+    background: #33397c;
 
 }
 

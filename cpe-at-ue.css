@@ -765,12 +765,13 @@ background:
     /* BLUE GRADIENT */
     linear-gradient(
         135deg,
-        #7d90aa 0%,
-        #6281a1 45%,
-        #13345a 75%,
-        #c6cbd1 100%
+        #0f315fa4 0%,
+        #10172e 0%,
+        #26365e 50%,
+        #5265a9 100%
     );
 
+    
 /* GRID SIZE */
 background-size:
     40px 40px,
@@ -812,8 +813,10 @@ box-shadow:
     top: -12px;
 
     color: #010102;
-}
 
+    /* KEEP NUMBER ABOVE STICKER */
+    z-index: 20;
+}
 /* ==================================================
    SLIDE 1 — UNIVERSITY TITLE
 ================================================== */
@@ -829,7 +832,7 @@ box-shadow:
     /* CHANGE SPACE BETWEEN WORDS HERE */
     word-spacing: 8px;
 
-    color: #6e160e;
+    color: #af1d0f;
 
     /* PREVENT IT FROM WRAPPING */
     white-space: nowrap;
@@ -872,7 +875,7 @@ box-shadow:
     /* CHANGE LOCATION TEXT SIZE HERE */
     font-size: 25px;
 
-    color: #222222;
+    color: #e0d5d5c5;
 
     /* KEEP LOCATION ON ONE LINE */
     white-space: nowrap;
@@ -1009,6 +1012,41 @@ box-shadow:
     src: url("Assets/light_pixel.ttf")
          format("truetype");
 }
+/* ==================================================
+   SLIDE 1 — DEGREE TITLE LAYER
+================================================== */
+
+.slide-1 .degree-title {
+    position: relative;
+    z-index: 10;
+}
+
+
+/* ==================================================
+   SLIDE 1 — BS COMPUTER STICKER
+================================================== */
+
+.slide-1 .bs-sticker {
+    position: absolute;
+
+    /* CHANGE THESE TO MOVE THE STICKER */
+    left: -50px;
+    top: -150px;
+
+    /* STICKER SIZE */
+    width: 1110px;
+    height: auto;
+
+    /* LOWER LAYER */
+    z-index: 1;
+
+    /* SLIGHT STICKER ROTATION */
+   
+
+    /* SHADOW */
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.25));
+}
+
 
 /* ==================================================
    SLIDE 1 — BS
@@ -1036,19 +1074,29 @@ box-shadow:
     /* TEXT GRADIENT */
     background: linear-gradient(
         135deg,
-        #6b1b1b,
-        #5c0a0a,
-        #750808,
-        #860b0b,
-        #7c1717,
-        #5a1e1e
+        #be2323,
+        #c92929,
+        #b81b1b,
+        #d61414,
+        #b61a1a,
+        #af3636
     );
 
     -webkit-background-clip: text;
-
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    background-clip: text;
+    /* OUTER OUTLINE */
+    text-shadow:
+        -2px -2px 0 #6e0d0d,
+         2px -2px 0 #6e0d0d,
+        -2px  2px 0 #6e0d0d,
+         2px  2px 0 #6e0d0d,
+         0px  0px 5px rgba(80, 0, 0, 0.45);
+
+    /* TEXT ABOVE STICKER */
+    position: relative;
+    z-index: 20;
 }
 
 
@@ -1077,7 +1125,11 @@ box-shadow:
 
     white-space: nowrap;
 
-    color: #222222;
+    color: #0f0f0f93;
+
+    /* TEXT ABOVE STICKER */
+    position: relative;
+    z-index: 20;
 }
 
 
@@ -1146,7 +1198,7 @@ box-shadow:
 
     line-height: 2;
 
-    color: #050404;
+    color: #c0b5b5;
 
     white-space: pre-line;
 }
@@ -1845,6 +1897,12 @@ box-shadow:
             transparent 35%
         ),
         #fffaef;
+
+        /* BLACK SHADOW — TOP + BOTTOM */
+box-shadow:
+    inset 0 150px 150px -80px rgba(0, 0, 0, 0.60),
+    inset 0 -150px 150px -80px rgba(0, 0, 0, 0.71);
+
 
 }
 
