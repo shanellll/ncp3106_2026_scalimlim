@@ -1030,11 +1030,11 @@ box-shadow:
     position: absolute;
 
     /* CHANGE THESE TO MOVE THE STICKER */
-    left: -50px;
-    top: -150px;
+    left: -110px;
+    top: -90px;
 
     /* STICKER SIZE */
-    width: 1110px;
+    width: 1190px;
     height: auto;
 
     /* LOWER LAYER */
@@ -1125,7 +1125,7 @@ box-shadow:
 
     white-space: nowrap;
 
-    color: #0f0f0f93;
+    color: #0f0f0fd5;
 
     /* TEXT ABOVE STICKER */
     position: relative;

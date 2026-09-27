@@ -65,7 +65,7 @@ body {
     z-index: 5;
 }
 /* ==================================================
-   NAVIGATION CONTAINER
+   COMBINED DESIGN — GLASSMORPHISM + DARK BG
 ================================================== */
 
 header {
@@ -81,17 +81,25 @@ header {
     width: 90%;
     max-width: 1400px;
     margin: 0 auto;
-
-    padding: 6px 14px;
-
+    padding: 12px 20px;
     display: flex;
     align-items: center;
+    gap: 16px;
 
-    background: rgb(171, 177, 185);
+    background: linear-gradient(
+        to bottom,
+        rgba(20, 25, 40, 0.75),
+        rgba(15, 20, 35, 0.7)
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-    border: 2px solid #302b2b85;
-
+    border: 1.5px solid rgba(25, 118, 210, 0.25);
     border-radius: 50px;
+
+    box-shadow:
+        0 0 20px rgba(25, 118, 210, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
     box-sizing: border-box;
 }
@@ -105,14 +113,23 @@ header {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    padding-left: 8px;
+    width: 50px;
+    height: 50px;
+
+    background: rgba(25, 118, 210, 0.2);
+    border: 1px solid rgba(25, 118, 210, 0.3);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo img {
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    display: block;
+    border-radius: 50%;
 }
 
 
@@ -121,123 +138,76 @@ header {
 ================================================== */
 
 .main-nav {
-    position: relative;
-
     display: flex;
     align-items: center;
-
-    gap: 4px;
+    gap: 8px;
     margin-left: auto;
-
-    white-space: nowrap;
 }
 
 
 /* ==================================================
-   NAVIGATION LINKS — PIXEL FONT
+   NAVIGATION LINKS
 ================================================== */
 
 .main-nav a {
     position: relative;
-
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 
     height: 48px;
-    padding: 0 11px;
+    padding: 0 14px;
 
     text-decoration: none;
-
-    color: #2b2626;
-
+    color: #e0e0e0;
     font-family: "Press Start 2P", cursive;
-
-    font-size: 11px;
+    font-size: 10px;
     font-weight: normal;
+    letter-spacing: 0.5px;
 
-    border-radius: 30px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
 
+    white-space: nowrap;
     z-index: 2;
-
-    transition:
-        transform 0.3s ease,
-        color 0.3s ease;
 }
-
-
-/* ==================================================
-   HOVER EFFECT
-================================================== */
 
 .main-nav a:hover {
-    transform: translateY(-2px);
+    color: #ffffff;
 }
 
+.main-nav a.active {
+    color: #ffffff;
+}
 
-/* ==================================================
-   HOVER UNDERLINE
-================================================== */
+.main-nav a.active:hover {
+    color: #ffffff;
+}
 
+/* UNDERLINE ON HOVER - ONLY FOR NAVIGATION LINKS */
 .main-nav a:not(.join-btn)::after {
-    content: "";
-
+    content: '';
     position: absolute;
-
+    bottom: 8px;
     left: 50%;
-    bottom: 5px;
-
-    width: 0;
-    height: 3px;
-
-    background: #dbdbdf;
-
-    border-radius: 5px;
-
     transform: translateX(-50%);
 
-    transition: width 0.3s ease;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #1976d2, #00bcd4);
+    border-radius: 1px;
+
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    z-index: 1;
 }
 
 .main-nav a:not(.join-btn):hover::after {
-    width: 65%;
+    width: 100%;
 }
 
-
-/* ==================================================
-   ACTIVE PAGE — HOME
-================================================== */
-
-/* HOME stays underlined because this is the HOME page */
-
-.main-nav a.active {
-    color: #2b2626;
-}
-
-.main-nav a.active::after {
-    width: 65%;
-}
-
-
-/* Keep active underline when hovering */
-
-.main-nav a.active:hover::after {
-    width: 65%;
-}
-
-
-/* ==================================================
-   HUNGER GAMES FONT
-================================================== */
-
-@font-face {
-    font-family: "Hunger Games";
-
-    src: url("Assets/Hunger Games.ttf")
-         format("truetype");
-
-    font-weight: normal;
-    font-style: normal;
+.main-nav a.active:not(.join-btn)::after {
+    width: 100%;
 }
 
 
@@ -247,88 +217,136 @@ header {
 
 .join-btn {
     position: relative;
-
     height: 48px !important;
-    padding: 0 17px !important;
+    padding: 0 20px !important;
 
-    background: #0a0a0aec;
+    background: linear-gradient(135deg, #1976d2, #0d47a1);
+    color: white !important;
 
-    color: #11113b !important;
-
-    border: 2px solid transparent;
-
-    border-radius: 30px;
+    border: 1px solid rgba(25, 118, 210, 0.3);
+    border-radius: 25px;
 
     font-family: "Hunger Games", Arial, sans-serif;
-    font-size: 13px !important;
-    font-weight: 1900;
+    font-size: 11px !important;
+    font-weight: 600;
 
-    z-index: 1;
+    cursor: pointer;
 
-    transition:
-        transform 0.3s ease,
-        color 0.3s ease;
+    transition: all 0.3s ease;
+
+    box-shadow: 0 0 12px rgba(25, 118, 210, 0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    text-decoration: none;
+    
+    margin-left: auto;
 }
-
-
-/* ==================================================
-   JOIN BUTTON BORDER
-================================================== */
-
-.join-btn::before {
-    content: "";
-
-    position: absolute;
-
-    inset: -2px;
-
-    border-radius: 30px;
-
-    background: transparent;
-
-    z-index: -1;
-}
-
-
-/* ==================================================
-   BUTTON INNER
-================================================== */
-
-.join-btn::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: 28px;
-
-    background: #fdf9f9c5;
-
-    z-index: -1;
-}
-
-
-/* ==================================================
-   JOIN BUTTON HOVER
-================================================== */
 
 .join-btn:hover {
-    transform:
-        translateY(-2px)
-        scale(1.03);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #0d47a1, #0a2f73);
+    box-shadow: 0 0 20px rgba(25, 118, 210, 0.3);
+    border-color: rgba(25, 118, 210, 0.5);
+}
 
-    color: #ffffff !important;
+.join-btn:active {
+    transform: translateY(0px);
 }
 
 
 /* ==================================================
-   JOIN BUTTON — NO UNDERLINE
+   RESPONSIVE DESIGN
 ================================================== */
 
-.main-nav .join-btn::after {
-    display: block;
+@media (max-width: 1024px) {
+
+    .main-nav a {
+        height: 40px;
+        padding: 0 10px;
+        font-size: 9px;
+    }
+
+    .join-btn {
+        height: 40px !important;
+        padding: 0 16px !important;
+        font-size: 10px !important;
+    }
+
+    .logo {
+        width: 44px;
+        height: 44px;
+    }
+
 }
+
+@media (max-width: 768px) {
+
+    .nav-container {
+        width: 95%;
+        padding: 10px 16px;
+        gap: 10px;
+    }
+
+    .main-nav {
+        gap: 4px;
+    }
+
+    .main-nav a {
+        height: 36px;
+        padding: 0 8px;
+        font-size: 8px;
+    }
+
+    .join-btn {
+        height: 36px !important;
+        padding: 0 12px !important;
+        font-size: 9px !important;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 15px 10px;
+    }
+
+    .nav-container {
+        width: 95%;
+        padding: 8px 12px;
+        gap: 8px;
+        border-radius: 30px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .main-nav a {
+        display: none;
+    }
+
+    .join-btn {
+        margin-left: auto;
+    }
+
+    .logo {
+        width: 36px;
+        height: 36px;
+    }
+
+}
+
 
 /* ==================================================
    HERO
