@@ -303,18 +303,22 @@ const photoGalleries = {
 
     huddles: [
 
-        "Assets/events/huddles-1.jpg",
-        "Assets/events/huddles-2.jpg",
-        "Assets/events/huddles-3.jpg"
+        "Assets/huddles1.jpg",
+        "Assets/huddles2.jpg",
+        "Assets/huddles3.jpg",
+        "Assets/huddles4.jpg",
+        "Assets/huddles5.jpg",
 
     ],
 
 
     seminars: [
 
-        "Assets/events/seminars-1.jpg",
-        "Assets/events/seminars-2.jpg",
-        "Assets/events/seminars-3.jpg"
+        "Assets/seminars1.jpg",
+        "Assets/seminars2.jpg",
+        "Assets/seminars3.jpg",
+        "Assets/seminars4.jpg",
+        "Assets/seminars5.jpg",
 
     ],
 
@@ -323,6 +327,9 @@ const photoGalleries = {
 
         "Assets/christmas1.jpg",
         "Assets/christmas2.jpg",
+        "Assets/christmas3.jpg",
+        "Assets/christmas4.jpg",
+        "Assets/christmas5.jpg",
         
 
     ],
@@ -332,7 +339,9 @@ const photoGalleries = {
 
         "Assets/more-events1.jpg",
         "Assets/more-events2.jpg",
-        "Assets/more-events3.jpg"
+        "Assets/more-events3.jpg",
+        "Assets/more-events4.jpg",
+        "Assets/more-events5.jpg",
 
     ]
 

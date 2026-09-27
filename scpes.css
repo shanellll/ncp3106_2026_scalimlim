@@ -1015,7 +1015,7 @@ body {
 ================================================== */
 
 .about-section {
-    background: #ADB8AE;
+    background: #9fa79f;
 
     color: #222222;
 
@@ -1029,7 +1029,7 @@ body {
 .about-background {
     position: absolute;
 
-    right: -100px;
+    right: -250px;
     bottom: -50px;
 
     font-family: "Press Start 2P", cursive;
@@ -1070,7 +1070,7 @@ body {
 .about-label span {
     font-family: "Press Start 2P", cursive;
 
-    font-size: 10px;
+    font-size: 15px;
 
     color: #244A73;
 }
@@ -1082,7 +1082,7 @@ body {
 
     font-weight: bold;
 
-    color: #7C7C7C;
+    color: #912626;
 }
 
 .about-main h2 {
@@ -1112,7 +1112,7 @@ body {
 
     line-height: 1.8;
 
-    color: #7C7C7C;
+    color: #222222;
 }
 
 .about-grid {
@@ -1127,7 +1127,7 @@ body {
 }
 
 .about-item {
-    border-top: 2px solid #222222;
+    border-top: 3px solid #912626;
 
     padding-top: 18px;
 }
@@ -1135,29 +1135,29 @@ body {
 .about-item > span {
     font-family: "Press Start 2P", cursive;
 
-    font-size: 9px;
+    font-size: 12px;
 
-    color: #315F8A;
+    color: #222222;
 }
 
 .about-item h3 {
     font-family: "Press Start 2P", cursive;
 
-    font-size: 14px;
+    font-size: 16px;
 
     margin-top: 20px;
 
-    color: #222222;
+    color: #244A73;
 }
 
 .about-item p {
-    margin-top: 15px;
+    margin-top: 16px;
 
-    font-size: 13px;
+    font-size: 15px;
 
     line-height: 1.7;
 
-    color: #7C7C7C;
+    color: #222222;
 }
 
 
