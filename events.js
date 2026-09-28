@@ -146,7 +146,7 @@ document.addEventListener(
     function(event) {
 
         /*
-           Don't move to another event when
+           Don't change the event slide when
            clicking navigation or carousel buttons.
         */
 
@@ -179,11 +179,15 @@ document.addEventListener(
 
 
         if (event.deltaY > 0) {
+
             changeSlide("next");
+
         }
 
         else if (event.deltaY < 0) {
+
             changeSlide("previous");
+
         }
 
     },
@@ -202,11 +206,15 @@ document.addEventListener(
     function(event) {
 
         if (event.key === "ArrowDown") {
+
             changeSlide("next");
+
         }
 
         if (event.key === "ArrowUp") {
+
             changeSlide("previous");
+
         }
 
     }
@@ -216,18 +224,6 @@ document.addEventListener(
 /* ==================================================
    EVENT PHOTO GALLERIES
 ================================================== */
-
-/*
-   Each photo has its own:
-
-   image = photo file
-   title = title shown on photo
-   year = year shown under title
-
-   IMPORTANT:
-   The title and year automatically change
-   whenever the photo changes.
-*/
 
 const photoGalleries = {
 
@@ -245,19 +241,19 @@ const photoGalleries = {
         },
 
         {
-            image: "Assets/huddles2.jpg",
-            title: "1st year huddle",
-            year: "September 17,2026"
-        },
-
-        {
             image: "Assets/huddles3.jpg",
-            title: "1st yerar huddle",
-            year: "September 17, 2026"
+            title: "1st year huddle",
+            year: "October 13, 2024"
         },
 
         {
             image: "Assets/huddles4.jpg",
+            title: "1st year huddle",
+            year: "October 13, 2024"
+        },
+
+        {
+            image: "Assets/huddles2.jpg",
             title: "1st year huddle",
             year: "September 17, 2026"
         },
@@ -323,19 +319,19 @@ const photoGalleries = {
         },
 
         {
-            image: "Assets/christmas2.jpg",
-            title: "CPE Thanks Giving",
-            year: "December 19, 2025"
-        },
-
-        {
             image: "Assets/christmas3.jpg",
             title: "CPE Thanks Giving",
-            year: "December 19, 2025"
+            year: "December 19, 2024"
         },
 
         {
             image: "Assets/christmas4.jpg",
+            title: "CPE Thanks Giving",
+            year: "December 19, 2024"
+        },
+
+        {
+            image: "Assets/christmas2.jpg",
             title: "CPE Thanks Giving",
             year: "December 19, 2025"
         },
@@ -344,6 +340,45 @@ const photoGalleries = {
             image: "Assets/christmas5.jpg",
             title: "CPE Thanks Giving",
             year: "December 19, 2025"
+        }
+
+    ],
+
+
+    /* ==================================================
+       ACTIVITIES & WORKSHOPS
+    ================================================== */
+
+    "activities-workshops": [
+
+        {
+            image: "Assets/activities-workshops2.jpg",
+            title: "3rd and 4th year students, 3D Printing",
+            year: "December 17, 2025"
+        },
+
+        {
+            image: "Assets/activities-workshops3.jpg",
+            title: "3rd and 4th year students, 3D Printing",
+            year: "December 17, 2025"
+        },
+
+        {
+            image: "Assets/activities-workshops1.jpg",
+            title: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗦𝗰𝗶𝗲𝗻𝗰𝗲, 𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆, 𝗮𝗻𝗱 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻 𝗪𝗲𝗲𝗸 (𝗥𝗦𝗧𝗪",
+            year: "August 6, 2026"
+        },
+
+        {
+            image: "Assets/activities-workshops5.jpg",
+            title: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗦𝗰𝗶𝗲𝗻𝗰𝗲, 𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆, 𝗮𝗻𝗱 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻 𝗪𝗲𝗲𝗸 (𝗥𝗦𝗧𝗪",
+            year: "August 6, 2026"
+        },
+
+        {
+            image: "Assets/activities-workshops4.jpg",
+            title: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗦𝗰𝗶𝗲𝗻𝗰𝗲, 𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆, 𝗮𝗻𝗱 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻 𝗪𝗲𝗲𝗸 (𝗥𝗦𝗧𝗪",
+            year: "August 6, 2026"
         }
 
     ],
@@ -402,6 +437,8 @@ const photoIndexes = {
 
     christmas: 0,
 
+    "activities-workshops": 0,
+
     "more-events": 0
 
 };
@@ -419,6 +456,13 @@ const photoIndexes = {
 */
 
 const AUTO_CHANGE_TIME = 3000;
+
+
+/* ==================================================
+   PHOTO CHANGE LOCK
+================================================== */
+
+const photoAnimating = {};
 
 
 /* ==================================================
@@ -441,6 +485,16 @@ function changePhoto(frame, direction) {
     if (!gallery) {
         return;
     }
+
+
+    /* Prevent overlapping photo animations */
+
+    if (photoAnimating[eventID]) {
+        return;
+    }
+
+
+    photoAnimating[eventID] = true;
 
 
     let photoIndex = photoIndexes[eventID];
@@ -500,7 +554,11 @@ function changePhoto(frame, direction) {
 
 
     if (!image) {
+
+        photoAnimating[eventID] = false;
+
         return;
+
     }
 
 
@@ -531,16 +589,20 @@ function changePhoto(frame, direction) {
         /* Change title */
 
         if (title) {
+
             title.textContent =
                 photo.title;
+
         }
 
 
         /* Change year */
 
         if (year) {
+
             year.textContent =
                 photo.year;
+
         }
 
 
@@ -549,6 +611,10 @@ function changePhoto(frame, direction) {
         image.classList.remove(
             "photo-changing"
         );
+
+
+        photoAnimating[eventID] = false;
+
 
     }, 500);
 
@@ -602,24 +668,30 @@ document.querySelectorAll(".image-frame").forEach(
         /* Set first image */
 
         if (image) {
+
             image.src =
                 firstPhoto.image;
+
         }
 
 
         /* Set first title */
 
         if (title) {
+
             title.textContent =
                 firstPhoto.title;
+
         }
 
 
         /* Set first year */
 
         if (year) {
+
             year.textContent =
                 firstPhoto.year;
+
         }
 
     }

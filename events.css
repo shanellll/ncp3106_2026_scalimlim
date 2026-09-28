@@ -20,11 +20,8 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-
     background: #11152b;
-
     color: white;
-
     overflow: hidden;
 }
 
@@ -35,22 +32,15 @@ body {
 
 header {
     position: fixed;
-
     top: 0;
     left: 0;
-
     width: 100%;
     height: 90px;
-
     padding: 20px 4%;
-
     display: flex;
     align-items: center;
-
     z-index: 1000;
-
     background: rgba(27, 37, 85, 0.35);
-
     backdrop-filter: blur(8px);
 }
 
@@ -61,11 +51,8 @@ header {
 
 .nav-container {
     width: 100%;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 }
 
@@ -76,18 +63,14 @@ header {
 
 .logo {
     display: flex;
-
     align-items: center;
-
     flex-shrink: 0;
 }
 
 .logo img {
     width: 58px;
     height: 58px;
-
     object-fit: contain;
-
     display: block;
 }
 
@@ -98,29 +81,19 @@ header {
 
 .main-nav {
     display: flex;
-
     align-items: center;
-
     justify-content: flex-end;
-
     gap: 25px;
-
     width: 100%;
 }
 
 .main-nav a {
     position: relative;
-
     color: white;
-
     text-decoration: none;
-
     font-family: "Press Start 2P", cursive;
-
     font-size: 8px;
-
     white-space: nowrap;
-
     transition:
         color 0.3s ease,
         transform 0.3s ease;
@@ -133,17 +106,12 @@ header {
 
 .main-nav a:not(.join-btn)::after {
     content: "";
-
     position: absolute;
-
     left: 0;
     bottom: -8px;
-
     width: 0;
     height: 2px;
-
     background: white;
-
     transition: width 0.3s ease;
 }
 
@@ -162,13 +130,9 @@ header {
 
 .join-btn {
     padding: 12px 16px;
-
     border: 2px solid #d8ffff;
-
     border-radius: 30px;
-
     color: white !important;
-
     transition:
         background 0.3s ease,
         box-shadow 0.3s ease,
@@ -177,11 +141,9 @@ header {
 
 .join-btn:hover {
     background: rgba(216, 255, 255, 0.12);
-
     box-shadow:
         0 0 10px rgba(216, 255, 255, 0.6),
         0 0 25px rgba(216, 255, 255, 0.25);
-
     transform: translateY(-2px);
 }
 
@@ -192,10 +154,8 @@ header {
 
 .events-wrapper {
     position: relative;
-
     width: 100%;
     height: 100vh;
-
     overflow: hidden;
 }
 
@@ -206,27 +166,17 @@ header {
 
 .event-slide {
     position: absolute;
-
     inset: 0;
-
     width: 100%;
     height: 100vh;
-
     padding-top: 90px;
-
     padding-left: 10%;
     padding-right: 10%;
-
     display: flex;
-
     align-items: center;
-
     overflow: hidden;
-
     opacity: 0;
-
     visibility: hidden;
-
     transform: translateY(100%);
 
     transition:
@@ -242,11 +192,8 @@ header {
 
 .event-slide.active {
     opacity: 1;
-
     visibility: visible;
-
     transform: translateY(0);
-
     z-index: 5;
 }
 
@@ -257,11 +204,8 @@ header {
 
 .event-slide.exit-up {
     opacity: 0;
-
     visibility: visible;
-
     transform: translateY(-100%);
-
     z-index: 4;
 }
 
@@ -272,11 +216,8 @@ header {
 
 .event-slide.exit-down {
     opacity: 0;
-
     visibility: visible;
-
     transform: translateY(100%);
-
     z-index: 4;
 }
 
@@ -305,12 +246,9 @@ header {
 
 .event-bg {
     position: absolute;
-
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     z-index: -2;
 }
 
@@ -376,6 +314,26 @@ header {
 
 
 /* ==================================================
+   ACTIVITIES & WORKSHOPS
+================================================== */
+
+#activities-workshops {
+    background:
+        radial-gradient(
+            circle at 80% 25%,
+            rgba(82, 101, 169, 0.55),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #15182f 0%,
+            #303765 50%,
+            #6478bd 100%
+        );
+}
+
+
+/* ==================================================
    MORE EVENTS
 ================================================== */
 
@@ -401,16 +359,15 @@ header {
 
 .event-number {
     position: absolute;
-
     top: 145px;
     right: 8%;
 
     font-family: "Press Start 2P", cursive;
 
     font-size: clamp(
-        50px,
+        40px,
         10vw,
-        140px
+        120px
     );
 
     color: rgba(255, 255, 255, 0.062);
@@ -418,7 +375,6 @@ header {
     line-height: 1;
 
     pointer-events: none;
-
     user-select: none;
 }
 
@@ -455,7 +411,7 @@ header {
 .small-title {
     display: inline-block;
 
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 
     padding: 9px 15px;
 
@@ -463,7 +419,7 @@ header {
 
     font-family: "Press Start 2P", cursive;
 
-    font-size: 9px;
+    font-size: 10px;
 
     letter-spacing: 1px;
 
@@ -484,9 +440,9 @@ header {
     font-family: "Press Start 2P", cursive;
 
     font-size: clamp(
-        40px,
-        15vw,
-        80px
+        30px,
+        10vw,
+        70px
     );
 
     line-height: 1.2;
@@ -587,7 +543,6 @@ header {
         box-shadow 0.4s ease;
 }
 
-
 .image-frame:hover {
     transform: rotate(0deg) scale(1.02);
 
@@ -614,22 +569,7 @@ header {
 
     z-index: 1;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    font-family: "Press Start 2P", cursive;
-
-    font-size: 11px;
-
-    color: rgba(
-        255,
-        255,
-        255,
-        0.55
-    );
+    pointer-events: none;
 
     background:
         repeating-linear-gradient(
@@ -659,10 +599,15 @@ header {
 .event-photo {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     display: block;
+
     cursor: pointer;
+
     opacity: 1;
+
     transform: scale(1);
 
     transition:
@@ -670,9 +615,9 @@ header {
         transform 0.5s ease;
 
     position: relative;
+
     z-index: 2;
 }
-
 
 .event-photo.photo-changing {
     opacity: 0;
@@ -680,10 +625,10 @@ header {
     transform: scale(1.05);
 }
 
-
 .event-photo:hover {
     transform: scale(1.02);
 }
+
 
 /* ==================================================
    PHOTO TITLE + YEAR
@@ -693,6 +638,7 @@ header {
     position: absolute;
 
     left: 25px;
+
     bottom: 22px;
 
     z-index: 15;
@@ -706,19 +652,17 @@ header {
         0 0 10px rgba(0, 0, 0, 0.7);
 }
 
-
 .photo-title {
     margin: 0;
 
     font-family: "Press Start 2P", cursive;
 
-    font-size: 20px;
+    font-size: 18px;
 
     line-height: 1.4;
 
     letter-spacing: 1px;
 }
-
 
 .photo-year {
     display: block;
@@ -734,31 +678,40 @@ header {
     opacity: 0.9;
 }
 
-/* =========================================
+
+/* ==================================================
    CAROUSEL BUTTONS
-========================================= */
+================================================== */
 
 .carousel-btn {
     position: absolute;
+
     top: 50%;
+
     transform: translateY(-50%);
 
     width: 50px;
+
     height: 50px;
 
     border: none;
+
     border-radius: 50%;
 
     background: rgba(0, 0, 0, 0.55);
+
     color: white;
 
     font-size: 26px;
+
     cursor: pointer;
 
     z-index: 20;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     transition: 0.3s ease;
@@ -788,12 +741,11 @@ header {
 .click-next {
     position: absolute;
 
-    bottom: -225px;
+    bottom: 25px;
 
     left: 50%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     font-family: "Press Start 2P", cursive;
 
@@ -812,16 +764,17 @@ header {
         pulseNext 2s ease-in-out infinite;
 
     pointer-events: none;
-}
 
+    z-index: 20;
+
+    white-space: nowrap;
+}
 
 .click-next::after {
     content: " ↓";
 
     font-size: 14px;
 }
-
-
 
 
 /* ==================================================
@@ -856,18 +809,23 @@ header {
 .event-navigation {
     position: absolute;
 
-    bottom: -170px;
+    bottom: 30px;
 
-    left: 50%;
+    left: 0;
 
-    transform:
-        translateX(-50%);
+    width: 100%;
+
+    padding: 0 5%;
+
+    box-sizing: border-box;
 
     display: flex;
 
-    gap: 20px;
+    justify-content: space-between;
 
-    z-index: 20;
+    align-items: center;
+
+    z-index: 100;
 }
 
 
@@ -882,7 +840,7 @@ header {
 
     justify-content: center;
 
-    gap: 12px;
+    gap: 10px;
 
     min-width: 210px;
 
@@ -951,7 +909,6 @@ header {
 
 .event-nav-btn .arrow {
     font-size: 18px;
-
     line-height: 1;
 }
 
@@ -982,7 +939,6 @@ header {
     transform:
         translateY(-50%);
 }
-
 
 .event-slide::after {
     content: "";
@@ -1042,7 +998,6 @@ header {
 
     header {
         height: 75px;
-
         padding: 15px 5%;
     }
 
@@ -1057,7 +1012,6 @@ header {
 
     .event-slide {
         padding-top: 75px;
-
         padding-left: 7%;
         padding-right: 7%;
     }
@@ -1094,9 +1048,7 @@ header {
 
     .event-number {
         top: 95px;
-
         right: 5%;
-
         font-size: 70px;
     }
 
@@ -1127,17 +1079,16 @@ header {
 
     .event-navigation {
         width: 90%;
-
         gap: 10px;
+        left: 5%;
+        padding: 0;
+        transform: none;
     }
 
     .event-nav-btn {
         min-width: 0;
-
         width: 50%;
-
         padding: 13px 10px;
-
         font-size: 7px;
     }
 }
@@ -1165,27 +1116,22 @@ header {
 
     .event-content {
         max-height: 80vh;
-
         gap: 25px;
     }
 
     .small-title {
         font-size: 7px;
-
         padding: 7px 10px;
-
         margin-bottom: 18px;
     }
 
     .event-text h1 {
         font-size: 28px;
-
         margin-bottom: 18px;
     }
 
     .event-text p {
         font-size: 13px;
-
         line-height: 1.6;
     }
 
@@ -1203,13 +1149,11 @@ header {
 
     .event-number {
         font-size: 50px;
-
         top: 90px;
     }
 
     .click-next {
         bottom: 20px;
-
         font-size: 7px;
     }
 
@@ -1219,6 +1163,10 @@ header {
         flex-direction: column;
 
         width: 85%;
+
+        left: 7.5%;
+
+        padding: 0;
     }
 
     .event-nav-btn {
@@ -1247,7 +1195,6 @@ header {
 
     .event-nav-btn {
         padding: 11px 8px;
-
         font-size: 6px;
     }
 }
@@ -1262,6 +1209,7 @@ header {
     *,
     *::before,
     *::after {
+
         animation-duration: 0.01ms !important;
 
         animation-iteration-count: 1 !important;
