@@ -383,14 +383,14 @@ header {
     background:
         radial-gradient(
             circle at 30% 20%,
-            rgba(202, 169, 78, 0.35),
+            rgba(202, 78, 78, 0.35),
             transparent 35%
         ),
         linear-gradient(
             135deg,
             #171827 0%,
             #302c43 50%,
-            #64533b 100%
+            #643b3b 100%
         );
 }
 
@@ -413,12 +413,7 @@ header {
         140px
     );
 
-    color: rgba(
-        255,
-        255,
-        255,
-        0.08
-    );
+    color: rgba(255, 255, 255, 0.062);
 
     line-height: 1;
 
@@ -464,12 +459,7 @@ header {
 
     padding: 9px 15px;
 
-    border: 1px solid rgba(
-        255,
-        255,
-        255,
-        0.6
-    );
+    border: 1px solid rgba(250, 250, 250, 0.6);
 
     font-family: "Press Start 2P", cursive;
 
@@ -494,9 +484,9 @@ header {
     font-family: "Press Start 2P", cursive;
 
     font-size: clamp(
-        35px,
-        5vw,
-        70px
+        40px,
+        15vw,
+        80px
     );
 
     line-height: 1.2;
@@ -504,12 +494,7 @@ header {
     margin-bottom: 25px;
 
     text-shadow:
-        4px 4px 0 rgba(
-            0,
-            0,
-            0,
-            0.25
-        );
+        10px 4px 0 rgba(5, 5, 5, 0.432);
 }
 
 
@@ -555,9 +540,9 @@ header {
 .image-frame {
     width: 100%;
 
-    max-width: 560px;
+    max-width: 700px;
 
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 11;
 
     border: 3px solid rgba(
         255,
@@ -627,6 +612,8 @@ header {
 
     inset: 0;
 
+    z-index: 1;
+
     display: flex;
 
     justify-content: center;
@@ -672,20 +659,18 @@ header {
 .event-photo {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     display: block;
-
     cursor: pointer;
-
     opacity: 1;
-
     transform: scale(1);
 
     transition:
-    opacity 2.5s ease,
-    transform 2.5s ease;
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -698,6 +683,101 @@ header {
 
 .event-photo:hover {
     transform: scale(1.02);
+}
+
+/* ==================================================
+   PHOTO TITLE + YEAR
+================================================== */
+
+.photo-info {
+    position: absolute;
+
+    left: 25px;
+    bottom: 22px;
+
+    z-index: 15;
+
+    color: white;
+
+    pointer-events: none;
+
+    text-shadow:
+        3px 3px 0 rgba(0, 0, 0, 0.8),
+        0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+
+.photo-title {
+    margin: 0;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 20px;
+
+    line-height: 1.4;
+
+    letter-spacing: 1px;
+}
+
+
+.photo-year {
+    display: block;
+
+    margin-top: 8px;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.9;
+}
+
+/* =========================================
+   CAROUSEL BUTTONS
+========================================= */
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.55);
+    color: white;
+
+    font-size: 26px;
+    cursor: pointer;
+
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+
+    transform:
+        translateY(-50%)
+        scale(1.1);
+}
+
+.prev-btn {
+    left: 15px;
+}
+
+.next-btn {
+    right: 15px;
 }
 
 
@@ -888,7 +968,7 @@ header {
     top: 50%;
     left: 3%;
 
-    width: 1px;
+    width: 3px;
     height: 180px;
 
     background:

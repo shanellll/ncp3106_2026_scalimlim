@@ -5,7 +5,6 @@
 const slides = document.querySelectorAll(".event-slide");
 
 let currentSlide = 0;
-
 let isAnimating = false;
 
 
@@ -24,9 +23,7 @@ slides.forEach((slide, index) => {
     );
 
     if (index === 0) {
-
         slide.classList.add("active");
-
     }
 
 });
@@ -38,98 +35,60 @@ slides.forEach((slide, index) => {
 
 function changeSlide(direction) {
 
-    /* Stop if animation is still running */
-
     if (isAnimating) {
-
         return;
-
     }
 
 
-    /* ==================================================
-       DON'T GO PAST THE LAST SLIDE
-    ================================================== */
+    /* Don't go past the last slide */
 
     if (
         direction === "next" &&
         currentSlide >= slides.length - 1
     ) {
-
         return;
-
     }
 
 
-    /* ==================================================
-       DON'T GO BEFORE FIRST SLIDE
-    ================================================== */
+    /* Don't go before the first slide */
 
     if (
         direction === "previous" &&
         currentSlide <= 0
     ) {
-
         return;
-
     }
 
 
     isAnimating = true;
 
 
-    /* ==================================================
-       CURRENT SLIDE
-    ================================================== */
-
     const oldSlide = slides[currentSlide];
 
-
-    /* ==================================================
-       FIND NEW SLIDE
-    ================================================== */
 
     let newIndex;
 
     if (direction === "next") {
-
         newIndex = currentSlide + 1;
-
     } else {
-
         newIndex = currentSlide - 1;
-
     }
 
 
     const newSlide = slides[newIndex];
 
 
-    /* ==================================================
-       PREPARE NEW SLIDE
-    ================================================== */
+    /* Prepare new slide */
 
     if (direction === "next") {
-
         newSlide.classList.add("prepare-up");
-
     } else {
-
         newSlide.classList.add("prepare-down");
-
     }
 
 
-    /* ==================================================
-       FORCE BROWSER REFRESH
-    ================================================== */
-
     newSlide.offsetHeight;
 
-
-    /* ==================================================
-       REMOVE PREPARE CLASS
-    ================================================== */
 
     newSlide.classList.remove(
         "prepare-up",
@@ -137,38 +96,24 @@ function changeSlide(direction) {
     );
 
 
-    /* ==================================================
-       ACTIVATE NEW SLIDE
-    ================================================== */
+    /* Activate new slide */
 
     newSlide.classList.add("active");
 
 
-    /* ==================================================
-       MOVE OLD SLIDE
-    ================================================== */
+    /* Move old slide */
 
     if (direction === "next") {
-
         oldSlide.classList.add("exit-up");
-
     } else {
-
         oldSlide.classList.add("exit-down");
-
     }
 
-
-    /* ==================================================
-       UPDATE CURRENT SLIDE
-    ================================================== */
 
     currentSlide = newIndex;
 
 
-    /* ==================================================
-       CLEAN ANIMATION
-    ================================================== */
+    /* Clean animation */
 
     setTimeout(() => {
 
@@ -180,12 +125,10 @@ function changeSlide(direction) {
             "prepare-down"
         );
 
-
         newSlide.classList.remove(
             "prepare-up",
             "prepare-down"
         );
-
 
         isAnimating = false;
 
@@ -203,23 +146,18 @@ document.addEventListener(
     function(event) {
 
         /*
-           Navigation links should still work normally.
+           Don't move to another event when
+           clicking navigation or carousel buttons.
         */
 
         if (
             event.target.closest("a") ||
-            event.target.closest(".nav-container")
+            event.target.closest(".nav-container") ||
+            event.target.closest(".carousel-btn")
         ) {
-
             return;
-
         }
 
-
-        /*
-           Clicking anywhere on the page
-           moves to the next event.
-        */
 
         changeSlide("next");
 
@@ -236,27 +174,16 @@ document.addEventListener(
     function(event) {
 
         if (isAnimating) {
-
             return;
-
         }
 
-
-        /* Scroll DOWN = NEXT */
 
         if (event.deltaY > 0) {
-
             changeSlide("next");
-
         }
 
-
-        /* Scroll UP = PREVIOUS */
-
         else if (event.deltaY < 0) {
-
             changeSlide("previous");
-
         }
 
     },
@@ -274,21 +201,12 @@ document.addEventListener(
     "keydown",
     function(event) {
 
-        /* Arrow DOWN */
-
         if (event.key === "ArrowDown") {
-
             changeSlide("next");
-
         }
 
-
-        /* Arrow UP */
-
         if (event.key === "ArrowUp") {
-
             changeSlide("previous");
-
         }
 
     }
@@ -299,49 +217,173 @@ document.addEventListener(
    EVENT PHOTO GALLERIES
 ================================================== */
 
+/*
+   Each photo has its own:
+
+   image = photo file
+   title = title shown on photo
+   year = year shown under title
+
+   IMPORTANT:
+   The title and year automatically change
+   whenever the photo changes.
+*/
+
 const photoGalleries = {
+
+
+    /* ==================================================
+       HUDDLES
+    ================================================== */
 
     huddles: [
 
-        "Assets/huddles1.jpg",
-        "Assets/huddles2.jpg",
-        "Assets/huddles3.jpg",
-        "Assets/huddles4.jpg",
-        "Assets/huddles5.jpg",
+        {
+            image: "Assets/huddles1.jpg",
+            title: "1st year huddle",
+            year: "October 13, 2024"
+        },
+
+        {
+            image: "Assets/huddles2.jpg",
+            title: "1st year huddle",
+            year: "September 17,2026"
+        },
+
+        {
+            image: "Assets/huddles3.jpg",
+            title: "1st yerar huddle",
+            year: "September 17, 2026"
+        },
+
+        {
+            image: "Assets/huddles4.jpg",
+            title: "1st year huddle",
+            year: "September 17, 2026"
+        },
+
+        {
+            image: "Assets/huddles5.jpg",
+            title: "1st year huddle",
+            year: "September 17, 2026"
+        }
 
     ],
 
+
+    /* ==================================================
+       SEMINARS
+    ================================================== */
 
     seminars: [
 
-        "Assets/seminars1.jpg",
-        "Assets/seminars2.jpg",
-        "Assets/seminars3.jpg",
-        "Assets/seminars4.jpg",
-        "Assets/seminars5.jpg",
+        {
+            image: "Assets/seminars1.jpg",
+            title: "1st year, Arduino workshops",
+            year: "September 18, 2026"
+        },
+
+        {
+            image: "Assets/seminars4.jpg",
+            title: "2nd year, Arduino workshops",
+            year: "September 18, 2026"
+        },
+
+        {
+            image: "Assets/seminars2.jpg",
+            title: "Data Analitics Seminar",
+            year: "September 22, 2026"
+        },
+
+        {
+            image: "Assets/seminars3.jpg",
+            title: "3rd year, Figma Design Workshop",
+            year: "September 23, 2026"
+        },
+
+        {
+            image: "Assets/seminars5.jpg",
+            title: "3rd year, Cyber hygiene and Digital Forensics Semminar",
+            year: "September 25, 2026"
+        }
 
     ],
 
+
+    /* ==================================================
+       CHRISTMAS
+    ================================================== */
 
     christmas: [
 
-        "Assets/christmas1.jpg",
-        "Assets/christmas2.jpg",
-        "Assets/christmas3.jpg",
-        "Assets/christmas4.jpg",
-        "Assets/christmas5.jpg",
-        
+        {
+            image: "Assets/christmas1.jpg",
+            title: "CPE Thanks Giving",
+            year: "December 19, 2024"
+        },
+
+        {
+            image: "Assets/christmas2.jpg",
+            title: "CPE Thanks Giving",
+            year: "December 19, 2025"
+        },
+
+        {
+            image: "Assets/christmas3.jpg",
+            title: "CPE Thanks Giving",
+            year: "December 19, 2025"
+        },
+
+        {
+            image: "Assets/christmas4.jpg",
+            title: "CPE Thanks Giving",
+            year: "December 19, 2025"
+        },
+
+        {
+            image: "Assets/christmas5.jpg",
+            title: "CPE Thanks Giving",
+            year: "December 19, 2025"
+        }
 
     ],
 
 
+    /* ==================================================
+       MORE EVENTS
+    ================================================== */
+
     "more-events": [
 
-        "Assets/more-events1.jpg",
-        "Assets/more-events2.jpg",
-        "Assets/more-events3.jpg",
-        "Assets/more-events4.jpg",
-        "Assets/more-events5.jpg",
+        {
+            image: "Assets/more-events1.jpg",
+            title: "PHOTOBOOTH",
+            year: "September 15, 2026"
+        },
+
+        {
+            image: "Assets/more-events2.jpg",
+            title: "PINS FOR SALE",
+            year: "September 15, 2026"
+        },
+
+        {
+            image: "Assets/more-events3.jpg",
+            title: "FOOTBALL",
+            year: "September 15, 2026"
+        },
+
+        {
+            image: "Assets/more-events4.jpg",
+            title: "YOHOO SHOOT YOUR SHOT",
+            year: "July 30, 2026"
+        },
+
+        {
+            image: "Assets/more-events5.jpg",
+            title: "PINS FOR SALE",
+            year: "July 30, 2026"
+        }
 
     ]
 
@@ -366,76 +408,77 @@ const photoIndexes = {
 
 
 /* ==================================================
-   PHOTO TIMERS
+   PHOTO AUTO CHANGE SPEED
 ================================================== */
 
-const photoTimers = {};
+/*
+   3000 = 3 seconds
+   2500 = 2.5 seconds
+   2000 = 2 seconds
+   1500 = 1.5 seconds
+*/
+
+const AUTO_CHANGE_TIME = 3000;
 
 
 /* ==================================================
    CHANGE PHOTO
 ================================================== */
 
-function changePhoto(frame) {
+function changePhoto(frame, direction) {
 
-    /* Find the event slide */
-
-    const slide =
-        frame.closest(".event-slide");
-
+    const slide = frame.closest(".event-slide");
 
     if (!slide) {
-
         return;
-
     }
 
 
-    /* Get event ID */
+    const eventID = slide.id;
 
-    const eventID =
-        slide.id;
-
-
-    /* Get gallery */
-
-    const gallery =
-        photoGalleries[eventID];
-
+    const gallery = photoGalleries[eventID];
 
     if (!gallery) {
-
         return;
+    }
+
+
+    let photoIndex = photoIndexes[eventID];
+
+
+    /* ==================================================
+       NEXT PHOTO
+    ================================================== */
+
+    if (direction === "next") {
+
+        photoIndex++;
+
+        if (photoIndex >= gallery.length) {
+            photoIndex = 0;
+        }
 
     }
 
 
-    /* Get current photo */
+    /* ==================================================
+       PREVIOUS PHOTO
+    ================================================== */
 
-    let photoIndex =
-        photoIndexes[eventID];
+    else if (direction === "previous") {
 
+        photoIndex--;
 
-    /* Move to next photo */
-
-    photoIndex++;
-
-
-    /* Return to first photo */
-
-    if (
-        photoIndex >= gallery.length
-    ) {
-
-        photoIndex = 0;
+        if (photoIndex < 0) {
+            photoIndex = gallery.length - 1;
+        }
 
     }
 
 
     /* Save current photo */
 
-    photoIndexes[eventID] =
-        photoIndex;
+    photoIndexes[eventID] = photoIndex;
 
 
     /* Find image */
@@ -444,10 +487,20 @@ function changePhoto(frame) {
         frame.querySelector(".event-photo");
 
 
+    /* Find title */
+
+    const title =
+        frame.querySelector(".photo-title");
+
+
+    /* Find year */
+
+    const year =
+        frame.querySelector(".photo-year");
+
+
     if (!image) {
-
         return;
-
     }
 
 
@@ -455,35 +508,152 @@ function changePhoto(frame) {
        FADE OUT
     ================================================== */
 
-    image.classList.add(
-        "photo-changing"
-    );
+    image.classList.add("photo-changing");
 
 
-    /* ==================================================
-       CHANGE IMAGE
-    ================================================== */
+    /*
+       Change image + title + year
+       after 0.5 second.
+    */
 
-    setTimeout(
-        function() {
+    setTimeout(function() {
 
-            image.src =
-                gallery[photoIndex];
+        const photo =
+            gallery[photoIndex];
 
 
-            image.classList.remove(
-                "photo-changing"
-            );
+        /* Change image */
 
-        },
-        2500
-    );
+        image.src =
+            photo.image;
+
+
+        /* Change title */
+
+        if (title) {
+            title.textContent =
+                photo.title;
+        }
+
+
+        /* Change year */
+
+        if (year) {
+            year.textContent =
+                photo.year;
+        }
+
+
+        /* Fade image back in */
+
+        image.classList.remove(
+            "photo-changing"
+        );
+
+    }, 500);
 
 }
 
 
 /* ==================================================
-   PHOTO HOVER GALLERY
+   SET INITIAL PHOTO INFORMATION
+================================================== */
+
+document.querySelectorAll(".image-frame").forEach(
+    function(frame) {
+
+        const slide =
+            frame.closest(".event-slide");
+
+        if (!slide) {
+            return;
+        }
+
+
+        const eventID =
+            slide.id;
+
+
+        const gallery =
+            photoGalleries[eventID];
+
+
+        if (!gallery) {
+            return;
+        }
+
+
+        const firstPhoto =
+            gallery[0];
+
+
+        const image =
+            frame.querySelector(".event-photo");
+
+
+        const title =
+            frame.querySelector(".photo-title");
+
+
+        const year =
+            frame.querySelector(".photo-year");
+
+
+        /* Set first image */
+
+        if (image) {
+            image.src =
+                firstPhoto.image;
+        }
+
+
+        /* Set first title */
+
+        if (title) {
+            title.textContent =
+                firstPhoto.title;
+        }
+
+
+        /* Set first year */
+
+        if (year) {
+            year.textContent =
+                firstPhoto.year;
+        }
+
+    }
+);
+
+
+/* ==================================================
+   AUTOMATIC PHOTO CHANGING
+================================================== */
+
+document.querySelectorAll(".image-frame").forEach(
+    function(frame) {
+
+        /*
+           Automatically change photos
+           even when the mouse is NOT
+           over the image.
+        */
+
+        setInterval(function() {
+
+            changePhoto(
+                frame,
+                "next"
+            );
+
+        }, AUTO_CHANGE_TIME);
+
+    }
+);
+
+
+/* ==================================================
+   CAROUSEL BUTTONS
 ================================================== */
 
 document.querySelectorAll(".image-frame").forEach(
@@ -491,66 +661,68 @@ document.querySelectorAll(".image-frame").forEach(
 
 
         /* ==================================================
-           MOUSE ENTER
-           START 5 SECOND TIMER
+           NEXT BUTTON
         ================================================== */
 
-        frame.addEventListener(
-            "mouseenter",
-            function() {
-
-                /*
-                   Clear any old timer first.
-                */
-
-                clearInterval(
-                    photoTimers[frame]
-                );
+        const nextButton =
+            frame.querySelector(".next-btn");
 
 
-                /*
-                   IMPORTANT:
+        if (nextButton) {
 
-                   Do NOT immediately change
-                   the first photo.
+            nextButton.addEventListener(
+                "click",
+                function(event) {
 
-                   The first image stays visible
-                   for 5 seconds.
-                */
+                    /*
+                       Prevent this click from
+                       changing the event slide.
+                    */
 
-                photoTimers[frame] =
-                    setInterval(
-                        function() {
+                    event.preventDefault();
 
-                            changePhoto(frame);
+                    event.stopPropagation();
 
-                        },
-                        5000
+
+                    changePhoto(
+                        frame,
+                        "next"
                     );
 
-            }
-        );
+                }
+            );
+
+        }
 
 
         /* ==================================================
-           MOUSE LEAVE
-           STOP PHOTO CHANGING
+           PREVIOUS BUTTON
         ================================================== */
 
-        frame.addEventListener(
-            "mouseleave",
-            function() {
-
-                clearInterval(
-                    photoTimers[frame]
-                );
+        const previousButton =
+            frame.querySelector(".prev-btn");
 
 
-                photoTimers[frame] =
-                    null;
+        if (previousButton) {
 
-            }
-        );
+            previousButton.addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+
+                    event.stopPropagation();
+
+
+                    changePhoto(
+                        frame,
+                        "previous"
+                    );
+
+                }
+            );
+
+        }
 
     }
 );
