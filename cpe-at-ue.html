@@ -29,21 +29,42 @@
     >
 
 
+    <!-- ============================================
+         FONT AWESOME 6.5.2 (REQUIRED FOR ICONS)
+    ============================================ -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-ioQuaXR57ZvIM1K3H6aj+r75ZKdi0WmzjVW3aSL+fVxB5cIL6d9nxMhsaIa9v/fN3mbcpe+3cB2tmtUSDnjjkw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    >
+
+
     <!-- YOUR CSS -->
+
+    <link
+        rel="stylesheet"
+        href="header-navigation-WORKING.css"
+    >
 
     <link
         rel="stylesheet"
         href="cpe-at-ue.css"
     >
 
+    <link
+        rel="stylesheet"
+        href="contact-section.css"
+    >
+
 </head>
 
 
-<body>
-<!-- ==================================================
-     HEADER
-================================================== -->
 
+
+<body>
 <!-- ==================================================
      HEADER
 ================================================== -->
@@ -92,7 +113,7 @@
             </a>
 
             <!-- CONTACT -->
-            <a href="contact.html">
+            <a href="#contact">
                 CONTACT
             </a>
 
@@ -475,13 +496,6 @@ $(document).ready(function () {
 
 </script>
 
-
-
-
-
-
-
-
     <!-- ==================================================
          SECTION 2 — SPECIALIZATIONS
     ================================================== -->
@@ -557,12 +571,6 @@ $(document).ready(function () {
 
     </section>
 
-
-
-
-
-
-
 <!-- ==================================================
      SECTION 3 — STUDENT PROJECTS
 ================================================== -->
@@ -589,6 +597,8 @@ $(document).ready(function () {
             while receiving guidance and feedback
             from instructors.
         </p>
+
+        
 
 
         <div class="project-grid">
@@ -721,7 +731,6 @@ $(document).ready(function () {
 
 </section>
 
-
 <!-- ==================================================
      SLIDE — CLASSROOMS & LIBRARY
 ================================================== -->
@@ -849,6 +858,7 @@ $(document).ready(function () {
     <div class="cl-decoration decoration-three">01</div>
 
 </section>
+
 <!-- ==================================================
      SECTION 5 — CpE NEWS (MASONRY LAYOUT)
 ================================================== -->
@@ -911,7 +921,7 @@ $(document).ready(function () {
 
                 <div class="news-image">
                     <img
-                        src="Assets/news2.jpg"
+                        src="Assets/news2.png"
                         alt="1st Computer Engineering Research Colloquium-Forum"
                     >
                 </div>
@@ -945,7 +955,7 @@ $(document).ready(function () {
 
                 <div class="news-image">
                     <img
-                        src="Assets/news3.jpg"
+                        src="Assets/news3.png"
                         alt="Arduino Day Philippines 2026"
                     >
                 </div>
@@ -979,7 +989,7 @@ $(document).ready(function () {
 
                 <div class="news-image">
                     <img
-                        src="Assets/news4.jpg"
+                        src="Assets/news4.png"
                         alt="Circuit Minds Quiz Bee Competition"
                     >
                 </div>
@@ -1004,6 +1014,90 @@ $(document).ready(function () {
             </article>
 
 
+            <!-- ==================================================
+     NEWS 5 — PUP RESEARCH AWARDS
+================================================== -->
+
+<article class="news-card">
+
+    <div class="news-image">
+
+        <img
+            src="Assets/news5.jpg"
+            alt="UE Computer Engineering Team at PUP Research Awards"
+        >
+
+    </div>
+
+    <div class="news-content">
+
+        <div class="news-meta">
+
+            <span class="news-date">
+                AUGUST 2025
+            </span>
+
+            <span class="news-tag">
+                RESEARCH
+            </span>
+
+        </div>
+
+        <h3>
+            UE Computer Engineering Team Named Finalists in PUP Research Awards
+        </h3>
+
+        <p>
+            The UE Manila Computer Engineering Team was named among the Top 5 research papers in the Innovation Category of PUP's 15th Annual Research Awards. Their machine learning-enhanced robotic system for strawberry harvesting showcased the research and innovation of UE's Computer Engineering program.
+        </p>
+
+    </div>
+
+</article>
+
+
+<!-- ==================================================
+     NEWS 6 — DESIGN PROJECT EXHIBIT
+================================================== -->
+
+<article class="news-card">
+
+    <div class="news-image">
+
+        <img
+            src="Assets/news6.jpg"
+            alt="Design Project Exhibit at Research Colloquium 2026"
+        >
+
+    </div>
+
+    <div class="news-content">
+
+        <div class="news-meta">
+
+            <span class="news-date">
+                APRIL 2026
+            </span>
+
+            <span class="news-tag">
+                EXHIBIT
+            </span>
+
+        </div>
+
+        <h3>
+            Design Project Exhibit at Research Colloquium 2026
+        </h3>
+
+        <p>
+            The Research Colloquium 2026 featured design projects created by 3rd and 4th year students. Interactive prototypes and research posters showcased how student ideas developed into actual systems while inspiring younger students to explore future project possibilities.
+        </p>
+
+    </div>
+
+</article>
+
+
         </div>
 
         <div class="slide-line"></div>
@@ -1015,9 +1109,6 @@ $(document).ready(function () {
     </div>
 
 </section>
-
-</main>
-
 
 <!-- ==================================================
      SECTION 5 — FACULTY INTRODUCTION
@@ -1049,10 +1140,10 @@ $(document).ready(function () {
 
 
             <p class="faculty-quote">
-                “Every project begins with an idea.
+                "Every project begins with an idea.
                 Behind that idea are mentors who
                 challenge students to learn, create,
-                and keep improving.”
+                and keep improving."
             </p>
 
 
@@ -1094,7 +1185,267 @@ $(document).ready(function () {
 
 </section>
 
+<!-- ==================================================
+     CONTACT
+================================================== -->
 
+<section class="content-section contact-section" id="contact">
+
+    <!-- BIG CONTACT TITLE -->
+    <div class="contact-title">
+
+        <h2>CONTACT US</h2>
+
+    </div>
+
+
+    <!-- ==================================================
+         SOCIAL MEDIA
+    ================================================== -->
+
+    <div class="contact-socials">
+
+
+        <!-- FACEBOOK -->
+        <a
+            href="https://www.facebook.com/search/top?q=ue%20manila%20-%20society%20of%20computer%20engineering%20students"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-item"
+        >
+
+            <div class="social-icon facebook-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        fill="white"
+                        d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3.5l.5-4H13V9c0-.7.3-1 1-1z"
+                    />
+                </svg>
+
+            </div>
+
+            <span>
+                uescpes_official
+            </span>
+
+        </a>
+
+
+        <!-- MESSENGER -->
+        <a
+            href="https://www.facebook.com/search/top?q=ue%20manila%20-%20society%20of%20computer%20engineering%20students"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-item"
+        >
+
+            <div class="social-icon messenger-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        fill="white"
+                        d="M12 2C6.48 2 2 5.91 2 10.73c0 2.75 1.37 5.2 3.53 6.84V22l3.24-1.78c1 .28 2.1.43 3.23.43 5.52 0 10-3.91 10-8.92S17.52 2 12 2zm.99 11.91l-2.61-2.78-5.1 2.78 5.61-5.95 2.67 2.78 5.04-2.78-5.61 5.95z"
+                    />
+                </svg>
+
+            </div>
+
+            <span>
+                UE Manila - SCPES
+            </span>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+        <a
+            href="https://www.instagram.com/uescpes_official/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-item"
+        >
+
+            <div class="social-icon instagram-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <rect
+                        x="3"
+                        y="3"
+                        width="18"
+                        height="18"
+                        rx="5"
+                        ry="5"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2"
+                    />
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="4"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2"
+                    />
+
+                    <circle
+                        cx="17.5"
+                        cy="6.5"
+                        r="1.2"
+                        fill="white"
+                    />
+
+                </svg>
+
+            </div>
+
+            <span>
+                uescpes_official
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <!-- ==================================================
+         LEFT SIDE CONTACT INFORMATION
+    ================================================== -->
+
+    <div class="contact-details">
+
+
+        <!-- QUOTE -->
+        <div class="contact-quote">
+
+            <p>
+                "Where innovation meets logic,
+                Computer Engineering turns ideas
+                into technology."
+            </p>
+
+        </div>
+
+
+        <!-- EMAIL -->
+        <a
+            href="mailto:scpesofficial@gmail.com"
+            class="contact-detail"
+        >
+
+            <span class="contact-svg email-svg">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <rect
+                        x="3"
+                        y="5"
+                        width="18"
+                        height="14"
+                        rx="2"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+
+                    <path
+                        d="M4 7l8 6 8-6"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+
+                </svg>
+
+            </span>
+
+            <span>
+                scpesofficial@gmail.com
+            </span>
+
+        </a>
+
+
+        <!-- PHONE -->
+        <a
+            href="tel:09263013900"
+            class="contact-detail"
+        >
+
+            <span class="contact-svg phone-svg">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M6.6 3.5l3 1.5-1.7 3.3c1.1 2.2 2.6 3.7 4.8 4.8L16 11.4l1.5 3c.3.6.1 1.3-.4 1.7l-2.1 1.4c-.5.3-1.1.4-1.7.2-3.2-1.1-6-3-8.2-5.2S1.9 7.9 3 4.7c.2-.6.8-1 1.4-1.2l2.2-.4z"
+                        fill="currentColor"
+                    />
+                </svg>
+
+            </span>
+
+            <span>
+                0926 301 3900
+            </span>
+
+        </a>
+
+
+        <!-- LOCATION -->
+        <div class="contact-detail">
+
+            <span class="contact-svg location-svg">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+
+                    <circle
+                        cx="12"
+                        cy="9"
+                        r="2.5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+
+                </svg>
+
+            </span>
+
+            <span>
+                2219 C.M. Recto Ave., Manila, Philippines 1008,
+                Manila, Philippines, Manila, Philippines
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 
 <!-- ==================================================
@@ -1230,6 +1581,382 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
+<!-- ==================================================
+     NEWS MODAL
+================================================== -->
+
+<div class="news-modal" id="newsModal">
+
+    <div class="news-modal-box">
+
+        <button
+            class="news-modal-close"
+            id="newsModalClose"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <!-- DATE + TAG -->
+
+        <div class="news-modal-meta">
+
+            <span
+                class="news-modal-date"
+                id="newsModalDate"
+            ></span>
+
+            <span
+                class="news-modal-tag"
+                id="newsModalTag"
+            ></span>
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h2
+            class="news-modal-title"
+            id="newsModalTitle"
+        ></h2>
+
+
+        <!-- FULL DESCRIPTION -->
+
+        <div
+            class="news-modal-description"
+            id="newsModalDescription"
+        ></div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ==================================================
+   NEWS MODAL DATA
+================================================== */
+
+const newsData = {
+
+    1: {
+        date: "September 2025",
+        tag: "Achievement",
+
+        title:
+            "UE Computer Engineering Warriors Clinch 1st Runner-Up at PacketHacks: Hack the Climate 2025",
+
+        description: `
+            <p>
+                Representing UE Manila at the IoT Conference Philippines 2025,
+                a team of five BSCpE students earned the 1st Runner-Up title
+                in the national <i>Packetworx PacketHacks: Hack the Climate 2025</i>
+                held at the SMX Convention Center.
+            </p>
+
+            <p>
+                Guided by department chair Engr. Errol John M. Antonio,
+                fourth-year students Sean Vincent Vien V. Viñas,
+                Clarizza M. Reyes, Skhart Aye D. Mercado,
+                Paolo B. Barrado, and John Paul A. Pascual developed
+                <i>AeroBand</i>—a blockchain-integrated personal air quality
+                monitoring device designed to support urban resilience
+                and climate action.
+            </p>
+
+            <p>
+                Competing against more than 70 student and professional teams,
+                the team highlighted technical skill, innovative problem-solving,
+                and commitment to the UN Sustainable Development Goals
+                in UE's debut appearance at the hackathon.
+            </p>
+        `
+    },
+
+
+    2: {
+        date: "April 2026",
+        tag: "Highlight",
+
+        title:
+            "Celebrating Innovation: Highlights from the 1st Computer Engineering Research Colloquium-Forum",
+
+        description: `
+            <p>
+                The Computer Engineering Department made history on
+                April 24, 2026, with the successful launch of its
+                1st Research Colloquium-Forum and Design Project Exhibit.
+            </p>
+
+            <p>
+                Bringing together 3rd-year design proposals and 4th-year
+                completed systems, the event showcased student projects
+                evaluated by faculty, invited experts, and peers based on
+                technical merit, innovation, and alignment with Sustainable
+                Development Goals (SDGs).
+            </p>
+
+            <p>
+                Featuring interactive prototypes, detailed posters,
+                and formal presentations, the landmark colloquium
+                celebrated academic excellence while inspiring the
+                next generation of future engineers.
+            </p>
+        `
+    },
+
+
+    3: {
+        date: "2026",
+        tag: "Engagement",
+
+        title:
+            "Empowering Future Engineers: Sophomore CPE Students Join Arduino Day Philippines 2026",
+
+        description: `
+            <p>
+                Sophomore Computer Engineering students actively participated
+                in Arduino Day Philippines 2026, showcasing their enthusiasm
+                for technology, collaborative innovation, and hands-on learning.
+            </p>
+
+            <p>
+                Representing the CPE community in a global celebration
+                of creativity, these aspiring engineers engaged in turning
+                creative concepts into practical, impactful solutions
+                designed to shape the future of tech.
+            </p>
+        `
+    },
+
+
+    4: {
+        date: "October 2025",
+        tag: "Competition",
+
+        title:
+            "Sharp Minds and Quick Logic: Top Winners Honored at Circuit Minds Quiz Bee",
+
+        description: `
+            <p>
+                On October 7, 2025, eight teams of Computer Engineering
+                students spanning 1st through 4th year competed in
+                <i>"Circuit Minds: The CPE Quiz Bee Competition."</i>
+            </p>
+
+            <p>
+                Testing logic, speed, and technical knowledge across
+                multiple rounds, the event celebrated teamwork,
+                academic excellence, and student participation while
+                recognizing the top three winning teams.
+            </p>
+        `
+    },
+
+
+    5: {
+        date: "August 20, 2025",
+        tag: "Research",
+
+        title:
+            "UE Computer Engineering Team Named Finalists in PUP Research Awards",
+
+        description: `
+            <p>
+                The UE Manila Computer Engineering Team was named among
+                the Top 5 research papers in the Innovation Category
+                of PUP's 15th Annual Research Awards (ARAW 2025).
+            </p>
+
+            <p>
+                Their project,
+                <i>
+                    "Development and Implementation of a Machine
+                    Learning-Enhanced Robotic System Optimizing
+                    Strawberry Harvest,"
+                </i>
+                was selected for its innovative approach to addressing
+                real-world challenges through technology.
+            </p>
+
+            <p>
+                The team represented the University of the East at the
+                awards presentation held at PUP Sta. Mesa, Manila,
+                showcasing the research and innovation of UE's
+                Computer Engineering program.
+            </p>
+        `
+    },
+
+
+    6: {
+        date: "April 24, 2026",
+        tag: "Exhibit",
+
+        title:
+            "Design Project Exhibit at Research Colloquium 2026",
+
+        description: `
+            <p>
+                The Research Colloquium 2026 featured an exciting exhibit
+                of design projects created by 3rd and 4th year students.
+            </p>
+
+            <p>
+                From interactive prototypes to research posters,
+                students showcased their work and shared how their ideas
+                were developed into actual systems.
+            </p>
+
+            <p>
+                The exhibit also gave younger students a glimpse of what
+                lies ahead—exploring new technologies, discovering project
+                possibilities, and gaining inspiration for what they can
+                create in the future.
+            </p>
+        `
+    }
+
+};
+
+
+/* ==================================================
+   GET MODAL ELEMENTS
+================================================== */
+
+const newsModal = document.getElementById("newsModal");
+
+const newsModalClose =
+    document.getElementById("newsModalClose");
+
+const newsModalDate =
+    document.getElementById("newsModalDate");
+
+const newsModalTag =
+    document.getElementById("newsModalTag");
+
+const newsModalTitle =
+    document.getElementById("newsModalTitle");
+
+const newsModalDescription =
+    document.getElementById("newsModalDescription");
+
+
+/* ==================================================
+   OPEN NEWS MODAL
+================================================== */
+
+function openNewsModal(newsNumber) {
+
+    const news = newsData[newsNumber];
+
+    if (!news) return;
+
+    newsModalDate.textContent = news.date;
+
+    newsModalTag.textContent = news.tag;
+
+    newsModalTitle.textContent = news.title;
+
+    newsModalDescription.innerHTML =
+        news.description;
+
+    newsModal.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+/* ==================================================
+   CLOSE NEWS MODAL
+================================================== */
+
+function closeNewsModal() {
+
+    newsModal.classList.remove("active");
+
+    document.body.style.overflow = "";
+}
+
+
+/* ==================================================
+   CLICK NEWS CARDS
+================================================== */
+
+document
+    .querySelectorAll(".slide-5 .news-card")
+    .forEach((card, index) => {
+
+        card.addEventListener("click", function(event) {
+
+            /*
+               Prevent existing link/read-more behavior
+               from opening another page.
+            */
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+            openNewsModal(index + 1);
+
+        });
+
+    });
+
+
+/* ==================================================
+   CLOSE BUTTON
+================================================== */
+
+newsModalClose.addEventListener(
+    "click",
+    closeNewsModal
+);
+
+
+/* ==================================================
+   CLICK OUTSIDE MODAL
+================================================== */
+
+newsModal.addEventListener(
+    "click",
+    function(event) {
+
+        if (event.target === newsModal) {
+
+            closeNewsModal();
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   ESC KEY
+================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape" &&
+            newsModal.classList.contains("active")
+        ) {
+
+            closeNewsModal();
+
+        }
+
+    }
+);
+
+</script>
 
 </body>
 

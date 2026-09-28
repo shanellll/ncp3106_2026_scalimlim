@@ -65,36 +65,54 @@ body {
     z-index: 5;
 }
 /* ==================================================
-   COMBINED DESIGN — GLASSMORPHISM + DARK BG
+   COMBINED DESIGN — COMPACT GLASSMORPHISM NAVBAR
 ================================================== */
 
 header {
     position: relative;
     width: 100%;
-    padding: 20px;
+    padding: 14px 20px;
     background: transparent;
     box-sizing: border-box;
     z-index: 10;
 }
 
-.nav-container {
-    width: 90%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
 
-    background: linear-gradient(
-        to bottom,
-        rgba(20, 25, 40, 0.75),
-        rgba(15, 20, 35, 0.7)
-    );
+/* ==================================================
+   NAVIGATION CONTAINER
+================================================== */
+
+.nav-container {
+
+    width: 86%;
+
+    max-width: 1200px;
+
+     margin: 15px auto 0;
+
+    padding: 15px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(20, 25, 40, 0.75),
+            rgba(15, 20, 35, 0.7)
+        );
+
     backdrop-filter: blur(12px);
+
     -webkit-backdrop-filter: blur(12px);
 
-    border: 1.5px solid rgba(25, 118, 210, 0.25);
+    border:
+        1.5px solid
+        rgba(25, 118, 210, 0.25);
+
     border-radius: 50px;
 
     box-shadow:
@@ -102,6 +120,7 @@ header {
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
     box-sizing: border-box;
+
 }
 
 
@@ -110,26 +129,41 @@ header {
 ================================================== */
 
 .logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    width: 50px;
-    height: 50px;
 
-    background: rgba(25, 118, 210, 0.2);
-    border: 1px solid rgba(25, 118, 210, 0.3);
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 42px;
+
+    height: 42px;
+
+    background:
+        rgba(25, 118, 210, 0.2);
+
+    border:
+        1px solid
+        rgba(25, 118, 210, 0.3);
+
     border-radius: 50%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
+
 .logo img {
+
     width: 100%;
+
     height: 100%;
+
     object-fit: contain;
+
     border-radius: 50%;
+
 }
 
 
@@ -138,10 +172,15 @@ header {
 ================================================== */
 
 .main-nav {
+
     display: flex;
+
     align-items: center;
-    gap: 8px;
+
+    gap: 5px;
+
     margin-left: auto;
+
 }
 
 
@@ -150,64 +189,144 @@ header {
 ================================================== */
 
 .main-nav a {
+
     position: relative;
+
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
 
-    height: 44px;
-    padding: 0 14px;
+    height: 38px;
+
+    padding: 0 11px;
 
     text-decoration: none;
-    color: #e0e0e0;
-    font-family: "Press Start 2P", cursive;
-    font-size: 10px;
-    font-weight: normal;
-    letter-spacing: 0.5px;
 
-    border-radius: 25px;
-    transition: all 0.3s ease;
+    color: #e0e0e0;
+
+    font-family:
+        "Press Start 2P",
+        cursive;
+
+    font-size: 10px;
+
+    font-weight: normal;
+
+    letter-spacing: 0.3px;
+
+    border-radius: 20px;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease;
 
     white-space: nowrap;
+
     z-index: 2;
+
 }
+
+
+/* ==================================================
+   NAV HOVER
+================================================== */
 
 .main-nav a:hover {
+
     color: #ffffff;
+
 }
+
 
 .main-nav a.active {
+
     color: #ffffff;
+
 }
+
 
 .main-nav a.active:hover {
+
     color: #ffffff;
+
 }
 
-/* UNDERLINE ON HOVER - ONLY FOR NAVIGATION LINKS */
+
+/* ==================================================
+   UNDERLINE
+   — FITS THE LINK
+================================================== */
+
 .main-nav a:not(.join-btn)::after {
-    content: '';
+
+    content: "";
+
     position: absolute;
-    bottom: 8px;
+
+    /*
+       Keeps underline close to the
+       bottom of the smaller navbar
+    */
+
+    bottom: 4px;
+
     left: 50%;
-    transform: translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
+    /*
+       Start small
+    */
 
     width: 0;
+
     height: 2px;
-    background: linear-gradient(90deg, #1976d2, #00bcd4);
-    border-radius: 1px;
 
-    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background:
+        linear-gradient(
+            90deg,
+            #1976d2,
+            #00bcd4
+        );
 
-    z-index: 1;
+    border-radius: 2px;
+
+    transition:
+        width 0.35s
+        cubic-bezier(
+            0.25,
+            0.46,
+            0.45,
+            0.94
+        );
+
+    z-index: 3;
+
 }
+
+
+/* ==================================================
+   UNDERLINE — HOVER
+================================================== */
 
 .main-nav a:not(.join-btn):hover::after {
-    width: 100%;
+
+    width: calc(100% - 18px);
+
 }
 
+
+/* ==================================================
+   UNDERLINE — ACTIVE PAGE
+================================================== */
+
 .main-nav a.active:not(.join-btn)::after {
-    width: 100%;
+
+    width: calc(100% - 18px);
+
 }
 
 
@@ -216,133 +335,307 @@ header {
 ================================================== */
 
 .join-btn {
-    position: relative;
-    height: 48px !important;
-    padding: 0 20px !important;
 
-    background: linear-gradient(135deg, #1976d2, #0d47a1);
+    position: relative;
+
+    height: 40px !important;
+
+    padding:
+        0 16px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1976d2c4,
+            #093577
+        );
+
     color: white !important;
 
-    border: 1px solid rgba(25, 118, 210, 0.3);
-    border-radius: 25px;
+    border:
+        1px solid
+        rgba(25, 118, 210, 0.3);
 
-    font-family: "Hunger Games", Arial, sans-serif;
-    font-size: 11px !important;
+    border-radius: 22px;
+
+    font-family:
+        "Hunger Games",
+        Arial,
+        sans-serif;
+
+    font-size: 10px !important;
+
     font-weight: 600;
 
     cursor: pointer;
 
-    transition: all 0.3s ease;
+    transition:
+        all 0.3s ease;
 
-    box-shadow: 0 0 12px rgba(25, 118, 210, 0.15);
+    box-shadow:
+        0 0 12px
+        rgba(25, 118, 210, 0.15);
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     flex-shrink: 0;
 
     text-decoration: none;
-    
-    margin-left: auto;
-}
 
-.join-btn:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(135deg, #0d47a1, #0a2f73);
-    box-shadow: 0 0 20px rgba(25, 118, 210, 0.3);
-    border-color: rgba(25, 118, 210, 0.5);
-}
+    margin-left: 4px;
 
-.join-btn:active {
-    transform: translateY(0px);
 }
 
 
 /* ==================================================
-   RESPONSIVE DESIGN
+   JOIN BUTTON HOVER
+================================================== */
+
+.join-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d47a1,
+            #0a2f73
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(25, 118, 210, 0.3);
+
+    border-color:
+        rgba(25, 118, 210, 0.5);
+
+}
+
+
+.join-btn:active {
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ==================================================
+   RESPONSIVE — 1024px
 ================================================== */
 
 @media (max-width: 1024px) {
 
-    .main-nav a {
-        height: 40px;
-        padding: 0 10px;
-        font-size: 9px;
+    header {
+
+        padding:
+            12px 15px;
+
     }
 
-    .join-btn {
-        height: 40px !important;
-        padding: 0 16px !important;
-        font-size: 10px !important;
+
+    .nav-container {
+
+        width: 90%;
+
+        padding:
+            7px 13px;
+
+        gap: 8px;
+
     }
+
 
     .logo {
-        width: 44px;
-        height: 44px;
+
+        width: 38px;
+
+        height: 38px;
+
+    }
+
+
+    .main-nav {
+
+        gap: 3px;
+
+    }
+
+
+    .main-nav a {
+
+        height: 34px;
+
+        padding:
+            0 8px;
+
+        font-size: 8px;
+
+    }
+
+
+    .join-btn {
+
+        height: 36px !important;
+
+        padding:
+            0 13px !important;
+
+        font-size:
+            9px !important;
+
+    }
+
+
+    .main-nav a:not(.join-btn):hover::after,
+    .main-nav a.active:not(.join-btn)::after {
+
+        width:
+            calc(100% - 14px);
+
     }
 
 }
+
+
+/* ==================================================
+   RESPONSIVE — 768px
+================================================== */
 
 @media (max-width: 768px) {
 
     .nav-container {
-        width: 95%;
-        padding: 10px 16px;
-        gap: 10px;
+
+        width: 94%;
+
+        padding:
+            7px 12px;
+
+        gap: 6px;
+
     }
+
 
     .main-nav {
-        gap: 4px;
+
+        gap: 2px;
+
     }
+
 
     .main-nav a {
-        height: 36px;
-        padding: 0 8px;
-        font-size: 8px;
+
+        height: 32px;
+
+        padding:
+            0 6px;
+
+        font-size: 7px;
+
     }
+
 
     .join-btn {
-        height: 36px !important;
-        padding: 0 12px !important;
-        font-size: 9px !important;
+
+        height: 34px !important;
+
+        padding:
+            0 10px !important;
+
+        font-size:
+            8px !important;
+
     }
 
+
     .logo {
-        width: 40px;
-        height: 40px;
+
+        width: 36px;
+
+        height: 36px;
+
+    }
+
+
+    .main-nav a:not(.join-btn)::after {
+
+        bottom: 3px;
+
+    }
+
+
+    .main-nav a:not(.join-btn):hover::after,
+    .main-nav a.active:not(.join-btn)::after {
+
+        width:
+            calc(100% - 10px);
+
     }
 
 }
 
+
+/* ==================================================
+   RESPONSIVE — 480px
+================================================== */
+
 @media (max-width: 480px) {
 
     header {
-        padding: 15px 10px;
+
+        padding:
+            10px 8px;
+
     }
+
 
     .nav-container {
+
         width: 95%;
-        padding: 8px 12px;
-        gap: 8px;
-        border-radius: 30px;
+
+        padding:
+            6px 10px;
+
+        gap: 6px;
+
+        border-radius:
+            30px;
+
     }
+
 
     .main-nav {
+
         display: none;
+
     }
+
 
     .main-nav a {
+
         display: none;
+
     }
+
 
     .join-btn {
+
         margin-left: auto;
+
     }
 
+
     .logo {
-        width: 36px;
-        height: 36px;
+
+        width: 34px;
+
+        height: 34px;
+
     }
 
 }
@@ -589,7 +882,7 @@ header {
 .title-text {
     position: absolute;
     left: 50%;
-    top: 17%;
+    top: 18%;
     transform: translate(-50%, -50%);
     width: 100%;
     text-align: center;
@@ -4467,7 +4760,7 @@ header {
 
     line-height: 1;
 
-    color: #4d78a3a6;
+    color: #738597a6;
      
     text-shadow:
         6px 6px 0px #0d141b;
@@ -4494,9 +4787,8 @@ header {
     gap: 30px;
 }
 
-
 /* ==================================================
-   SOCIAL ITEM
+   SOCIAL ITEM — UPGRADED
 ================================================== */
 
 .social-item {
@@ -4515,88 +4807,234 @@ header {
     color: #102636;
 
     transition:
-        transform 0.3s ease;
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.4s ease;
 }
 
 
 /* ==================================================
-   SOCIAL ICON
+   SOCIAL ICON — COOLER DESIGN
 ================================================== */
 
-.social-icon i {
-    transform: scale(1);
-
-    image-rendering: pixelated;
-}
-
-
 .social-icon {
-    width: 62px;
-    height: 62px;
+    width: 70px;
+    height: 70px;
 
     display: flex;
 
     justify-content: center;
     align-items: center;
 
-    border:
-        3px solid
-        #334958;
+    border: 3px solid;
 
-    border-radius: 0;
+    border-radius: 8px;
 
-    background: #315F8A;
+    background: linear-gradient(135deg, #1e5a96, #2a7bb8);
 
-    color: #1a1f24;
+    color: #ffffff;
 
-    font-size: 28px;
+    font-size: 32px;
 
-    margin-bottom: 12px;
+    margin-bottom: 19px;
 
     image-rendering: pixelated;
 
     box-shadow:
-        4px 0 #222222,
-        -4px 0 #222222,
-        0 4px #222222,
-        0 -4px #222222;
+        0 8px 20px rgba(42, 123, 184, 0.3),
+        0 0 15px rgba(42, 123, 184, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+    transition:
+        all 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease;
+
+    position: relative;
+
+    overflow: hidden;
+
+    backdrop-filter: blur(5px);
+}
+
+/* Facebook */
+.social-item:nth-child(1) .social-icon {
+    border-color: #1e5a96;
+    background: linear-gradient(135deg, #1e5a96, #2a7bb8);
+}
+
+/* Messenger */
+.social-item:nth-child(2) .social-icon {
+    border-color: #0084ff;
+    background: linear-gradient(135deg, #0084ff, #31a24c);
+}
+
+/* Instagram — Rich Multi-Color Gradient */
+.social-item:nth-child(3) .social-icon {
+    border-color: #e1306c;
+    background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d92e7f 50%, #9b36b7 75%, #515bd4 100%);
 }
 
 
 /* ==================================================
-   SOCIAL NAME
+   SOCIAL ICON GLOW EFFECT
+================================================== */
+
+.social-icon::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 8px;
+    background: inherit;
+    opacity: 0;
+    z-index: -1;
+    filter: blur(10px);
+    transition: opacity 0.4s ease;
+}
+
+.social-item:hover .social-icon::before {
+    opacity: 0.8;
+}
+
+
+/* ==================================================
+   SOCIAL ICON INNER GLOW
+================================================== */
+
+.social-icon i {
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+
+/* ==================================================
+   SOCIAL NAME — ENHANCED
 ================================================== */
 
 .social-item span {
     font-family: "Light Pixel", sans-serif;
 
-    font-size: 14px;
+    font-size: 12px;
 
     font-weight: normal;
 
-    line-height: 1.4;
+    line-height: 1.5;
 
     color: #1a1a1b;
+
+    letter-spacing: 0.5px;
+
+    transition: all 0.4s ease;
 }
 
 
 /* ==================================================
-   SOCIAL HOVER
+   SOCIAL HOVER — EPIC ANIMATIONS
 ================================================== */
 
 .social-item:hover {
-    transform: translateY(-6px);
+    transform: translateY(-10px);
+    filter: drop-shadow(0 10px 30px rgba(42, 123, 184, 0.25));
 }
 
 
-.social-item:hover .social-icon {
-    background: #315F8A;
-
-    color: #ffffff;
-
-    transform: scale(1.08);
+/* Facebook Hover */
+.social-item:nth-child(1):hover .social-icon {
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    box-shadow:
+        0 12px 30px rgba(13, 71, 161, 0.4),
+        0 0 25px rgba(13, 71, 161, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: #0d47a1;
+    transform: scale(1.1) rotate(5deg);
 }
 
+/* Messenger Hover */
+.social-item:nth-child(2):hover .social-icon {
+    background: linear-gradient(135deg, #0066cc, #00b300);
+    box-shadow:
+        0 12px 30px rgba(0, 102, 204, 0.4),
+        0 0 25px rgba(0, 179, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: #0066cc;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* Instagram Hover — Ultra Vibrant Gradient */
+.social-item:nth-child(3):hover .social-icon {
+    background: linear-gradient(135deg, #feda75 0%, #fa7e1e 20%, #d92e7f 40%, #9b36b7 70%, #515bd4 100%);
+    box-shadow:
+        0 12px 30px rgba(225, 48, 108, 0.5),
+        0 0 30px rgba(250, 126, 30, 0.5),
+        0 0 20px rgba(217, 46, 127, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: #fa7e1e;
+    transform: scale(1.1) rotate(0deg);
+}
+
+
+.social-item:hover .social-icon i {
+    transform: scale(1.2);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.social-item:hover span {
+    color: #0d47a1;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+/* ==================================================
+   ACTIVE/CLICK STATE
+================================================== */
+
+.social-item:active .social-icon {
+    transform: scale(0.95);
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .social-item {
+        width: 120px;
+    }
+
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .social-item span {
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .social-item {
+        width: 100px;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        border-radius: 6px;
+    }
+
+    .social-item span {
+        font-size: 10px;
+    }
+
+}
 
 /* ==================================================
    CONTACT DETAILS
