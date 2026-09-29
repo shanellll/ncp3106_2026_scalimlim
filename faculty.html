@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
 
     <meta charset="UTF-8">
@@ -31,6 +33,20 @@
         rel="stylesheet"
         href="faculty.css"
     >
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+
+>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+>
 
 </head>
 
@@ -95,23 +111,143 @@
             </a>
 
 
-            <a href="contact.html">
+            <a href="#contact">
                 CONTACT
             </a>
 
+            <!-- JOIN -->
+           <button
+    type="button"
+    class="join-btn"
+    onclick="openJoinModal()"
+>
+    JOIN THE ORGANIZATION!
+</button>
 
-            <a
-                href="join.html"
-                class="join-btn"
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- ==================================================
+     JOIN ORGANIZATION MODAL
+================================================== -->
+
+<div id="joinModal" class="join-modal">
+
+    <div class="join-modal-content">
+
+        <button
+            type="button"
+            class="join-close"
+            onclick="closeJoinModal()"
+        >
+            ×
+        </button>
+
+        <h2>JOIN THE ORGANIZATION</h2>
+
+        <p class="join-subtitle">
+            Enter your details to submit your application.
+        </p>
+
+        <form id="joinForm">
+
+            <label for="joinEmail">Gmail</label>
+
+            <input
+                type="email"
+                id="joinEmail"
+                placeholder="example@gmail.com"
+                required
             >
-                JOIN THE ORGANIZATION!
-            </a>
 
-        </nav>
+            <label for="joinPassword">Password</label>
+
+            <input
+                type="password"
+                id="joinPassword"
+                placeholder="Enter your password"
+                required
+            >
+
+            <label for="joinMessage">Short Message</label>
+
+            <textarea
+                id="joinMessage"
+                placeholder="Why would you like to join the organization?"
+                rows="4"
+                required
+            ></textarea>
+
+            <button
+                type="submit"
+                class="join-submit"
+            >
+                SUBMIT APPLICATION
+            </button>
+
+        </form>
 
     </div>
 
-</header>
+</div>
+
+
+<script>
+
+function openJoinModal() {
+
+    document.getElementById("joinModal").style.display = "flex";
+
+}
+
+
+function closeJoinModal() {
+
+    document.getElementById("joinModal").style.display = "none";
+
+}
+
+
+document.getElementById("joinModal").addEventListener("click", function(event) {
+
+    if (event.target === this) {
+
+        closeJoinModal();
+
+    }
+
+});
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeJoinModal();
+
+    }
+
+});
+
+
+document.getElementById("joinForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    alert("Application submitted!");
+
+    closeJoinModal();
+
+});
+
+</script>
+
+</body>
+</html>
 
 
 
@@ -624,6 +760,146 @@
 ================================================== -->
 
 <script src="faculty.js"></script>
+
+
+    <!-- ==================================================
+     CONTACT
+================================================== -->
+<section class="content-section contact-section" id="contact">
+
+    <!-- BIG CONTACT TITLE -->
+    <div class="contact-title">
+
+        <h2>CONTACT US</h2>
+
+    </div>
+
+
+    <!-- ==================================================
+         SOCIAL MEDIA
+    ================================================== -->
+
+    <div class="contact-socials">
+
+        <!-- FACEBOOK -->
+        <a
+            href="https://www.facebook.com/search/top?q=ue%20manila%20-%20society%20of%20computer%20engineering%20students"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-item"
+        >
+
+            <div class="social-icon">
+                <i class="fa-brands fa-facebook-f"></i>
+            </div>
+
+            <span>uescpes_official</span>
+
+        </a>
+
+
+        <!-- MESSENGER -->
+        <a
+            href="https://www.facebook.com/search/top?q=ue%20manila%20-%20society%20of%20computer%20engineering%20students"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-item"
+        >
+
+            <div class="social-icon">
+                <i class="fa-brands fa-facebook-messenger"></i>
+            </div>
+
+            <span>UE Manila - SCPES</span>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+        <a
+            href="https://www.instagram.com/uescpes_official/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-item"
+        >
+
+            <div class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+
+            <span>uescpes_official</span>
+
+        </a>
+
+    </div>
+
+
+    <!-- ==================================================
+         LEFT SIDE CONTACT INFORMATION
+    ================================================== -->
+
+    <div class="contact-details">
+
+
+        <!-- QUOTE -->
+        <div class="contact-quote">
+
+            <p>
+                "Where innovation meets logic,
+                Computer Engineering turns ideas
+                into technology."
+            </p>
+
+        </div>
+
+
+        <!-- EMAIL -->
+        <a
+            href="mailto:scpesofficial@gmail.com"
+            class="contact-detail"
+        >
+
+            <i class="fa-regular fa-envelope"></i>
+
+            <span>
+                scpesofficial@gmail.com
+            </span>
+
+        </a>
+
+
+        <!-- PHONE -->
+        <a
+            href="tel:09263013900"
+            class="contact-detail"
+        >
+
+            <i class="fa-solid fa-phone"></i>
+
+            <span>
+                0926 301 3900
+            </span>
+
+        </a>
+
+
+        <!-- LOCATION -->
+        <div class="contact-detail">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <span>
+                2219 C.M. Recto Ave., Manila, Philippines 1008,
+                Manila, Philippines, Manila, Philippines
+            </span>
+
+        </div>
+
+
+    </div>
+
+    
+</section>
 
 
 </body>

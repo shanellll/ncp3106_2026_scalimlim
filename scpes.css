@@ -76,10 +76,14 @@ header {
 
 .logo {
     display: flex;
-
     align-items: center;
-
     flex-shrink: 0;
+
+    filter:
+        drop-shadow(0 0 5px rgba(255, 255, 255, 0.55))
+        drop-shadow(0 0 12px rgba(110, 170, 255, 0.45));
+
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .logo img {
@@ -87,8 +91,17 @@ header {
     height: 58px;
 
     object-fit: contain;
-
     display: block;
+}
+
+/* LOGO HOVER GLOW */
+.logo:hover {
+    transform: scale(1.05);
+
+    filter:
+        drop-shadow(0 0 7px rgba(255, 255, 255, 0.8))
+        drop-shadow(0 0 16px rgba(90, 160, 255, 0.65))
+        drop-shadow(0 0 28px rgba(90, 160, 255, 0.35));
 }
 
 
@@ -155,7 +168,6 @@ header {
     color: #315F8A;
 }
 
-
 /* ==================================================
    JOIN BUTTON
 ================================================== */
@@ -163,26 +175,281 @@ header {
 .join-btn {
     padding: 12px 16px;
 
-    border: 2px solid #ADB8AE;
-
+    border: 2px solid #060706;
     border-radius: 30px;
 
-    color: #ADB8AE !important;
+    background: transparent;
+    background-color: transparent;
+
+    color: #edfce5 !important;
+
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 8px;
+
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+
+    appearance: none;
+    -webkit-appearance: none;
 
     transition:
         background 0.3s ease,
+        border-color 0.3s ease,
         box-shadow 0.3s ease,
         transform 0.3s ease;
 }
 
 .join-btn:hover {
     background: rgba(49, 95, 138, 0.18);
+    background-color: rgba(49, 95, 138, 0.18);
+
+    border-color: #c5d0d3;
+
+    color: #ffffff !important;
 
     box-shadow:
         0 0 10px rgba(49, 95, 138, 0.6),
         0 0 25px rgba(36, 74, 115, 0.25);
 
     transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   RESPONSIVE — 1100px
+================================================== */
+
+@media (max-width: 1100px) {
+
+    .nav-container {
+
+        padding:
+            0 40px;
+
+    }
+
+    .main-nav {
+
+        gap:
+            18px;
+
+    }
+
+    .main-nav a {
+
+        font-size:
+            7px;
+
+    }
+
+    .main-nav .join-btn {
+
+        padding:
+            10px 14px;
+
+        font-size:
+            7px;
+
+    }
+
+}
+
+
+/* ==================================================
+   RESPONSIVE — 850px
+================================================== */
+
+@media (max-width: 850px) {
+
+    header {
+
+        height:
+            75px;
+
+    }
+
+    .nav-container {
+
+        height:
+            75px;
+
+        padding:
+            0 25px;
+
+    }
+
+    .logo {
+
+        width:
+            48px;
+
+        height:
+            48px;
+
+    }
+
+    .main-nav {
+
+        gap:
+            12px;
+
+        overflow-x:
+            auto;
+
+        scrollbar-width:
+            none;
+
+    }
+
+    .main-nav::-webkit-scrollbar {
+
+        display:
+            none;
+
+    }
+
+    .main-nav a {
+
+        font-size:
+            6px;
+
+    }
+
+    .main-nav .join-btn {
+
+        padding:
+            9px 12px;
+
+        font-size:
+            6px;
+
+    }
+
+}
+
+
+/* ==================================================
+   RESPONSIVE — 600px
+================================================== */
+
+@media (max-width: 600px) {
+
+    header {
+
+        height:
+            68px;
+
+    }
+
+    .nav-container {
+
+        height:
+            68px;
+
+        padding:
+            0 15px;
+
+    }
+
+    .logo {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+    }
+
+    .main-nav {
+
+        gap:
+            8px;
+
+        margin-left:
+            15px;
+
+        overflow-x:
+            auto;
+
+        justify-content:
+            flex-start;
+
+    }
+
+    .main-nav a {
+
+        font-size:
+            5px;
+
+    }
+
+    .main-nav .join-btn {
+
+        padding:
+            8px 10px;
+
+        font-size:
+            5px;
+
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE MODAL
+================================================== */
+
+@media (max-width: 500px) {
+
+    .join-modal-content {
+
+        padding:
+            26px 20px;
+
+        max-width:
+            95%;
+
+    }
+
+    .join-modal-content h2 {
+
+        font-size:
+            20px;
+
+    }
+
+    .join-subtitle {
+
+        font-size:
+            12px;
+
+    }
+
+    .join-modal-content label {
+
+        font-size:
+            11px;
+
+    }
+
+    .join-modal-content input,
+    .join-modal-content textarea {
+
+        font-size:
+            12px;
+
+    }
+
+    .join-submit {
+
+        font-size:
+            10px;
+
+    }
+
 }
 
 

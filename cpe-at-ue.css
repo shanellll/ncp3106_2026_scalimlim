@@ -227,71 +227,577 @@ header {
     box-shadow: none;
 }
 
-
 /* ==================================================
-   JOIN BUTTON
+   JOIN BUTTON — ANIMATED GLOW EFFECT
 ================================================== */
 
-.main-nav .join-btn {
-    position: relative;
-
-    padding: 12px 16px;
-
-    border: 2px solid #77aaaa;
-    border-radius: 30px;
-
-    background: transparent;
-    color: rgb(219, 218, 231) !important;
-
-    font-family: "Press Start 2P", cursive;
-    font-size: 11px;
-
-    white-space: nowrap;
-    pointer-events: auto;
-
-    transition:
-        background 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.3s ease;
+/* Define the glow animation */
+@keyframes buttonGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 5px rgba(255, 107, 107, 0.4),
+            0 0 15px rgba(255, 107, 107, 0.3),
+            0 0 25px rgba(255, 107, 107, 0.2);
+    }
+    50% {
+        box-shadow:
+            0 0 10px rgba(255, 107, 107, 0.8),
+            0 0 20px rgba(255, 107, 107, 0.6),
+            0 0 40px rgba(255, 107, 107, 0.4);
+    }
 }
 
+/* JOIN BUTTON BASE STYLE */
+.join-btn {
+    background: linear-gradient(135deg, #ff6b6b, #c52222) !important;
+    padding: 12px 20px !important;
+    border-radius: 15px !important;
+    color: white !important;
+    font-weight: 900 !important;
+    font-size: 13px;
+    text-decoration: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    
+    /* CONTINUOUS GLOW ANIMATION */
+    animation: buttonGlow 2s ease-in-out infinite !important;
+    
+    /* Static glow base */
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5) !important;
+}
 
 /* ==================================================
-   JOIN BUTTON — NO UNDERLINE
+   JOIN BUTTON HOVER — INTENSIFIED GLOW
+================================================== */
+
+.join-btn:hover {
+    background: linear-gradient(135deg, #b32f2f, #ffaa88) !important;
+    
+    transform: translateY(-3px) scale(1.05) !important;
+    
+    /* More intense glow on hover */
+    box-shadow:
+        0 0 10px rgb(141, 32, 32),
+        0 0 25px rgba(184, 45, 45, 0.8),
+        0 0 40px rgba(177, 47, 47, 0.5),
+        0 4px 20px rgba(139, 21, 21, 0.4) !important;
+    
+    /* Pause animation on hover for cleaner effect */
+    animation: none !important;
+}
+
+/* ==================================================
+   JOIN BUTTON ACTIVE/CLICK
+================================================== */
+
+.join-btn:active {
+    transform: translateY(-1px) scale(0.98) !important;
+}
+
+/* ==================================================
+   JOIN BUTTON FOCUS (KEYBOARD)
+================================================== */
+
+.join-btn:focus,
+.join-btn:focus-visible {
+    outline: 2px solid rgba(182, 52, 52, 0.6) !important;
+    outline-offset: 3px !important;
+}
+
+/* ==================================================
+   REMOVE UNDERLINE / AFTER PSEUDO
 ================================================== */
 
 .main-nav .join-btn::after {
     display: none !important;
 }
 
-
 /* ==================================================
-   JOIN BUTTON HOVER
+   RESPONSIVE — MAINTAIN GLOW
 ================================================== */
 
-.main-nav .join-btn:hover {
-    background: rgba(216, 255, 255, 0.12);
+@media (max-width: 768px) {
+    .join-btn {
+        animation: buttonGlow 2s ease-in-out infinite !important;
+    }
 
-    color: white !important;
+    .join-btn:hover {
+        animation: none !important;
+    }
+}
+
+/* ==================================================
+   JOIN ORGANIZATION MODAL
+================================================== */
+
+.join-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(5, 15, 30, 0.72);
+
+    backdrop-filter:
+        blur(7px);
+
+    -webkit-backdrop-filter:
+        blur(7px);
+
+    z-index: 9999;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 50px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ==================================================
+   MODAL BOX
+================================================== */
+
+.join-modal-content {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #172b3a,
+            #0d1d2a
+        );
+
+    border:
+        1px solid
+        rgba(120, 170, 210, 0.35);
+
+    border-radius: 18px;
 
     box-shadow:
-        0 0 10px rgba(216, 255, 255, 0.6),
-        0 0 25px rgba(216, 255, 255, 0.25);
+        0 20px 60px
+        rgba(0, 0, 0, 0.45);
+
+    box-sizing: border-box;
+
+    animation:
+        joinModalShow 0.3s ease;
+
+}
+
+
+/* ==================================================
+   MODAL ANIMATION
+================================================== */
+
+@keyframes joinModalShow {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ==================================================
+   MODAL TITLE
+================================================== */
+
+.join-modal-content h2 {
+
+    margin:
+        0 0 8px;
+
+    text-align: center;
+
+    color: #ffffff;
+
+    font-family:
+        "Hunger Games",
+        Arial,
+        sans-serif;
+
+    font-size: 24px;
+
+    font-weight: normal;
+
+    letter-spacing: 1px;
+
+    line-height: 1.2;
+
+}
+
+@font-face {
+    font-family: "Light Pixel";
+    src: url("Assets/light_pixel.ttf")
+         format("truetype");
+}
+
+
+/* ==================================================
+   MASIKA FONT
+================================================== */
+
+@font-face {
+    font-family: "Masaki";
+    src: url("Assets/Masaki.otf")
+         format("truetype");
+}
+
+/* ==================================================
+   MODAL SUBTITLE
+================================================== */
+
+.join-subtitle {
+
+    margin:
+        0 0 24px;
+
+    text-align: center;
+
+    color:
+        rgba(255, 255, 255, 0.65);
+
+    font-family: "masaki"
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: normal;
+
+    line-height: 1.5;
+
+}
+
+
+/* ==================================================
+   FORM LABELS
+================================================== */
+
+.join-modal-content label {
+
+    display: block;
+
+    margin:
+        0 0 7px;
+
+    color: #ffffff;
+
+    font-family: 
+        Arial,
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+}
+
+
+/* ==================================================
+   INPUTS + TEXTAREA
+================================================== */
+
+.join-modal-content input,
+.join-modal-content textarea {
+
+    width: 100%;
+
+    padding:
+        12px 13px;
+
+    margin:
+        0 0 17px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    color: white;
+
+    font-family: 'masaki'
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: normal;
+
+    line-height: 1.4;
+
+    transition:
+        0.25s ease;
+
+}
+
+
+.join-modal-content textarea {
+
+    resize: vertical;
+
+    min-height: 95px;
+
+}
+
+
+/* ==================================================
+   PLACEHOLDER
+================================================== */
+
+.join-modal-content input::placeholder,
+.join-modal-content textarea::placeholder {
+
+    color:
+        rgba(255, 255, 255, 0.4);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+
+}
+
+
+/* ==================================================
+   INPUT FOCUS
+================================================== */
+
+.join-modal-content input:focus,
+.join-modal-content textarea:focus {
+
+    border-color:
+        rgba(25, 118, 210, 0.8);
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 0 12px
+        rgba(25, 118, 210, 0.15);
+
+}
+
+
+/* ==================================================
+   CLOSE BUTTON
+================================================== */
+
+.join-close {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 15px;
+
+    width: 32px;
+
+    height: 32px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 26px;
+
+    font-weight: normal;
+
+    line-height: 32px;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.join-close:hover {
+
+    color: white;
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+/* ==================================================
+   SUBMIT BUTTON
+================================================== */
+
+.join-submit {
+
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1976d2,
+            #093577
+        );
+
+    color: white;
+
+    font-family:
+        "light pixel",
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    line-height: normal;
+
+    cursor: pointer;
+
+    transition:
+        0.3s ease;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+}
+
+
+.join-submit:hover {
 
     transform:
         translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d47a1,
+            #0a2f73
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(25, 118, 210, 0.25);
+
 }
 
 
 /* ==================================================
-   JOIN BUTTON FOCUS
+   MOBILE
 ================================================== */
 
-.main-nav .join-btn:focus,
-.main-nav .join-btn:focus-visible {
-    outline: none !important;
-}
+@media (max-width: 500px) {
 
+    .join-modal-content {
+
+        padding:
+            26px 20px;
+
+        max-width: 95%;
+
+    }
+
+
+    .join-modal-content h2 {
+
+        font-size: 20px;
+
+    }
+
+
+    .join-subtitle {
+
+        font-size: 12px;
+
+    }
+
+
+    .join-modal-content label {
+
+        font-size: 11px;
+
+    }
+
+
+    .join-modal-content input,
+    .join-modal-content textarea {
+
+        font-size: 12px;
+
+    }
+
+
+    .join-submit {
+
+        font-size: 10px;
+
+    }
+
+}
 
 /* ==================================================
    HUNGER GAMES FONT
@@ -1193,7 +1699,7 @@ box-shadow:
 
     max-width: 860px;
 
-    margin: 0 0 25px 0;
+    margin: 20px 0 25px 0;
 
     font-family: "Light_pixel", monospace;
 
@@ -1202,7 +1708,7 @@ box-shadow:
 
     line-height: 2;
 
-    color: #c0b5b5;
+    color: #ece8e8;
 
     white-space: pre-line;
 }
@@ -2613,15 +3119,15 @@ box-shadow:
     background:
        radial-gradient(
             circle at 85% 12%,
-            #5265a9 0%,
-            rgba(82, 101, 169, 0.45) 25%,
+            #13297591 0%,
+            rgba(38, 61, 148, 0.452) 25%,
             transparent 45%
         ),
 
         /* BLUE-GRAY — LEFT */
         radial-gradient(
             circle at 5% 35%,
-            rgba(91, 120, 150, 0.55) 0%,
+            rgba(70, 94, 121, 0.774) 0%,
             transparent 38%
         ),
 
@@ -3606,18 +4112,24 @@ box-shadow:
 }
 
 
+
+@font-face {
+    font-family: "Masaki";
+    src: url("Assets/Masaki.otf")
+         format("truetype");
+}
+
 /* DESCRIPTION UNDER TITLE */
 
 .cl-heading p {
 
     max-width: 850px;
 
-    margin: 20px auto 0;
+    margin: 10px auto 0;
 
-    font-family: "Times New Roman", serif;
+    font-family: "Masaki", serif;
 
-    font-size: 18px;
-
+    font-size: 30px;
     line-height: 1.6;
 
     color: rgba(244,239,226,0.82);
@@ -3873,7 +4385,7 @@ box-shadow:
 .space-card:hover .space-content h2 {
     letter-spacing: 2px;
     transform: translateX(4px);
-    color: #d8a6a6;
+    color: #a72f2f;
 }
 
 /* ==================================================
@@ -3883,7 +4395,7 @@ box-shadow:
 .space-content p {
     margin: 0;
     max-width: 420px;
-    font-family: "Times New Roman", serif;
+    font-family: "masaki", serif;
     font-size: 17px;
     line-height: 1.7;
     color:
@@ -5632,8 +6144,7 @@ box-shadow:
     margin: 0 auto 25px auto;
 
     font-family:
-        "Times New Roman",
-        serif;
+        "light pixel";
 
     font-size: 20px;
 
@@ -5731,7 +6242,7 @@ box-shadow:
 
     margin-top: 40px;
 
-    padding: 20px 45px;
+    padding: 30px 65px;
 
     border: 2px solid #c9c5a9;
 
@@ -6346,37 +6857,37 @@ box-shadow:
 
 
 /* ==================================================
-   CONTACT TITLE
+   BIG CONTACT TITLE
 ================================================== */
 
 .contact-title {
-
     position: absolute;
 
-    right: 70px;
+    top: 50px;
 
-    top: 35px;
+    right: 85px;
 
     z-index: 2;
 }
 
 
 .contact-title h2 {
+    margin: 2px 0;
 
-    margin: 0;
+    font-family: "Press Start 2P", cursive;
 
-    font-family: "Press Start 2P";
+    font-size: 110px;
 
-    font-size: 95px;
+    font-weight: 900;
 
-    line-height: 1.1;
+    letter-spacing: -10px;
 
-    color: #172b3a;
+    line-height: 1;
 
-    text-align: right;
-
+    color: #738597a6;
+     
     text-shadow:
-        5px 5px 0 rgba(201, 197, 169, 0.55);
+        6px 6px 0px #0d141b;
 }
 
 
@@ -6385,28 +6896,27 @@ box-shadow:
 ================================================== */
 
 .contact-socials {
-
     position: absolute;
 
-    top: 150px;
+    top: 185px;
 
-    right: 250px;
-
-    z-index: 2;
+    right: 300px;
 
     display: flex;
 
-    gap: 35px;
+    justify-content: center;
 
     align-items: flex-start;
+
+    gap: 30px;
 }
 
-
 /* ==================================================
-   SOCIAL MEDIA ITEM
+   SOCIAL ITEM — UPGRADED
 ================================================== */
 
 .social-item {
+    width: 145px;
 
     display: flex;
 
@@ -6414,143 +6924,252 @@ box-shadow:
 
     align-items: center;
 
-    justify-content: flex-start;
-
-    width: 125px;
-
-    color: #26365e;
+    text-align: center;
 
     text-decoration: none;
 
+    color: #102636;
+
     transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.4s ease;
 }
 
 
 /* ==================================================
-   SOCIAL ICON
+   SOCIAL ICON — COOLER DESIGN
 ================================================== */
 
 .social-icon {
-
     width: 70px;
-
     height: 70px;
 
     display: flex;
 
+    justify-content: center;
     align-items: center;
 
-    justify-content: center;
+    border: 3px solid;
 
-    margin-bottom: 15px;
+    border-radius: 8px;
 
-    border:
-        2px solid
-        #26365e;
+    background: linear-gradient(135deg, #1e5a96, #2a7bb8);
 
-    border-radius: 50%;
+    color: #ffffff;
 
-    background:
-        rgba(255, 255, 255, 0.30);
+    font-size: 32px;
 
-    color: #26365e;
+    margin-bottom: 19px;
 
-    font-size: 28px;
+    image-rendering: pixelated;
 
-    line-height: 1;
-
-    box-sizing: border-box;
+    box-shadow:
+        0 8px 20px rgba(42, 123, 184, 0.3),
+        0 0 15px rgba(42, 123, 184, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
     transition:
-        transform 0.3s ease,
-        background 0.3s ease;
+        all 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease;
+
+    position: relative;
+
+    overflow: hidden;
+
+    backdrop-filter: blur(5px);
+}
+
+/* Facebook */
+.social-item:nth-child(1) .social-icon {
+    border-color: #1e5a96;
+    background: linear-gradient(135deg, #1e5a96, #2a7bb8);
+}
+
+/* Messenger */
+.social-item:nth-child(2) .social-icon {
+    border-color: #0084ff;
+    background: linear-gradient(135deg, #0084ff, #31a24c);
+}
+
+/* Instagram — Rich Multi-Color Gradient */
+.social-item:nth-child(3) .social-icon {
+    border-color: #e1306c;
+    background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d92e7f 50%, #9b36b7 75%, #515bd4 100%);
 }
 
 
 /* ==================================================
-   SOCIAL ICON — FONT AWESOME FIX
+   SOCIAL ICON GLOW EFFECT
 ================================================== */
 
-.social-icon i {
-
-    display: inline-block;
-
-    width: auto;
-
-    height: auto;
-
-    margin: 0;
-
-    padding: 0;
-
-    font-size: 28px;
-
-    line-height: 1;
-
-    color: #26365e;
-
-    text-align: center;
+.social-icon::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 8px;
+    background: inherit;
+    opacity: 0;
+    z-index: -1;
+    filter: blur(10px);
+    transition: opacity 0.4s ease;
 }
 
-
-/* ==================================================
-   SOCIAL MEDIA TEXT
-================================================== */
-
-.social-item span {
-
-    display: block;
-
-    width: 100%;
-
-    font-family: "Press Start 2P";
-
-    font-size: 10px;
-
-    line-height: 1.5;
-
-    color: #26365e;
-
-    text-align: center;
-
-    white-space: normal;
-}
-
-
-/* ==================================================
-   SOCIAL MEDIA HOVER
-================================================== */
-
-.social-item:hover {
-
-    transform: translateY(-8px);
-
+.social-item:hover .social-icon::before {
     opacity: 0.8;
 }
 
 
-.social-item:hover .social-icon {
+/* ==================================================
+   SOCIAL ICON INNER GLOW
+================================================== */
 
-    transform: scale(1.08);
-
-    background:
-        rgba(255, 255, 255, 0.60);
+.social-icon i {
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
+
+/* ==================================================
+   SOCIAL NAME — ENHANCED
+================================================== */
+
+.social-item span {
+    font-family: "Light Pixel", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: normal;
+
+    line-height: 1.5;
+
+    color: #1a1a1b;
+
+    letter-spacing: 0.5px;
+
+    transition: all 0.4s ease;
+}
+
+
+/* ==================================================
+   SOCIAL HOVER — EPIC ANIMATIONS
+================================================== */
+
+.social-item:hover {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 10px 30px rgba(42, 123, 184, 0.25));
+}
+
+
+/* Facebook Hover */
+.social-item:nth-child(1):hover .social-icon {
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    box-shadow:
+        0 12px 30px rgba(13, 71, 161, 0.4),
+        0 0 25px rgba(13, 71, 161, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: #0d47a1;
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Messenger Hover */
+.social-item:nth-child(2):hover .social-icon {
+    background: linear-gradient(135deg, #0066cc, #00b300);
+    box-shadow:
+        0 12px 30px rgba(0, 102, 204, 0.4),
+        0 0 25px rgba(0, 179, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: #0066cc;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* Instagram Hover — Ultra Vibrant Gradient */
+.social-item:nth-child(3):hover .social-icon {
+    background: linear-gradient(135deg, #feda75 0%, #fa7e1e 20%, #d92e7f 40%, #9b36b7 70%, #515bd4 100%);
+    box-shadow:
+        0 12px 30px rgba(225, 48, 108, 0.5),
+        0 0 30px rgba(250, 126, 30, 0.5),
+        0 0 20px rgba(217, 46, 127, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: #fa7e1e;
+    transform: scale(1.1) rotate(0deg);
+}
+
+
+.social-item:hover .social-icon i {
+    transform: scale(1.2);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.social-item:hover span {
+    color: #0d47a1;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+/* ==================================================
+   ACTIVE/CLICK STATE
+================================================== */
+
+.social-item:active .social-icon {
+    transform: scale(0.95);
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .social-item {
+        width: 120px;
+    }
+
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .social-item span {
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .social-item {
+        width: 100px;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        border-radius: 6px;
+    }
+
+    .social-item span {
+        font-size: 10px;
+    }
+
+}
 
 /* ==================================================
    CONTACT DETAILS
 ================================================== */
 
 .contact-details {
-
     position: absolute;
 
     left: 70px;
 
-    top: 45px;
+    top: 75px;
 
     width: 45%;
 
@@ -6559,8 +7178,6 @@ box-shadow:
     flex-direction: column;
 
     align-items: flex-start;
-
-    z-index: 2;
 }
 
 
@@ -6569,7 +7186,6 @@ box-shadow:
 ================================================== */
 
 .contact-quote {
-
     max-width: 560px;
 
     margin-bottom: 38px;
@@ -6583,7 +7199,6 @@ box-shadow:
 
 
 .contact-quote p {
-
     margin: 0;
 
     font-family: "Press Start 2P";
@@ -6603,12 +7218,11 @@ box-shadow:
 ================================================== */
 
 .contact-detail {
-
     display: flex;
 
     align-items: flex-start;
 
-    gap: 10px;
+    gap: 18px;
 
     width: 100%;
 
@@ -6637,50 +7251,15 @@ box-shadow:
 ================================================== */
 
 .contact-detail i {
-
-    display: inline-block;
-
     width: 28px;
-
-    height: auto;
 
     flex-shrink: 0;
 
     padding-top: 3px;
 
-    margin: 0;
-
     font-size: 22px;
 
-    line-height: 1;
-
     text-align: center;
-
-    color: #26365e;
-}
-
-
-/* ==================================================
-   CONTACT DETAIL TEXT
-================================================== */
-
-.contact-detail span {
-
-    display: block;
-
-    margin: 0;
-
-    padding: 0;
-
-    color: #281d64;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 17px;
-
-    font-weight: 600;
-
-    line-height: 1.5;
 }
 
 
@@ -6689,7 +7268,6 @@ box-shadow:
 ================================================== */
 
 a.contact-detail:hover {
-
     transform: translateX(6px);
 
     opacity: 0.75;
@@ -6697,33 +7275,26 @@ a.contact-detail:hover {
 
 
 /* ==================================================
-   RESPONSIVE — 1000px
+   RESPONSIVE
 ================================================== */
 
 @media (max-width: 1000px) {
 
     .contact-title {
-
         right: 50px;
     }
 
-
     .contact-title h2 {
-
         font-size: 75px;
     }
 
-
     .contact-socials {
-
         right: 45px;
 
         gap: 20px;
     }
 
-
     .contact-details {
-
         left: 50px;
 
         width: 50%;
@@ -6732,26 +7303,18 @@ a.contact-detail:hover {
 }
 
 
-/* ==================================================
-   RESPONSIVE — 750px
-================================================== */
-
 @media (max-width: 750px) {
 
     .contact-section {
-
         min-height: 800px;
 
         padding: 50px 30px;
     }
 
-
     .contact-title {
-
         position: relative;
 
         top: auto;
-
         right: auto;
 
         text-align: center;
@@ -6759,21 +7322,14 @@ a.contact-detail:hover {
         margin-bottom: 50px;
     }
 
-
     .contact-title h2 {
-
         font-size: 60px;
-
-        text-align: center;
     }
 
-
     .contact-socials {
-
         position: relative;
 
         top: auto;
-
         right: auto;
 
         justify-content: center;
@@ -6781,13 +7337,10 @@ a.contact-detail:hover {
         margin-bottom: 60px;
     }
 
-
     .contact-details {
-
         position: relative;
 
         left: auto;
-
         top: auto;
 
         width: 100%;
@@ -6796,385 +7349,40 @@ a.contact-detail:hover {
 }
 
 
-/* ==================================================
-   RESPONSIVE — 500px
-================================================== */
-
 @media (max-width: 500px) {
 
     .contact-title h2 {
-
         font-size: 45px;
     }
 
-
     .contact-socials {
-
         gap: 5px;
     }
 
-
     .social-item {
-
         width: 105px;
     }
 
-
     .social-icon {
-
         width: 55px;
-
         height: 55px;
 
         font-size: 24px;
     }
 
-
-    .social-icon i {
-
-        font-size: 24px;
-    }
-
-
     .social-item span {
-
         font-size: 10px;
     }
 
-
     .contact-quote p {
-
         font-size: 17px;
     }
 
-
     .contact-detail {
-
-        font-size: 14px;
-    }
-
-
-    .contact-detail span {
-
-        font-size: 14px;
-    }
-
-
-    .contact-detail i {
-
-        font-size: 20px;
-    }
-
-}
-
-
-/* ==================================================
-   END — CONTACT SECTION
-================================================== */
-
-
-/* ==================================================
-   RESPONSIVE — 1000px
-================================================== */
-
-@media (max-width: 1000px) {
-
-    .contact-title {
-
-        right: 50px;
-    }
-
-
-    .contact-title h2 {
-
-        font-size: 75px;
-    }
-
-
-    .contact-socials {
-
-        right: 45px;
-
-        gap: 20px;
-    }
-
-
-    .contact-details {
-
-        left: 50px;
-
-        width: 50%;
-    }
-
-}
-
-
-/* ==================================================
-   RESPONSIVE — 750px
-================================================== */
-
-@media (max-width: 750px) {
-
-    .contact-section {
-
-        min-height: 800px;
-
-        padding: 50px 30px;
-    }
-
-
-    .contact-title {
-
-        position: relative;
-
-        top: auto;
-
-        right: auto;
-
-        text-align: center;
-
-        margin-bottom: 50px;
-    }
-
-
-    .contact-title h2 {
-
-        font-size: 60px;
-
-        text-align: center;
-    }
-
-
-    .contact-socials {
-
-        position: relative;
-
-        top: auto;
-
-        right: auto;
-
-        justify-content: center;
-
-        margin-bottom: 60px;
-    }
-
-
-    .contact-details {
-
-        position: relative;
-
-        left: auto;
-
-        top: auto;
-
-        width: 100%;
-    }
-
-}
-
-
-/* ==================================================
-   RESPONSIVE — 500px
-================================================== */
-
-@media (max-width: 500px) {
-
-    .contact-title h2 {
-
-        font-size: 45px;
-    }
-
-
-    .contact-socials {
-
-        gap: 5px;
-    }
-
-
-    .social-item {
-
-        width: 105px;
-    }
-
-
-    .social-icon {
-
-        width: 55px;
-
-        height: 55px;
-
-        font-size: 24px;
-    }
-
-
-    .social-item span {
-
-        font-size: 10px;
-    }
-
-
-    .contact-quote p {
-
-        font-size: 17px;
-    }
-
-
-    .contact-detail {
-
         font-size: 14px;
     }
 
 }
-
-
 /* ==================================================
-   END — CONTACT SECTION
+   end ng contact section
 ================================================== */
-
-/* ==========================================================
-   FONT AWESOME — FINAL OVERRIDE
-   CONTACT SECTION ONLY
-========================================================== */
-
-
-/* ----------------------------------------------------------
-   SOCIAL MEDIA ICONS
----------------------------------------------------------- */
-
-.contact-section .social-icon i.fa-brands {
-    display: inline-block !important;
-
-    width: auto !important;
-    height: auto !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    color: #ffffff !important;
-
-    font-size: 32px !important;
-    line-height: 1 !important;
-
-    text-align: center !important;
-
-    font-family: "Font Awesome 6 Brands" !important;
-    font-style: normal !important;
-    font-weight: 400 !important;
-}
-
-
-/* ----------------------------------------------------------
-   EMAIL / PHONE / LOCATION
----------------------------------------------------------- */
-
-.contact-section .contact-detail i.fa-regular,
-.contact-section .contact-detail i.fa-solid {
-
-    display: inline-block !important;
-
-    width: 28px !important;
-    height: 28px !important;
-
-    margin: 0 !important;
-    padding: 3px 0 0 0 !important;
-
-    flex: 0 0 28px !important;
-
-    font-size: 22px !important;
-    line-height: 1 !important;
-
-    text-align: center !important;
-
-    color: #281d64 !important;
-
-    font-style: normal !important;
-}
-
-
-/* EMAIL */
-
-.contact-section .contact-detail i.fa-regular {
-
-    font-family: "Font Awesome 6 Free" !important;
-
-    font-weight: 400 !important;
-}
-
-
-/* PHONE + LOCATION */
-
-.contact-section .contact-detail i.fa-solid {
-
-    font-family: "Font Awesome 6 Free" !important;
-
-    font-weight: 900 !important;
-}
-
-
-/* ==========================================================
-   SOCIAL BOXES
-========================================================== */
-
-.contact-section .social-icon {
-
-    display: flex !important;
-
-    align-items: center !important;
-    justify-content: center !important;
-
-    width: 70px !important;
-    height: 70px !important;
-
-    margin: 0 0 15px 0 !important;
-    padding: 0 !important;
-
-    border: none !important;
-
-    border-radius: 7px !important;
-
-    box-sizing: border-box !important;
-}
-
-
-/* FACEBOOK */
-
-.contact-section
-.contact-socials
-.social-item:nth-child(1)
-.social-icon {
-
-    background: #1877f2 !important;
-}
-
-
-/* MESSENGER */
-
-.contact-section
-.contact-socials
-.social-item:nth-child(2)
-.social-icon {
-
-    background:
-        linear-gradient(
-            135deg,
-            #0084ff,
-            #00c6a7
-        ) !important;
-}
-
-
-/* INSTAGRAM */
-
-.contact-section
-.contact-socials
-.social-item:nth-child(3)
-.social-icon {
-
-    background:
-        linear-gradient(
-            135deg,
-            #833ab4,
-            #fd1d1d,
-            #fcb045
-        ) !important;
-}

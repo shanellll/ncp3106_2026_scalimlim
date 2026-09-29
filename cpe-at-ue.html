@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+
+>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+>
+
 <head>
 
     <meta charset="UTF-8">
@@ -118,18 +132,138 @@
             </a>
 
             <!-- JOIN -->
-            <a
-                href="join.html"
-                class="join-btn"
-            >
-                JOIN THE ORGANIZATION!
-            </a>
+           <button
+    type="button"
+    class="join-btn"
+    onclick="openJoinModal()"
+>
+    JOIN THE ORGANIZATION!
+</button>
 
-        </nav>
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- ==================================================
+     JOIN ORGANIZATION MODAL
+================================================== -->
+
+<div id="joinModal" class="join-modal">
+
+    <div class="join-modal-content">
+
+        <button
+            type="button"
+            class="join-close"
+            onclick="closeJoinModal()"
+        >
+            ×
+        </button>
+
+        <h2>JOIN THE ORGANIZATION</h2>
+
+        <p class="join-subtitle">
+            Enter your details to submit your application.
+        </p>
+
+        <form id="joinForm">
+
+            <label for="joinEmail">Gmail</label>
+
+            <input
+                type="email"
+                id="joinEmail"
+                placeholder="example@gmail.com"
+                required
+            >
+
+            <label for="joinPassword">Password</label>
+
+            <input
+                type="password"
+                id="joinPassword"
+                placeholder="Enter your password"
+                required
+            >
+
+            <label for="joinMessage">Short Message</label>
+
+            <textarea
+                id="joinMessage"
+                placeholder="Why would you like to join the organization?"
+                rows="4"
+                required
+            ></textarea>
+
+            <button
+                type="submit"
+                class="join-submit"
+            >
+                SUBMIT APPLICATION
+            </button>
+
+        </form>
 
     </div>
 
-</header>
+</div>
+
+
+<script>
+
+function openJoinModal() {
+
+    document.getElementById("joinModal").style.display = "flex";
+
+}
+
+
+function closeJoinModal() {
+
+    document.getElementById("joinModal").style.display = "none";
+
+}
+
+
+document.getElementById("joinModal").addEventListener("click", function(event) {
+
+    if (event.target === this) {
+
+        closeJoinModal();
+
+    }
+
+});
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeJoinModal();
+
+    }
+
+});
+
+
+document.getElementById("joinForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    alert("Application submitted!");
+
+    closeJoinModal();
+
+});
+
+</script>
+
+</body>
+</html>
 
 <!-- ==================================================
      VERTICAL SCROLL CONTENT
@@ -505,7 +639,7 @@ $(document).ready(function () {
         <div class="slide-content specialization-slide">
 
             <span class="slide-number">
-                02 / 04
+                02 / 05
             </span>
 
 
@@ -1184,11 +1318,9 @@ $(document).ready(function () {
     </div>
 
 </section>
-
-<!-- ==================================================
+   <!-- ==================================================
      CONTACT
 ================================================== -->
-
 <section class="content-section contact-section" id="contact">
 
     <!-- BIG CONTACT TITLE -->
@@ -1205,7 +1337,6 @@ $(document).ready(function () {
 
     <div class="contact-socials">
 
-
         <!-- FACEBOOK -->
         <a
             href="https://www.facebook.com/search/top?q=ue%20manila%20-%20society%20of%20computer%20engineering%20students"
@@ -1214,23 +1345,11 @@ $(document).ready(function () {
             class="social-item"
         >
 
-            <div class="social-icon facebook-icon">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        fill="white"
-                        d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3.5l.5-4H13V9c0-.7.3-1 1-1z"
-                    />
-                </svg>
-
+            <div class="social-icon">
+                <i class="fa-brands fa-facebook-f"></i>
             </div>
 
-            <span>
-                uescpes_official
-            </span>
+            <span>uescpes_official</span>
 
         </a>
 
@@ -1243,23 +1362,11 @@ $(document).ready(function () {
             class="social-item"
         >
 
-            <div class="social-icon messenger-icon">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        fill="white"
-                        d="M12 2C6.48 2 2 5.91 2 10.73c0 2.75 1.37 5.2 3.53 6.84V22l3.24-1.78c1 .28 2.1.43 3.23.43 5.52 0 10-3.91 10-8.92S17.52 2 12 2zm.99 11.91l-2.61-2.78-5.1 2.78 5.61-5.95 2.67 2.78 5.04-2.78-5.61 5.95z"
-                    />
-                </svg>
-
+            <div class="social-icon">
+                <i class="fa-brands fa-facebook-messenger"></i>
             </div>
 
-            <span>
-                UE Manila - SCPES
-            </span>
+            <span>UE Manila - SCPES</span>
 
         </a>
 
@@ -1272,47 +1379,11 @@ $(document).ready(function () {
             class="social-item"
         >
 
-            <div class="social-icon instagram-icon">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <rect
-                        x="3"
-                        y="3"
-                        width="18"
-                        height="18"
-                        rx="5"
-                        ry="5"
-                        fill="none"
-                        stroke="white"
-                        stroke-width="2"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="4"
-                        fill="none"
-                        stroke="white"
-                        stroke-width="2"
-                    />
-
-                    <circle
-                        cx="17.5"
-                        cy="6.5"
-                        r="1.2"
-                        fill="white"
-                    />
-
-                </svg>
-
+            <div class="social-icon">
+                <i class="fa-brands fa-instagram"></i>
             </div>
 
-            <span>
-                uescpes_official
-            </span>
+            <span>uescpes_official</span>
 
         </a>
 
@@ -1344,33 +1415,7 @@ $(document).ready(function () {
             class="contact-detail"
         >
 
-            <span class="contact-svg email-svg">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <rect
-                        x="3"
-                        y="5"
-                        width="18"
-                        height="14"
-                        rx="2"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    />
-
-                    <path
-                        d="M4 7l8 6 8-6"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    />
-
-                </svg>
-
-            </span>
+            <i class="fa-regular fa-envelope"></i>
 
             <span>
                 scpesofficial@gmail.com
@@ -1385,19 +1430,7 @@ $(document).ready(function () {
             class="contact-detail"
         >
 
-            <span class="contact-svg phone-svg">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M6.6 3.5l3 1.5-1.7 3.3c1.1 2.2 2.6 3.7 4.8 4.8L16 11.4l1.5 3c.3.6.1 1.3-.4 1.7l-2.1 1.4c-.5.3-1.1.4-1.7.2-3.2-1.1-6-3-8.2-5.2S1.9 7.9 3 4.7c.2-.6.8-1 1.4-1.2l2.2-.4z"
-                        fill="currentColor"
-                    />
-                </svg>
-
-            </span>
+            <i class="fa-solid fa-phone"></i>
 
             <span>
                 0926 301 3900
@@ -1409,31 +1442,7 @@ $(document).ready(function () {
         <!-- LOCATION -->
         <div class="contact-detail">
 
-            <span class="contact-svg location-svg">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12z"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="9"
-                        r="2.5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    />
-
-                </svg>
-
-            </span>
+            <i class="fa-solid fa-location-dot"></i>
 
             <span>
                 2219 C.M. Recto Ave., Manila, Philippines 1008,
@@ -1445,6 +1454,7 @@ $(document).ready(function () {
 
     </div>
 
+    
 </section>
 
 

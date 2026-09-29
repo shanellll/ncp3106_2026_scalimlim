@@ -20,13 +20,39 @@ body {
     overflow-x: hidden;
 }
 
+@font-face {
+    font-family: "Hunger Games";
+    src: url("Assets/Hunger\ Games.ttf")
+         format("opentype");
+
+}
+
+
+@font-face {
+    font-family: "Light Pixel";
+    src: url("Assets/light_pixel.ttf")
+         format("truetype");
+}
+
+
+/* ==================================================
+   MASIKA FONT
+================================================== */
+
+@font-face {
+    font-family: "Masaki";
+    src: url("Assets/Masaki.otf")
+         format("truetype");
+}
 
 /* ==================================================
    HEADER
 ================================================== */
 
 header {
+
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -41,8 +67,13 @@ header {
     backdrop-filter:
         blur(12px);
 
+    -webkit-backdrop-filter:
+        blur(12px);
+
     border-bottom:
-        1px solid rgba(229, 233, 227, 0.10);
+        1px solid
+        rgba(229, 233, 227, 0.10);
+
 }
 
 
@@ -51,53 +82,88 @@ header {
 ================================================== */
 
 .nav-container {
+
     width: 100%;
     height: 84px;
 
-    padding: 0 70px;
+    padding:
+        0 70px;
 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
+    align-items: center;
+
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+}
 
 /* ==================================================
    LOGO
 ================================================== */
 
 .logo {
+
     width: 55px;
     height: 55px;
 
     flex-shrink: 0;
+
+    /* WHITE GLOW */
+    filter:
+        drop-shadow(0 0 5px rgba(255, 255, 255, 0.45))
+        drop-shadow(0 0 12px rgba(255, 255, 255, 0.25));
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
 }
 
+
+/* ==================================================
+   LOGO HOVER
+================================================== */
+
+.logo:hover {
+
+    transform: scale(1.06);
+
+    filter:
+        drop-shadow(0 0 7px rgba(255, 255, 255, 0.75))
+        drop-shadow(0 0 18px rgba(255, 255, 255, 0.40));
+}
+
+
 .logo img {
+
     width: 100%;
     height: 100%;
 
     object-fit: contain;
 }
 
-
 /* ==================================================
-   NAVIGATION
+   MAIN NAVIGATION
 ================================================== */
 
 .main-nav {
+
     display: flex;
+
     align-items: center;
 
     gap: 27px;
+
 }
 
 
 /* ==================================================
-   NAV LINKS
+   NAVIGATION LINKS
 ================================================== */
 
 .main-nav a {
+
     position: relative;
 
     color: #c5d0d3;
@@ -108,40 +174,59 @@ header {
         "Press Start 2P",
         cursive;
 
-    font-size: 8px;
+    font-size: 11px;
+
+    font-weight: normal;
 
     white-space: nowrap;
 
     transition:
         color 0.25s ease;
+
 }
 
 
-.main-nav a::after {
+/* ==================================================
+   NAVIGATION UNDERLINE
+================================================== */
+
+.main-nav a:not(.join-btn)::after {
+
     content: "";
 
     position: absolute;
 
     left: 0;
+
     bottom: -7px;
 
     width: 0;
+
     height: 2px;
 
     background: #2f6fa3;
 
     transition:
         width 0.25s ease;
+
 }
 
 
-.main-nav a:hover {
+/* ==================================================
+   NAVIGATION HOVER
+================================================== */
+
+.main-nav a:not(.join-btn):hover {
+
     color: #e5e9e3;
+
 }
 
 
-.main-nav a:hover::after {
+.main-nav a:not(.join-btn):hover::after {
+
     width: 100%;
+
 }
 
 
@@ -150,11 +235,16 @@ header {
 ================================================== */
 
 .main-nav a.active {
+
     color: #e5e9e3;
+
 }
 
+
 .main-nav a.active::after {
+
     width: 100%;
+
 }
 
 
@@ -163,39 +253,796 @@ header {
 ================================================== */
 
 .main-nav .join-btn {
+
+    position: relative;
+
     padding:
-        12px 18px;
+        13px 18px;
 
     border:
-        1px solid #c3cbc5;
+        1px solid
+        #c3cbc5;
 
     border-radius:
         30px;
 
-    color: #e5e9e3;
+    background:
+        transparent;
+
+    color:
+        #e5e9e3;
+
+    font-family:
+        "Press Start 2P",
+        cursive;
+
+    font-size:
+        11px;
+
+    font-weight:
+        normal;
+
+    white-space:
+        nowrap;
+
+    cursor:
+        pointer;
 
     transition:
         background 0.3s ease,
         border-color 0.3s ease,
         transform 0.3s ease;
+
 }
 
+
+/* Remove navigation underline */
 
 .main-nav .join-btn::after {
-    display: none;
+
+    display: none !important;
+
 }
 
 
+/* ==================================================
+   JOIN BUTTON HOVER
+================================================== */
+
 .main-nav .join-btn:hover {
+
     background:
         rgba(47, 111, 163, 0.10);
 
     border-color:
         #2f6fa3;
 
+    color:
+        #e5e9e3;
+
     transform:
         translateY(-2px);
+
 }
+
+
+/* ==================================================
+   JOIN BUTTON ACTIVE
+================================================== */
+
+.main-nav .join-btn:active {
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ==================================================
+   REMOVE DEFAULT BUTTON OUTLINE
+================================================== */
+
+.main-nav .join-btn:focus,
+.main-nav .join-btn:focus-visible {
+
+    outline: none;
+
+}
+
+
+/* ==================================================
+   JOIN ORGANIZATION MODAL
+================================================== */
+
+.join-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(5, 15, 30, 0.72);
+
+    backdrop-filter:
+        blur(7px);
+
+    -webkit-backdrop-filter:
+        blur(7px);
+
+    z-index: 9999;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 50px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ==================================================
+   MODAL BOX
+================================================== */
+
+.join-modal-content {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #172b3a,
+            #0d1d2a
+        );
+
+    border:
+        1px solid
+        rgba(120, 170, 210, 0.35);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.45);
+
+    box-sizing: border-box;
+
+    animation:
+        joinModalShow 0.3s ease;
+
+}
+
+
+/* ==================================================
+   MODAL ANIMATION
+================================================== */
+
+@keyframes joinModalShow {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ==================================================
+   MODAL TITLE
+================================================== */
+
+.join-modal-content h2 {
+
+    margin:
+        0 0 8px;
+
+    text-align: center;
+
+    color: #ffffff;
+
+    font-family:
+        "Hunger Games",
+        Arial,
+        sans-serif;
+
+    font-size: 24px;
+
+    font-weight: normal;
+
+    letter-spacing: 1px;
+
+    line-height: 1.2;
+
+}
+
+
+/* ==================================================
+   FONT — LIGHT PIXEL
+================================================== */
+
+@font-face {
+
+    font-family:
+        "Light Pixel";
+
+    src:
+        url("Assets/light_pixel.ttf")
+        format("truetype");
+
+    font-weight:
+        normal;
+
+    font-style:
+        normal;
+
+}
+
+
+/* ==================================================
+   MODAL SUBTITLE
+================================================== */
+
+.join-subtitle {
+    margin: 0 0 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: "Masaki";
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    line-height: 1.2;
+
+}
+
+
+/* ==================================================
+   FORM LABELS
+================================================== */
+
+.join-modal-content label {
+
+    display:
+        block;
+
+    margin:
+        0 0 7px;
+
+    color:
+        #ffffff;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        12px;
+
+    font-weight:
+        normal;
+
+    line-height:
+        1.4;
+
+}
+
+
+/* ==================================================
+   INPUTS + TEXTAREA
+================================================== */
+
+.join-modal-content input,
+.join-modal-content textarea {
+
+    width:
+        100%;
+
+    padding:
+        12px 13px;
+
+    margin:
+        0 0 17px;
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    border-radius:
+        9px;
+
+    outline:
+        none;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    color:
+        white;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        13px;
+
+    font-weight:
+        normal;
+
+    line-height:
+        1.4;
+
+    transition:
+        0.25s ease;
+
+}
+
+
+.join-modal-content textarea {
+
+    resize:
+        vertical;
+
+    min-height:
+        95px;
+
+}
+
+
+/* ==================================================
+   PLACEHOLDER
+================================================== */
+
+.join-modal-content input::placeholder,
+.join-modal-content textarea::placeholder {
+
+    color:
+        rgba(255, 255, 255, 0.4);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        13px;
+
+}
+
+
+/* ==================================================
+   INPUT FOCUS
+================================================== */
+
+.join-modal-content input:focus,
+.join-modal-content textarea:focus {
+
+    border-color:
+        rgba(25, 118, 210, 0.8);
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 0 12px
+        rgba(25, 118, 210, 0.15);
+
+}
+
+
+/* ==================================================
+   CLOSE BUTTON
+================================================== */
+
+.join-close {
+
+    position:
+        absolute;
+
+    top:
+        12px;
+
+    right:
+        15px;
+
+    width:
+        32px;
+
+    height:
+        32px;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        26px;
+
+    font-weight:
+        normal;
+
+    line-height:
+        32px;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.join-close:hover {
+
+    color:
+        white;
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+/* ==================================================
+   SUBMIT BUTTON
+================================================== */
+
+.join-submit {
+
+    width:
+        100%;
+
+    height:
+        44px;
+
+    padding:
+        0;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1976d2,
+            #093577
+        );
+
+    color:
+        white;
+
+    font-family:
+        "Light Pixel",
+        Arial,
+        sans-serif;
+
+    font-size:
+        11px;
+
+    font-weight:
+        normal;
+
+    letter-spacing:
+        1px;
+
+    line-height:
+        normal;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.3s ease;
+
+    appearance:
+        none;
+
+    -webkit-appearance:
+        none;
+
+}
+
+
+.join-submit:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d47a1,
+            #0a2f73
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(25, 118, 210, 0.25);
+
+}
+
+
+/* ==================================================
+   RESPONSIVE — 1100px
+================================================== */
+
+@media (max-width: 1100px) {
+
+    .nav-container {
+
+        padding:
+            0 40px;
+
+    }
+
+    .main-nav {
+
+        gap:
+            18px;
+
+    }
+
+    .main-nav a {
+
+        font-size:
+            7px;
+
+    }
+
+    .main-nav .join-btn {
+
+        padding:
+            10px 14px;
+
+        font-size:
+            7px;
+
+    }
+
+}
+
+
+/* ==================================================
+   RESPONSIVE — 850px
+================================================== */
+
+@media (max-width: 850px) {
+
+    header {
+
+        height:
+            75px;
+
+    }
+
+    .nav-container {
+
+        height:
+            75px;
+
+        padding:
+            0 25px;
+
+    }
+
+    .logo {
+
+        width:
+            48px;
+
+        height:
+            48px;
+
+    }
+
+    .main-nav {
+
+        gap:
+            12px;
+
+        overflow-x:
+            auto;
+
+        scrollbar-width:
+            none;
+
+    }
+
+    .main-nav::-webkit-scrollbar {
+
+        display:
+            none;
+
+    }
+
+    .main-nav a {
+
+        font-size:
+            6px;
+
+    }
+
+    .main-nav .join-btn {
+
+        padding:
+            9px 12px;
+
+        font-size:
+            6px;
+
+    }
+
+}
+
+
+/* ==================================================
+   RESPONSIVE — 600px
+================================================== */
+
+@media (max-width: 600px) {
+
+    header {
+
+        height:
+            68px;
+
+    }
+
+    .nav-container {
+
+        height:
+            68px;
+
+        padding:
+            0 15px;
+
+    }
+
+    .logo {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+    }
+
+    .main-nav {
+
+        gap:
+            8px;
+
+        margin-left:
+            15px;
+
+        overflow-x:
+            auto;
+
+        justify-content:
+            flex-start;
+
+    }
+
+    .main-nav a {
+
+        font-size:
+            5px;
+
+    }
+
+    .main-nav .join-btn {
+
+        padding:
+            8px 10px;
+
+        font-size:
+            5px;
+
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE MODAL
+================================================== */
+
+@media (max-width: 500px) {
+
+    .join-modal-content {
+
+        padding:
+            26px 20px;
+
+        max-width:
+            95%;
+
+    }
+
+    .join-modal-content h2 {
+
+        font-size:
+            20px;
+
+    }
+
+    .join-subtitle {
+
+        font-size:
+            12px;
+
+    }
+
+    .join-modal-content label {
+
+        font-size:
+            11px;
+
+    }
+
+    .join-modal-content input,
+    .join-modal-content textarea {
+
+        font-size:
+            12px;
+
+    }
+
+    .join-submit {
+
+        font-size:
+            10px;
+
+    }
+
+}
+
 
 
 /* ==================================================
@@ -323,11 +1170,15 @@ header {
 ================================================== */
 
 .faculty-intro {
-    max-width: 850px;
+    max-width: 1850px;
 
     color: #b8c5c9;
 
-    font-size: 14px;
+    font-family: "light pixel";
+
+    letter-spacing: 2px;
+
+    font-size: 19px;
 
     line-height: 1.8;
 }
@@ -773,16 +1624,23 @@ header {
     align-items: center;
     justify-content: center;
 
-    min-width: 230px;
+    min-width: 530px;
 
     padding:
-        16px 28px;
+        24px 30px;
+
+    border-radius: 20px;
 
     border:
-        1px solid #c9c5a9;
-
+        1px solid #203075;
+        
     background:
-        transparent;
+    linear-gradient(
+        135deg,
+        #929bb1 0%,
+        #19366f 45%,
+        #8f9bac 100%
+    );
 
     color: #e5e9e3;
 
@@ -792,7 +1650,7 @@ header {
         "Press Start 2P",
         cursive;
 
-    font-size: 8px;
+    font-size: 23px;
 
     letter-spacing: 1px;
 
@@ -811,13 +1669,13 @@ header {
 
 .faculty-next-button:hover {
     background:
-        #c9c5a9;
+        #a9b3c9;
 
     color:
         #172b3a;
 
     border-color:
-        #c9c5a9;
+        #7b7f92;
 
     transform:
         translateY(-5px);
@@ -1171,3 +2029,871 @@ header {
             5.5px;
     }
 }
+
+/* ==================================================
+   ENHANCED FACULTY CARD ANIMATIONS
+================================================== */
+
+/* Smooth entrance */
+.faculty-card {
+    position: relative;
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(50px) scale(0.97);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease,
+        background 0.4s ease;
+}
+
+
+/* Visible state */
+.faculty-card.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+
+/* ==================================================
+   STAGGER THE CARDS
+================================================== */
+
+.faculty-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.faculty-card:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.faculty-card:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.faculty-card:nth-child(4) {
+    transition-delay: 0.35s;
+}
+
+
+/* ==================================================
+   CARD HOVER
+================================================== */
+
+.faculty-card:hover {
+    transform: translateY(-10px) scale(1.015);
+
+    border-color: #2f6fa3;
+
+    box-shadow:
+        0 20px 45px rgba(10, 35, 65, 0.25),
+        0 0 0 1px rgba(47, 111, 163, 0.15);
+
+    background: #edf1ec;
+}
+
+
+/* ==================================================
+   MOVING LIGHT EFFECT
+================================================== */
+
+.faculty-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.22),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.7s ease;
+
+    pointer-events: none;
+}
+
+
+/* Shine moves across card */
+.faculty-card:hover::after {
+    left: 140%;
+}
+
+
+/* ==================================================
+   BLUE SIDE ACCENT
+================================================== */
+
+.faculty-card::before {
+    width: 4px;
+    height: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #7fa9c7,
+            #2f6fa3,
+            #10265f
+        );
+
+    transition:
+        height 0.5s ease;
+}
+
+.faculty-card:hover::before {
+    height: 100%;
+}
+
+
+/* ==================================================
+   PHOTO ANIMATION
+================================================== */
+
+.faculty-photo-container {
+    position: relative;
+
+    transition:
+        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+.faculty-card:hover .faculty-photo-container {
+    transform:
+        scale(1.07)
+        rotate(-2deg);
+
+    border-color: #2f6fa3;
+
+    box-shadow:
+        0 0 0 6px rgba(47, 111, 163, 0.08),
+        0 12px 30px rgba(23, 55, 85, 0.20);
+}
+
+
+/* Image zoom */
+.faculty-photo {
+    transition:
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.4s ease;
+}
+
+
+.faculty-card:hover .faculty-photo {
+    transform: scale(1.10);
+
+    filter: saturate(1.08);
+}
+
+
+/* ==================================================
+   NUMBER ANIMATION
+================================================== */
+
+.faculty-card-number {
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.faculty-card:hover .faculty-card-number {
+    color: #2f6fa3;
+
+    transform: translateX(5px);
+}
+
+
+/* ==================================================
+   PROFESSOR NAME
+================================================== */
+
+.faculty-info h2 {
+    transition:
+        color 0.3s ease,
+        transform 0.35s ease;
+}
+
+
+.faculty-card:hover .faculty-info h2 {
+    color: #173b5c;
+
+    transform: translateX(7px);
+}
+
+
+/* ==================================================
+   POSITION
+================================================== */
+
+.faculty-position {
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.faculty-card:hover .faculty-position {
+    color: #1976d2;
+
+    transform: translateX(4px);
+}
+
+
+/* ==================================================
+   DESCRIPTION
+================================================== */
+
+.faculty-description {
+    transition:
+        color 0.3s ease;
+}
+
+
+.faculty-card:hover .faculty-description {
+    color: #304c61;
+}
+
+
+/* ==================================================
+   DETAIL HEADINGS
+================================================== */
+
+.faculty-detail h3 {
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.faculty-card:hover .faculty-detail h3 {
+    color: #1976d2;
+
+    transform: translateX(3px);
+}
+
+
+/* ==================================================
+   BOTTOM DETAILS
+================================================== */
+
+.faculty-detail span {
+    transition:
+        color 0.3s ease;
+}
+
+
+.faculty-card:hover .faculty-detail span {
+    color: #3c5669;
+}
+
+
+/* ==================================================
+   ACCESSIBILITY
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .faculty-card,
+    .faculty-photo,
+    .faculty-photo-container,
+    .faculty-card::before,
+    .faculty-card::after,
+    .faculty-info h2,
+    .faculty-position,
+    .faculty-description,
+    .faculty-detail h3,
+    .faculty-detail span {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .faculty-card {
+        opacity: 1;
+        transform: none;
+    }
+}
+/* ==================================================
+   PIXEL FONT
+================================================== */
+
+@font-face {
+    font-family: "Light Pixel";
+
+    src:
+        url("Assets/light_pixel.ttf")
+        format("truetype");
+}
+
+
+/* ==================================================
+   CONTACT
+================================================== */
+
+.contact-section {
+    position: relative;
+
+    min-height: 400px;
+
+    padding: 80px 70px;
+
+     background:
+        radial-gradient(
+            circle at 85% 20%,
+            #134b83 0%,
+            #344f6e 25%,
+            #092061 70%
+        );
+
+
+     background: #fffaef;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   BIG CONTACT TITLE
+================================================== */
+
+.contact-title {
+    position: absolute;
+
+    top: 50px;
+
+    right: 85px;
+
+    z-index: 2;
+}
+
+
+.contact-title h2 {
+    margin: 2px 0;
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 110px;
+
+    font-weight: 900;
+
+    letter-spacing: -10px;
+
+    line-height: 1;
+
+    color: #070707a6;
+     
+    text-shadow:
+        6px 6px 0px #0d141b;
+}
+
+
+/* ==================================================
+   SOCIAL MEDIA
+================================================== */
+
+.contact-socials {
+    position: absolute;
+
+    top: 185px;
+
+    right: 300px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 30px;
+}
+
+/* ==================================================
+   SOCIAL ITEM — UPGRADED
+================================================== */
+
+.social-item {
+    width: 145px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #102636;
+
+    transition:
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.4s ease;
+}
+
+
+/* ==================================================
+   SOCIAL ICON — COOLER DESIGN
+================================================== */
+
+.social-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border: 3px solid;
+
+    border-radius: 8px;
+
+    background: linear-gradient(135deg, #1e5a96, #2a7bb8);
+
+    color: #ffffff;
+
+    font-size: 32px;
+
+    margin-bottom: 19px;
+
+    image-rendering: pixelated;
+
+    box-shadow:
+        0 8px 20px rgba(42, 123, 184, 0.3),
+        0 0 15px rgba(42, 123, 184, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+    transition:
+        all 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease;
+
+    position: relative;
+
+    overflow: hidden;
+
+    backdrop-filter: blur(5px);
+}
+
+/* Facebook */
+.social-item:nth-child(1) .social-icon {
+    border-color: #1e5a96;
+    background: linear-gradient(135deg, #1e5a96, #2a7bb8);
+}
+
+/* Messenger */
+.social-item:nth-child(2) .social-icon {
+    border-color: #0084ff;
+    background: linear-gradient(135deg, #0084ff, #31a24c);
+}
+
+/* Instagram — Rich Multi-Color Gradient */
+.social-item:nth-child(3) .social-icon {
+    border-color: #e1306c;
+    background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d92e7f 50%, #9b36b7 75%, #515bd4 100%);
+}
+
+
+/* ==================================================
+   SOCIAL ICON GLOW EFFECT
+================================================== */
+
+.social-icon::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 8px;
+    background: inherit;
+    opacity: 0;
+    z-index: -1;
+    filter: blur(10px);
+    transition: opacity 0.4s ease;
+}
+
+.social-item:hover .social-icon::before {
+    opacity: 0.8;
+}
+
+
+/* ==================================================
+   SOCIAL ICON INNER GLOW
+================================================== */
+
+.social-icon i {
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+
+/* ==================================================
+   SOCIAL NAME — ENHANCED
+================================================== */
+
+.social-item span {
+    font-family: "Light Pixel", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: normal;
+
+    line-height: 1.5;
+
+    color: #1a1a1b;
+
+    letter-spacing: 0.5px;
+
+    transition: all 0.4s ease;
+}
+
+
+/* ==================================================
+   SOCIAL HOVER — EPIC ANIMATIONS
+================================================== */
+
+.social-item:hover {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 10px 30px rgba(42, 123, 184, 0.25));
+}
+
+
+/* Facebook Hover */
+.social-item:nth-child(1):hover .social-icon {
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    box-shadow:
+        0 12px 30px rgba(13, 71, 161, 0.4),
+        0 0 25px rgba(13, 71, 161, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: #0d47a1;
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Messenger Hover */
+.social-item:nth-child(2):hover .social-icon {
+    background: linear-gradient(135deg, #0066cc, #00b300);
+    box-shadow:
+        0 12px 30px rgba(0, 102, 204, 0.4),
+        0 0 25px rgba(0, 179, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: #0066cc;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* Instagram Hover — Ultra Vibrant Gradient */
+.social-item:nth-child(3):hover .social-icon {
+    background: linear-gradient(135deg, #feda75 0%, #fa7e1e 20%, #d92e7f 40%, #9b36b7 70%, #515bd4 100%);
+    box-shadow:
+        0 12px 30px rgba(225, 48, 108, 0.5),
+        0 0 30px rgba(250, 126, 30, 0.5),
+        0 0 20px rgba(217, 46, 127, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: #fa7e1e;
+    transform: scale(1.1) rotate(0deg);
+}
+
+
+.social-item:hover .social-icon i {
+    transform: scale(1.2);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.social-item:hover span {
+    color: #0d47a1;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+/* ==================================================
+   ACTIVE/CLICK STATE
+================================================== */
+
+.social-item:active .social-icon {
+    transform: scale(0.95);
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .social-item {
+        width: 120px;
+    }
+
+    .social-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .social-item span {
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .social-item {
+        width: 100px;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        border-radius: 6px;
+    }
+
+    .social-item span {
+        font-size: 10px;
+    }
+
+}
+
+/* ==================================================
+   CONTACT DETAILS
+================================================== */
+
+.contact-details {
+    position: absolute;
+
+    left: 70px;
+
+    top: 75px;
+
+    width: 45%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+
+/* ==================================================
+   QUOTE
+================================================== */
+
+.contact-quote {
+    max-width: 560px;
+
+    margin-bottom: 38px;
+
+    padding-left: 18px;
+
+    border-left:
+        4px solid
+        #172b3a;
+}
+
+
+.contact-quote p {
+    margin: 0;
+
+    font-family: "Press Start 2P";
+
+    font-size: 21px;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+
+    color: #163847;
+}
+
+
+/* ==================================================
+   CONTACT DETAIL
+================================================== */
+
+.contact-detail {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    width: 100%;
+
+    margin-bottom: 18px;
+
+    color: #281d64;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.5;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* ==================================================
+   CONTACT DETAIL ICON
+================================================== */
+
+.contact-detail i {
+    width: 28px;
+
+    flex-shrink: 0;
+
+    padding-top: 3px;
+
+    font-size: 22px;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   CONTACT DETAIL HOVER
+================================================== */
+
+a.contact-detail:hover {
+    transform: translateX(6px);
+
+    opacity: 0.75;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1000px) {
+
+    .contact-title {
+        right: 50px;
+    }
+
+    .contact-title h2 {
+        font-size: 75px;
+    }
+
+    .contact-socials {
+        right: 45px;
+
+        gap: 20px;
+    }
+
+    .contact-details {
+        left: 50px;
+
+        width: 50%;
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .contact-section {
+        min-height: 800px;
+
+        padding: 50px 30px;
+    }
+
+    .contact-title {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        text-align: center;
+
+        margin-bottom: 50px;
+    }
+
+    .contact-title h2 {
+        font-size: 60px;
+    }
+
+    .contact-socials {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        justify-content: center;
+
+        margin-bottom: 60px;
+    }
+
+    .contact-details {
+        position: relative;
+
+        left: auto;
+        top: auto;
+
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .contact-title h2 {
+        font-size: 45px;
+    }
+
+    .contact-socials {
+        gap: 5px;
+    }
+
+    .social-item {
+        width: 105px;
+    }
+
+    .social-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 24px;
+    }
+
+    .social-item span {
+        font-size: 10px;
+    }
+
+    .contact-quote p {
+        font-size: 17px;
+    }
+
+    .contact-detail {
+        font-size: 14px;
+    }
+
+}
+/* ==================================================
+   end ng contact section
+================================================== */
+
