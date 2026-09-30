@@ -157,17 +157,18 @@ body {
     }
 }
 
-
 /* ==================================================
    UNIVERSITY LABEL
 ================================================== */
 
 .cpe-intro-label {
+
     position: absolute;
 
-    top: 31%;
+    top: 33%;
+    left: 52%;
 
-    width: 100%;
+    width: max-content;
 
     text-align: center;
 
@@ -175,7 +176,7 @@ body {
         "Press Start 2P",
         monospace;
 
-    font-size: 19spx;
+    font-size: 33px;
 
     letter-spacing: 4px;
 
@@ -183,7 +184,7 @@ body {
 
     opacity: 0;
 
-    transform: translateY(15px);
+    transform: translateX(-50%) translateY(15px);
 
     animation:
         introLabel 0.8s ease 0.3s forwards;
@@ -194,7 +195,10 @@ body {
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateX(-50%)
+            translateY(0);
     }
 
 }
@@ -319,7 +323,6 @@ body {
 
 }
 
-
 /* ==================================================
    SUBTITLE
 ================================================== */
@@ -329,8 +332,9 @@ body {
     position: absolute;
 
     top: 67%;
+    left: 50%;
 
-    width: 100%;
+    width: max-content;
 
     text-align: center;
 
@@ -338,15 +342,17 @@ body {
         "Press Start 2P",
         monospace;
 
-    font-size: 19px;
+    font-size: 18px;
 
     letter-spacing: 3px;
 
-    color: rgba(244,239,226,0.55);
+    color: rgba(244, 239, 226, 0.55);
 
     opacity: 0;
 
-    transform: translateY(-10px);
+    transform:
+        translateX(-50%)
+        translateY(-10px);
 
     animation:
         subtitleEntrance 0.8s ease 1s forwards;
@@ -356,12 +362,16 @@ body {
 @keyframes subtitleEntrance {
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+
     }
 
 }
-
 
 /* ==================================================
    GHOST
