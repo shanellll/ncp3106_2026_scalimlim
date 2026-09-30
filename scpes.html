@@ -5,68 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SCPES</title>
+    <title>SCPES | Computer Engineering</title>
 
+    <!-- GOOGLE FONTS -->
     <link
         href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
         rel="stylesheet"
     >
 
+    <!-- FONT AWESOME -->
     <link
-    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-    rel="stylesheet"
->
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 
->
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
->
+    <!-- ANIMATE.CSS -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    >
 
+    <!-- SCPES CSS -->
     <link rel="stylesheet" href="scpes.css">
+
+    <!-- SMOOTH SCROLL -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            scroll-behavior: smooth;
+        }
+    </style>
+
 </head>
 
 <body>
+
 
 <!-- ==================================================
      HEADER
 ================================================== -->
 
 <header>
-        <div class="nav-container">
 
-    <div class="logo">
-        <img src="Assets/cpe.png"
-             alt="Computer Engineering Organization Logo">
+    <div class="nav-container">
+
+        <div class="logo">
+            <img
+                src="Assets/cpe.png"
+                alt="Computer Engineering Organization Logo"
+            >
+        </div>
+
+        <nav class="main-nav">
+
+            <a href="index.html">HOME</a>
+
+            <a href="cpe-at-ue.html">CpE AT UE</a>
+
+            <a href="faculty.html">FACULTY</a>
+
+            <a href="scpes.html" class="active">SCPES</a>
+
+            <a href="events.html">EVENTS & ACTIVITIES</a>
+
+            <a href="#contact">CONTACT</a>
+
+            <!-- JOIN -->
+            <button
+                type="button"
+                class="join-btn"
+                onclick="openJoinModal()"
+            >
+                JOIN THE ORGANIZATION!
+            </button>
+
+        </nav>
+
     </div>
 
-    <nav class="main-nav">
-
-        <a href="index.html">HOME</a>
-        <a href="cpe-at-ue.html">CpE AT UE</a>
-        <a href="faculty.html">FACULTY</a>
-        <a href="scpes.html" class="active">SCPES</a>
-        <a href="events.html">EVENTS & ACTIVITIES</a>
-        <a href="#contact">CONTACT</a>
-
-        <!-- JOIN -->
-          <button
-    type="button"
-    class="join-btn"
-    onclick="openJoinModal()"
->
-    JOIN THE ORGANIZATION!
-</button>
-
-</nav>
-
-</div>
-
 </header>
-        
 
 
 <!-- ==================================================
@@ -93,7 +113,9 @@
 
         <form id="joinForm">
 
-            <label for="joinEmail">Gmail</label>
+            <label for="joinEmail">
+                Gmail
+            </label>
 
             <input
                 type="email"
@@ -102,7 +124,10 @@
                 required
             >
 
-            <label for="joinPassword">Password</label>
+
+            <label for="joinPassword">
+                Password
+            </label>
 
             <input
                 type="password"
@@ -111,7 +136,10 @@
                 required
             >
 
-            <label for="joinMessage">Short Message</label>
+
+            <label for="joinMessage">
+                Short Message
+            </label>
 
             <textarea
                 id="joinMessage"
@@ -119,6 +147,7 @@
                 rows="4"
                 required
             ></textarea>
+
 
             <button
                 type="submit"
@@ -133,81 +162,6 @@
 
 </div>
 
-<script>
-
-function openJoinModal() {
-
-    document.getElementById("joinModal").style.display = "flex";
-
-}
-
-
-function closeJoinModal() {
-
-    document.getElementById("joinModal").style.display = "none";
-
-}
-
-
-document.getElementById("joinModal").addEventListener("click", function(event) {
-
-    if (event.target === this) {
-
-        closeJoinModal();
-
-    }
-
-});
-
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-
-        closeJoinModal();
-
-    }
-
-});
-
-
-document.getElementById("joinForm").addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    alert("Application submitted!");
-
-    closeJoinModal();
-
-});
-
-</script>
-
-</body>
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SCPES | Computer Engineering</title>
-
-    <link rel="stylesheet" href="scpes.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-        rel="stylesheet"
-    >
-</head>
-
-<body>
 
 <!-- ==================================================
      SIDE NAVIGATION
@@ -242,15 +196,21 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
      01 — SCPES INTRO
 ================================================== -->
 
-<section class="scpes-section intro-section" id="intro">
+<section
+    class="scpes-section intro-section"
+    id="intro"
+>
 
     <div class="intro-bg-text">
         SCPES
     </div>
 
+
     <div class="intro-header">
 
-        <span class="section-number">01 / 04</span>
+        <span class="section-number">
+            01 / 04
+        </span>
 
         <p>
             STUDENT COMPUTER PROFESSIONALS
@@ -279,8 +239,11 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
             </p>
 
             <div class="scroll-hint">
+
                 <span></span>
+
                 SCROLL TO EXPLORE
+
             </div>
 
         </div>
@@ -291,41 +254,90 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
         <div class="photo-stack">
 
             <div class="photo-card photo-1">
-                <img src="Assets/scpes111.jpg" alt="SCPES photo 1">
+
+                <img
+                    src="Assets/scpes111.jpg"
+                    alt="SCPES photo 1"
+                >
 
                 <div class="photo-info">
-                    <strong>SCPES</strong>
-                    <span>CONNECT</span>
+
+                    <strong>
+                        SCPES
+                    </strong>
+
+                    <span>
+                        CONNECT
+                    </span>
+
                 </div>
+
             </div>
 
 
             <div class="photo-card photo-2">
-                <img src="Assets/scpes22.jpg" alt="SCPES photo 2">
+
+                <img
+                    src="Assets/scpes22.jpg"
+                    alt="SCPES photo 2"
+                >
 
                 <div class="photo-info">
-                    <strong>COMMUNITY</strong>
-                    <span>CREATE</span>
+
+                    <strong>
+                        COMMUNITY
+                    </strong>
+
+                    <span>
+                        CREATE
+                    </span>
+
                 </div>
+
             </div>
 
 
             <div class="photo-card photo-3 active-photo">
-                <img src="Assets/scpes333.jpg" alt="SCPES photo 3">
+
+                <img
+                    src="Assets/scpes333.jpg"
+                    alt="SCPES photo 3"
+                >
 
                 <div class="photo-info">
-                    <strong>LEARN</strong>
-                    <span>EXPLORE</span>
+
+                    <strong>
+                        LEARN
+                    </strong>
+
+                    <span>
+                        EXPLORE
+                    </span>
+
                 </div>
+
             </div>
 
+
             <div class="photo-card photo-5">
-                <img src="Assets/scpes4.jpg" alt="SCPES photo 5">
+
+                <img
+                    src="Assets/scpes4.jpg"
+                    alt="SCPES photo 5"
+                >
 
                 <div class="photo-info">
-                    <strong>BUILD</strong>
-                    <span>THE FUTURE</span>
+
+                    <strong>
+                        BUILD
+                    </strong>
+
+                    <span>
+                        THE FUTURE
+                    </span>
+
                 </div>
+
             </div>
 
         </div>
@@ -335,12 +347,14 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 </section>
 
 
-
 <!-- ==================================================
      02 — MEET THE OFFICERS
 ================================================== -->
 
-<section class="scpes-section officers-section" id="officers">
+<section
+    class="scpes-section officers-section"
+    id="officers"
+>
 
     <div class="officers-top">
 
@@ -431,10 +445,11 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 
     <!-- SMALL OFFICER PREVIEW CARDS -->
 
-    <div class="officer-preview" id="officerPreview">
-
+    <div
+        class="officer-preview"
+        id="officerPreview"
+    >
         <!-- JavaScript creates these -->
-
     </div>
 
 
@@ -449,16 +464,19 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 </section>
 
 
-
 <!-- ==================================================
      03 — SHORT INFO ABOUT SCPES
 ================================================== -->
 
-<section class="scpes-section about-section" id="about">
+<section
+    class="scpes-section about-section"
+    id="about"
+>
 
     <div class="about-background">
         SCPES
     </div>
+
 
     <div class="about-inner">
 
@@ -482,11 +500,12 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
                 <span>AN ORGANIZATION.</span>
             </h2>
 
+
             <p class="about-lead">
 
-                SCPES is a student community that 
-                connects Computer Engineering students 
-                through learning, teamwork, activities, 
+                SCPES is a student community that
+                connects Computer Engineering students
+                through learning, teamwork, activities,
                 and shared experiences.
 
             </p>
@@ -496,15 +515,17 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 
                 <div class="about-item">
 
-                    <span>01</span>
+                    <span>
+                        01
+                    </span>
 
                     <h3>
                         CONNECT
                     </h3>
 
                     <p>
-                        Build meaningful connections with 
-                        fellow Computer Engineering students 
+                        Build meaningful connections with
+                        fellow Computer Engineering students
                         and become part of the community.
                     </p>
 
@@ -513,16 +534,18 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 
                 <div class="about-item">
 
-                    <span>02</span>
+                    <span>
+                        02
+                    </span>
 
                     <h3>
                         LEARN
                     </h3>
 
                     <p>
-                        Explore new knowledge, 
-                        develop useful skills, 
-                        and discover different 
+                        Explore new knowledge,
+                        develop useful skills,
+                        and discover different
                         technologies and experiences.
                     </p>
 
@@ -531,15 +554,17 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 
                 <div class="about-item">
 
-                    <span>03</span>
+                    <span>
+                        03
+                    </span>
 
                     <h3>
                         CREATE
                     </h3>
 
                     <p>
-                        Bring ideas to life through 
-                        projects, activities, and 
+                        Bring ideas to life through
+                        projects, activities, and
                         opportunities to apply what you learn.
                     </p>
 
@@ -548,15 +573,17 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 
                 <div class="about-item">
 
-                    <span>04</span>
+                    <span>
+                        04
+                    </span>
 
                     <h3>
                         GROW
                     </h3>
 
                     <p>
-                        Strengthen your technical and 
-                        personal skills while learning 
+                        Strengthen your technical and
+                        personal skills while learning
                         and growing with the community.
                     </p>
 
@@ -571,12 +598,14 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 </section>
 
 
-
 <!-- ==================================================
      04 — SCPES FLASH CARDS
 ================================================== -->
 
-<section class="scpes-section flash-section" id="flashcards">
+<section
+    class="scpes-section flash-section"
+    id="flashcards"
+>
 
     <div class="flash-header">
 
@@ -616,7 +645,7 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
             </h3>
 
             <p>
-                A space where Computer Engineering students 
+                A space where Computer Engineering students
                 meet, support one another, and build friendships.
             </p>
 
@@ -644,7 +673,7 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
             </h3>
 
             <p>
-                Opportunities to learn new skills, discover 
+                Opportunities to learn new skills, discover
                 technologies, and gain experiences beyond the classroom.
             </p>
 
@@ -672,7 +701,7 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
             </h3>
 
             <p>
-                Take part in events, workshops, projects, 
+                Take part in events, workshops, projects,
                 and activities that bring students together.
             </p>
 
@@ -700,7 +729,7 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
             </h3>
 
             <p>
-                Develop confidence, teamwork, and leadership 
+                Develop confidence, teamwork, and leadership
                 while contributing to the SCPES community.
             </p>
 
@@ -710,7 +739,6 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 
         </div>
 
-
     </div>
 
 
@@ -718,7 +746,10 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 
     <div class="end-navigation">
 
-        <a href="index.html" class="end-button previous-button">
+        <a
+            href="index.html"
+            class="end-button previous-button"
+        >
             <span>←</span>
             PREVIOUS
         </a>
@@ -737,7 +768,10 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
         </div>
 
 
-        <a href="events.html" class="end-button next-button">
+        <a
+            href="events.html"
+            class="end-button next-button"
+        >
             NEXT: EVENTS & ACTIVITIES
             <span>→</span>
         </a>
@@ -747,30 +781,31 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 </section>
 
 
-
-<script src="scpes.js"></script>
-
-
-    <!-- ==================================================
+<!-- ==================================================
      CONTACT
 ================================================== -->
-<section class="content-section contact-section" id="contact">
 
-    <!-- BIG CONTACT TITLE -->
+<section
+    class="content-section contact-section"
+    id="contact"
+>
+
     <div class="contact-title">
 
-        <h2>CONTACT US</h2>
+        <h2>
+            CONTACT US
+        </h2>
 
     </div>
 
 
-    <!-- ==================================================
-         SOCIAL MEDIA
-    ================================================== -->
+    <!-- SOCIAL MEDIA -->
 
     <div class="contact-socials">
 
+
         <!-- FACEBOOK -->
+
         <a
             href="https://www.facebook.com/search/top?q=ue%20manila%20-%20society%20of%20computer%20engineering%20students"
             target="_blank"
@@ -779,15 +814,20 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
         >
 
             <div class="social-icon">
+
                 <i class="fa-brands fa-facebook-f"></i>
+
             </div>
 
-            <span>uescpes_official</span>
+            <span>
+                uescpes_official
+            </span>
 
         </a>
 
 
         <!-- MESSENGER -->
+
         <a
             href="https://www.facebook.com/search/top?q=ue%20manila%20-%20society%20of%20computer%20engineering%20students"
             target="_blank"
@@ -796,15 +836,20 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
         >
 
             <div class="social-icon">
+
                 <i class="fa-brands fa-facebook-messenger"></i>
+
             </div>
 
-            <span>UE Manila - SCPES</span>
+            <span>
+                UE Manila - SCPES
+            </span>
 
         </a>
 
 
         <!-- INSTAGRAM -->
+
         <a
             href="https://www.instagram.com/uescpes_official/"
             target="_blank"
@@ -813,24 +858,27 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
         >
 
             <div class="social-icon">
+
                 <i class="fa-brands fa-instagram"></i>
+
             </div>
 
-            <span>uescpes_official</span>
+            <span>
+                uescpes_official
+            </span>
 
         </a>
 
     </div>
 
 
-    <!-- ==================================================
-         LEFT SIDE CONTACT INFORMATION
-    ================================================== -->
+    <!-- CONTACT DETAILS -->
 
     <div class="contact-details">
 
 
         <!-- QUOTE -->
+
         <div class="contact-quote">
 
             <p>
@@ -843,6 +891,7 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 
 
         <!-- EMAIL -->
+
         <a
             href="mailto:scpesofficial@gmail.com"
             class="contact-detail"
@@ -858,6 +907,7 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 
 
         <!-- PHONE -->
+
         <a
             href="tel:09263013900"
             class="contact-detail"
@@ -873,6 +923,7 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 
 
         <!-- LOCATION -->
+
         <div class="contact-detail">
 
             <i class="fa-solid fa-location-dot"></i>
@@ -884,11 +935,117 @@ document.getElementById("joinForm").addEventListener("submit", function(event) {
 
         </div>
 
-
     </div>
 
-    
 </section>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script src="scpes.js"></script>
+
+
+<script>
+
+/* ==================================================
+   SMOOTH SCROLL WITH FIXED HEADER OFFSET
+================================================== */
+
+document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+
+    link.addEventListener("click", function(event) {
+
+        const targetId = this.getAttribute("href");
+
+        if (!targetId || targetId === "#") {
+            return;
+        }
+
+        const target = document.querySelector(targetId);
+
+        if (!target) {
+            return;
+        }
+
+        event.preventDefault();
+
+        const headerHeight = document.querySelector("header")
+            ? document.querySelector("header").offsetHeight
+            : 0;
+
+        const targetPosition =
+            target.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerHeight;
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
+        });
+
+    });
+
+});
+
+
+/* ==================================================
+   JOIN MODAL
+================================================== */
+
+function openJoinModal() {
+
+    document.getElementById("joinModal").style.display = "flex";
+
+}
+
+
+function closeJoinModal() {
+
+    document.getElementById("joinModal").style.display = "none";
+
+}
+
+
+document.getElementById("joinModal").addEventListener(
+    "click",
+    function(event) {
+
+        if (event.target === this) {
+            closeJoinModal();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+            closeJoinModal();
+        }
+
+    }
+);
+
+
+document.getElementById("joinForm").addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+        alert("Application submitted!");
+
+        closeJoinModal();
+
+    }
+);
+
+</script>
 
 
 </body>
