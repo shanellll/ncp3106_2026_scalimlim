@@ -3204,42 +3204,45 @@ box-shadow:
     letter-spacing: 2px;
 
 }
-
 /* ==================================================
    SLIDE 3 — TITLE
 ================================================== */
 
 .slide-3 h1 {
-
     font-size: 55px;
-
     color: #9c1212;
-
     letter-spacing: 1px;
 
+    /* Animation starting position */
+    opacity: 0;
+    transform: translateY(45px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
+
+
+/* Title appears when Slide 3 enters view */
+
+.slide-3.in-view h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* ==================================================
    SLIDE 3 — INTRO DESCRIPTION
-   TEXT UNDER STUDENT PROJECTS TITLE
 ================================================== */
 
 .slide-3 .projects-slide > p {
-
     font-family: 'Light Pixel', sans-serif;
-
     font-size: 15px;
-
     line-height: 1.6;
-
     color: #333333;
-
     letter-spacing: 1px;
-
     margin-top: 10px;
-
     margin-bottom: 20px;
-
 }
 
 /* ==================================================

@@ -414,4 +414,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+/* ==================================================
+   SLIDE 3 — TITLE SCROLL ANIMATION
+================================================== */
 
+const slide3 = document.querySelector(".slide-3");
+
+if (slide3) {
+
+    const slide3Observer = new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+                    slide3.classList.add("in-view");
+                } else {
+                    slide3.classList.remove("in-view");
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.25
+        }
+    );
+
+    slide3Observer.observe(slide3);
+}
