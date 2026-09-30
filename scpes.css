@@ -1526,14 +1526,21 @@ body {
         0 0 30px rgba(49, 95, 138, 0.35);
 }
 
+@font-face {
+    font-family: "pixel tandy";
+    src: url("Assets/Pixel\ Tandy.otf")
+         format("truetype");
+}
+
 .intro-copy > p {
-    max-width: 420px;
+    max-width: 620px;
 
     line-height: 1.8;
 
     color: #7C7C7C;
 
-    font-size: 15px;
+    font-size: 19px;
+    font-family: "pixel tandy";
 }
 
 
@@ -1552,7 +1559,7 @@ body {
 
     font-family: "Press Start 2P", cursive;
 
-    font-size: 8px;
+    font-size: 24px;
 
     color: #7C7C7C;
 }
@@ -1593,7 +1600,7 @@ body {
 .photo-stack {
     position: relative;
 
-    width: 100%;
+    width: 110%;
     height: 600px;
 
     display: flex;
@@ -1615,7 +1622,7 @@ body {
 .photo-card {
     position: absolute;
 
-    width: 250px;
+    width: 290px;
     height: 400px;
 
     border-radius: 22px;
@@ -1683,13 +1690,13 @@ body {
 .photo-info strong {
     font-family: "Press Start 2P", cursive;
 
-    font-size: 12px;
+    font-size: 24px;
 
     color: #ADB8AE;
 }
 
 .photo-info span {
-    font-size: 9px;
+    font-size: 13px;
 
     letter-spacing: 3px;
 

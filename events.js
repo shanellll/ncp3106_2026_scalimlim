@@ -1,5 +1,5 @@
 /* ==================================================
-   EVENTS PAGE SLIDER
+   EVENTS PAGE SLIDER — NO AUTOMATIC CHANGES
 ================================================== */
 
 const slides = document.querySelectorAll(".event-slide");
@@ -138,36 +138,17 @@ function changeSlide(direction) {
 
 
 /* ==================================================
-   CLICK ANYWHERE TO CONTINUE
+   ❌ REMOVED CLICK ANYWHERE ❌
+   No more changing slides on click
 ================================================== */
-
-document.addEventListener(
-    "click",
-    function(event) {
-
-        /*
-           Don't change the event slide when
-           clicking navigation or carousel buttons.
-        */
-
-        if (
-            event.target.closest("a") ||
-            event.target.closest(".nav-container") ||
-            event.target.closest(".carousel-btn")
-        ) {
-            return;
-        }
-
-
-        changeSlide("next");
-
-    }
-);
 
 
 /* ==================================================
-   MOUSE WHEEL
+   MOUSE WHEEL — WITH DEBOUNCE
+   Only way to change slides is scroll
 ================================================== */
+
+let wheelTimeout;
 
 document.addEventListener(
     "wheel",
@@ -176,6 +157,15 @@ document.addEventListener(
         if (isAnimating) {
             return;
         }
+
+        /* Debounce wheel events to prevent multiple triggers */
+        if (wheelTimeout) {
+            return;
+        }
+
+        wheelTimeout = setTimeout(() => {
+            wheelTimeout = null;
+        }, 800);
 
 
         if (event.deltaY > 0) {
@@ -198,20 +188,39 @@ document.addEventListener(
 
 
 /* ==================================================
-   KEYBOARD
+   KEYBOARD — Arrow Keys Only
 ================================================== */
+
+let keyTimeout;
 
 document.addEventListener(
     "keydown",
     function(event) {
 
+        if (isAnimating) {
+            return;
+        }
+
+        /* Debounce keyboard to prevent rapid firing */
+        if (keyTimeout) {
+            return;
+        }
+
         if (event.key === "ArrowDown") {
+
+            keyTimeout = setTimeout(() => {
+                keyTimeout = null;
+            }, 800);
 
             changeSlide("next");
 
         }
 
         if (event.key === "ArrowUp") {
+
+            keyTimeout = setTimeout(() => {
+                keyTimeout = null;
+            }, 800);
 
             changeSlide("previous");
 
@@ -371,13 +380,13 @@ const photoGalleries = {
 
         {
             image: "Assets/activities-workshops5.jpg",
-            title: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗦𝗰𝗶𝗲𝗻𝗰𝗲, 𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆, 𝗮𝗻𝗱 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻 𝗪𝗲𝗲𝗸 (𝗥𝗦𝗧𝗪",
+            title: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗦𝗰𝗶𝗲𝗻𝗰𝗲, 𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆, 𝗮𝗻𝗱 𝗜𝗻𝗻𝗼𝘃𝗮𝘵𝗶𝗼𝗻 𝗪𝗲𝗲𝗸 (𝗥𝗦𝗧𝗪",
             year: "August 6, 2026"
         },
 
         {
             image: "Assets/activities-workshops4.jpg",
-            title: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗦𝗰𝗶𝗲𝗻𝗰𝗲, 𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆, 𝗮𝗻𝗱 𝗜𝗻𝗻𝗼𝘃𝗮𝘁𝗶𝗼𝗻 𝗪𝗲𝗲𝗸 (𝗥𝗦𝗧𝗪",
+            title: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗦𝗰𝗶𝗲𝗻𝗰𝗲, 𝗧𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆, 𝗮𝗻𝗱 𝗜𝗻𝗻𝗼𝘃𝗮𝘵𝗶𝗼𝗻 𝗪𝗲𝗲𝗸 (𝗥𝗦𝗧𝗪",
             year: "August 6, 2026"
         }
 
@@ -442,20 +451,6 @@ const photoIndexes = {
     "more-events": 0
 
 };
-
-
-/* ==================================================
-   PHOTO AUTO CHANGE SPEED
-================================================== */
-
-/*
-   3000 = 3 seconds
-   2500 = 2.5 seconds
-   2000 = 2 seconds
-   1500 = 1.5 seconds
-*/
-
-const AUTO_CHANGE_TIME = 3000;
 
 
 /* ==================================================
@@ -699,33 +694,15 @@ document.querySelectorAll(".image-frame").forEach(
 
 
 /* ==================================================
-   AUTOMATIC PHOTO CHANGING
+   ❌ NO AUTOMATIC PHOTO CHANGING ❌
+   
+   Photos ONLY change via carousel buttons
+   No automatic timers at all!
 ================================================== */
-
-document.querySelectorAll(".image-frame").forEach(
-    function(frame) {
-
-        /*
-           Automatically change photos
-           even when the mouse is NOT
-           over the image.
-        */
-
-        setInterval(function() {
-
-            changePhoto(
-                frame,
-                "next"
-            );
-
-        }, AUTO_CHANGE_TIME);
-
-    }
-);
 
 
 /* ==================================================
-   CAROUSEL BUTTONS
+   CAROUSEL BUTTONS — MANUAL ONLY
 ================================================== */
 
 document.querySelectorAll(".image-frame").forEach(

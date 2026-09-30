@@ -1905,3 +1905,21 @@ header {
         scroll-behavior: auto !important;
     }
 }
+
+/* ==================================================
+   PREVENT ACCIDENTAL SLIDE MOVEMENT
+================================================== */
+
+html,
+body {
+    overscroll-behavior: none;
+}
+
+.events-wrapper {
+    overscroll-behavior: none;
+    touch-action: pan-y;
+}
+
+.event-slide {
+    overscroll-behavior: none;
+}

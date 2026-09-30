@@ -1800,7 +1800,7 @@ box-shadow:
 
     border-left: 3px solid #07070a;
 
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.603);
 
     transition:
         transform 0.3s ease,
@@ -1816,7 +1816,7 @@ box-shadow:
 
     transform: translateY(-5px);
 
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.671);
 }
 
 
@@ -3596,6 +3596,13 @@ box-shadow:
 
 }
 
+@font-face {
+
+    font-family: "Pixel Tandy";
+
+    src: url("Assets/Pixel\ Tandy.otf")
+         format("truetype");
+}
 
 /* ==================================================
    SLIDE 3 — PROJECT DESCRIPTION
@@ -3605,11 +3612,13 @@ box-shadow:
 
     margin: 0;
 
-    font-size: 8px;
+    font-size: 15px;
 
-    line-height: 1.7;
+    line-height: 1.5;
 
-    color: #f5f4f4;
+    color: #faf8f8;
+
+    font-family: "Pixel Tandy";
 
 }
 
@@ -4871,6 +4880,32 @@ box-shadow:
 
     margin-left: auto;
     margin-right: auto;
+}
+
+
+
+/* ==================================================
+   NEWS IMAGE STICKER
+================================================== */
+
+.news-sticker {
+    position: absolute;
+
+    width: 520px;
+    height: auto;
+
+    top: -150px;
+    left: -120px;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+
+
+    transition: transform 0.3s ease;
 }
 
 
