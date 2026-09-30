@@ -3932,11 +3932,8 @@ box-shadow:
 
 
 
-
-
-
 /* ==================================================
-   SLIDE 4 — CLASSROOMS & LIBRARY
+   SLIDE 4 — CLASSROOMS, LIBRARY & LAB ROOM
 ================================================== */
 
 .classrooms-library-slide {
@@ -3945,25 +3942,30 @@ box-shadow:
 
     min-height: 100vh;
 
-    padding: 105px 6% 55px;
+    padding: 105px 5% 55px;
 
     overflow: hidden;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
     background:
+
         radial-gradient(
             circle at 15% 20%,
             rgba(72, 105, 145, 0.55),
             transparent 32%
         ),
+
         radial-gradient(
             circle at 90% 80%,
             rgba(91, 70, 100, 0.35),
             transparent 35%
         ),
+
         linear-gradient(
             135deg,
             #10172e 0%,
@@ -3975,8 +3977,9 @@ box-shadow:
 }
 
 
+
 /* ==================================================
-   GRID
+   GRID BACKGROUND
 ================================================== */
 
 .classrooms-library-slide::before {
@@ -3988,10 +3991,12 @@ box-shadow:
     inset: 0;
 
     background-image:
+
         linear-gradient(
             rgba(255,255,255,0.035) 1px,
             transparent 1px
         ),
+
         linear-gradient(
             90deg,
             rgba(255,255,255,0.035) 1px,
@@ -4006,6 +4011,7 @@ box-shadow:
 }
 
 
+
 /* ==================================================
    SLIDE NUMBER
 ================================================== */
@@ -4015,6 +4021,7 @@ box-shadow:
     position: absolute;
 
     bottom: 28px;
+
     left: 6%;
 
     font-family: "Press Start 2P", monospace;
@@ -4029,8 +4036,9 @@ box-shadow:
 }
 
 
+
 /* ==================================================
-   SMALL CAMPUS SPACES LABEL
+   CAMPUS SPACES LABEL
 ================================================== */
 
 .cl-label {
@@ -4038,6 +4046,7 @@ box-shadow:
     position: absolute;
 
     top: 45px;
+
     right: 6%;
 
     display: flex;
@@ -4057,6 +4066,7 @@ box-shadow:
     z-index: 5;
 }
 
+
 .cl-label span {
 
     width: 30px;
@@ -4067,9 +4077,9 @@ box-shadow:
 }
 
 
+
 /* ==================================================
-   MAIN TITLE
-   NOW CENTERED ABOVE THE TWO BOXES
+   MAIN HEADING
 ================================================== */
 
 .cl-heading {
@@ -4082,7 +4092,7 @@ box-shadow:
 
     max-width: 1100px;
 
-    margin: 0 auto 38px;
+    margin: 0 auto 35px;
 
     text-align: center;
 
@@ -4090,7 +4100,10 @@ box-shadow:
 }
 
 
-/* TITLE */
+
+/* ==================================================
+   MAIN TITLE
+================================================== */
 
 .cl-heading h1 {
 
@@ -4098,7 +4111,7 @@ box-shadow:
 
     font-family: "Press Start 2P", monospace;
 
-    font-size: clamp(38px, 5vw, 70px);
+    font-size: clamp(35px, 4.5vw, 65px);
 
     line-height: 1.08;
 
@@ -4107,11 +4120,15 @@ box-shadow:
     color: #f4efe2;
 
     text-shadow:
+
         4px 4px 0 rgba(0,0,0,0.20);
 }
 
 
-/* PINK SECOND LINE */
+
+/* ==================================================
+   RED SECOND LINE
+================================================== */
 
 .cl-heading h1 span {
 
@@ -4120,18 +4137,27 @@ box-shadow:
     margin-top: 5px;
 
     color: #af1c1c;
-
 }
 
 
+
+/* ==================================================
+   MASAKI FONT
+================================================== */
 
 @font-face {
+
     font-family: "Masaki";
+
     src: url("Assets/Masaki.otf")
-         format("truetype");
+        format("opentype");
 }
 
-/* DESCRIPTION UNDER TITLE */
+
+
+/* ==================================================
+   DESCRIPTION
+================================================== */
 
 .cl-heading p {
 
@@ -4141,16 +4167,17 @@ box-shadow:
 
     font-family: "Masaki", serif;
 
-    font-size: 30px;
-    line-height: 1.6;
+    font-size: 25px;
+
+    line-height: 1.5;
 
     color: rgba(244,239,226,0.82);
-
 }
 
 
+
 /* ==================================================
-   TWO BOXES
+   THREE SPACE CARDS
 ================================================== */
 
 .cl-spaces {
@@ -4161,13 +4188,14 @@ box-shadow:
 
     width: 100%;
 
-    max-width: 1320px;
+    max-width: 1450px;
 
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
 
-    gap: 35px;
+    gap: 25px;
 
     margin: 0 auto;
 
@@ -4177,8 +4205,9 @@ box-shadow:
 }
 
 
+
 /* ==================================================
-   BIGGER SPACE CARDS
+   SPACE CARD
 ================================================== */
 
 .space-card {
@@ -4187,15 +4216,16 @@ box-shadow:
 
     width: 100%;
 
-    min-height: 390px;
+    min-height: 430px;
 
     overflow: hidden;
 
-    display: grid;
+    display: flex;
 
-    grid-template-columns: 45% 55%;
+    flex-direction: column;
 
-    border: 1px solid rgba(255,255,255,0.28);
+    border: 1px solid
+        rgba(255,255,255,0.28);
 
     background:
         rgba(13, 20, 42, 0.82);
@@ -4212,21 +4242,27 @@ box-shadow:
 }
 
 
+
 /* ==================================================
-   HOVER CARD
+   CARD HOVER
 ================================================== */
 
 .space-card:hover {
 
-    transform: translateY(-12px);
+    transform:
+        translateY(-12px);
 
     border-color:
         rgba(216,166,166,0.65);
 
     box-shadow:
+
         0 25px 55px rgba(0,0,0,0.42),
-        0 0 30px rgba(130,160,220,0.20);
+
+        0 0 30px
+        rgba(130,160,220,0.20);
 }
+
 
 
 /* ==================================================
@@ -4239,17 +4275,21 @@ box-shadow:
 
     width: 100%;
 
-    height: 100%;
+    height: 210px;
 
-    min-height: 390px;
+    min-height: 210px;
 
     overflow: hidden;
 
-    background: #111a34;
+    background:
+        #111a34;
 }
 
 
-/* IMAGE */
+
+/* ==================================================
+   IMAGE
+================================================== */
 
 .space-image img {
 
@@ -4267,19 +4307,25 @@ box-shadow:
 }
 
 
-/* IMAGE HOVER */
 
-.space-card:hover .space-image img {
+/* ==================================================
+   IMAGE HOVER
+================================================== */
 
-    transform: scale(1.08);
+.space-card:hover
+.space-image img {
+
+    transform:
+        scale(1.08);
 
     filter:
         brightness(0.78);
 }
 
 
+
 /* ==================================================
-   IMAGE DARK GRADIENT
+   IMAGE GRADIENT
 ================================================== */
 
 .space-image::after {
@@ -4291,14 +4337,16 @@ box-shadow:
     inset: 0;
 
     background:
+
         linear-gradient(
-            90deg,
-            transparent 40%,
-            rgba(13,20,42,0.65) 100%
+            180deg,
+            transparent 45%,
+            rgba(13,20,42,0.75) 100%
         );
 
     pointer-events: none;
 }
+
 
 
 /* ==================================================
@@ -4322,21 +4370,27 @@ box-shadow:
     padding: 18px;
 }
 
+
 .image-overlay span {
 
     padding: 9px 11px;
 
-    font-family: "Press Start 2P", monospace;
+    font-family:
+        "Press Start 2P",
+        monospace;
 
     font-size: 9px;
 
     color: #f4efe2;
 
-    border: 1px solid rgba(255,255,255,0.45);
+    border:
+        1px solid
+        rgba(255,255,255,0.45);
 
     background:
         rgba(10,15,35,0.55);
 }
+
 
 
 /* ==================================================
@@ -4349,7 +4403,7 @@ box-shadow:
 
     z-index: 3;
 
-    padding: 38px 35px;
+    padding: 28px 27px;
 
     display: flex;
 
@@ -4357,18 +4411,25 @@ box-shadow:
 
     justify-content: center;
 
+    flex: 1;
+
     background:
         rgba(13,20,42,0.82);
 }
 
 
-/* SMALL CATEGORY */
+
+/* ==================================================
+   CATEGORY
+================================================== */
 
 .space-tag {
 
-    font-family: "Press Start 2P", monospace;
+    font-family:
+        "Press Start 2P",
+        monospace;
 
-    font-size: 8px;
+    font-size: 7px;
 
     letter-spacing: 1px;
 
@@ -4376,43 +4437,78 @@ box-shadow:
 
     color: #c6cadc;
 
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 }
 
 
-/* CARD TITLE */
+
+/* ==================================================
+   CARD TITLE
+================================================== */
 
 .space-content h2 {
-    margin: 0 0 18px;
-    font-family: "Press Start 2P", monospace;
-    font-size: clamp(20px, 2vw, 28px);
+
+    margin:
+        0 0 15px;
+
+    font-family:
+        "Press Start 2P",
+        monospace;
+
+    font-size:
+        clamp(17px, 1.7vw, 24px);
+
     line-height: 1.3;
+
     color: #f4efe2;
+
     transition:
         letter-spacing 0.3s ease,
-        transform 0.3s ease;
+        transform 0.3s ease,
+        color 0.3s ease;
 }
 
-/* CARD TITLE HOVER */
-.space-card:hover .space-content h2 {
-    letter-spacing: 2px;
-    transform: translateX(4px);
+
+
+/* ==================================================
+   CARD TITLE HOVER
+================================================== */
+
+.space-card:hover
+.space-content h2 {
+
+    letter-spacing: 1.5px;
+
+    transform:
+        translateX(4px);
+
     color: #a72f2f;
 }
+
+
 
 /* ==================================================
    CARD DESCRIPTION
 ================================================== */
 
 .space-content p {
+
     margin: 0;
+
     max-width: 420px;
-    font-family: "masaki", serif;
-    font-size: 17px;
-    line-height: 1.7;
+
+    font-family:
+        "Masaki",
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
     color:
         rgba(244,239,226,0.78);
 }
+
 
 
 /* ==================================================
@@ -4425,21 +4521,25 @@ box-shadow:
 
     flex-wrap: wrap;
 
-    gap: 8px;
+    gap: 7px;
 
-    margin-top: 25px;
+    margin-top: 20px;
 }
+
 
 .space-features span {
 
-    padding: 8px 10px;
+    padding: 7px 9px;
 
-    border: 1px solid
+    border:
+        1px solid
         rgba(255,255,255,0.20);
 
-    font-family: "Press Start 2P", monospace;
+    font-family:
+        "Press Start 2P",
+        monospace;
 
-    font-size: 7px;
+    font-size: 6px;
 
     line-height: 1.3;
 
@@ -4452,9 +4552,13 @@ box-shadow:
 }
 
 
-/* TAG HOVER */
 
-.space-card:hover .space-features span {
+/* ==================================================
+   TAG HOVER
+================================================== */
+
+.space-card:hover
+.space-features span {
 
     border-color:
         rgba(216,166,166,0.45);
@@ -4462,8 +4566,10 @@ box-shadow:
     background:
         rgba(216,166,166,0.08);
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
+
 
 
 /* ==================================================
@@ -4484,16 +4590,19 @@ box-shadow:
 
     gap: 18px;
 
-    margin-top: 30px;
+    margin-top: 25px;
 
     flex-shrink: 0;
 }
+
 
 .cl-footer p {
 
     margin: 0;
 
-    font-family: "Press Start 2P", monospace;
+    font-family:
+        "Press Start 2P",
+        monospace;
 
     font-size: 8px;
 
@@ -4502,6 +4611,7 @@ box-shadow:
     color:
         rgba(255,255,255,0.55);
 }
+
 
 .footer-line {
 
@@ -4514,6 +4624,7 @@ box-shadow:
 }
 
 
+
 /* ==================================================
    DECORATIONS
 ================================================== */
@@ -4522,7 +4633,9 @@ box-shadow:
 
     position: absolute;
 
-    font-family: "Press Start 2P", monospace;
+    font-family:
+        "Press Start 2P",
+        monospace;
 
     color:
         rgba(255,255,255,0.15);
@@ -4542,7 +4655,8 @@ box-shadow:
     font-size: 40px;
 
     animation:
-        floatingDecoration 4s ease-in-out infinite;
+        floatingDecoration
+        4s ease-in-out infinite;
 }
 
 
@@ -4555,7 +4669,8 @@ box-shadow:
     font-size: 45px;
 
     animation:
-        floatingDecoration 5s ease-in-out infinite reverse;
+        floatingDecoration
+        5s ease-in-out infinite reverse;
 }
 
 
@@ -4570,8 +4685,10 @@ box-shadow:
     letter-spacing: 2px;
 
     animation:
-        floatingDecoration 6s ease-in-out infinite;
+        floatingDecoration
+        6s ease-in-out infinite;
 }
+
 
 
 /* ==================================================
@@ -4586,7 +4703,6 @@ box-shadow:
         transform:
             translateY(0)
             rotate(0deg);
-
     }
 
     50% {
@@ -4594,16 +4710,17 @@ box-shadow:
         transform:
             translateY(-12px)
             rotate(5deg);
-
     }
 }
+
 
 
 /* ==================================================
    SCROLL REVEAL
 ================================================== */
 
-.classrooms-library-slide .reveal {
+.classrooms-library-slide
+.reveal {
 
     opacity: 0;
 
@@ -4615,7 +4732,9 @@ box-shadow:
         transform 0.8s ease;
 }
 
-.classrooms-library-slide .reveal.active {
+
+.classrooms-library-slide
+.reveal.active {
 
     opacity: 1;
 
@@ -4624,11 +4743,38 @@ box-shadow:
 }
 
 
+
+/* ==================================================
+   STAGGER CARD ANIMATION
+================================================== */
+
+.classrooms-library-slide
+.space-card:nth-child(1) {
+
+    transition-delay: 0.1s;
+}
+
+
+.classrooms-library-slide
+.space-card:nth-child(2) {
+
+    transition-delay: 0.25s;
+}
+
+
+.classrooms-library-slide
+.space-card:nth-child(3) {
+
+    transition-delay: 0.4s;
+}
+
+
+
 /* ==================================================
    RESPONSIVE — TABLET
 ================================================== */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
     .classrooms-library-slide {
 
@@ -4641,32 +4787,39 @@ box-shadow:
 
         max-width: 850px;
 
+        grid-template-columns:
+            1fr;
+
         gap: 25px;
     }
 
 
     .space-card {
 
-        grid-template-columns: 1fr;
-
         min-height: 520px;
+
+        display: grid;
+
+        grid-template-columns:
+            45% 55%;
     }
 
 
     .space-image {
 
-        height: 220px;
+        height: 100%;
 
-        min-height: 220px;
+        min-height: 520px;
     }
 
 
     .space-content {
 
-        padding: 28px;
+        padding: 30px;
     }
 
 }
+
 
 
 /* ==================================================
@@ -4679,6 +4832,8 @@ box-shadow:
 
         padding:
             90px 5% 40px;
+
+        overflow: visible;
     }
 
 
@@ -4690,7 +4845,8 @@ box-shadow:
 
     .cl-heading {
 
-        margin-bottom: 25px;
+        margin-bottom:
+            25px;
     }
 
 
@@ -4714,7 +4870,8 @@ box-shadow:
 
     .cl-spaces {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
         gap: 20px;
     }
@@ -4724,7 +4881,9 @@ box-shadow:
 
         min-height: auto;
 
-        grid-template-columns: 1fr;
+        display: flex;
+
+        flex-direction: column;
     }
 
 
@@ -4760,9 +4919,6 @@ box-shadow:
     }
 
 }
-
-
-
 
 
 

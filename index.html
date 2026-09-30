@@ -22,6 +22,102 @@
 
 <body>
 
+  <!-- ==================================================
+     CPE OPENING SCREEN
+================================================== -->
+
+<div class="cpe-opening" id="cpeOpening">
+
+    <div class="cpe-opening-container">
+
+        <!-- SMALL INTRO LABEL -->
+        <div class="cpe-intro-label">
+            UNIVERSITY OF THE EAST
+        </div>
+
+        <!-- CPE -->
+        <div class="cpe-opening-title">
+            <span>C</span>
+            <span>P</span>
+            <span>E</span>
+        </div>
+
+        <!-- SUBTITLE -->
+        <div class="cpe-intro-subtitle">
+            COMPUTER ENGINEERING
+        </div>
+
+        <!-- GHOST -->
+        <div class="cpe-opening-ghost">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+window.addEventListener("load", function () {
+
+    const opening = document.getElementById("cpeOpening");
+
+    if (!opening) return;
+
+
+    /*
+       Check how the user arrived at HOME.
+    */
+
+    const navigationType =
+        performance.getEntriesByType("navigation")[0];
+
+
+    /*
+       If HOME was opened through a link from another
+       page, don't show the opening animation.
+    */
+
+    if (
+        document.referrer &&
+        document.referrer.includes(window.location.hostname)
+    ) {
+
+        opening.style.display = "none";
+
+        document.body.style.overflow = "";
+
+        return;
+    }
+
+
+    /*
+       Otherwise, this is a fresh visit or refresh.
+       Show the opening animation.
+    */
+
+    document.body.style.overflow = "hidden";
+
+
+    /*
+       Let the animation finish.
+    */
+
+    setTimeout(function () {
+
+        opening.classList.add("hide");
+
+        document.body.style.overflow = "";
+
+    }, 3900);
+
+});
+
+</script>
+
 
 <!-- ==================================================
      TOP SECTION

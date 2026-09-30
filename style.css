@@ -64,6 +64,530 @@ body {
 
     z-index: 5;
 }
+
+
+/* ==================================================
+   CPE OPENING SCREEN
+================================================== */
+
+.cpe-opening {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+
+    z-index: 99999;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(36, 74, 115, 0.30),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #07111d 0%,
+            #101d2c 50%,
+            #172b3a 100%
+        );
+
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+}
+
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+.cpe-opening-container {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   BACKGROUND GRID
+================================================== */
+
+.cpe-opening-container::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    opacity: 0;
+
+    animation:
+        openingGrid 1s ease 0.2s forwards;
+
+    pointer-events: none;
+}
+
+
+@keyframes openingGrid {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* ==================================================
+   UNIVERSITY LABEL
+================================================== */
+
+.cpe-intro-label {
+    position: absolute;
+
+    top: 31%;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-family:
+        "Press Start 2P",
+        monospace;
+
+    font-size: 19spx;
+
+    letter-spacing: 4px;
+
+    color: rgba(216, 255, 255, 0.65);
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    animation:
+        introLabel 0.8s ease 0.3s forwards;
+}
+
+
+@keyframes introLabel {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==================================================
+   BIG C P E
+================================================== */
+
+.cpe-opening-title {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 2.5vmin;
+
+    z-index: 2;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   INDIVIDUAL LETTERS
+================================================== */
+
+.cpe-opening-title span {
+
+    display: inline-block;
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size: 32vmin;
+
+    font-weight: 900;
+
+    line-height: 0.8;
+
+    color: #f4efe2;
+
+    opacity: 0;
+
+    transform:
+        translateY(70px)
+        scale(0.65);
+
+    text-shadow:
+        0 0 0 rgba(25,118,210,0),
+        5px 5px 0 rgba(0,0,0,0.25);
+
+    animation:
+        letterEntrance 1s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+
+/* EACH LETTER ENTERS SEPARATELY */
+
+.cpe-opening-title span:nth-child(1) {
+    animation-delay: 0.35s;
+}
+
+.cpe-opening-title span:nth-child(2) {
+    animation-delay: 0.50s;
+}
+
+.cpe-opening-title span:nth-child(3) {
+    animation-delay: 0.65s;
+}
+
+
+@keyframes letterEntrance {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(70px)
+            scale(0.65);
+
+        text-shadow:
+            0 0 0 rgba(25,118,210,0);
+    }
+
+    60% {
+        opacity: 1;
+
+        transform:
+            translateY(-8px)
+            scale(1.05);
+
+        text-shadow:
+            0 0 25px rgba(25,118,210,0.5),
+            5px 5px 0 rgba(0,0,0,0.25);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        text-shadow:
+            0 0 20px rgba(25,118,210,0.25),
+            5px 5px 0 rgba(0,0,0,0.25);
+    }
+
+}
+
+
+/* ==================================================
+   SUBTITLE
+================================================== */
+
+.cpe-intro-subtitle {
+
+    position: absolute;
+
+    top: 67%;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-family:
+        "Press Start 2P",
+        monospace;
+
+    font-size: 19px;
+
+    letter-spacing: 3px;
+
+    color: rgba(244,239,226,0.55);
+
+    opacity: 0;
+
+    transform: translateY(-10px);
+
+    animation:
+        subtitleEntrance 0.8s ease 1s forwards;
+}
+
+
+@keyframes subtitleEntrance {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==================================================
+   GHOST
+================================================== */
+
+.cpe-opening-ghost {
+
+    width: 8vmin;
+    height: 12vmin;
+
+    position: absolute;
+
+    z-index: 5;
+
+    top: 50%;
+    left: 50%;
+
+    background-color: #e7e6e6;
+
+    background-image:
+
+        radial-gradient(
+            ellipse at 35% 40%,
+            #000 8%,
+            transparent 0%
+        ),
+
+        radial-gradient(
+            ellipse at 65% 40%,
+            #000 8%,
+            transparent 0%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 60%,
+            #000 8%,
+            transparent 0%
+        );
+
+    border-radius:
+        100% / 70% 70% 0% 0%;
+
+    opacity: 0;
+
+    mix-blend-mode: exclusion;
+
+    /*
+       ONE PASS ONLY
+    */
+
+    transform:
+        translate(45em, -50%)
+        rotateZ(-90deg);
+
+    animation:
+        ghostEntrance 2.1s cubic-bezier(.65,0,.25,1)
+        1.45s 1 forwards;
+}
+
+
+/* ==================================================
+   GHOST ONE-TIME MOVEMENT
+================================================== */
+
+@keyframes ghostEntrance {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(45em, -50%)
+            rotateZ(-90deg);
+    }
+
+    10% {
+
+        opacity: 0.9;
+    }
+
+    100% {
+
+        opacity: 0.9;
+
+        transform:
+            translate(-45em, -50%)
+            rotateZ(-90deg);
+    }
+
+}
+
+
+/* ==================================================
+   GHOST WAVES
+================================================== */
+
+.cpe-opening-ghost div {
+    position: absolute;
+
+    width: 20%;
+
+    background-color: #e7e6e6;
+}
+
+
+/* FIRST */
+
+.cpe-opening-ghost div:nth-of-type(1) {
+
+    height: 7vmin;
+
+    left: 0;
+    bottom: -6vmin;
+
+    border-radius:
+        100% / 0% 0% 50% 50%;
+}
+
+
+/* SECOND + FOURTH */
+
+.cpe-opening-ghost div:nth-of-type(2),
+.cpe-opening-ghost div:nth-of-type(4) {
+
+    height: 4vmin;
+
+    left: 20%;
+    bottom: -3vmin;
+
+    border-radius:
+        100% / 50% 50% 0% 0%;
+
+    background-color: transparent;
+}
+
+
+/* CENTER */
+
+.cpe-opening-ghost div:nth-of-type(3) {
+
+    height: 4vmin;
+
+    left: 40%;
+    bottom: -3.95vmin;
+
+    border-radius:
+        100% / 0% 0% 60% 60%;
+
+    background-color: #e7e6e6;
+}
+
+
+/* FOURTH */
+
+.cpe-opening-ghost div:nth-of-type(4) {
+    left: 60%;
+}
+
+
+/* FIFTH */
+
+.cpe-opening-ghost div:nth-of-type(5) {
+
+    height: 3vmin;
+
+    left: 80%;
+    bottom: -2.9vmin;
+
+    border-radius:
+        100% / 0% 0% 70% 70%;
+
+    background-color: #e7e6e6;
+}
+
+
+/* ==================================================
+   FADE OUT AFTER GHOST
+================================================== */
+
+.cpe-opening.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+    .cpe-opening-title {
+
+        gap: 3vmin;
+    }
+
+    .cpe-opening-title span {
+
+        font-size: 38vmin;
+    }
+
+    .cpe-intro-label {
+
+        top: 32%;
+
+        font-size: 6px;
+
+        letter-spacing: 2px;
+    }
+
+    .cpe-intro-subtitle {
+
+        top: 65%;
+
+        font-size: 6px;
+
+        letter-spacing: 2px;
+    }
+
+}
+
+
 /* ==================================================
    COMBINED DESIGN — COMPACT GLASSMORPHISM NAVBAR
 ================================================== */
@@ -138,9 +662,9 @@ header {
 
     flex-shrink: 0;
 
-    width: 42px;
+    width: 50px;
 
-    height: 42px;
+    height: px;
 
     background:
         rgba(25, 118, 210, 0.2);
@@ -150,8 +674,15 @@ header {
         rgba(25, 118, 210, 0.3);
 
     border-radius: 50%;
+    filter:
+        drop-shadow(0 0 5px rgba(255, 255, 255, 0.349))
+        drop-shadow(0 0 12px rgba(110, 170, 255, 0.253));
+
+    transition: transform 0.3s ease, filter 0.3s ease;
 
 }
+
+
 
 
 .logo img {
@@ -328,261 +859,122 @@ header {
     width: calc(100% - 18px);
 
 }
-
-/* ==================================================
-   JOIN BUTTON
-================================================== */
-
 .join-btn {
-
-    position: relative;
-
-    height: 40px !important;
-
-    padding:
-        0 21px !important;
-
-    background:
-        linear-gradient(
-            135deg,
-            #1976d2c4,
-            #093577
-        );
-
-    color: white !important;
-
-    border:
-        1px solid
-        rgba(25, 118, 210, 0.3);
-
-    border-radius: 22px;
-
-    font-family:
-         "Press Start 2P",
-        Arial,
-        sans-serif;
-
-    font-size: 11px !important;
-    letter-spacing: 1px ;
-
-    font-weight: 400;
-
-    cursor: pointer;
-
-    transition:
-        all 0.3s ease;
-
-    box-shadow:
-        0 0 12px
-        rgba(25, 118, 210, 0.15);
-
-    display: flex;
-
+    display: inline-flex;
     align-items: center;
-
     justify-content: center;
 
-    flex-shrink: 0;
+    padding: 14px 30px;
 
-    text-decoration: none;
+    border: 2px solid #2f6fa3;
+    border-radius: 30px;
 
-    margin-left: 4px;
+    background: linear-gradient(135deg, #1a3a52, #0b395f);
+    background-color: #1a3a52;
 
-    /* Remove browser button styling */
+    color: #e5e9e3 !important;
+
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+
+    line-height: 1;
+    white-space: nowrap;
+
+    cursor: pointer;
+    outline: none;
+
     appearance: none;
     -webkit-appearance: none;
 
-    line-height: normal;
+    position: relative;
 
+    transition:
+        all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* CONTINUOUS GLOW ANIMATION */
+    animation: joinButtonDarkBlueGlow 2.2s ease-in-out infinite !important;
+
+    /* Base glow */
+    box-shadow:
+        0 0 12px rgba(47, 111, 163, 0.5),
+        0 0 25px rgba(47, 111, 163, 0.2) !important;
 }
 
-
 /* ==================================================
-   JOIN BUTTON HOVER
+   JOIN BUTTON HOVER — INTENSIFIED DARK BLUE GLOW
 ================================================== */
 
 .join-btn:hover {
+    background: linear-gradient(135deg, #254866, #3a7ba8);
+    background-color: #254866;
 
-    transform:
-        translateY(-2px);
+    border-color: #5a8fc4;
 
-    background:
-        linear-gradient(
-            135deg,
-            #0d47a1,
-            #0a2f73
-        );
+    color: #ffffff !important;
 
+    transform: translateY(-3px) scale(1.08);
+
+    /* Intensified dark blue glow on hover */
     box-shadow:
-        0 0 20px
-        rgba(25, 118, 210, 0.3);
+        0 0 12px rgba(47, 111, 163, 1),
+        0 0 28px rgba(47, 111, 163, 0.8),
+        0 0 45px rgba(47, 111, 163, 0.5),
+        0 10px 30px rgba(47, 111, 163, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 
-    border-color:
-        rgba(25, 118, 210, 0.5);
-
+    /* Pause animation on hover */
+    animation: none !important;
 }
-
-
-.join-btn:active {
-
-    transform:
-        translateY(0);
-
-}
-
 
 /* ==================================================
-   RESPONSIVE — 1024px
+   JOIN BUTTON ACTIVE/CLICK
 ================================================== */
 
-@media (max-width: 1024px) {
+.join-btn:active {
+    transform: translateY(-1px) scale(1.05);
 
-    header {
-
-        padding:
-            12px 15px;
-
-    }
-
-
-    .nav-container {
-
-        width: 90%;
-
-        padding:
-            7px 13px;
-
-        gap: 8px;
-
-    }
-
-
-    .logo {
-
-        width: 38px;
-
-        height: 38px;
-
-    }
-
-
-    .main-nav {
-
-        gap: 3px;
-
-    }
-
-
-    .main-nav a {
-
-        height: 34px;
-
-        padding:
-            0 8px;
-
-        font-size: 8px;
-
-    }
-
-
-    .join-btn {
-
-        height: 36px !important;
-
-        padding:
-            0 13px !important;
-
-        font-size:
-            9px !important;
-
-    }
-
-
-    .main-nav a:not(.join-btn):hover::after,
-    .main-nav a.active:not(.join-btn)::after {
-
-        width:
-            calc(100% - 14px);
-
-    }
-
+    box-shadow:
+        0 0 10px rgba(47, 111, 163, 0.7),
+        0 0 20px rgba(47, 111, 163, 0.4),
+        0 6px 20px rgba(47, 111, 163, 0.2),
+        inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 
+/* ==================================================
+   JOIN BUTTON FOCUS (KEYBOARD)
+================================================== */
+
+.join-btn:focus,
+.join-btn:focus-visible {
+    outline: 2px solid rgba(47, 111, 163, 0.6) !important;
+    outline-offset: 3px !important;
+}
 
 /* ==================================================
-   RESPONSIVE — 768px
+   RESPONSIVE — MAINTAIN GLOW
 ================================================== */
 
 @media (max-width: 768px) {
-
-    .nav-container {
-
-        width: 94%;
-
-        padding:
-            7px 12px;
-
-        gap: 6px;
-
+    .join-btn {
+        animation: joinButtonDarkBlueGlow 2.2s ease-in-out infinite !important;
     }
 
-
-    .main-nav {
-
-        gap: 2px;
-
+    .join-btn:hover {
+        animation: none !important;
     }
-
-
-    .main-nav a {
-
-        height: 32px;
-
-        padding:
-            0 6px;
-
-        font-size: 7px;
-
-    }
-
 
     .join-btn {
-
-        height: 34px !important;
-
-        padding:
-            0 10px !important;
-
-        font-size:
-            8px !important;
-
+        padding: 10px 14px;
+        font-size: 7px;
     }
+}
 
-
-    .logo {
-
-        width: 36px;
-
-        height: 36px;
-
+@media (max-width: 480px) {
+    .join-btn {
+        padding: 9px 12px;
+        font-size: 6px;
     }
-
-
-    .main-nav a:not(.join-btn)::after {
-
-        bottom: 3px;
-
-    }
-
-
-    .main-nav a:not(.join-btn):hover::after,
-    .main-nav a.active:not(.join-btn)::after {
-
-        width:
-            calc(100% - 10px);
-
-    }
-
 }
 
 
@@ -750,15 +1142,13 @@ header {
     color:
         rgba(255, 255, 255, 0.65);
 
-    font-family: "masaki"
-        Arial,
-        sans-serif;
+    font-family: "masaki";
 
-    font-size: 13px;
+    font-size: 25px;
 
     font-weight: normal;
 
-    line-height: 1.5;
+    line-height: 1.3;
 
 }
 
