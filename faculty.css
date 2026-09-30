@@ -1632,12 +1632,12 @@ header {
     border-radius: 20px;
 
     border:
-        1px solid #203075;
+        1px solid #f3f3f3;
         
     background:
     linear-gradient(
         135deg,
-        #929bb1 0%,
+        #495e94 0%,
         #19366f 45%,
         #8f9bac 100%
     );

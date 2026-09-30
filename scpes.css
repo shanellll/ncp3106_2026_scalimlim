@@ -130,7 +130,7 @@ header {
 
     font-family: "Press Start 2P", cursive;
 
-    font-size: 8px;
+    font-size: 11px;
 
     white-space: nowrap;
 
@@ -186,50 +186,142 @@ header {
 /* ==================================================
    JOIN BUTTON
 ================================================== */
+/* ==================================================
+   JOIN BUTTON — BLUE SOLID + GLOW
+================================================== */
+
+/* Define the blue glow animation */
+@keyframes joinButtonBlueGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 10px rgba(25, 118, 210, 0.5),
+            0 0 20px rgba(25, 118, 210, 0.3),
+            0 0 35px rgba(25, 118, 210, 0.1);
+    }
+    50% {
+        box-shadow:
+            0 0 15px rgba(25, 118, 210, 0.9),
+            0 0 30px rgba(25, 118, 210, 0.6),
+            0 0 50px rgba(25, 118, 210, 0.3);
+    }
+}
+
+/* ==================================================
+   JOIN BUTTON BASE STYLE
+================================================== */
 
 .join-btn {
-    padding: 12px 16px;
+    padding: 12px 26px;
 
-    border: 2px solid #060706;
+    border: 2px solid #1976d2;
     border-radius: 30px;
 
-    background: transparent;
-    background-color: transparent;
+    background: linear-gradient(135deg, #1976d2, #1565c0);
+    background-color: #1976d2;
 
-    color: #edfce5 !important;
+    color: #ffffff !important;
 
     font-family: "Press Start 2P", sans-serif;
-    font-size: 8px;
+    font-size: 11px;
 
     cursor: pointer;
     outline: none;
-    box-shadow: none;
 
     appearance: none;
     -webkit-appearance: none;
 
+    position: relative;
+
     transition:
-        background 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.3s ease;
+        all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* CONTINUOUS GLOW ANIMATION */
+    animation: joinButtonBlueGlow 2.2s ease-in-out infinite !important;
+
+    /* Base glow */
+    box-shadow:
+        0 0 15px rgba(25, 118, 210, 0.5),
+        0 0 30px rgba(25, 118, 210, 0.2) !important;
+
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
-.join-btn:hover {
-    background: rgba(49, 95, 138, 0.18);
-    background-color: rgba(49, 95, 138, 0.18);
+/* ==================================================
+   JOIN BUTTON HOVER — INTENSIFIED BLUE GLOW
+================================================== */
 
-    border-color: #c5d0d3;
+.join-btn:hover {
+    background: linear-gradient(135deg, #0d47a1, #1565c0);
+    background-color: #0d47a1;
+
+    border-color: #0d47a1;
 
     color: #ffffff !important;
 
-    box-shadow:
-        0 0 10px rgba(49, 95, 138, 0.6),
-        0 0 25px rgba(36, 74, 115, 0.25);
+    transform: translateY(-4px) scale(1.05);
 
-    transform: translateY(-2px);
+    /* Intensified blue glow on hover */
+    box-shadow:
+        0 0 15px rgba(25, 118, 210, 1),
+        0 0 30px rgba(25, 118, 210, 0.8),
+        0 0 50px rgba(25, 118, 210, 0.5),
+        0 12px 35px rgba(25, 118, 210, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+
+    /* Pause animation on hover */
+    animation: none !important;
 }
 
+/* ==================================================
+   JOIN BUTTON ACTIVE/CLICK
+================================================== */
+
+.join-btn:active {
+    transform: translateY(-2px) scale(1.03);
+
+    box-shadow:
+        0 0 12px rgba(25, 118, 210, 0.8),
+        0 0 25px rgba(25, 118, 210, 0.5),
+        0 8px 25px rgba(25, 118, 210, 0.25),
+        inset 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ==================================================
+   JOIN BUTTON FOCUS (KEYBOARD)
+================================================== */
+
+.join-btn:focus,
+.join-btn:focus-visible {
+    outline: 2px solid rgba(25, 118, 210, 0.6) !important;
+    outline-offset: 3px !important;
+}
+
+/* ==================================================
+   RESPONSIVE — MAINTAIN GLOW
+================================================== */
+
+@media (max-width: 768px) {
+    .join-btn {
+        animation: joinButtonBlueGlow 2.2s ease-in-out infinite !important;
+    }
+
+    .join-btn:hover {
+        animation: none !important;
+    }
+
+    .join-btn {
+        padding: 12px 20px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .join-btn {
+        padding: 10px 16px;
+        font-size: 9px;
+    }
+}
 
 /* ==================================================
    RESPONSIVE — 1100px
@@ -466,6 +558,31 @@ header {
     }
 
 }
+
+
+@font-face {
+    font-family: "Light Pixel";
+    src: url("Assets/light_pixel.ttf")
+         format("truetype");
+}
+
+
+/* ==================================================
+   MASIKA FONT
+================================================== */
+
+@font-face {
+    font-family: "Masaki";
+    src: url("Assets/Masaki.otf")
+         format("truetype");
+}
+
+@font-face {
+    font-family: "Hunger Games";
+    src: url("Assets/Hunger\ Games.ttf")
+         format("truetype");
+}
+
 
 
 /* ==================================================
@@ -2694,7 +2811,7 @@ body {
         );
 
 
-     background: #fffaef;
+     background: #aeb8ad;
 
     overflow: hidden;
 }

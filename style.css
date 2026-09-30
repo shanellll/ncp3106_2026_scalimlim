@@ -340,7 +340,7 @@ header {
     height: 40px !important;
 
     padding:
-        0 19px !important;
+        0 21px !important;
 
     background:
         linear-gradient(
@@ -358,11 +358,12 @@ header {
     border-radius: 22px;
 
     font-family:
-        "Hunger Games",
+        "gameplay",
         Arial,
         sans-serif;
 
     font-size: 15px !important;
+    letter-spacing: 1px ;
 
     font-weight: 400;
 
