@@ -73,7 +73,6 @@
             type="button"
             class="join-close"
             onclick="closeJoinModal()"
-            aria-label="Close modal"
         >
             ×
         </button>
@@ -92,6 +91,15 @@
                 type="email"
                 id="joinEmail"
                 placeholder="example@gmail.com"
+                required
+            >
+
+            <label for="joinPassword">Password</label>
+
+            <input
+                type="password"
+                id="joinPassword"
+                placeholder="Enter your password"
                 required
             >
 
@@ -117,6 +125,59 @@
 
 </div>
 
+
+<script>
+
+function openJoinModal() {
+
+    document.getElementById("joinModal").style.display = "flex";
+
+}
+
+
+function closeJoinModal() {
+
+    document.getElementById("joinModal").style.display = "none";
+
+}
+
+
+document.getElementById("joinModal").addEventListener("click", function(event) {
+
+    if (event.target === this) {
+
+        closeJoinModal();
+
+    }
+
+});
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeJoinModal();
+
+    }
+
+});
+
+
+document.getElementById("joinForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    alert("Application submitted!");
+
+    closeJoinModal();
+
+});
+
+</script>
+
+</body>
+</html>
 
 <!-- ==================================================
      EVENTS
