@@ -1599,13 +1599,13 @@ header {
 
 .explore-btn {
     left: 11%;
-    top: 60%;
+    top: 62%;
 
-    width: 270px;
+    width: 300px;
     height: 82px;
 
     background: #7c7c7c;
-    color: #161212;
+    color: #6d1515;
 
     border: 5px solid #292b2b;
     border-radius: 40px;
@@ -1636,12 +1636,12 @@ header {
 .explore-btn h2 {
     font-family: "Gameplay", sans-serif;
     margin: 0;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
     line-height: 1;
 
     text-shadow:
-        3px 3px 0px #312d2d,
+        3px 3px 0px #131212,
         0 0 5px rgba(182, 173, 173, 0.4);
 }
 
@@ -1657,7 +1657,26 @@ header {
     font-weight: bold;
     letter-spacing: 4px;
     line-height: 1;
-    color: #332a2a;
+    color: #353030;
+}
+
+/* ==================================================
+   CALIMLIM TEXT WITH WHITE GLOW
+================================================== */
+
+.explore-btn h2 {
+    margin: 0;
+    font-family: "Gameplay", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1;
+
+    text-shadow:
+        3px 3px 0px #000000,
+        0 0 5px rgba(0, 0, 0, 0.4),
+        0 0 8px rgba(255, 255, 255, 0.6),
+        0 0 16px rgba(255, 255, 255, 0.4),
+        0 0 24px rgba(255, 255, 255, 0.2);
 }
 
 /* ==================================================
@@ -1668,7 +1687,7 @@ header {
     left: 9%;
     top: 72%;
 
-    width: 270px;
+    width: 300px;
     height: 82px;
 
     background: #7c7c7c;
@@ -1697,7 +1716,7 @@ header {
 }
 
 /* ==================================================
-   CpE AT UE TEXT
+   BALLESSTROS TEXT WITH WHITE GLOW
 ================================================== */
 
 .learn-btn h2 {
@@ -1709,7 +1728,10 @@ header {
 
     text-shadow:
         3px 3px 0px #000000,
-        0 0 5px rgba(0, 0, 0, 0.4);
+        0 0 5px rgba(0, 0, 0, 0.4),
+        0 0 8px rgba(255, 255, 255, 0.6),
+        0 0 16px rgba(255, 255, 255, 0.4),
+        0 0 24px rgba(255, 255, 255, 0.2);
 }
 
 /* ==================================================
