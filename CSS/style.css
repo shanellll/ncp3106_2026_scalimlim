@@ -29,7 +29,7 @@ body {
 
     width: 100%;
 
-    background-image: url("Assets/finalpage.png");
+    background-image: url("../Assets/finalpage.png");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1123,7 +1123,7 @@ header {
 
 @font-face {
     font-family: "Light Pixel";
-    src: url("Assets/light_pixel.ttf")
+    src: url("../Assets/light_pixel.ttf")
          format("truetype");
 }
 
@@ -1134,7 +1134,7 @@ header {
 
 @font-face {
     font-family: "Masaki";
-    src: url("Assets/Masaki.otf")
+    src: url("../Assets/Masaki.otf")
          format("truetype");
 }
 
@@ -1581,7 +1581,7 @@ header {
 
 @font-face {
     font-family: "Gameplay";
-    src: url("Assets/Gameplay.ttf") format("truetype");
+    src: url("../Assets/Gameplay.ttf") format("truetype");
 }
 
 /* ==================================================
@@ -1590,7 +1590,7 @@ header {
 
 @font-face {
     font-family: "masaki";
-    src: url("Assets/masaki.otf") format("opentype");
+    src: url("../Assets/masaki.otf") format("opentype");
 }
 
 /* ==================================================
@@ -1773,7 +1773,7 @@ header {
 
 @font-face {
     font-family: "Hunger Games";
-    src: url("Assets/Hunger\ Games.ttf")
+    src: url("../Assets/Hunger\ Games.ttf")
          format("opentype");
 
 }
@@ -1943,7 +1943,7 @@ header {
 
 @font-face {
     font-family: "Light Pixel";
-    src: url("Assets/light_pixel.ttf")
+    src: url("../Assets/light_pixel.ttf")
          format("truetype");
 }
 
@@ -1954,7 +1954,7 @@ header {
 
 @font-face {
     font-family: "Masaki";
-    src: url("Assets/Masaki.otf")
+    src: url("../Assets/Masaki.otf")
          format("truetype");
 }
 
@@ -2042,7 +2042,7 @@ header {
 
 @font-face {
     font-family: "pixel-tandy";
-    src: url("Assets/Pixel%20Tandy.otf")
+    src: url("../Assets/Pixel%20Tandy.otf")
          format("opentype");
 }
 
@@ -3123,7 +3123,7 @@ header {
 
 @font-face {
     font-family: "Gameplay";
-    src: url("Assets/gameplay.ttf") format("truetype");
+    src: url("../Assets/gameplay.ttf") format("truetype");
 }
 
 
@@ -3133,7 +3133,7 @@ header {
 
 @font-face {
     font-family: "masaki";
-    src: url("Assets/masaki.otf") format("opentype");
+    src: url("../Assets/masaki.otf") format("opentype");
 }
 
 
@@ -3574,7 +3574,7 @@ header {
 
 @font-face {
     font-family: "Pixel";
-    src: url("Assets/Pixel\ Tandy.otf") format("truetype");
+    src: url("../Assets/Pixel\ Tandy.otf") format("truetype");
 }
 
 
@@ -3729,7 +3729,7 @@ header {
 
 @font-face {
     font-family: "Light Pixel";
-    src: url("Assets/light_pixel.ttf")
+    src: url("../Assets/light_pixel.ttf")
          format("truetype");
 }
 
@@ -5579,7 +5579,7 @@ header {
     font-family: "Light Pixel";
 
     src:
-        url("Assets/light_pixel.ttf")
+        url("../Assets/light_pixel.ttf")
         format("truetype");
 }
 

@@ -22,7 +22,7 @@ body {
 
 @font-face {
     font-family: "Hunger Games";
-    src: url("Assets/Hunger\ Games.ttf")
+    src: url("../Assets/Hunger\ Games.ttf")
          format("opentype");
 
 }
@@ -30,7 +30,7 @@ body {
 
 @font-face {
     font-family: "Light Pixel";
-    src: url("Assets/light_pixel.ttf")
+    src: url("../Assets/light_pixel.ttf")
          format("truetype");
 }
 
@@ -41,7 +41,7 @@ body {
 
 @font-face {
     font-family: "Masaki";
-    src: url("Assets/Masaki.otf")
+    src: url("../Assets/Masaki.otf")
          format("truetype");
 }
 
@@ -494,7 +494,7 @@ header {
         "Light Pixel";
 
     src:
-        url("Assets/light_pixel.ttf")
+        url("../Assets/light_pixel.ttf")
         format("truetype");
 
     font-weight:
@@ -2335,7 +2335,7 @@ header {
     font-family: "Light Pixel";
 
     src:
-        url("Assets/light_pixel.ttf")
+        url("../Assets/light_pixel.ttf")
         format("truetype");
 }
 

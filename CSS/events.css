@@ -316,7 +316,7 @@ header {
     font-family: "Hunger Games";
 
     src:
-        url("Assets/Hunger Games.ttf")
+        url("../Assets/Hunger Games.ttf")
         format("opentype");
 
     font-weight: normal;
@@ -328,7 +328,7 @@ header {
     font-family: "Light Pixel";
 
     src:
-        url("Assets/light_pixel.ttf")
+        url("../Assets/light_pixel.ttf")
         format("truetype");
 
     font-weight: normal;
@@ -340,7 +340,7 @@ header {
     font-family: "Masaki";
 
     src:
-        url("Assets/Masaki.otf")
+        url("../Assets/Masaki.otf")
         format("opentype");
 
     font-weight: normal;

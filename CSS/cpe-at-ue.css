@@ -462,7 +462,7 @@ header {
 
 @font-face {
     font-family: "Light Pixel";
-    src: url("Assets/light_pixel.ttf")
+    src: url("../Assets/light_pixel.ttf")
          format("truetype");
 }
 
@@ -473,7 +473,7 @@ header {
 
 @font-face {
     font-family: "Masaki";
-    src: url("Assets/Masaki.otf")
+    src: url("../Assets/Masaki.otf")
          format("truetype");
 }
 
@@ -810,7 +810,7 @@ header {
         "Hunger Games";
 
     src:
-        url("Assets/Hunger Games.ttf")
+        url("../Assets/Hunger Games.ttf")
         format("truetype");
 
     font-weight:
@@ -1510,7 +1510,7 @@ box-shadow:
 
     font-family: "Hunger Games";
 
-    src: url("Assets/Hunger Games.ttf")
+    src: url("../Assets/Hunger Games.ttf")
          format("truetype");
 }
 
@@ -1519,7 +1519,7 @@ box-shadow:
 
     font-family: "Light_pixel";
 
-    src: url("Assets/light_pixel.ttf")
+    src: url("../Assets/light_pixel.ttf")
          format("truetype");
 }
 /* ==================================================
@@ -3107,7 +3107,7 @@ box-shadow:
 
 @font-face {
     font-family: 'Light Pixel';
-    src: url('Assets/light_pixel.ttf') format('truetype');
+    src: url('../Assets/light_pixel.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -3432,7 +3432,7 @@ box-shadow:
 .slide-3 .project-card:nth-child(1) {
 
     background-image:
-        url("Assets/projects.png");
+        url("../Assets/projects.png");
 
 }
 
@@ -3442,7 +3442,7 @@ box-shadow:
 .slide-3 .project-card:nth-child(2) {
 
     background-image:
-        url("Assets/iot1.jpg");
+        url("../Assets/iot1.jpg");
 
 }
 
@@ -3452,7 +3452,7 @@ box-shadow:
 .slide-3 .project-card:nth-child(3) {
 
     background-image:
-        url("Assets/robotics2.jpg");
+        url("../Assets/robotics2.jpg");
 
 }
 
@@ -3462,7 +3462,7 @@ box-shadow:
 .slide-3 .project-card:nth-child(4) {
 
     background-image:
-        url("Assets/software2.jpg");
+        url("../Assets/software2.jpg");
 
 }
 
@@ -3472,7 +3472,7 @@ box-shadow:
 .slide-3 .project-card:nth-child(5) {
 
     background-image:
-        url("Assets/software.jpg");
+        url("../Assets/software.jpg");
 
 }
 
@@ -3482,7 +3482,7 @@ box-shadow:
 .slide-3 .project-card:nth-child(6) {
 
     background-image:
-        url("Assets/projects1.png");
+        url("../Assets/projects1.png");
 
 }
 
@@ -3603,7 +3603,7 @@ box-shadow:
 
     font-family: "Pixel Tandy";
 
-    src: url("Assets/Pixel\ Tandy.otf")
+    src: url("../Assets/Pixel\ Tandy.otf")
          format("truetype");
 }
 
@@ -4149,7 +4149,7 @@ box-shadow:
 
     font-family: "Masaki";
 
-    src: url("Assets/Masaki.otf")
+    src: url("../Assets/Masaki.otf")
         format("opentype");
 }
 
